@@ -1,0 +1,402 @@
+@import "./fonts.scss";
+
+@mixin font($font_name, $file_name, $weight, $style) {
+	@font-face {
+		font-family: $font_name;
+		font-display: swap;
+		src: url("../fonts/#{$file_name}.woff") format("woff"), url("../fonts/#{$file_name}.woff2") format("woff2");
+		font-weight: #{$weight};
+		font-style: #{$style};
+	}
+}
+
+/* ----------------------------------- Спецификация ---------------------------------- */
+* {
+    margin: 0;
+    padding: 0;
+    -webkit-box-sizing: border-box;
+       -moz-box-sizing: border-box;
+            box-sizing: border-box;
+}
+:root {
+    /* ------- Переменные для стилей  ---------- */
+    /* Цвета сайта */
+    --color-text: #202323;
+    --colot-bg: #FFF9F3;
+    --color-green: #6E9E48;
+    --color-white: #ffffff;
+    --color-black: #000000;
+    --color-orange: #FFA11B;
+
+    /* Размер шрифта */
+    --font-size-12: 12px;
+    --font-size-13: 13px;
+    --font-size-14: 14px;
+    --font-size-16: 16px;
+    --font-size-18: 18px;
+    --font-size-20: 20px;
+    --font-size-23: 23px;
+    --font-size-55: 55px;
+
+    /* Жирности шрифта */
+    --font-weight-thin: 100;
+    --font-weight-extralight: 200;
+    --font-weight-light: 300;
+    --font-weight-regular: 400;
+    --font-weight-semibold: 600;
+    --font-weight-bold: 700;
+    --font-weight-boldextra: 800;
+    --font-weight-black: 900;
+
+    /* Border radius */
+    --border-radius-3: 3px;
+}
+
+body, 
+select,
+input {
+    font-family: 'Akrobat';
+    font-weight: var(--font-weight-regular);
+}
+
+.container {
+    max-width: 1600px;
+    width: 100%;
+    margin: 0 auto;
+}
+
+ul, ol {
+    list-style: none;
+} 
+
+a {
+    text-decoration: none;
+}
+.active {
+    display: block;
+}
+/* Menu category start */
+.menu__category li a {
+    display: inline-block;
+    
+    &:hover {
+        background: #575757;
+    }
+}
+/* Menu category end */
+
+/* ------- Главная страница ----------- */
+/* Header start */
+/* Top menu start */
+.header {
+    background: var(--colot-bg);
+}
+.top-panel {
+    background: var(--color-white);
+    padding: 18px 0;
+
+        & .search {
+            margin-right: 25px;
+        }
+        & .phone {
+            margin-right: 11px;
+        }
+
+        & .logo {
+            margin-right: 28px;
+        }
+
+        &__flex {
+            display: -webkit-box;
+            display: -webkit-flex;
+            display: -moz-box;
+            display: -ms-flexbox;
+            display: flex;
+        }
+}
+
+/*  Navigation start */
+.navigation {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -moz-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+    -webkit-align-items: center;
+       -moz-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    -webkit-flex-wrap: wrap;
+        -ms-flex-wrap: wrap;
+            flex-wrap: wrap;
+            font-size: var(--font-size-18);
+            color: var(--color-text);
+            
+            a {
+                color: var(--color-text);
+            }
+}
+.menu {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -moz-box;
+    display: -ms-flexbox;
+    display: flex;
+
+    & li {
+        padding: 0 17px;
+
+        &:last-child a {
+            color: var(--color-orange);
+            font-weight: var(--font-weight-bold);
+        }
+        & a {
+            color: var(--color-black);
+        }
+
+        & select {
+            border: 0;
+            color: var(--color-orange);
+            font-size: var(--font-size-18);
+            font-weight: var(--font-weight-regular);
+            cursor: pointer;
+        }
+    }
+}
+/* Navigation end */
+/* Modal btn start */
+.btn__modal {
+    padding: 0 47px;
+
+    & span {
+        margin-left: 7px;
+    }
+}
+/* Modal btn end */
+/* Authentification start */
+.auth {
+    & a {
+        font-weight: var(--font-weight-bold);
+        padding: 5px 5px 5px 0;
+
+        &:last-child {
+            padding-left: 8px;
+        }
+
+        & object {
+            margin-right: 7px;
+        }
+    }
+    &__reg {
+        border-left: 1px solid rgba(0, 0, 0, .1);
+    }
+}
+/* Authentification end */
+/* Search start */
+.search {
+    position: relative;
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -moz-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+    -webkit-align-items: center;
+       -moz-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+        &__btn {
+            border: 0;
+            background: transparent;
+            position: absolute;
+            left: 20px;
+            cursor: pointer;
+            z-index: 1;
+        }
+        & input {
+            height: 55px;
+            width: 600px;
+            background: #EAEAEA;
+            border: 1px solid transparent;
+            padding-left: 50px;
+            -webkit-border-radius: 0 var(--border-radius-3) var(--border-radius-3) 0;
+               -moz-border-radius: 0 var(--border-radius-3) var(--border-radius-3) 0;
+                    border-radius: 0 var(--border-radius-3) var(--border-radius-3) 0;
+            font-size: var(--font-size-18);
+            color: var(--color-text);
+            
+            &:focus {
+                outline: var(--color-orange);
+                border: 1px solid var(--color-orange);
+            }
+        }
+}
+/* Search end */
+/* Phone start */
+.phone {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -moz-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -webkit-flex-direction: column;
+       -moz-box-orient: vertical;
+       -moz-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    -webkit-box-align: end;
+    -webkit-align-items: flex-end;
+       -moz-box-align: end;
+        -ms-flex-align: end;
+            align-items: flex-end;
+
+
+            & .work__time {
+                color: #575757;
+                font-size: var(--font-size-13);
+                letter-spacing: 0.05em;
+                margin-bottom: 5px;
+            }
+            & a {
+                font-size: var(--font-size-23);
+                font-weight: var(--font-weight-bold);
+                letter-spacing: 0.05em;
+            }
+}
+/* Phone end */
+/* Menu dropdown start */
+.menu__dropdown {
+    cursor: pointer;
+    &-btn {
+        font-size: var(--font-size-16);
+        font-weight: var(--font-weight-bold);
+        color: var(--color-white);
+        background: var(--color-orange);
+        text-transform: uppercase;
+        width: 241px;
+        height: 55px;
+        -webkit-border-radius: var(--border-radius-3) 0 0 var(--border-radius-3);
+           -moz-border-radius: var(--border-radius-3) 0 0 var(--border-radius-3);
+                border-radius: var(--border-radius-3) 0 0 var(--border-radius-3);
+        display: -webkit-box;
+        display: -webkit-flex;
+        display: -moz-box;
+        display: -ms-flexbox;
+        display: flex;
+        -webkit-box-align: center;
+        -webkit-align-items: center;
+           -moz-box-align: center;
+            -ms-flex-align: center;
+                align-items: center;
+        -webkit-box-pack: center;
+        -webkit-justify-content: center;
+           -moz-box-pack: center;
+            -ms-flex-pack: center;
+                justify-content: center;
+    }
+    .menu__category {
+        display: none;
+    }
+    // &:hover .menu__category {
+    //     display: -webkit-box;
+    //     display: -webkit-flex;
+    //     display: -moz-box;
+    //     display: -ms-flexbox;
+    //     display: flex;
+    // }
+}
+/* Menu dropdown end */
+/* Cart start */
+.cart {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -moz-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+    -webkit-align-items: center;
+       -moz-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    -webkit-box-pack: center;
+    -webkit-justify-content: center;
+       -moz-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    text-transform: uppercase;
+    width: 164px;
+    height: 55px;
+    font-size: 16px;
+    font-weight: var(--font-weight-bold);
+    border: 2px solid var(--color-orange);
+    -webkit-border-radius: var(--border-radius-3);
+       -moz-border-radius: var(--border-radius-3);
+            border-radius: var(--border-radius-3);
+            // padding: 10px 0 0 15px;
+            
+
+    &:hover {
+        background: var(--color-orange);
+        color: var(--color-white);
+    }
+    &__icon {
+        position: relative;
+        margin-right: 18px;
+        margin-left: 13px;
+        padding-top: 8px;
+        & span {
+            width: 17px;
+            height: 17px;
+            background: #6E9E48;
+            display: -webkit-box;
+            display: -webkit-flex;
+            display: -moz-box;
+            display: -ms-flexbox;
+            display: flex;
+            -webkit-border-radius: 50%;
+               -moz-border-radius: 50%;
+                    border-radius: 50%;
+            -webkit-box-align: center;
+            -webkit-align-items: center;
+               -moz-box-align: center;
+                -ms-flex-align: center;
+                    align-items: center;
+            -webkit-box-pack: center;
+            -webkit-justify-content: center;
+               -moz-box-pack: center;
+                -ms-flex-pack: center;
+                    justify-content: center;
+            font-size: 11px;
+            color: #ffffff;
+            position: absolute;
+            top: 1px;
+            left: 13px;
+        }
+    }
+}
+/* Cart end */
+/* Sidebar with main banner start */
+/* Sidebar start */
+.sidebar {
+    background: var(--color-white);
+
+    & a {
+        font-weight: var(--font-weight-semibold);
+        font-size: var(--font-size-20);
+        color: var(--color-text);
+        text-transform: uppercase;
+    }
+
+    &__submenu {
+        display: none;
+    }
+ }
+/* Sidebar end */
+/* Main banner start */
+/* Main banner end */
+/* Sidebar with main banner end */
+
+/* Header end */

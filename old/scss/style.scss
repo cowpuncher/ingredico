@@ -1,0 +1,41 @@
+/* Спецификация */
+* {
+    margin: 0;
+    padding: 0;
+    -webkit-box-sizing: border-box;
+       -moz-box-sizing: border-box;
+            box-sizing: border-box;
+}
+// :root {
+    
+// }
+
+.container {
+    max-width: 1600px;
+    width: 100%;
+    margin: 0 auto;
+}
+
+ul, ol {
+    list-style: none;
+} 
+
+a {
+    text-decoration: none;
+}
+/* ------- Главная страница ----------- */
+/* Header start */
+.header {
+    background: #FFF9F3;
+}
+.top-panel {
+    background: #ffffff;
+}
+.top-panel__fixed {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -moz-box;
+    display: -ms-flexbox;
+    display: flex;
+}
+/* Header end */
