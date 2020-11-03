@@ -53,13 +53,13 @@ function browserSync(params) {
 		server: {
 			baseDir: "./" + project_folder + "/"
 		},
+		notify: false,
 		port: 3000,
-		notify: false
 	})
 }
 
 function html() {
-	return src(path.src.html)
+	return src(path.src.html, {})
 		.pipe(fileinclude())
 		.pipe(webphtml())
 		.pipe(dest(path.build.html))
@@ -67,17 +67,16 @@ function html() {
 }
 
 function css() {
-	return src(path.src.css)
+	return src(path.src.css, {})
 		.pipe(
 			scss({
 				outputStyle: "expanded"
 			})
 		)
-		.pipe(
-			group_media()
-		)
+		.pipe(group_media())
 		.pipe(
 			autoprefixer({
+				grid: true,
 				overrideBrowserslist: ["last 5 versions"],
 				cascade: true
 			})
@@ -186,14 +185,14 @@ function cb() {
 
 }
 
-function watchFiles(params) {
+function watchFiles() {
 	gulp.watch([path.watch.html], html);
 	gulp.watch([path.watch.css], css);
 	gulp.watch([path.watch.js], js);
 	gulp.watch([path.watch.img], images);
 }
 
-function clean(params) {
+function clean() {
 	return del(path.clean);
 }
 

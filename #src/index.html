@@ -1,20 +1,23 @@
 <!DOCTYPE html>
 <html lang="ru">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <!-- ANCHOR  Подключение стилей-->
-    <link rel="stylesheet" href="./css/style.css">
-    <title>Ingredico</title>
-</head>
-<body>
-	<!-- ANCHOR Header -->
-    @@include('templates/header.html')
-    
+    @@include('templates/head.html',{
+        "title":"Главная"
+        })
+    <body>
+        <!-- ANCHOR Header -->
+        @@include('templates/header.html')
+        <!-- ANCHOR Header -->
 
-	<!-- ANCHOR Header -->
-	@@include('templates/footer.html')
-    <!-- ANCHOR  Подключение скриптов-->
-    <script src="js/script.js"></script>
-</body>
+        <!-- ANCHOR Main -->
+        <main class="page">
+            
+        </main>
+        <!-- ANCHOR Main -->
+
+        <!-- ANCHOR Footer -->
+        @@include('templates/footer.html')
+        <!-- ANCHOR Footer -->
+        <!-- ANCHOR  Подключение скриптов-->
+        <script src="js/script.js"></script>
+    </body>
 </html>
