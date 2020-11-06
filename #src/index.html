@@ -103,8 +103,13 @@
                     </div>
                 </div>
             </section>
-            <section class="section">
-                
+            <section class="category-section section">
+                <div class="container">
+                    @@include('templates/elements/section-title.html', {
+                        name: 'Области применения'
+                    })
+                    @@include('templates/category.html')
+                </div>
             </section>
         </main>
         <!-- ANCHOR Main -->
