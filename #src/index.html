@@ -6,87 +6,106 @@
     <body>
         <!-- ANCHOR Header -->
         @@include('templates/header.html')
-        <div class="container">
-            <div class="wrapper">
-                @@include('templates/sidebar.html')
-                @@include('templates/banner.html')
+        <section>
+            <div class="container">
+                <div class="wrapper">
+                    <!-- ANCHOR Sidebar -->
+                    @@include('templates/sidebar.html')
+                    <!-- ANCHOR Sidebar -->
+                    <!-- ANCHOR Banner -->
+                    @@include('templates/banner.html')
+                    <!-- ANCHOR Banner -->
+                </div>
+                <!-- ANCHOR Privelege -->
+                @@include('templates/privelege.html')
+                <!-- ANCHOR Privelege -->
             </div>
-            <ul class="wrapper list__privelege">
-                <li class="list__privelege_item">
-                    <div class="list__privelege_img">
-                        <object
-                            type="image/svg+xml"
-                            data="../images/shield.svg">
-                            <img src="../images/shield.svg">
-                        </object>
-                    </div>
-                    <div class="list__privelege_content">
-                        <h3>
-                            Гарантия качества
-                        </h3>
-                        <p>
-                            Мы используем только <br> качественные материалы
-                        </p>
-                    </div>
-                </li>
-                <li class="list__privelege_item">
-                    <div class="list__privelege_img">
-                        <object
-                            type="image/svg+xml"
-                            data="../images/delivery.svg">
-                            <img src="../images/delivery.svg">
-                        </object>
-                    </div>
-                    <div class="list__privelege_content">
-                        <h3>
-                            Быстрая доставка
-                        </h3>
-                        <p>
-                            Быстрая доставка товара в <br> кратчайшие сроки в любой регион
-                        </p>
-                    </div>
-                </li>
-                <li class="list__privelege_item">
-                    <div class="list__privelege_img">
-                        <object
-                            type="image/svg+xml"
-                            data="../images/individual.svg">
-                            <img src="../images/individual.svg">
-                        </object>
-                    </div>
-                    <div class="list__privelege_content">
-                        <h3>
-                            Индивидуальный подход
-                        </h3>
-                        <p>
-                            У нас индивидуальный подход <br> к каждому клиенту
-                        </p>
-                    </div>
-                </li>
-                <li class="list__privelege_item">
-                    <div class="list__privelege_img">
-                        <object
-                            type="image/svg+xml"
-                            data="../images/exp.svg">
-                            <img src="../images/exp.svg">
-                        </object>
-                    </div>
-                    <div class="list__privelege_content">
-                        <h3>
-                            Большой опыт работы
-                        </h3>
-                        <p>
-                            Нам доверяют большие <br> компании
-                        </p>
-                    </div>
-                </li>
-            </ul>
-        </div>
+        </section>
         <!-- ANCHOR Header -->
 
         <!-- ANCHOR Main -->
         <main class="page">
-            
+            <section class="popular-section bg-white section">
+                <div class="container">
+                    @@include('templates/elements/section-title.html', {
+                        name: 'Популярные товары'
+                    })
+                    <div class="popular">
+                        <div class="popular__item">
+                            @@include('templates/elements/flag.html', {
+                                name: 'New'
+                            })
+                            <a  href="#" class="popular__item_img">
+                                <img src="./images/product.png" alt="product">
+                            </a>
+                            <a  href="#" class="popular__item_title">
+                                Молокосвертывающий фермент Naturen® Premium 225
+                            </a>
+                            <div class="popular__item_total">
+                                <span class="popular__item_total-sale">2 800 <span class="rub">руб.</span> </span>
+                                <span class="popular__item_total-price">2 800 <span class="rub">руб.</span> </span>
+                            </div>
+                            @@include('templates/elements/button.html', {
+                                name: 'Купить'
+                            })
+                        </div>
+                        <div class="popular__item">
+                            <a  href="#" class="popular__item_img">
+                                <img src="./images/product.png" alt="product">
+                            </a>
+                            <a  href="#" class="popular__item_title">
+                                Соевая клетчатка <br>
+                                 ФайбриАп/FibriUp
+                            </a>
+                            <div class="popular__item_total">
+                               <span class="popular__item_total-price">2 800 <span class="rub">руб.</span> </span>
+                            </div>
+                            @@include('templates/elements/button.html', {
+                                name: 'Перейти в корзину'
+                            })
+                        </div>
+                        <div class="popular__item">
+                            @@include('templates/elements/flag.html', {
+                                name: 'New'
+                            })
+                            <a  href="#" class="popular__item_img">
+                                <img src="./images/product.png" alt="product">
+                            </a>
+                            <a  href="#" class="popular__item_title">
+                                Молокосвертывающий фермент Naturen® Premium 225
+                            </a>
+                            <div class="popular__item_total">
+                                <span class="popular__item_total-sale">2 800 <span class="rub">руб.</span> </span>
+                                <span class="popular__item_total-price">2 800 <span class="rub">руб.</span> </span>
+                            </div>
+                            @@include('templates/elements/button.html', {
+                                name: 'Купить'
+                            })
+                        </div>
+                        <div class="popular__item">
+                            @@include('templates/elements/flag.html', {
+                                name: 'New'
+                            })
+                            <a  href="#" class="popular__item_img">
+                                <img src="./images/product.png" alt="product">
+                            </a>
+                            <a  href="#" class="popular__item_title">
+                                Молокосвертывающий фермент Naturen® Premium 225
+                            </a>
+                            <div class="popular__item_total">
+                                <span class="popular__item_total-sale">2 800 <span class="rub">руб.</span> </span>
+                                <span class="popular__item_total-price">2 800 <span class="rub">руб.</span> </span>
+                            </div>
+                            @@include('templates/elements/button.html', {
+                                name: 'Купить'
+                            })
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <section class="section">
+                
+            </section>
         </main>
         <!-- ANCHOR Main -->
 
