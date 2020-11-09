@@ -1,5 +1,6 @@
+<div class="overlay__menu"></div>
 <header class="header">
-    
+
     <div class="top-panel">
         <div class="container">
             <div class="top-panel__flex">
@@ -56,18 +57,14 @@
                         </li>
                     </ul>
                     <a href="#" class="btn__modal">
-                        <object
-                            type="image/svg+xml"
-                            data="../images/mail.svg">
+                        <object type="image/svg+xml" data="../images/mail.svg">
                             <img src="../images/mail.svg">
                         </object>
                         <span>Написать</span>
                     </a>
                     <div class="auth">
                         <a href="#" class="auth__enter">
-                            <object
-                                type="image/svg+xml"
-                                data="../images/user.svg">
+                            <object type="image/svg+xml" data="../images/user.svg">
                                 <img src="..//img/user.svg">
                             </object>
                             Вход
@@ -78,25 +75,32 @@
                     </div>
                     <div class="menu__dropdown">
                         <div class="menu__dropdown-btn">
-                            <object
-                                type="image/svg+xml"
-                                data="../images/burger.svg">
+                            <object type="image/svg+xml" data="../images/burger.svg">
                                 <img src="../images/burger.svg">
                             </object>
                             <span>Области применения</span>
-                            <object class="menu__dropdown-arrow"
-                                type="image/svg+xml"
-                                data="../images/arrow-down.svg">
+                            <object class="menu__dropdown-arrow" type="image/svg+xml" data="../images/arrow-down.svg">
                                 <img src="../images/arrow-down.svg">
                             </object>
                         </div>
-                        @@include('../templates/category.html')
+                        @@include('../templates/category.html', {
+                        images1: '../images/1-drop.svg',
+                        images2: '../images/2-drop.svg',
+                        images3: '../images/3-drop.svg',
+                        images4: '../images/4-drop.svg',
+                        images5: '../images/5-drop.svg',
+                        images6: '../images/6-drop.svg',
+                        images7: '../images/7-drop.svg',
+                        images8: '../images/8-drop.svg',
+                        images9: '../images/9-drop.svg',
+                        images10: '../images/10-drop.svg',
+                        images11: '../images/11-drop.svg',
+                        images12: '../images/12-drop.svg',
+                        })
                     </div>
                     <form action="/" class="search">
                         <button class="search__btn">
-                            <object
-                                type="image/svg+xml"
-                                data="../images/search.svg">
+                            <object type="image/svg+xml" data="../images/search.svg">
                                 <img src="../images/search.svg">
                             </object>
                         </button>
@@ -105,9 +109,7 @@
                     @@include('elements/phone.html')
                     <a href="#" class="cart">
                         <div class="cart__icon">
-                            <object
-                                type="image/svg+xml"
-                                data="../images/cart.svg">
+                            <object type="image/svg+xml" data="../images/cart.svg">
                                 <img src="../images/cart.svg">
                             </object>
                             <span>2</span>

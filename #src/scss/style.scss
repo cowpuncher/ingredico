@@ -42,6 +42,7 @@
     --font-size-18: 18px;
     --font-size-20: 20px;
     --font-size-23: 23px;
+    --font-size-25: 25px;
     --font-size-30: 30px;
     --font-size-45: 45px;
     --font-size-55: 55px;
@@ -70,6 +71,7 @@ body {
     font-family: 'Akrobat';
     font-weight: var(--font-weight-regular);
     font-size: var(--font-size-16);
+    position: relative;
 }
 
 select,
@@ -99,6 +101,22 @@ h2 {
     text-transform: uppercase;
 }
 /* Стили повторяющегося контента */
+.header {
+    position: relative;
+    z-index: 9999999;
+}
+.overlay__menu {
+    display: none;
+    background: rgba(0,0,0,.5);
+    position: absolute;
+    z-index: 100;
+    width: 100%;
+    height: 100%;
+
+    &.active {
+        display: block;
+    }
+}
 .section {
     padding: 70px 0;
 
@@ -181,6 +199,26 @@ h2 {
         -ms-flex-wrap: wrap;
             flex-wrap: wrap;
 
+    &_img {
+        width: 130px;
+        margin-right: 15px;
+        display: -webkit-box;
+        display: -webkit-flex;
+        display: -moz-box;
+        display: -ms-flexbox;
+        display: flex;
+        -webkit-box-align: center;
+        -webkit-align-items: center;
+           -moz-box-align: center;
+            -ms-flex-align: center;
+                align-items: center;
+        -webkit-box-pack: center;
+        -webkit-justify-content: center;
+           -moz-box-pack: center;
+            -ms-flex-pack: center;
+                justify-content: center;
+    }
+
     & li {
 
         a {
@@ -188,6 +226,10 @@ h2 {
             width: 400px;
             height: 186px;
             border: 1px solid #ffffff;
+            font-size: var(--font-size-25);
+            font-weight: var(--font-weight-bold);
+            color: var(--color-1);
+            padding-left: 35px;
             display: -webkit-box;
             display: -webkit-flex;
             display: -moz-box;
@@ -198,14 +240,9 @@ h2 {
             -moz-box-align: center;
                 -ms-flex-align: center;
                     align-items: center;
-            -webkit-box-pack: center;
-            -webkit-justify-content: center;
-            -moz-box-pack: center;
-                -ms-flex-pack: center;
-                    justify-content: center;
-        
+            
             &:hover {
-                background: #575757;
+                color: var(--color-7);
             }
         }
     }
@@ -429,11 +466,32 @@ h2 {
     }
     .menu__category {
         visibility: hidden;
+        -webkit-transform: translate(0, -500px);
+           -moz-transform: translate(0, -500px);
+            -ms-transform: translate(0, -500px);
+             -o-transform: translate(0, -500px);
+                transform: translate(0, -500px);
+                -webkit-transition: all 1s ease;
+                -o-transition: all 1s ease;
+                -moz-transition: all 1s ease;
+                transition: all 1s ease;
         position: absolute;
         left: 0;
-        top: 55px;
-        z-index: 9;
+        top: 80px;
+        z-index: -1;
+        width: 1200px;
         background: #ffffff;
+
+        &_img {
+            width: 100px;
+        }
+
+        & li a {
+            width: 300px;
+            height: 147px;
+            border: 0;
+            font-size: var(--font-size-20);
+        }
     }
 
     &-arrow {
@@ -444,9 +502,18 @@ h2 {
         transition: all .5s ease;
     }
 
-    &:hover {
+    &.active {
         & .menu__category {
             visibility: initial;
+            -webkit-transform: translate(0, 0);
+               -moz-transform: translate(0, 0);
+                -ms-transform: translate(0, 0);
+                 -o-transform: translate(0, 0);
+                    transform: translate(0, 0);
+            -webkit-transition: all 1s ease;
+            -o-transition: all 1s ease;
+            -moz-transition: all 1s ease;
+            transition: all 1s ease;
         }
 
         & .menu__dropdown-arrow {
@@ -750,7 +817,7 @@ h2 {
 .slider__dots {
     left: 0;
     bottom: 0;
-    z-index: 9999999;
+    z-index: 1;
     right: 0;
     margin: 0 auto;
     position: absolute;
@@ -1038,7 +1105,7 @@ h2 {
 
         & .flag {
             position: absolute;
-            z-index: 999;
+            z-index: 1;
             width: 73px;
             height: 37px;
             font-size: var(--font-size-13);
@@ -1051,5 +1118,7 @@ h2 {
 /* Popular product end */
 
 /* Menu category start */
-
+.category-section {
+    padding-top: 143px;
+}
 /* Menu category end */
