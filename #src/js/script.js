@@ -1,9 +1,16 @@
 // Выбор телефона по городу
-var city = document.getElementById('city'),
-    phone = document.querySelector('.phone__number span');
-city.addEventListener('change', () => {
-    phone.innerHTML = city.value;
-});
+var city = document.querySelectorAll('.city'),
+    phone = document.querySelectorAll('.phone__number span');
+
+for(let item of city) {
+    console.log(item)
+    item.addEventListener('change', () => {
+        for(let number of phone) {
+            number.innerHTML = item.value;
+        }
+    });
+}
+
 
 // Смена цвета картинки свг в меню ОБласти применения
 var menu = document.querySelectorAll('.menu__category li a');
@@ -45,3 +52,11 @@ menuButton.addEventListener('click', function() {
     overlayMenu.classList.toggle('active');
     menu__dropdown.classList.toggle('active');
 });
+
+// Колонки сайдбара
+// var sidebar = document.querySelectorAll('.sidebar__submenu');
+
+// for(let item of sidebar) {
+//     let counter = Math.ceil(item.children.length / 7);
+//     item.setAttribute('style', 'columns: ' + counter);
+// }

@@ -9,7 +9,7 @@ let path = {
 		html: project_folder + "/",
 		css: project_folder + "/css/",
 		js: project_folder + "/js/",
-		img: project_folder + "/images/",
+		img: project_folder + "/img/",
 		fonts: project_folder + "/fonts/",
 	},
 	src: {
