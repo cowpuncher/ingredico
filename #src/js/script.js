@@ -1,9 +1,35 @@
-// Выбор телефона по городу
-var city = document.querySelectorAll('.city'),
-    phone = document.querySelectorAll('.phone__number span');
+// --------------------- Переменные
+var tabs = document.querySelectorAll('.news__tabs-item'),
+    news = document.querySelectorAll('.news__preview_item'),
+    city = document.querySelectorAll('.city'),
+    phone = document.querySelectorAll('.phone__number span'),  
+    menu = document.querySelectorAll('.menu__category li a'),
+    menuButton = document.querySelector('.menu__dropdown'),
+    overlayMenu = document.querySelector('.overlay__menu'),
+    menuDropdown = document.querySelector('.menu__category'),
+    tabs = document.querySelectorAll('.news__tabs-item'),
+    popularProduct = document.querySelectorAll('.popular__item'),
+    news = document.querySelectorAll('.news__preview_item'),
+    previewText = document.querySelectorAll('.news__preview_text');
 
+
+//--------------------- Функции начало  ----------------------------
+// Обрезать текст 
+const textSlice = (node, number) => {
+    node.forEach(text => {
+        if(text.innerHTML.length > number) {
+            text.innerHTML = text.innerHTML.substr(0, number - 1) + ' ...'
+        } 
+    })
+}
+
+// Toggle для класса active
+const classToggle = (element) => {
+    element.classList.toggle('active');
+}
+
+// Выбор телефона по городу
 for(let item of city) {
-    console.log(item)
     item.addEventListener('change', () => {
         for(let number of phone) {
             number.innerHTML = item.value;
@@ -11,9 +37,9 @@ for(let item of city) {
     });
 }
 
+//------------ Функции конец  ----------------------------
 
-// Смена цвета картинки свг в меню ОБласти применения
-var menu = document.querySelectorAll('.menu__category li a');
+// Смена цвета картинки свг в меню Области применения
 // Ищим элемент меню
 menu.forEach( link => {
     // Событие наведения на конкретный элемент 
@@ -43,15 +69,45 @@ menu.forEach( link => {
 });
 
 // Клик по меню Области применения
-var menuButton = document.querySelector('.menu__dropdown'),
-    overlayMenu = document.querySelector('.overlay__menu'),
-    menu__dropdown = document.querySelector('.menu__category');
-
 menuButton.addEventListener('click', function() {
-    menuButton.classList.toggle('active');
-    overlayMenu.classList.toggle('active');
-    menu__dropdown.classList.toggle('active');
+    classToggle(menuButton);
+    classToggle(overlayMenu);
+    classToggle(menuDropdown);
 });
+
+// Табы в превью новостей
+for(let item of tabs) {
+    item.addEventListener('click', function(el) {
+        tabs.forEach( tab => tab.classList.remove('active'))
+        el.target.classList.add('active')
+        let currentData = el.target.dataset.preview
+        news.forEach( item => {
+            item.classList.remove('active')
+            item.classList.add('disable')
+            if(item.dataset.preview === currentData || currentData === 'all') {
+                item.classList.remove('disable')
+                item.classList.add('active')
+            }
+        })
+       
+    })
+}
+
+// Обрезать строку в превью если больше 140 символов
+textSlice(previewText, 130);
+
+// Подключение слайдеров
+const activeSlider = (items, slider) => {
+    if(items.length > 4) {
+        $(slider).slick({
+            infinite: false,
+            slidesToShow: 4,
+            slidesToScroll: 1
+        })
+    }
+}
+activeSlider(news, '.news__slider');
+activeSlider(popularProduct, '.popular__slider');
 
 // Колонки сайдбара
 // var sidebar = document.querySelectorAll('.sidebar__submenu');

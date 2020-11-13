@@ -125,6 +125,8 @@
   --ls-2: 0.2em;
 }
 
+/* ANCHOR Основные стили */
+
 /* Основные стили */
 
 body {
@@ -158,6 +160,10 @@ a {
   color: var(--color-1);
 }
 
+object {
+  pointer-events: none;
+}
+
 h2 {
   font-size: var(--font-size-55);
   font-weight: var(--font-weight-extrabold);
@@ -173,6 +179,8 @@ h3 {
 }
 
 /* Стили повторяющегося контента */
+
+/* ANCHOR Стили повторяющегося контента */
 
 .header {
   position: relative;
@@ -250,7 +258,7 @@ select {
   cursor: pointer;
 }
 
-/* Menu category start */
+/*ANCHOR Menu category start */
 
 .menu__category {
   display: -webkit-box;
@@ -272,6 +280,10 @@ select {
   -webkit-box-pack: center;
   -ms-flex-pack: center;
   justify-content: center;
+}
+
+.menu__category_img object {
+  pointer-events: none;
 }
 
 .menu__category li a {
@@ -297,7 +309,7 @@ select {
 
 /* Menu category end */
 
-/* Contacts city start */
+/*ANCHOR Contacts city start */
 
 .contacts__top {
   display: -webkit-box;
@@ -337,7 +349,7 @@ select {
 
 /* Contacts city end */
 
-/* Network links start */
+/*ANCHOR Network links start */
 
 .social {
   padding-top: 8px;
@@ -392,7 +404,52 @@ select {
 
 /* Network links end */
 
-/* Padding's для секций */
+/* Slick Slider custom style start */
+
+.slick-prev,
+.slick-next {
+  top: -150px;
+  right: 0;
+  left: auto;
+  width: 100px;
+  height: 100px;
+  border: transparent;
+  background: var(--color-22);
+}
+
+.slick-prev:before,
+.slick-next:before {
+  font-size: 35px;
+  line-height: 1;
+  opacity: 1;
+  color: #fff;
+}
+
+.slick-prev:hover,
+.slick-next:hover {
+  border: 1px solid #F1F1F1;
+  background: var(--color-22);
+  color: #ffffff;
+  opacity: 1 !important;
+}
+
+.slick-disabled {
+  background: transparent;
+  border: 1px solid #F1F1F1;
+}
+
+.slick-disabled:before {
+  color: #F1F1F1;
+  opacity: 1 !important;
+}
+
+.slick-prev {
+  right: 110px;
+}
+
+/* Slick Slider custom style end */
+
+/*ANCHOR Padding's для секций */
 
 .section {
   padding: 70px 0;
@@ -405,6 +462,11 @@ select {
 .popular-section {
   background: #ffffff url("../img/bg-product.png") no-repeat 0 100%;
   padding-bottom: 0;
+}
+
+.popular-section .slick-prev,
+.popular-section .slick-next {
+  top: -100px;
 }
 
 .category-section {
@@ -440,7 +502,7 @@ select {
 
 /* Header start */
 
-/* Top menu start */
+/*ANCHOR Top menu start */
 
 .top-panel {
   background: var(--color-7);
@@ -465,7 +527,7 @@ select {
   display: flex;
 }
 
-/*  Navigation start */
+/*ANCHOR  Navigation start */
 
 .navigation {
   display: -webkit-box;
@@ -501,7 +563,7 @@ select {
 
 /* Navigation end */
 
-/* Modal btn start */
+/*ANCHOR Modal btn start */
 
 .btn__modal {
   padding: 0 47px;
@@ -513,7 +575,7 @@ select {
 
 /* Modal btn end */
 
-/* Authentification start */
+/*ANCHOR Authentification start */
 
 .auth a {
   font-weight: var(--font-weight-bold);
@@ -534,7 +596,7 @@ select {
 
 /* Authentification end */
 
-/* Search start */
+/*ANCHOR Search start */
 
 .search {
   position: relative;
@@ -573,7 +635,7 @@ select {
 
 /* Search end */
 
-/* Phone start */
+/*ANCHOR Phone start */
 
 .phone {
   display: -webkit-box;
@@ -603,7 +665,7 @@ select {
 
 /* Phone end */
 
-/* Menu dropdown start */
+/*ANCHOR Menu dropdown start */
 
 .menu__dropdown {
   cursor: pointer;
@@ -690,7 +752,7 @@ select {
 
 /* Menu dropdown end */
 
-/* Cart start */
+/*ANCHOR Cart start */
 
 .cart {
   display: -webkit-box;
@@ -748,7 +810,7 @@ select {
 
 /* Sidebar with main slider start */
 
-/* Sidebar start */
+/*ANCHOR Sidebar start */
 
 .sidebar {
   background: var(--color-7);
@@ -801,19 +863,46 @@ select {
   left: 100%;
   background: var(--color-7);
   height: 100%;
-  padding: 40px 80px 20px;
+  padding: 55px 55px 0;
   display: -ms-grid;
   display: grid;
-  -ms-grid-rows: auto auto auto auto auto auto auto;
-  grid-template-rows: auto auto auto auto auto auto auto;
+  -ms-grid-rows: (51px)[7];
+  grid-template-rows: repeat(7, 51px);
   grid-auto-flow: column;
+  grid-auto-columns: minmax(315px, auto);
+}
+
+.sidebar ul li ul:before {
+  content: '';
+  display: block;
+  height: 82%;
+  width: 1px;
+  background: #B2B2B2;
+  position: absolute;
+  left: 25px;
+  top: 40px;
 }
 
 .sidebar ul li ul li {
   margin-bottom: 30px;
+  text-align: left;
 }
 
-.sidebar ul li ul li:hover a {
+.sidebar ul li ul li a {
+  position: relative;
+}
+
+.sidebar ul li ul li a .flag {
+  font-size: 10px;
+  font-weight: var(--font-weight-bold);
+  width: 34px;
+  height: 17px;
+  position: absolute;
+  top: -15px;
+  right: -35px;
+}
+
+.sidebar ul li ul li a:hover {
   background: transparent;
   color: var(--color-22);
 }
@@ -822,6 +911,8 @@ select {
   padding: 0;
   color: var(--color-1);
   border: 0;
+  display: inline;
+  letter-spacing: 0em;
 }
 
 .sidebar ul li ul li:not(:last-child) a:hover {
@@ -837,6 +928,8 @@ select {
   padding: 0;
   color: var(--color-1);
   border: 0;
+  display: inline;
+  letter-spacing: 0em;
 }
 
 .sidebar ul li:hover ul {
@@ -852,7 +945,7 @@ select {
 
 /* Sidebar end */
 
-/* Main slider start */
+/*ANCHOR Main slider start */
 
 .slider {
   position: relative;
@@ -1021,7 +1114,7 @@ select {
 
 /* Header end */
 
-/* Privilege list start */
+/*ANCHOR Privilege list start */
 
 .privelege {
   padding: 45px 0 60px;
@@ -1061,9 +1154,10 @@ select {
 
 /* Privilege list end */
 
-/* Popular product start */
+/*ANCHOR Popular product start */
 
 .popular {
+  margin-bottom: -70px;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -1079,7 +1173,6 @@ select {
   width: 370px;
   padding: 25px 40px 40px 40px;
   position: relative;
-  margin-bottom: -70px;
   background: var(--color-7);
   -webkit-box-shadow: 20px 24px 44px rgba(0, 0, 0, 0.04);
   box-shadow: 20px 24px 44px rgba(0, 0, 0, 0.04);
@@ -1104,6 +1197,7 @@ select {
   padding-top: 100%;
   width: 100%;
   height: 370px;
+  display: block;
 }
 
 .popular__item_img picture,
@@ -1176,7 +1270,7 @@ select {
 
 /* Popular product end */
 
-/* Banner sales start */
+/*ANCHOR Banner sales start */
 
 .banner {
   color: var(--color-7);
@@ -1248,7 +1342,7 @@ select {
 
 /* Banner sales end */
 
-/* News slider start */
+/*ANCHOR News slider start */
 
 .news__tabs {
   font-size: var(--font-size-23);
@@ -1274,18 +1368,18 @@ select {
   position: absolute;
   bottom: 0;
   left: 0;
-  -webkit-transition: all .5s ease;
-  -o-transition: all .5s ease;
-  transition: all .5s ease;
+  -webkit-transition: all .3s linear;
+  -o-transition: all .3s linear;
+  transition: all .3s linear;
   z-index: -1;
 }
 
 .news__tabs-item:hover:before {
   height: 15px;
   visibility: visible;
-  -webkit-transition: all .5s ease;
-  -o-transition: all .5s ease;
-  transition: all .5s ease;
+  -webkit-transition: all .3s linear;
+  -o-transition: all .3s linear;
+  transition: all .3s linear;
 }
 
 .news__tabs-item.active:before {
@@ -1315,10 +1409,31 @@ select {
 .news__preview_item {
   width: 357px;
   position: relative;
+  max-height: 551px;
+  overflow: hidden;
 }
 
 .news__preview_item:not(:last-child) {
   margin-right: 55px;
+}
+
+.news__preview_item.disable {
+  -webkit-transition: opacity .2s ease, width .1s linear;
+  -o-transition: opacity .2s ease, width .1s linear;
+  transition: opacity .2s ease, width .1s linear;
+  width: 0% !important;
+  opacity: 0;
+  overflow: hidden;
+  margin: 0;
+  height: 0;
+}
+
+.news__preview_item.active {
+  -webkit-transition: opacity .5s ease, width .1s linear;
+  -o-transition: opacity .5s ease, width .1s linear;
+  transition: opacity .5s ease, width .1s linear;
+  max-width: 100%;
+  overflow: unset;
 }
 
 .news__preview_item .flag {
@@ -1375,7 +1490,7 @@ select {
 
 /* News slider end */
 
-/* Subscribe start */
+/*ANCHOR Subscribe start */
 
 .subscribe {
   text-align: center;
@@ -1516,7 +1631,7 @@ select {
 
 /* Subscribe end */
 
-/* Footer start */
+/*ANCHOR Footer start */
 
 .footer__top {
   padding-bottom: 11px;

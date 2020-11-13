@@ -1,4 +1,22 @@
-<div class="popular">
+<div class="popular popular__slider">
+    <div class="popular__item">
+        @@include('./elements/flag.html', {
+            name: 'New'
+        })
+        <a  href="#" class="popular__item_img">
+            <img src="./img/product.png" alt="product">
+        </a>
+        <a  href="#" class="popular__item_title">
+            Молокосвертывающий фермент Naturen® Premium 225
+        </a>
+        <div class="popular__item_total">
+            <span class="popular__item_total-sale">2 800 <span class="rub">руб.</span> </span>
+            <span class="popular__item_total-price">2 800 <span class="rub">руб.</span> </span>
+        </div>
+        @@include('./elements/button.html', {
+            name: 'Купить'
+        })
+    </div>
     <div class="popular__item">
         @@include('./elements/flag.html', {
             name: 'New'

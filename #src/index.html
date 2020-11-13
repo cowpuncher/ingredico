@@ -83,18 +83,19 @@
                             Новости и акции
                         </h2>
                         <div class="news__tabs">
-                            <span class="news__tabs-item active">
+                            <span class="news__tabs-item active" data-preview="all">
                                 Все
                             </span>
-                            <span class="news__tabs-item">
+                            <span class="news__tabs-item" data-preview="news">
                                 Новости
                             </span>
-                            <span class="news__tabs-item">
+                            <span class="news__tabs-item" data-preview="shares">
                                 Акции
                             </span>
                         </div>
                         <div class="news__slider news__preview">
                             @@include('templates/news/news-preview.html', {
+                                data: 'news',
                                 flag: 'Новости',
                                 image: './img/news-1.jpg',
                                 title: 'Разрешите нам создать лучший сайт в вашей нише',
@@ -102,6 +103,7 @@
                                 text: 'Что это за инструмент и как с его помощью интерпретировать информацию и находить слабые места в отчётах. Рассказывает Антон Рыбин.'
                             })
                             @@include('templates/news/news-preview.html', {
+                                data: 'news',
                                 flag: 'Новости',
                                 image: './img/news-2.jpg',
                                 title: 'Разрешите нам создать лучший сайт в вашей нише',
@@ -109,13 +111,24 @@
                                 text: 'Что это за инструмент и как с его помощью интерпретировать информацию и находить слабые места в отчётах. Рассказывает Антон Рыбин.'
                             })
                             @@include('templates/news/news-preview.html', {
-                                flag: 'Новости',
+                                data: 'shares',
+                                flag: 'Акции',
                                 image: './img/news-3.jpg',
                                 title: 'Акция на MilkSafeТМ 4BTSC для оптовых покупателей',
                                 date: '18 окт 2019',
                                 text: 'Что это за инструмент и как с его помощью интерпретировать информацию и находить слабые места в отчётах. Рассказывает Антон Рыбин.'
                             })
                             @@include('templates/news/news-preview.html', {
+                                data: 'news',
+                                flag: 'Новости',
+                                image: './img/news-2.jpg',
+                                title: 'Разрешите нам создать лучший сайт в вашей нише',
+                                date: '18 окт 2019',
+                                text: 'Что это за инструмент и как с его помощью интерпретировать информацию и находить слабые места в отчётах. Рассказывает Антон Рыбин.'
+                            })
+                            
+                            @@include('templates/news/news-preview.html', {
+                                data: 'news',
                                 flag: 'Новости',
                                 image: './img/news-2.jpg',
                                 title: 'Разрешите нам создать лучший сайт в вашей нише',
@@ -162,8 +175,6 @@
         <!-- ANCHOR Footer -->
         @@include('templates/footer.html')
         <!-- ANCHOR Footer -->
-        <!-- ANCHOR  Подключение скриптов-->
-        <script src="https://code.jquery.com/jquery-3.5.1.js" integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc=" crossorigin="anonymous"></script>
-        <script src="js/script.js"></script>
+        @@include('./templates/scripts.html')
     </body>
 </html>
