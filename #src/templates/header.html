@@ -1,6 +1,5 @@
 <div class="overlay__menu"></div>
 <header class="header">
-
     <div class="top-panel">
         <div class="container">
             <div class="top-panel__flex">
@@ -42,16 +41,16 @@
                         </li>
                     </ul>
                     <a href="#" class="btn__modal">
-                        <object type="image/svg+xml" data="../img/mail.svg">
+                        <span class="mail-img">
                             <img src="../img/mail.svg">
-                        </object>
+                        </span>
                         <span>Написать</span>
                     </a>
                     <div class="auth">
                         <a href="#" class="auth__enter">
-                            <object type="image/svg+xml" data="../img/user.svg">
+                            <span class="user-img">
                                 <img src="../img/user.svg">
-                            </object>
+                            </span>
                             Вход
                         </a>
                         <a href="#" class="auth__reg">
@@ -60,13 +59,13 @@
                     </div>
                     <div class="menu__dropdown">
                         <div class="menu__dropdown-btn">
-                            <object type="image/svg+xml" data="../img/burger.svg">
+                            <span class="">
                                 <img src="../img/burger.svg">
-                            </object>
+                            </span>
                             <span>Области применения</span>
-                            <object class="menu__dropdown-arrow" type="image/svg+xml" data="../img/arrow-down.svg">
+                            <span class="menu__dropdown-arrow">
                                 <img src="../img/arrow-down.svg">
-                            </object>
+                            </span>
                         </div>
                         @@include('../templates/category.html', {
                         images1: '../img/1-drop.svg',
@@ -85,9 +84,9 @@
                     </div>
                     <form action="/" class="search">
                         <button class="search__btn">
-                            <object type="image/svg+xml" data="../img/search.svg">
+                            <span class="search-img">
                                 <img src="../img/search.svg">
-                            </object>
+                            </span>
                         </button>
                         <input type="text" placeholder="Поиск" name="search" class="search__input">
                     </form>
@@ -105,5 +104,4 @@
             </div>
         </div>
     </div>
-
 </header>

@@ -1,5 +1,7 @@
 // --------------------- Переменные
-var tabs = document.querySelectorAll('.news__tabs-item'),
+var tabs = document.querySelector('.news__tabs'),
+    topPanel = document.querySelector('.top-panel'),
+    fixedBlock = document.querySelector('.fixed__menu_box'),
     news = document.querySelectorAll('.news__preview_item'),
     city = document.querySelectorAll('.city'),
     phone = document.querySelectorAll('.phone__number span'),  
@@ -7,11 +9,12 @@ var tabs = document.querySelectorAll('.news__tabs-item'),
     menuButton = document.querySelector('.menu__dropdown'),
     overlayMenu = document.querySelector('.overlay__menu'),
     menuDropdown = document.querySelector('.menu__category'),
-    tabs = document.querySelectorAll('.news__tabs-item'),
     popularProduct = document.querySelectorAll('.popular__item'),
     news = document.querySelectorAll('.news__preview_item'),
+    newsSlider = document.querySelector('.news__slider'),
     previewText = document.querySelectorAll('.news__preview_text');
 
+    console.log(topPanel);
 
 //--------------------- Функции начало  ----------------------------
 // Обрезать текст 
@@ -38,9 +41,20 @@ for(let item of city) {
 }
 
 //------------ Функции конец  ----------------------------
-
+// Подключение слайдеров
+const activeSlider = (items, slider) => {
+    if(items.length > 4) {
+        $(slider).slick({
+            infinite: false,
+            slidesToShow: 4,
+            slidesToScroll: 1
+        })
+    }
+}
+activeSlider(news, newsSlider);
+activeSlider(popularProduct, '.popular__slider');
 // Смена цвета картинки свг в меню Области применения
-// Ищим элемент меню
+// Ищем элемент меню
 menu.forEach( link => {
     // Событие наведения на конкретный элемент 
     link.addEventListener('mouseenter', function(e) {
@@ -67,47 +81,52 @@ menu.forEach( link => {
         });
     });
 });
-
 // Клик по меню Области применения
 menuButton.addEventListener('click', function() {
     classToggle(menuButton);
     classToggle(overlayMenu);
     classToggle(menuDropdown);
 });
-
 // Табы в превью новостей
-for(let item of tabs) {
-    item.addEventListener('click', function(el) {
-        tabs.forEach( tab => tab.classList.remove('active'))
-        el.target.classList.add('active')
-        let currentData = el.target.dataset.preview
-        news.forEach( item => {
-            item.classList.remove('active')
-            item.classList.add('disable')
-            if(item.dataset.preview === currentData || currentData === 'all') {
-                item.classList.remove('disable')
-                item.classList.add('active')
-            }
-        })
-       
+tabs.addEventListener('click' , event => {
+    let currentData = event.target.dataset.preview;
+    for(let i = 0; i < tabs.children.length; i++) {
+        tabs.children[i].classList.remove('active');
+        event.target.classList.add('active');
+    }
+    news.forEach( item => {
+        item.classList.remove('active')
+        item.classList.add('disable')
+        if(item.dataset.preview === currentData || currentData === 'all') {
+            item.classList.remove('disable')
+            item.classList.add('active')
+        }
     })
-}
-
+})
 // Обрезать строку в превью если больше 140 символов
 textSlice(previewText, 130);
 
-// Подключение слайдеров
-const activeSlider = (items, slider) => {
-    if(items.length > 4) {
-        $(slider).slick({
-            infinite: false,
-            slidesToShow: 4,
-            slidesToScroll: 1
-        })
+// Фиксированная шапка 
+var scrollHeight = Math.max(
+    document.body.scrollHeight, document.documentElement.scrollHeight,
+    document.body.offsetHeight, document.documentElement.offsetHeight,
+    document.body.clientHeight, document.documentElement.clientHeight
+  );
+  var scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+
+  console.log( document.documentElement.clientHeight );
+  console.log(scrollTop);
+  console.log(fixedBlock.offsetHeight);
+
+  
+window.addEventListener('scroll', function() {
+    if(pageYOffset > fixedBlock.offsetHeight ) {
+        topPanel.setAttribute('style', 'position: fixed; top: 0; left: 0; width: 100%;')
+        console.log(fixedBlock.offsetHeight );
     }
-}
-activeSlider(news, '.news__slider');
-activeSlider(popularProduct, '.popular__slider');
+    
+    console.log(pageYOffset)
+})
 
 // Колонки сайдбара
 // var sidebar = document.querySelectorAll('.sidebar__submenu');

@@ -121,15 +121,24 @@ h3 {
     z-index: 9999999;
 }
 .overlay__menu {
-    display: none;
     background: rgba(0,0,0,.5);
     position: absolute;
-    z-index: 100;
+    z-index: -999;
+    opacity: 0;
     width: 100%;
     height: 100%;
+    -webkit-transition: opacity .3s linear;
+    -o-transition: opacity .3s linear;
+    -moz-transition: opacity .3s linear;
+    transition: opacity .3s linear;
 
     &.active {
-        display: block;
+        z-index: 100;
+        opacity: 1;
+        -webkit-transition: opacity .3s linear;
+        -o-transition: opacity .3s linear;
+        -moz-transition: opacity .3s linear;
+        transition: opacity .3s linear;
     }
 }
 .wrapper {
@@ -406,6 +415,9 @@ select {
         opacity: 1!important;
     }
 }
+.slick-prev {
+    right: 110px;
+}
 .slick-disabled {
     background: transparent;
     border: 1px solid #F1F1F1;
@@ -414,9 +426,6 @@ select {
         color: #F1F1F1;
         opacity: 1!important;
     }
-}
-.slick-prev {
-    right: 110px;
 }
 /* Slick Slider custom style end */
 
@@ -661,7 +670,7 @@ select {
                 justify-content: center;
 
                 & span {
-                    margin: 0 10px;
+                    margin: 0 5px;
                 }
     }
     .menu__category {
