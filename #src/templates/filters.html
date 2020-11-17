@@ -1,0 +1,102 @@
+<form class="filters">
+    <h3>
+        Фильтры
+    </h3>
+    <span class="small-title">Каталог</span>
+    @@include('./elements/label.html', {
+        name: 'Ингредиенты',
+        count: '80',
+        hidden: 'hidden'
+    })
+    @@include('./elements/label.html', {
+        name: 'Сырье',
+        count: '2',
+        hidden: 'hidden'
+    })
+    @@include('./elements/label.html', {
+        name: 'Функционлаьные смеси',
+        count: '8',
+        hidden: 'hidden'
+    })
+    @@include('./elements/label.html', {
+        name: 'Тесты',
+        count: '4',
+        hidden: 'hidden'
+    })
+    <div class="filters__dropdown">
+        <span class="small-title">Категория</span>
+        @@include('./elements/label.html', {
+            name: 'Каррагинаны',
+            count: '80',
+            hidden: ''
+        })
+        @@include('./elements/label.html', {
+            name: 'Пектины',
+            count: '2',
+            hidden: ''
+        })
+        @@include('./elements/label.html', {
+            name: 'Красители натуральные',
+            count: '8',
+            hidden: ''
+        })
+        @@include('./elements/label.html', {
+            name: 'Закваски, бактериальные культуры DVS',
+            count: '4',
+            hidden: ''
+        })
+        @@include('./elements/label.html', {
+            name: 'Карбоксилетил целлюлоза',
+            count: '80',
+            hidden: ''
+        })
+        @@include('./elements/label.html', {
+            name: 'Ферменты',
+            count: '2',
+            hidden: ''
+        })
+        @@include('./elements/label.html', {
+            name: 'Глянцеватели',
+            count: '8',
+            hidden: ''
+        })
+        @@include('./elements/label.html', {
+            name: 'Альгинат натрия',
+            count: '4',
+            hidden: ''
+        })
+        @@include('./elements/label.html', {
+            name: 'Камеди',
+            count: '2',
+            hidden: ''
+        })
+        @@include('./elements/label.html', {
+            name: 'Ароматизаторы',
+            count: '8',
+            hidden: ''
+        })
+        @@include('./elements/label.html', {
+            name: 'Эмульгаторы',
+            count: '4',
+            hidden: ''
+        })
+    </div>
+    <div class="filters__dropdown">
+        <span class="small-title">Группа</span>
+        @@include('./elements/label.html', {
+            name: 'Ксантановая камедь',
+            count: '80',
+            hidden: ''
+        })
+        @@include('./elements/label.html', {
+            name: 'Гуарановая камедь',
+            count: '80',
+            hidden: ''
+        })
+        @@include('./elements/label.html', {
+            name: 'Конжаковая камедь',
+            count: '80',
+            hidden: ''
+        })
+    </div>
+</form>

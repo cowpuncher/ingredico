@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="ru">
+    @@include('templates/head.html',{
+        "title":"Главная"
+        })
+    <body class="bg-white">
+        <!-- ANCHOR Header -->
+        @@include('templates/header.html')
+        <section class="fixed__menu_box catalog-banner">
+            <div class="container">
+                @@include('./templates/elements/breadcrumbs.html')
+                @@include('./templates/elements/section-title.html', {
+                    name: 'Камеди'
+                })
+                <p class="catalog-banner__text">
+                    Что это за инструмент и как с его помощью интерпретировать <br> информацию и находить слабые места в отчётах.
+                </p>
+            </div>
+        </section>
+        <!-- ANCHOR Header -->
+        <section class="catalog">
+            <div class="container">
+                <div class="wrapper">
+                    @@include('./templates/filters.html')
+                </div>
+            </div>
+        </section>
+
+        <!-- ANCHOR Main -->
+        <main class="page main-page">
+            <section class="subscribe-section">
+                <div class="container">
+                    <div class="subscribe">
+                        <h3 class="subscribe__title">
+                            Будьте в курсе наших новостей!
+                        </h3>
+                        <p class="subscribe__text">
+                            Подпишитесь на нашу рассылку и экономьте - узнавайте первым информацию о скидках и акциях!
+                        </p>
+                        <form action="/" class="subscribe__form">
+                            <div class="subscribe__form_block">
+                                <label for="input" class="subscribe__form_label">
+                                    <img src="./img/mail-grey.svg" alt="">
+                                    <input type="email" class="subscribe__form_input" placeholder="Адрес электонной почты">
+                                </label>
+                                <button class="subscribe__form_btn btn">Подписаться</button>
+                            </div>
+                            <div class="subscribe__form_desc">
+                                <div for="checkbox" class="subscribe__form-checkbox">
+                                    <input type="checkbox" name="checkbox" id="checkbox">
+                                    <label for="checkbox"></label>
+                                </div>
+                                <p>
+                                    Нажимая подписаться, вы даете согласие на обработку персональных данных и соглашаетесь с условиями подписки
+                                </p>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </section>
+        </main>
+        <!-- ANCHOR Main -->
+
+        <!-- ANCHOR Footer -->
+        @@include('templates/footer.html')
+        <!-- ANCHOR Footer -->
+        @@include('./templates/scripts.html')
+    </body>
+</html>

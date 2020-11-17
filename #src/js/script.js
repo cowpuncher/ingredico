@@ -25,12 +25,10 @@ const textSlice = (node, number) => {
         } 
     })
 }
-
 // Toggle для класса active
 const classToggle = (element) => {
     element.classList.toggle('active');
 }
-
 // Выбор телефона по городу
 for(let item of city) {
     item.addEventListener('change', () => {
@@ -39,7 +37,6 @@ for(let item of city) {
         }
     });
 }
-
 //------------ Функции конец  ----------------------------
 // Подключение слайдеров
 const activeSlider = (items, slider) => {
@@ -53,6 +50,7 @@ const activeSlider = (items, slider) => {
 }
 activeSlider(news, newsSlider);
 activeSlider(popularProduct, '.popular__slider');
+
 // Смена цвета картинки свг в меню Области применения
 // Ищем элемент меню
 menu.forEach( link => {
@@ -87,45 +85,42 @@ menuButton.addEventListener('click', function() {
     classToggle(overlayMenu);
     classToggle(menuDropdown);
 });
+
 // Табы в превью новостей
-tabs.addEventListener('click' , event => {
-    let currentData = event.target.dataset.preview;
-    for(let i = 0; i < tabs.children.length; i++) {
-        tabs.children[i].classList.remove('active');
-        event.target.classList.add('active');
-    }
-    news.forEach( item => {
-        item.classList.remove('active')
-        item.classList.add('disable')
-        if(item.dataset.preview === currentData || currentData === 'all') {
-            item.classList.remove('disable')
-            item.classList.add('active')
+if(window.location.pathname == '/') {
+    tabs.addEventListener('click' , event => {
+        let currentData = event.target.dataset.preview;
+        for(let i = 0; i < tabs.children.length; i++) {
+            tabs.children[i].classList.remove('active');
+            event.target.classList.add('active');
         }
+        news.forEach( item => {
+            item.classList.remove('active')
+            item.classList.add('disable')
+            if(item.dataset.preview === currentData || currentData === 'all') {
+                item.classList.remove('disable')
+                item.classList.add('active')
+            }
+        })
     })
-})
+}
 // Обрезать строку в превью если больше 140 символов
 textSlice(previewText, 130);
-
-// Фиксированная шапка 
-var scrollHeight = Math.max(
-    document.body.scrollHeight, document.documentElement.scrollHeight,
-    document.body.offsetHeight, document.documentElement.offsetHeight,
-    document.body.clientHeight, document.documentElement.clientHeight
-  );
-  var scrollTop = window.pageYOffset || document.documentElement.scrollTop;
-
-  console.log( document.documentElement.clientHeight );
-  console.log(scrollTop);
-  console.log(fixedBlock.offsetHeight);
-
-  
-window.addEventListener('scroll', function() {
-    if(pageYOffset > fixedBlock.offsetHeight ) {
-        topPanel.setAttribute('style', 'position: fixed; top: 0; left: 0; width: 100%;')
-        console.log(fixedBlock.offsetHeight );
+// Фиксированная шапка   
+const fixedMenu = () => {
+    if(pageYOffset + 100 > fixedBlock.offsetHeight ) {
+        topPanel.classList.add('active');
+        topPanel.setAttribute('style', 'transform: translate(0px, 0px);' );
+    } else if(pageYOffset < 200) {
+        topPanel.setAttribute('style', 'transform: translate(0px, 0px);' );
+    } else if(pageYOffset + 100 < fixedBlock.offsetHeight) {
+        topPanel.classList.remove('active');
+        topPanel.setAttribute('style', 'transform: translate(0px, -200px); transition: all .3s linear;' );
     }
-    
-    console.log(pageYOffset)
+}
+fixedMenu();
+window.addEventListener('scroll', function() {
+    fixedMenu();
 })
 
 // Колонки сайдбара
