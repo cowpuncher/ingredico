@@ -45,7 +45,7 @@
     --font-size-23: 23px;
     --font-size-25: 25px;
     --font-size-30: 30px;
-    --font-size-34: 40px;
+    --font-size-40: 40px;
     --font-size-45: 45px;
     --font-size-55: 55px;
 
@@ -311,6 +311,7 @@ select {
 /* Menu category end */
 /*ANCHOR Filters start */
 .filters {
+    width: 22%;
     display: -webkit-box;
     display: -webkit-flex;
     display: -moz-box;
@@ -329,13 +330,22 @@ select {
         -ms-flex-align: start;
             align-items: flex-start;
 
+    &__title {
+        font-size: var(--font-size-40);
+        text-transform: uppercase;
+        font-weight: var(--font-weight-regular);
+        margin-bottom: 65px;
+    }
+
     & .small-title {
         font-size: var(--font-size-20);
         font-weight: var(--font-weight-semibold);
         text-transform: uppercase;
+        margin-bottom: 18px;
     }
 
-    &__dropdown {
+    & .dropdown {
+        width: 100%;
         display: -webkit-box;
         display: -webkit-flex;
         display: -moz-box;
@@ -353,11 +363,93 @@ select {
         -moz-box-align: start;
             -ms-flex-align: start;
                 align-items: flex-start;
+        
+        & .small-title {
+            cursor: pointer;
+            display: block;
+            position: relative;
+            width: 100%;
+
+            &:after {
+                content: url(../img/arrow-dropdown.svg);
+                position: absolute;
+                right: -20px;
+                top: 10px;
+                line-height: 0em;
+                -webkit-transform: rotate(180deg);
+                   -moz-transform: rotate(180deg);
+                    -ms-transform: rotate(180deg);
+                     -o-transform: rotate(180deg);
+                        transform: rotate(180deg);
+            }
+
+            
+            &.active {
+                &:after {
+                    -webkit-transform: rotate(0deg);
+                    -moz-transform: rotate(0deg);
+                        -ms-transform: rotate(0deg);
+                        -o-transform: rotate(0deg);
+                            transform: rotate(0deg);
+                }
+                & ~ label {
+                    height: 100%;
+                    display: block;
+                    margin-bottom: 18px;
+                }
+            }
+
+        }
+        & label {
+            display: none;
+            position: relative;
+
+            & .checkbox {
+                position: relative;
+                margin-right: 17px;
+
+                &::before {
+                    content: '';
+                    display: block;
+                    width: 18px;
+                    height: 18px;
+                    border: 0;
+                    background: #f9f7f7;
+                    position: absolute;
+                    top: -2px;
+                }
+
+                &:checked {
+
+                    &::before {
+                        content: url(../img/arrow-checkbox.svg);
+                        background: var(--color-3);
+                        display: -webkit-box;
+                        display: -webkit-flex;
+                        display: -moz-box;
+                        display: -ms-flexbox;
+                        display: flex;
+    -webkit-box-align: center;
+    -webkit-align-items: center;
+       -moz-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    -webkit-box-pack: center;
+    -webkit-justify-content: center;
+       -moz-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+                    }
+                }
+            }
+        }
     }
     & .label {
         cursor: pointer;
         font-size: var(--font-size-18);
         text-transform: uppercase;
+        color: var(--color-1);
+        margin-bottom: 21px;
 
         & .label__count  {
             color: #BDBDBD;
@@ -367,6 +459,38 @@ select {
 
         &:checked + .label__name {
             color: var(--color-22);
+        }
+    }
+    .price {
+        &__slider {
+            margin-bottom: 50px;
+        }
+        &__inputs {
+            margin-bottom: 20px;
+        }
+        &__range {
+            position: relative;
+
+            &_rail {
+                height: 1px;
+                width: 100%;
+                background: #828282;
+                
+            }
+            &_handle-1, 
+            &_handle-2 {
+                cursor: pointer;
+                width: 30px;
+                height: 30px;
+                -webkit-border-radius: 50%;
+                   -moz-border-radius: 50%;
+                        border-radius: 50%;
+                background: #ffffff;
+                border: 10px solid var(--color-22);
+                position: absolute;
+                left: 0;
+                top: -14px;
+            }
         }
     }
 }
@@ -565,6 +689,9 @@ select {
 }
 .footer-section {
     padding: 42px;
+}
+.catalog {
+    padding: 47px 0;
 }
 /* -------------------- Главная страница ----------- */
 
@@ -1978,7 +2105,7 @@ select {
 /* -------------------- Cтраница каталога ----------- */
 .catalog-banner {
     background: url(../img/catalog.jpg) no-repeat 50% 100%;
-    padding-bottom: 140px;
+    padding-bottom: 145px;
 
     & .section_title {
         margin-bottom: 20px;
@@ -1990,3 +2117,4 @@ select {
         font-size: var(--font-size-18);
     }
 }
+

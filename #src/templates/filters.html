@@ -1,101 +1,147 @@
 <form class="filters">
-    <h3>
+    <span class="filters__title">
         Фильтры
-    </h3>
+    </span>
     <span class="small-title">Каталог</span>
     @@include('./elements/label.html', {
         name: 'Ингредиенты',
-        count: '80',
+        count: '[80]',
         hidden: 'hidden'
     })
     @@include('./elements/label.html', {
         name: 'Сырье',
-        count: '2',
+        count: '[2]',
         hidden: 'hidden'
     })
     @@include('./elements/label.html', {
         name: 'Функционлаьные смеси',
-        count: '8',
+        count: '[8]',
         hidden: 'hidden'
     })
     @@include('./elements/label.html', {
         name: 'Тесты',
-        count: '4',
+        count: '[4]',
         hidden: 'hidden'
     })
-    <div class="filters__dropdown">
+    <div class="filters__category dropdown">
         <span class="small-title">Категория</span>
         @@include('./elements/label.html', {
             name: 'Каррагинаны',
-            count: '80',
+            count: '[80]',
             hidden: ''
         })
         @@include('./elements/label.html', {
             name: 'Пектины',
-            count: '2',
+            count: '[2]',
             hidden: ''
         })
         @@include('./elements/label.html', {
             name: 'Красители натуральные',
-            count: '8',
+            count: '[8]',
             hidden: ''
         })
         @@include('./elements/label.html', {
             name: 'Закваски, бактериальные культуры DVS',
-            count: '4',
+            count: '[4]',
             hidden: ''
         })
         @@include('./elements/label.html', {
             name: 'Карбоксилетил целлюлоза',
-            count: '80',
+            count: '[80]',
             hidden: ''
         })
         @@include('./elements/label.html', {
             name: 'Ферменты',
-            count: '2',
+            count: '[2]',
             hidden: ''
         })
         @@include('./elements/label.html', {
             name: 'Глянцеватели',
-            count: '8',
+            count: '[8]',
             hidden: ''
         })
         @@include('./elements/label.html', {
             name: 'Альгинат натрия',
-            count: '4',
+            count: '[4]',
             hidden: ''
         })
         @@include('./elements/label.html', {
             name: 'Камеди',
-            count: '2',
+            count: '[2]',
             hidden: ''
         })
         @@include('./elements/label.html', {
             name: 'Ароматизаторы',
-            count: '8',
+            count: '[8]',
             hidden: ''
         })
         @@include('./elements/label.html', {
             name: 'Эмульгаторы',
-            count: '4',
+            count: '[4]',
             hidden: ''
         })
     </div>
-    <div class="filters__dropdown">
+    <div class="filters__group dropdown">
         <span class="small-title">Группа</span>
         @@include('./elements/label.html', {
             name: 'Ксантановая камедь',
-            count: '80',
+            count: '',
             hidden: ''
         })
         @@include('./elements/label.html', {
             name: 'Гуарановая камедь',
-            count: '80',
+            count: '',
             hidden: ''
         })
         @@include('./elements/label.html', {
             name: 'Конжаковая камедь',
-            count: '80',
+            count: '',
+            hidden: ''
+        })
+    </div>
+    <span class="small-title">Цена</span>
+    <div class="price__slider">
+        <div class="price__inputs">
+            <input type="text" value="0">
+            <input type="text" value="100">
+        </div>
+        <div class="price__range">
+            <div class="price__range_rail"></div>
+            <div class="price__range_track"></div>
+            <div class="price__range_handle-1" aria-valuemin="0" aria-valuemax="99" aria-valuenow="9"></div>
+            <div class="price__range_handle-2" aria-valuemin="0" aria-valuemax="99" aria-valuenow="70" ></div>
+        </div>
+    </div>
+    <div class="filters__group dropdown">
+        <span class="small-title">Фасовка</span>
+        @@include('./elements/label.html', {
+            name: '1 шт',
+            count: '',
+            hidden: ''
+        })
+        @@include('./elements/label.html', {
+            name: '20 кг',
+            count: '',
+            hidden: ''
+        })
+        @@include('./elements/label.html', {
+            name: '25 кг',
+            count: '',
+            hidden: ''
+        })
+        @@include('./elements/label.html', {
+            name: '50 кг',
+            count: '',
+            hidden: ''
+        })
+        @@include('./elements/label.html', {
+            name: '100 кг',
+            count: '',
+            hidden: ''
+        })
+        @@include('./elements/label.html', {
+            name: '200 кг',
+            count: '',
             hidden: ''
         })
     </div>

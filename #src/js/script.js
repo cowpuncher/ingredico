@@ -12,6 +12,7 @@ var tabs = document.querySelector('.news__tabs'),
     popularProduct = document.querySelectorAll('.popular__item'),
     news = document.querySelectorAll('.news__preview_item'),
     newsSlider = document.querySelector('.news__slider'),
+    filterDropdown = document.querySelectorAll('.dropdown .small-title'),
     previewText = document.querySelectorAll('.news__preview_text');
 
     console.log(topPanel);
@@ -88,11 +89,11 @@ menuButton.addEventListener('click', function() {
 
 // Табы в превью новостей
 if(window.location.pathname == '/') {
-    tabs.addEventListener('click' , event => {
-        let currentData = event.target.dataset.preview;
+    tabs.addEventListener('click' , e => {
+        let currentData = e.target.dataset.preview;
         for(let i = 0; i < tabs.children.length; i++) {
             tabs.children[i].classList.remove('active');
-            event.target.classList.add('active');
+            e.target.classList.add('active');
         }
         news.forEach( item => {
             item.classList.remove('active')
@@ -122,6 +123,25 @@ fixedMenu();
 window.addEventListener('scroll', function() {
     fixedMenu();
 })
+
+// Выпадающее меню в фильтрах
+filterDropdown.forEach( item => {
+    item.addEventListener('click', el => {
+        el.currentTarget.classList.toggle('active');
+    })
+})
+
+
+var rangeTrack = document.querySelector('.price__range_track'),
+    rangeHandleLeft = document.querySelector('.price__range_handle-1'),
+    rangeHandleRight = document.querySelector('.price__range_handle-2');
+
+var positionLeft = rangeHandleLeft.getAttribute("aria-valuenow"),
+    positionRight = rangeHandleRight.getAttribute("aria-valuenow");
+
+    rangeHandleLeft.setAttribute('style', 'left: ' + positionLeft + '%' );
+    rangeHandleRight.setAttribute('style', 'left: ' + positionRight + '%' );
+
 
 // Колонки сайдбара
 // var sidebar = document.querySelectorAll('.sidebar__submenu');
