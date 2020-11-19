@@ -15,8 +15,6 @@ var tabs = document.querySelector('.news__tabs'),
     filterDropdown = document.querySelectorAll('.dropdown .small-title'),
     previewText = document.querySelectorAll('.news__preview_text');
 
-    console.log(topPanel);
-
 //--------------------- Функции начало  ----------------------------
 // Обрезать текст 
 const textSlice = (node, number) => {
@@ -131,16 +129,61 @@ filterDropdown.forEach( item => {
     })
 })
 
-
-var rangeTrack = document.querySelector('.price__range_track'),
+// Range для цены на сайте
+var rangeRail = document.querySelector('.price__range_rail'),
+    rangeTrack = document.querySelector('.price__range_track'),
     rangeHandleLeft = document.querySelector('.price__range_handle-1'),
     rangeHandleRight = document.querySelector('.price__range_handle-2');
 
-var positionLeft = rangeHandleLeft.getAttribute("aria-valuenow"),
-    positionRight = rangeHandleRight.getAttribute("aria-valuenow");
+var inputMin = document.querySelector('.price__input_min'),
+    inputMax = document.querySelector('.price__input_max');
 
-    rangeHandleLeft.setAttribute('style', 'left: ' + positionLeft + '%' );
-    rangeHandleRight.setAttribute('style', 'left: ' + positionRight + '%' );
+var valueLeft = rangeHandleLeft.getAttribute("aria-valuenow"),
+    valueRight = rangeHandleRight.getAttribute("aria-valuenow");
+
+    rangeHandleLeft.setAttribute('style', 'left: ' + (inputMin.value / 100)  + '%;' );
+    rangeHandleRight.setAttribute('style', 'left: ' + (inputMax.value / 100) + '%;' );
+    rangeHandleLeft.setAttribute('aria-valuenow',  inputMin.value / 100);
+    rangeHandleRight.setAttribute('aria-valuenow', inputMax.value / 100);
+
+const activeButton = (el, handle, input, secondInput ) => { 
+    el.onmousedown = function (el) { 
+        let button = el.currentTarget;
+        let rail = Math.floor(rangeRail.getBoundingClientRect().width);
+        document.onmousemove = function (e) {
+            e = (e.pageX - Math.floor(rangeRail.getBoundingClientRect().x)) ;
+            button.style.left = e / (rail / 100) + '%';
+            Math.floor(button.setAttribute("aria-valuenow", e / (rail / 100)));
+            if(e > rail) {
+                button.style.left = '100%';
+                Math.floor(button.setAttribute("aria-valuenow", 100));
+            } else if(e <= 0) {
+                button.style.left = '0%';
+                Math.floor(button.setAttribute("aria-valuenow", 0));
+            }
+            let value = handle.getAttribute("aria-valuenow");
+            input.setAttribute ('value', Math.floor(( inputMax.getAttribute("aria-valuemax") / 100) * value ));
+            if(secondInput == inputMax) {
+                if(value > (secondInput.value / 100) - 8) {
+                    button.style.left = ((secondInput.value / 100) - 8) + '%';
+                    input.setAttribute('value', secondInput.value);
+                } 
+            } else if(secondInput == inputMin) {
+                if(value < (secondInput.value / 100) + 8) {
+                    button.style.left = ((secondInput.value / 100) + 8) + '%';
+                    input.setAttribute('value', secondInput.value);
+                }
+            }
+        }
+        document.onmouseup = function() {
+            document.onmousemove = null;
+        }
+    }
+}
+activeButton(rangeHandleLeft, rangeHandleLeft, inputMin, inputMax);
+activeButton(rangeHandleRight, rangeHandleRight, inputMax, inputMin);
+
+
 
 
 // Колонки сайдбара

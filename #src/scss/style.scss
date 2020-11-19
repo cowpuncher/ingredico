@@ -463,10 +463,20 @@ select {
     }
     .price {
         &__slider {
+            width: 100%;
             margin-bottom: 50px;
         }
         &__inputs {
-            margin-bottom: 20px;
+            margin-bottom: 20px; 
+
+            & input {
+                width: 162px;
+                height: 38px;
+                -webkit-border-radius: var(--border-radius-3);
+                   -moz-border-radius: var(--border-radius-3);
+                        border-radius: var(--border-radius-3);
+                border: 1px solid #bdbdbd;
+            }
         }
         &__range {
             position: relative;
@@ -490,6 +500,12 @@ select {
                 position: absolute;
                 left: 0;
                 top: -14px;
+                right: auto; 
+                -webkit-transform: translateX(-50%); 
+                   -moz-transform: translateX(-50%); 
+                    -ms-transform: translateX(-50%); 
+                     -o-transform: translateX(-50%); 
+                        transform: translateX(-50%);
             }
         }
     }

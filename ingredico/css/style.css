@@ -473,11 +473,19 @@ select {
 }
 
 .filters .price__slider {
+  width: 100%;
   margin-bottom: 50px;
 }
 
 .filters .price__inputs {
   margin-bottom: 20px;
+}
+
+.filters .price__inputs input {
+  width: 162px;
+  height: 38px;
+  border-radius: var(--border-radius-3);
+  border: 1px solid #bdbdbd;
 }
 
 .filters .price__range {
@@ -501,6 +509,10 @@ select {
   position: absolute;
   left: 0;
   top: -14px;
+  right: auto;
+  -webkit-transform: translateX(-50%);
+  -ms-transform: translateX(-50%);
+  transform: translateX(-50%);
 }
 
 /* Filters end */
