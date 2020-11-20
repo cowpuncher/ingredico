@@ -16,7 +16,7 @@ var tabs = document.querySelector('.news__tabs'),
     previewText = document.querySelectorAll('.news__preview_text');
 
 //--------------------- Функции начало  ----------------------------
-// Обрезать текст 
+// --------- Обрезать текст 
 const textSlice = (node, number) => {
     node.forEach(text => {
         if(text.innerHTML.length > number) {
@@ -24,11 +24,11 @@ const textSlice = (node, number) => {
         } 
     })
 }
-// Toggle для класса active
+// --------- Toggle для класса active
 const classToggle = (element) => {
     element.classList.toggle('active');
 }
-// Выбор телефона по городу
+// --------- Выбор телефона по городу
 for(let item of city) {
     item.addEventListener('change', () => {
         for(let number of phone) {
@@ -37,7 +37,7 @@ for(let item of city) {
     });
 }
 //------------ Функции конец  ----------------------------
-// Подключение слайдеров
+// --------- Подключение слайдеров
 const activeSlider = (items, slider) => {
     if(items.length > 4) {
         $(slider).slick({
@@ -50,14 +50,14 @@ const activeSlider = (items, slider) => {
 activeSlider(news, newsSlider);
 activeSlider(popularProduct, '.popular__slider');
 
-// Смена цвета картинки свг в меню Области применения
+// --------- Смена цвета картинки свг в меню Области применения
 // Ищем элемент меню
 menu.forEach( link => {
     // Событие наведения на конкретный элемент 
     link.addEventListener('mouseenter', function(e) {
         e.preventDefault();
         // Инициализируем SVG внутри нашего Object
-        let obj = e.currentTarget.children[0].children[0].getSVGDocument();
+        let obj = e.currentTarget.children[0].children[0].contentDocument;
         // Инициализиурем Path внутри SVG
         let rect = obj.querySelectorAll('path');
         // Пробегаемся по всем Path внутри выбранного пункта меню
@@ -78,14 +78,56 @@ menu.forEach( link => {
         });
     });
 });
-// Клик по меню Области применения
+
+
+
+var greyMenu = document.querySelectorAll('.catalog-body__menu .menu__category li a');
+
+greyMenu.forEach( item => {
+        let color;
+        function getColorSvg() {
+            let image = item.querySelector('.menu__category_img').children[0].contentDocument.querySelectorAll('path');
+            image.forEach( fill => {
+                color = fill.getAttribute('fill');
+                fill.setAttribute('fill', '#D2D2D2');
+            })
+          }
+          setTimeout(getColorSvg, 1000);
+
+          item.addEventListener('mouseenter', function(e) {
+            e.preventDefault();
+            // Инициализируем SVG внутри нашего Object
+            let obj = e.currentTarget.children[0].children[0].contentDocument;
+            // Инициализиурем Path внутри SVG
+            let rect = obj.querySelectorAll('path');
+            // Пробегаемся по всем Path внутри выбранного пункта меню
+            rect.forEach( item => {
+                // Инициализируем fill внутри svg
+                let color = item.getAttribute('fill');
+                // Изменяем fill на белый
+                item.setAttribute('fill', color);
+                // Изменяем фон пункта меню на изначальный цвет svg
+                e.currentTarget.style.backgroundColor = color;
+                // Событие убранной с элемента мыши
+                link.addEventListener('mouseleave', function(e) {
+                    // Возвращаем изначальный цвет SVG
+                    item.setAttribute('fill', color);
+                    // Фон делаем прозрачным 
+                    e.currentTarget.style.backgroundColor = 'transparent';
+                });
+            });
+        });
+});
+
+
+// --------- Клик по меню Области применения
 menuButton.addEventListener('click', function() {
     classToggle(menuButton);
     classToggle(overlayMenu);
     classToggle(menuDropdown);
 });
 
-// Табы в превью новостей
+// --------- Табы в превью новостей
 if(window.location.pathname == '/') {
     tabs.addEventListener('click' , e => {
         let currentData = e.target.dataset.preview;
@@ -103,9 +145,9 @@ if(window.location.pathname == '/') {
         })
     })
 }
-// Обрезать строку в превью если больше 140 символов
+// --------- Обрезать строку в превью если больше 140 символов
 textSlice(previewText, 130);
-// Фиксированная шапка   
+// --------- Фиксированная шапка   
 const fixedMenu = () => {
     if(pageYOffset + 100 > fixedBlock.offsetHeight ) {
         topPanel.classList.add('active');
@@ -122,38 +164,45 @@ window.addEventListener('scroll', function() {
     fixedMenu();
 })
 
-// Выпадающее меню в фильтрах
+// --------- Выпадающее меню в фильтрах
 filterDropdown.forEach( item => {
     item.addEventListener('click', el => {
         el.currentTarget.classList.toggle('active');
     })
 })
-
-// Range для цены на сайте
+// --------- Range для цены на сайте
+// Иничиализация трэка и бегунков
 var rangeRail = document.querySelector('.price__range_rail'),
     rangeTrack = document.querySelector('.price__range_track'),
     rangeHandleLeft = document.querySelector('.price__range_handle-1'),
     rangeHandleRight = document.querySelector('.price__range_handle-2');
-
+// Иничиализация инпутов
 var inputMin = document.querySelector('.price__input_min'),
-    inputMax = document.querySelector('.price__input_max');
+    inputMax = document.querySelector('.price__input_max'),
+    valueMax = inputMax.getAttribute('aria-valuemax');
+// Стартовые положение для бегунков и их значений
+    rangeHandleLeft.setAttribute('style', 'left: ' + ((inputMin.value / valueMax*100))  + '%;' );
+    rangeHandleRight.setAttribute('style', 'left: ' + ((inputMax.value / valueMax*100)) + '%;' );
 
-var valueLeft = rangeHandleLeft.getAttribute("aria-valuenow"),
-    valueRight = rangeHandleRight.getAttribute("aria-valuenow");
-
-    rangeHandleLeft.setAttribute('style', 'left: ' + (inputMin.value / 100)  + '%;' );
-    rangeHandleRight.setAttribute('style', 'left: ' + (inputMax.value / 100) + '%;' );
-    rangeHandleLeft.setAttribute('aria-valuenow',  inputMin.value / 100);
-    rangeHandleRight.setAttribute('aria-valuenow', inputMax.value / 100);
-
+    rangeHandleLeft.setAttribute('aria-valuenow',  inputMin.value );
+    rangeHandleRight.setAttribute('aria-valuenow', inputMax.value );
+// Функция активации бегунков
 const activeButton = (el, handle, input, secondInput ) => { 
+    // Прослушка нажатия на бегунок
     el.onmousedown = function (el) { 
+        // Переменная в которой лежит нажатая кнопка
         let button = el.currentTarget;
+        // Переменная в которой лежит длинна всего пути трека
         let rail = Math.floor(rangeRail.getBoundingClientRect().width);
+        // Прослушка движения мыши по экрану
         document.onmousemove = function (e) {
+            // Распололжение клика
             e = (e.pageX - Math.floor(rangeRail.getBoundingClientRect().x)) ;
+            // Движение бегунка в %
             button.style.left = e / (rail / 100) + '%';
+            // Запись значения в value
             Math.floor(button.setAttribute("aria-valuenow", e / (rail / 100)));
+            // Проверка, чтобы бегунок не убегал за пределы трека
             if(e > rail) {
                 button.style.left = '100%';
                 Math.floor(button.setAttribute("aria-valuenow", 100));
@@ -161,25 +210,30 @@ const activeButton = (el, handle, input, secondInput ) => {
                 button.style.left = '0%';
                 Math.floor(button.setAttribute("aria-valuenow", 0));
             }
+            // Проверка значения бегунка после движения
             let value = handle.getAttribute("aria-valuenow");
+            // Запись значения в input
             input.setAttribute ('value', Math.floor(( inputMax.getAttribute("aria-valuemax") / 100) * value ));
             if(secondInput == inputMax) {
-                if(value > (secondInput.value / 100) - 8) {
-                    button.style.left = ((secondInput.value / 100) - 8) + '%';
+                if(value > (secondInput.value / valueMax * 100) - 8) {  
+                    button.style.left = ((secondInput.value / valueMax * 100) - 8) + '%';
                     input.setAttribute('value', secondInput.value);
                 } 
             } else if(secondInput == inputMin) {
-                if(value < (secondInput.value / 100) + 8) {
-                    button.style.left = ((secondInput.value / 100) + 8) + '%';
+                console.log('1');
+                if(value < (secondInput.value / valueMax * 100) + 8) {
+                    button.style.left = ((secondInput.value / valueMax * 100) + 8) + '%';
                     input.setAttribute('value', secondInput.value);
                 }
             }
         }
+        // Отключения прослушки движения мыши, после завершения нажатия
         document.onmouseup = function() {
             document.onmousemove = null;
         }
     }
 }
+// Инициализация функций нажатия бегунков
 activeButton(rangeHandleLeft, rangeHandleLeft, inputMin, inputMax);
 activeButton(rangeHandleRight, rangeHandleRight, inputMax, inputMin);
 

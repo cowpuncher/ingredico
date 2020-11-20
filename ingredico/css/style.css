@@ -2002,6 +2002,10 @@ select {
   font-size: var(--font-size-18);
 }
 
+.catalog-body {
+  width: 70%;
+}
+
 .webp .no-foto{ background: url(../img/no-foto.webp) no-repeat 50% 50%; }
 
 .webp .popular-section{ background: #ffffff url(../img/bg-product.webp) no-repeat 0 100%; }
