@@ -341,10 +341,6 @@ select {
   align-items: center;
 }
 
-.menu__category li a:hover {
-  color: var(--color-7);
-}
-
 /* Menu category end */
 
 /*ANCHOR Filters start */
@@ -516,6 +512,31 @@ select {
 }
 
 /* Filters end */
+
+/*ANCHOR Dropdown start */
+
+.dropdown {
+  cursor: pointer;
+}
+
+.dropdown:after {
+  content: url(../img/arrow-dropdown.svg);
+  display: block;
+}
+
+.dropdown__item {
+  display: none;
+}
+
+.dropdown__item.active {
+  display: block;
+}
+
+.dropdown__item.open {
+  display: block;
+}
+
+/*ANCHOR Dropdown end */
 
 /*ANCHOR Contacts city start */
 
@@ -2004,6 +2025,19 @@ select {
 
 .catalog-body {
   width: 70%;
+  /*ANCHOR Menu category in catalog start */
+  /* Menu category in catalog end */
+}
+
+.catalog-body__menu .menu__category_img {
+  width: 15px;
+}
+
+.catalog-body__menu .menu__category li a {
+  height: auto;
+  width: 180px;
+  font-weight: var(--font-weight-semibold);
+  font-size: var(--font-size-14);
 }
 
 .webp .no-foto{ background: url(../img/no-foto.webp) no-repeat 50% 50%; }

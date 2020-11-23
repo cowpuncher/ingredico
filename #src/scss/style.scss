@@ -301,10 +301,6 @@ select {
             -moz-box-align: center;
                 -ms-flex-align: center;
                     align-items: center;
-            
-            &:hover {
-                color: var(--color-7);
-            }
         }
     }
 }
@@ -511,7 +507,25 @@ select {
     }
 }
 /* Filters end */
+/*ANCHOR Dropdown start */
+.dropdown {
+    cursor: pointer;
+    &:after {
+        content: url(../img/arrow-dropdown.svg);
+        display: block;
+    }
+    &__item {
+        display: none;
 
+        &.active {
+            display: block;
+        }
+        &.open {
+            display: block;
+        }
+    }
+}
+/*ANCHOR Dropdown end */
 /*ANCHOR Contacts city start */
 .contacts {
 
@@ -2138,6 +2152,29 @@ select {
 
     &-body {
         width: 70%;
+
+        /*ANCHOR Menu category in catalog start */
+        &__menu {
+            .menu__category {
+                
+                &_img {
+                    width: 15px;
+                }
+                & li {
+
+                    & a {
+
+                        height: auto;
+                        width: 180px;
+                        font-weight: var(--font-weight-semibold);
+                        font-size: var(--font-size-14);
+                    }
+                }
+            }
+        }
+        /* Menu category in catalog end */
     }
+
+    
 }
 

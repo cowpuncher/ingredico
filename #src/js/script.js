@@ -6,6 +6,7 @@ var tabs = document.querySelector('.news__tabs'),
     city = document.querySelectorAll('.city'),
     phone = document.querySelectorAll('.phone__number span'),  
     menu = document.querySelectorAll('.menu__category li a'),
+    greyMenu = document.querySelectorAll('.catalog-body__menu .menu__category li a'),
     menuButton = document.querySelector('.menu__dropdown'),
     overlayMenu = document.querySelector('.overlay__menu'),
     menuDropdown = document.querySelector('.menu__category'),
@@ -49,7 +50,6 @@ const activeSlider = (items, slider) => {
 }
 activeSlider(news, newsSlider);
 activeSlider(popularProduct, '.popular__slider');
-
 // --------- Смена цвета картинки свг в меню Области применения
 // Ищем элемент меню
 menu.forEach( link => {
@@ -68,57 +68,61 @@ menu.forEach( link => {
             item.setAttribute('fill', '#ffffff');
             // Изменяем фон пункта меню на изначальный цвет svg
             e.currentTarget.style.backgroundColor = color;
+            e.currentTarget.style.color = '#ffffff';
             // Событие убранной с элемента мыши
             link.addEventListener('mouseleave', function(e) {
                 // Возвращаем изначальный цвет SVG
                 item.setAttribute('fill', color);
                 // Фон делаем прозрачным 
                 e.currentTarget.style.backgroundColor = 'transparent';
+                e.currentTarget.style.color = 'var(--color-1)';
             });
         });
     });
 });
-
-
-
-var greyMenu = document.querySelectorAll('.catalog-body__menu .menu__category li a');
-
+// --------- Смена цвета картинки свг в меню Каталога
 greyMenu.forEach( item => {
-        let color;
-        function getColorSvg() {
-            let image = item.querySelector('.menu__category_img').children[0].contentDocument.querySelectorAll('path');
+    const promiseMenuEl = new Promise( (resolve, reject) => {
+        setTimeout( () => {
+            const image = item.querySelector('.menu__category_img').children[0].contentDocument.querySelectorAll('path');
             image.forEach( fill => {
-                color = fill.getAttribute('fill');
+                const color = fill.getAttribute('fill');
                 fill.setAttribute('fill', '#D2D2D2');
-            })
-          }
-          setTimeout(getColorSvg, 1000);
 
-          item.addEventListener('mouseenter', function(e) {
-            e.preventDefault();
-            // Инициализируем SVG внутри нашего Object
-            let obj = e.currentTarget.children[0].children[0].contentDocument;
-            // Инициализиурем Path внутри SVG
-            let rect = obj.querySelectorAll('path');
-            // Пробегаемся по всем Path внутри выбранного пункта меню
-            rect.forEach( item => {
-                // Инициализируем fill внутри svg
-                let color = item.getAttribute('fill');
-                // Изменяем fill на белый
-                item.setAttribute('fill', color);
-                // Изменяем фон пункта меню на изначальный цвет svg
-                e.currentTarget.style.backgroundColor = color;
-                // Событие убранной с элемента мыши
-                link.addEventListener('mouseleave', function(e) {
-                    // Возвращаем изначальный цвет SVG
-                    item.setAttribute('fill', color);
-                    // Фон делаем прозрачным 
-                    e.currentTarget.style.backgroundColor = 'transparent';
+                resolve(color)
+            })
+        }, 1000)
+    });
+    promiseMenuEl.then( dataColor => {
+        item.addEventListener ( 'mouseenter', function(e) {
+            currentEl = e.currentTarget;
+            let rect = currentEl.children[0].children[0].contentDocument.querySelectorAll('path');
+            rect.forEach( fill => {
+                fill.setAttribute('fill', dataColor);
+                currentEl.style.backgroundColor = ('transparent');
+                currentEl.style.color = dataColor;
+                item.addEventListener('mouseleave', function(e) {
+                    fill.setAttribute('fill', '#D2D2D2');
+                    currentEl.style.color = '#000';
                 });
-            });
+            })
         });
+    }).catch( err => {
+        console.log('Image not loading ... ');
+    } )
 });
 
+var dropdown = document.querySelectorAll('.dropdown');
+
+dropdown.forEach( item => {
+    item.onclick = function(e) {
+        const arrItems = item.children;
+        for(var i = 0; i < arrItems.length; i++) {
+            arrItems[i].classList.toggle('open');
+        }
+    }
+
+} )
 
 // --------- Клик по меню Области применения
 menuButton.addEventListener('click', function() {
