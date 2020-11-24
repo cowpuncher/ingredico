@@ -244,7 +244,9 @@ select {
         }
     }
 }
-
+.tac {
+    text-align: center;
+}
 /*ANCHOR Menu category start */
 .menu__category {
     display: -webkit-box;
@@ -507,25 +509,76 @@ select {
     }
 }
 /* Filters end */
-/*ANCHOR Dropdown start */
-.dropdown {
-    cursor: pointer;
-    &:after {
-        content: url(../img/arrow-dropdown.svg);
-        display: block;
-    }
-    &__item {
-        display: none;
-
-        &.active {
-            display: block;
-        }
-        &.open {
-            display: block;
-        }
-    }
+/*ANCHOR Custom select start */
+.custom-select {
+    position: relative;
+    width: 225px;
+    font-size: var(--font-size-14);
+    color: var(--color-black);
+  }
+.custom-select select {
+    display: none; /*hide original SELECT element: */
 }
-/*ANCHOR Dropdown end */
+
+.select-selected {
+    background-color: transparent;
+    color: #000;
+    border: 1px solid rgba(0,0,0,.2);
+}
+
+/* Style the arrow inside the select element: */
+.select-selected:after {
+    position: absolute;
+    content: url(../img/arrow-dropdown.svg);
+    display: block;
+    top: 14px;
+    right: 10px;
+    -webkit-transform: rotate(180deg);
+       -moz-transform: rotate(180deg);
+        -ms-transform: rotate(180deg);
+         -o-transform: rotate(180deg);
+            transform: rotate(180deg);
+}
+
+/* Point the arrow upwards when the select box is open (active): */
+.select-selected.select-arrow-active:after {
+    
+    
+}
+
+/* style the items (options), including the selected item: */
+.select-items div,.select-selected {
+    color: #000000;
+    padding: 8px 16px;
+    border: 1px solid #000;
+    border-color: rgba(0, 0, 0, 0.1) ;
+    background: #ffffff;
+    cursor: pointer;
+}
+
+/* Style items (options): */
+.select-items {
+    position: absolute;
+    background-color: transparent;
+    top: 100%;
+    left: 0;
+    right: 0;
+    z-index: 99;
+}
+
+/* Hide the items when the select box is closed: */
+.select-hide {
+    display: none;
+}
+
+.select-items div:hover, .same-as-selected {
+    background-color: var(--color-22);
+    color: var(--color-7);
+}
+
+/*-------------------- */
+
+/*ANCHOR Custom select end */
 /*ANCHOR Contacts city start */
 .contacts {
 
@@ -2151,30 +2204,59 @@ select {
 .catalog {
 
     &-body {
-        width: 70%;
+        width: 74.5%;
 
+        &__text {
+            font-size: var(--font-size-18);
+            margin-top: 15px;
+        }
         /*ANCHOR Menu category in catalog start */
         &__menu {
+            display: -webkit-box;
+            display: -webkit-flex;
+            display: -moz-box;
+            display: -ms-flexbox;
+            display: flex;
+            border-bottom: 1px solid #DBDBDB;
+            padding-bottom: 20px;
+        
+
             .menu__category {
                 
                 &_img {
-                    width: 15px;
+                    width: 45px;
                 }
                 & li {
-
+                    width: 160px;
+                    margin-right: 0;
+                    &:nth-child(2), 
+                    &:nth-child(3),
+                    &:nth-child(8), 
+                    &:nth-child(9) {
+                        padding-left: 20px;
+                    }
+                    &:nth-child(-n + 6) {
+                        margin-bottom: 15px;
+                    }
                     & a {
-
                         height: auto;
-                        width: 180px;
+                        width: auto;
                         font-weight: var(--font-weight-semibold);
                         font-size: var(--font-size-14);
+                        padding-left: 0;
                     }
                 }
             }
         }
         /* Menu category in catalog end */
-    }
+    }    
+    &-sort {
 
-    
+        & .custom-select {
+            &:first-child {
+                margin-bottom: 20px;
+            }
+        }
+    }
 }
 

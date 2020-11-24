@@ -41,17 +41,30 @@
 
                             
                             <div class="catalog-sort">
-                                <ul class="dropdown">
-                                    <li class="dropdown__item active">По популярности(возрастание)</li>
-                                    <li class="dropdown__item">По популярности(убывание)</li>
-                                    <li class="dropdown__item">По цене(возрастание)</li>
-                                    <li class="dropdown__item">По цене(убывание)</li>
-                                </ul>
-                                <ul class="dropdown">
-                                    <li class="dropdown__item active">Фасовка(кг)</li>
-                                    <li class="dropdown__item">Фасовка(шт)</li>
-                                </ul>
+                                <div class="custom-select select-sort">
+                                    <select>
+                                        <option value="1">По популярности (возрастание)</option>
+                                        <option value="2">По популярности (уменьшение)</option>
+                                        <option value="3">По цене (возрастание)</option>
+                                        <option value="4">По цене (уменьшению)</option>
+                                      </select>
+                                </div>
+                                <div class="custom-select select-sort">
+                                    <select>
+                                        <option value="1">Фасовка(кг)</option>
+                                        <option value="2">Фасовка(шт)</option>
+                                      </select>
+                                </div>
                             </div>
+                        </div>
+                        <p class="catalog-body__text">
+                            Доставка в другие регионы России (или любой другой текст) <br> осуществляется посредством наших фирм-партнёров. Ориентировочную стоимость доставки Вы можете рассчитать на сайте или задать вопрос нашему технологу.
+                        </p>
+                        <div class="catalog-cards">
+                            @@include('./templates/elements/card-shop.html', {
+                                image_src: '../img/product.png',
+                                title: 'Ксантановая камедь ZIBOXAN F'
+                            })
                         </div>
                     </div>
                 </div>

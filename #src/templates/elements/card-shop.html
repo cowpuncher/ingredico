@@ -1,0 +1,116 @@
+<div class="card">
+    @@include('./flag.html', {
+        name: 'New'
+    })
+    <div class="wrapper">
+        <div class="card-left">
+            <div class="tac">
+                <div class="card__img">
+                    <img src="@@image_src" alt="product">
+                </div>
+                <a href="#"><span>8</span> отзывов</a>
+            </div>
+            <div class="card-about">
+                <div class="card-about__title">
+                    <h3>
+                        @@title
+                    </h3>
+                    <a href="#" class="card-more">Подробнее ></a>
+                </div>
+                <div class="card-about__text">
+                    Ксантановая камедь является микробиологическим полимером. Применяется в качестве вещества, контролирующего вязкость раствора и реологию. Псевдопластичность камеди ксантана почти не зависит от концентрации и градиента сдвига. Вязкость 1200 - 1600 cps
+                </div>
+                <div class="card-about__specification">
+                    <div class="card-about__specification_row">
+                        <div class="card-about__specification_row-name">
+                            <img src="../../img/spec-dosage.svg" alt="icon">
+                            <span>Рекомендуемые дозировки:</span>
+                        </div>
+                        <div class="card-about__specification_row-value">
+                            0,1 - 0,2%
+                        </div>
+                    </div>
+                    <div class="card-about__specification_row">
+                        <div class="card-about__specification_row-name">
+                            <img src="../../img/spec-where.svg" alt="icon">
+                            <span>Наличие:</span>
+                        </div>
+                        <div class="card-about__specification_row-value">
+                            @@include('./city.html');
+                            <p>125.00 кг (1225.00 кг через 2 дн. после оплаты)</p>
+                        </div>
+                    </div>
+                    <div class="card-about__specification_row">
+                        <div class="card-about__specification_row-name">
+                            <img src="../../img/spec-bag.svg" alt="icon">
+                            <span>Упаковка:</span>
+                        </div>
+                        <div class="card-about__specification_row-value">
+                            25 кг
+                        </div>
+                    </div>
+                    <div class="card-specification_row">
+                        <div class="card-specification_row-name">
+                            <img src="../../img/spec-deliv.svg" alt="icon">
+                            <span>Условия отгрузки:</span>
+                        </div>
+                        <div class="card-specification_row-value">
+                            Возможна доставка и самовывоз
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="card-right">
+            <div class="card-specification_row-name">
+                <span>Цены с НДС:</span>
+            </div>
+            <div class="card-specification_row">
+                <span class="card-specification_column">
+                    от 25 кг до 125 кг
+                </span>
+                <span class="card-specification_column">
+                    163,59 руб./кг
+                </span>
+            </div>
+            <div class="card-specification_row">
+                <span class="card-specification_column">
+                    от 150 кг до 300 кг
+                </span>
+                <span class="card-specification_column">
+                    161,59 руб./кг
+                </span>
+            </div>
+            <div class="card-specification_row">
+                <span class="card-specification_column">
+                    от 325 кг до 500 кг
+                </span>
+                <span class="card-specification_column">
+                    158,59 руб./кг
+                </span>
+            </div>
+            <div class="card-specification_row-name">
+                <span>Добавить в корзину:</span>
+            </div>
+            <div class="card-add-quantity">
+                <div class="count"></div>
+                <div class="packing"></div>
+            </div>
+            <div class="custom-select quantity-to-cart">
+                <select>
+                    <option value="0">Выберите количество</option>
+                    <option value="1">
+                        25 кг - 163,59 руб./кг
+                    </option>
+                    <option value="2">50 кг - 161,59 руб./кг</option>
+                    <option value="3">100кг - 158,59 руб./кг</option>
+                    <option value="4">150кг - 153,59 руб./кг</option>
+                </select>
+            </div>
+            @@include('./btn-popup.html', {
+                name: ' Задать вопрос технологу',
+                class: '1'
+            })
+        </div>
+    </div>
+</div>

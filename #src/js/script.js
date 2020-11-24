@@ -16,6 +16,7 @@ var tabs = document.querySelector('.news__tabs'),
     filterDropdown = document.querySelectorAll('.dropdown .small-title'),
     previewText = document.querySelectorAll('.news__preview_text');
 
+//--------------------------------------------------------------------------
 //--------------------- Функции начало  ----------------------------
 // --------- Обрезать текст 
 const textSlice = (node, number) => {
@@ -25,10 +26,12 @@ const textSlice = (node, number) => {
         } 
     })
 }
+//--------------------------------------------------------------------------
 // --------- Toggle для класса active
 const classToggle = (element) => {
     element.classList.toggle('active');
 }
+//--------------------------------------------------------------------------
 // --------- Выбор телефона по городу
 for(let item of city) {
     item.addEventListener('change', () => {
@@ -37,6 +40,7 @@ for(let item of city) {
         }
     });
 }
+//--------------------------------------------------------------------------
 //------------ Функции конец  ----------------------------
 // --------- Подключение слайдеров
 const activeSlider = (items, slider) => {
@@ -50,6 +54,7 @@ const activeSlider = (items, slider) => {
 }
 activeSlider(news, newsSlider);
 activeSlider(popularProduct, '.popular__slider');
+//--------------------------------------------------------------------------
 // --------- Смена цвета картинки свг в меню Области применения
 // Ищем элемент меню
 menu.forEach( link => {
@@ -80,6 +85,7 @@ menu.forEach( link => {
         });
     });
 });
+//--------------------------------------------------------------------------
 // --------- Смена цвета картинки свг в меню Каталога
 greyMenu.forEach( item => {
     const promiseMenuEl = new Promise( (resolve, reject) => {
@@ -88,7 +94,6 @@ greyMenu.forEach( item => {
             image.forEach( fill => {
                 const color = fill.getAttribute('fill');
                 fill.setAttribute('fill', '#D2D2D2');
-
                 resolve(color)
             })
         }, 1000)
@@ -111,26 +116,111 @@ greyMenu.forEach( item => {
         console.log('Image not loading ... ');
     } )
 });
-
-var dropdown = document.querySelectorAll('.dropdown');
-
-dropdown.forEach( item => {
-    item.onclick = function(e) {
-        const arrItems = item.children;
-        for(var i = 0; i < arrItems.length; i++) {
-            arrItems[i].classList.toggle('open');
-        }
+//--------------------------------------------------------------------------
+// --------- Кастомовые селекты на странице
+/* Look for any elements with the class "custom-select": */
+const customSelect = (select, count) => {
+    x = document.getElementsByClassName(select);
+    l = x.length;
+    for (i = 0; i < l; i++) {
+    selElmnt = x[i].getElementsByTagName("select")[0];
+    ll = selElmnt.length;
+    /* For each element, create a new DIV that will act as the selected item: */
+    a = document.createElement("DIV");
+    a.setAttribute("class", "select-selected");
+    a.innerHTML = selElmnt.options[selElmnt.selectedIndex].innerHTML;
+    x[i].appendChild(a);
+    /* For each element, create a new DIV that will contain the option list: */
+    b = document.createElement("DIV");
+    b.setAttribute("class", "select-items select-hide");
+    for (j = count; j < ll; j++) {
+        /* For each option in the original select element,
+        create a new DIV that will act as an option item: */
+        c = document.createElement("DIV");
+        c.innerHTML = selElmnt.options[j].innerHTML;
+        c.addEventListener("click", function(e) {
+            /* When an item is clicked, update the original select box,
+            and the selected item: */
+            var y, i, k, s, h, sl, yl;
+            s = this.parentNode.parentNode.getElementsByTagName("select")[0];
+            sl = s.length;
+            h = this.parentNode.previousSibling;
+            for (i = 0; i < sl; i++) {
+            if (s.options[i].innerHTML == this.innerHTML) {
+                s.selectedIndex = i;
+                h.innerHTML = this.innerHTML;
+                y = this.parentNode.getElementsByClassName("same-as-selected");
+                yl = y.length;
+                for (k = 0; k < yl; k++) {
+                y[k].removeAttribute("class");
+                }
+                this.setAttribute("class", "same-as-selected");
+                break;
+            }
+            }
+            h.click();
+        });
+        b.appendChild(c);
+    }
+    x[i].appendChild(b);
+    a.addEventListener("click", function(e) {
+        /* When the select box is clicked, close any other select boxes,
+        and open/close the current select box: */
+        e.stopPropagation();
+        closeAllSelect(this);
+        this.nextSibling.classList.toggle("select-hide");
+        this.classList.toggle("select-arrow-active");
+    });
     }
 
-} )
-
+    function closeAllSelect(elmnt) {
+    /* A function that will close all select boxes in the document,
+    except the current select box: */
+    var x, y, i, xl, yl, arrNo = [];
+    x = document.getElementsByClassName("select-items");
+    y = document.getElementsByClassName("select-selected");
+    xl = x.length;
+    yl = y.length;
+    for (i = 0; i < yl; i++) {
+        if (elmnt == y[i]) {
+        arrNo.push(i)
+        } else {
+        y[i].classList.remove("select-arrow-active");
+        }
+    }
+    for (i = 0; i < xl; i++) {
+        if (arrNo.indexOf(i)) {
+        x[i].classList.add("select-hide");
+        }
+    }
+    }
+    /* If the user clicks anywhere outside the select box,
+    then close all select boxes: */
+    document.addEventListener("click", closeAllSelect);
+}
+customSelect("select-sort", 0);
+customSelect("quantity-to-cart", 1);
+// Количество в карточки товара
+var selItems = document.getElementsByClassName('select-items');
+console.log( selItems);
+for(let item of selItems) {
+   item.onclick = function(e) {
+        console.log(e.target.innerHTML);
+    }
+}
+// for(var i= 0; i < selItems.length; i++) {
+//     selItems[i].onclick = function(e) {
+//         console.log(e.target.innerHTML);
+//     }
+// }
+//--------------------------------------------------------------------------
 // --------- Клик по меню Области применения
 menuButton.addEventListener('click', function() {
     classToggle(menuButton);
     classToggle(overlayMenu);
     classToggle(menuDropdown);
 });
-
+//--------------------------------------------------------------------------
 // --------- Табы в превью новостей
 if(window.location.pathname == '/') {
     tabs.addEventListener('click' , e => {
@@ -149,8 +239,10 @@ if(window.location.pathname == '/') {
         })
     })
 }
+//--------------------------------------------------------------------------
 // --------- Обрезать строку в превью если больше 140 символов
 textSlice(previewText, 130);
+//--------------------------------------------------------------------------
 // --------- Фиксированная шапка   
 const fixedMenu = () => {
     if(pageYOffset + 100 > fixedBlock.offsetHeight ) {
@@ -166,14 +258,15 @@ const fixedMenu = () => {
 fixedMenu();
 window.addEventListener('scroll', function() {
     fixedMenu();
-})
-
+});
+//--------------------------------------------------------------------------
 // --------- Выпадающее меню в фильтрах
 filterDropdown.forEach( item => {
     item.addEventListener('click', el => {
         el.currentTarget.classList.toggle('active');
     })
 })
+//--------------------------------------------------------------------------
 // --------- Range для цены на сайте
 // Иничиализация трэка и бегунков
 var rangeRail = document.querySelector('.price__range_rail'),
@@ -240,7 +333,7 @@ const activeButton = (el, handle, input, secondInput ) => {
 // Инициализация функций нажатия бегунков
 activeButton(rangeHandleLeft, rangeHandleLeft, inputMin, inputMax);
 activeButton(rangeHandleRight, rangeHandleRight, inputMax, inputMin);
-
+//--------------------------------------------------------------------------
 
 
 
