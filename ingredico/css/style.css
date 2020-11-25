@@ -591,6 +591,14 @@ select {
 
 /*ANCHOR Custom select end */
 
+.btn-to-cart {
+  display: none;
+}
+
+.btn-to-cart.active {
+  display: block;
+}
+
 /*ANCHOR Contacts city start */
 
 .contacts__top {

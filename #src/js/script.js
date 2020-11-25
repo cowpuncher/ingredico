@@ -85,8 +85,7 @@ menu.forEach( link => {
         });
     });
 });
-//--------------------------------------------------------------------------
-// --------- Смена цвета картинки свг в меню Каталога
+// Смена цвета картинки свг в меню Каталога
 greyMenu.forEach( item => {
     const promiseMenuEl = new Promise( (resolve, reject) => {
         setTimeout( () => {
@@ -200,19 +199,22 @@ const customSelect = (select, count) => {
 }
 customSelect("select-sort", 0);
 customSelect("quantity-to-cart", 1);
-// Количество в карточки товара
-var selItems = document.getElementsByClassName('select-items');
-console.log( selItems);
+// ---------- Количество в карточки товара
+var selItems = document.querySelectorAll('.catalog-cards  .select-items');
 for(let item of selItems) {
-   item.onclick = function(e) {
-        console.log(e.target.innerHTML);
+    item.onclick = function(e) {
+        let quantity = e.target.parentNode.parentNode;
+        let div = quantity.previousElementSibling.children;
+        let myEl = e.target.innerHTML;
+        let arrI = myEl.split(' - ');
+        for(var i = 0; i < arrI.length; i++) {
+            div[i].innerHTML = arrI[i];
+        }
+        quantity.nextElementSibling.value = arrI[0];
+        quantity.setAttribute('style', 'display: none;');
+        quantity.nextElementSibling.classList.add('active');
     }
 }
-// for(var i= 0; i < selItems.length; i++) {
-//     selItems[i].onclick = function(e) {
-//         console.log(e.target.innerHTML);
-//     }
-// }
 //--------------------------------------------------------------------------
 // --------- Клик по меню Области применения
 menuButton.addEventListener('click', function() {
@@ -268,23 +270,24 @@ filterDropdown.forEach( item => {
 })
 //--------------------------------------------------------------------------
 // --------- Range для цены на сайте
-// Иничиализация трэка и бегунков
-var rangeRail = document.querySelector('.price__range_rail'),
+if(window.location.pathname == '/catalog.html') {
+    // Иничиализация трэка и бегунков
+    var rangeRail = document.querySelector('.price__range_rail'),
     rangeTrack = document.querySelector('.price__range_track'),
     rangeHandleLeft = document.querySelector('.price__range_handle-1'),
     rangeHandleRight = document.querySelector('.price__range_handle-2');
-// Иничиализация инпутов
-var inputMin = document.querySelector('.price__input_min'),
+    // Иничиализация инпутов
+    var inputMin = document.querySelector('.price__input_min'),
     inputMax = document.querySelector('.price__input_max'),
     valueMax = inputMax.getAttribute('aria-valuemax');
-// Стартовые положение для бегунков и их значений
+    // Стартовые положение для бегунков и их значений
     rangeHandleLeft.setAttribute('style', 'left: ' + ((inputMin.value / valueMax*100))  + '%;' );
     rangeHandleRight.setAttribute('style', 'left: ' + ((inputMax.value / valueMax*100)) + '%;' );
 
     rangeHandleLeft.setAttribute('aria-valuenow',  inputMin.value );
     rangeHandleRight.setAttribute('aria-valuenow', inputMax.value );
-// Функция активации бегунков
-const activeButton = (el, handle, input, secondInput ) => { 
+    // Функция активации бегунков
+    const activeButton = (el, handle, input, secondInput ) => { 
     // Прослушка нажатия на бегунок
     el.onmousedown = function (el) { 
         // Переменная в которой лежит нажатая кнопка
@@ -333,9 +336,9 @@ const activeButton = (el, handle, input, secondInput ) => {
 // Инициализация функций нажатия бегунков
 activeButton(rangeHandleLeft, rangeHandleLeft, inputMin, inputMax);
 activeButton(rangeHandleRight, rangeHandleRight, inputMax, inputMin);
+}
+
 //--------------------------------------------------------------------------
-
-
 
 // Колонки сайдбара
 // var sidebar = document.querySelectorAll('.sidebar__submenu');

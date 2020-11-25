@@ -542,8 +542,7 @@ select {
 
 /* Point the arrow upwards when the select box is open (active): */
 .select-selected.select-arrow-active:after {
-    
-    
+     
 }
 
 /* style the items (options), including the selected item: */
@@ -575,10 +574,19 @@ select {
     background-color: var(--color-22);
     color: var(--color-7);
 }
-
 /*-------------------- */
-
 /*ANCHOR Custom select end */
+
+
+.btn-to-cart {
+    display: none;
+
+    &.active {
+        display: block;
+    }
+
+}
+
 /*ANCHOR Contacts city start */
 .contacts {
 
