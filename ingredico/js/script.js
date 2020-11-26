@@ -251,10 +251,10 @@ const fixedMenu = () => {
         topPanel.classList.add('active');
         topPanel.setAttribute('style', 'transform: translate(0px, 0px);' );
     } else if(pageYOffset < 200) {
-        topPanel.setAttribute('style', 'transform: translate(0px, 0px);' );
+        topPanel.removeAttribute('style', 'transform: translate(0px, 0px);' );
     } else if(pageYOffset + 100 < fixedBlock.offsetHeight) {
         topPanel.classList.remove('active');
-        topPanel.setAttribute('style', 'transform: translate(0px, -200px); transition: all .3s linear;' );
+        topPanel.setAttribute('style', 'transform: translate(0px, -200px);' );
     }
 }
 fixedMenu();
