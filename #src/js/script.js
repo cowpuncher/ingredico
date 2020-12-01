@@ -211,6 +211,7 @@ for(let item of selItems) {
             div[i].innerHTML = arrI[i];
         }
         quantity.nextElementSibling.value = arrI[0];
+        
         quantity.setAttribute('style', 'display: none;');
         quantity.nextElementSibling.classList.add('active');
     }

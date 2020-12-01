@@ -15,37 +15,41 @@
                     <h3>
                         @@title
                     </h3>
-                    <a href="#" class="card-more">Подробнее ></a>
+                    <a href="#" class="card-more">Подробнее 
+                        <svg width="4" height="7" viewBox="0 0 4 7" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M1.06897 1L3 3.45614L1 6" stroke="#FFA11B"/>
+                        </svg>
+                    </a>
                 </div>
                 <div class="card-about__text">
                     Ксантановая камедь является микробиологическим полимером. Применяется в качестве вещества, контролирующего вязкость раствора и реологию. Псевдопластичность камеди ксантана почти не зависит от концентрации и градиента сдвига. Вязкость 1200 - 1600 cps
                 </div>
                 <div class="card-about__specification">
-                    <div class="card-about__specification_row">
-                        <div class="card-about__specification_row-name">
+                    <div class="card-specification_row">
+                        <div class="card-specification_row-name">
                             <img src="../../img/spec-dosage.svg" alt="icon">
-                            <span>Рекомендуемые дозировки:</span>
+                            <span>Рекомендуемые <br> дозировки:</span>
                         </div>
-                        <div class="card-about__specification_row-value">
+                        <div class="card-specification_row-value">
                             0,1 - 0,2%
                         </div>
                     </div>
-                    <div class="card-about__specification_row">
-                        <div class="card-about__specification_row-name">
+                    <div class="card-specification_row">
+                        <div class="card-specification_row-name">
                             <img src="../../img/spec-where.svg" alt="icon">
                             <span>Наличие:</span>
                         </div>
-                        <div class="card-about__specification_row-value">
-                            @@include('./city.html');
+                        <div class="card-specification_row-value">
+                            @@include('./city.html')
                             <p>125.00 кг (1225.00 кг через 2 дн. после оплаты)</p>
                         </div>
                     </div>
-                    <div class="card-about__specification_row">
-                        <div class="card-about__specification_row-name">
+                    <div class="card-specification_row">
+                        <div class="card-specification_row-name">
                             <img src="../../img/spec-bag.svg" alt="icon">
                             <span>Упаковка:</span>
                         </div>
-                        <div class="card-about__specification_row-value">
+                        <div class="card-specification_row-value">
                             25 кг
                         </div>
                     </div>
@@ -99,13 +103,13 @@
             <div class="custom-select quantity-to-cart">
                 <select>
                     <option>Выберите количество</option>
-                    <option>25 кг- 163,59 руб./кг</option>
+                    <option>25 кг - 163,59 руб./кг</option>
                     <option>50 кг - 161,59 руб./кг</option>
-                    <option>100кг - 158,59 руб./кг</option>
-                    <option>150кг - 153,59 руб./кг</option>
+                    <option>100 кг - 158,59 руб./кг</option>
+                    <option>150 кг - 153,59 руб./кг</option>
                 </select>
             </div>
-            <button class="btn-to-cart" value="">Перейти в корзину</button>
+            <button class="btn btn-to-cart" value="">Перейти в корзину</button>
             @@include('./btn-popup.html', {
                 name: ' Задать вопрос технологу',
                 class: '1'
