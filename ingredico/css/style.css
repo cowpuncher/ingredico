@@ -257,6 +257,7 @@ h3 {
 .header {
   position: relative;
   z-index: 9999999;
+  height: 143px;
 }
 
 .overlay__menu {
@@ -870,10 +871,6 @@ select {
 
 .section_title {
   margin-bottom: 70px;
-}
-
-main {
-  padding-top: 143px;
 }
 
 .popular-section {

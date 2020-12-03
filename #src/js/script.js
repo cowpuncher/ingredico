@@ -1,7 +1,7 @@
 // --------------------- Переменные
 var tabs = document.querySelector('.news__tabs'),
     topPanel = document.querySelector('.top-panel'),
-    fixedBlock = document.querySelector('.fixed__menu_box'),
+    р = document.querySelector('.fixed__menu_box'),
     news = document.querySelectorAll('.news__preview_item'),
     city = document.querySelectorAll('.city'),
     phone = document.querySelectorAll('.phone__number span'),  
@@ -253,17 +253,14 @@ textSlice(previewText, 130);
 //--------------------------------------------------------------------------
 // --------- Фиксированная шапка   
 const fixedMenu = () => {
-   if(fixedBlock !== null) {
-        if(pageYOffset + 100 > fixedBlock.offsetHeight ) {
+        let header = document.querySelector('header'); 
+        if(pageYOffset > header.offsetHeight) {
             topPanel.classList.add('active');
-            topPanel.setAttribute('style', 'transform: translate(0px, 0px);' );
-        } else if(pageYOffset < 200) {
-            topPanel.removeAttribute('style', 'transform: translate(0px, 0px);' );
-        } else if(pageYOffset + 100 < fixedBlock.offsetHeight) {
+            topPanel.setAttribute('style', 'transform: translate(0px, 0px);' );           
+        } else if(pageYOffset < header.offsetHeight) {
             topPanel.classList.remove('active');
-            topPanel.setAttribute('style', 'transform: translate(0px, -200px);' );
+            topPanel.removeAttribute('style', 'transform: translate(0px, 0px);' );
         }
-   }
 }
 fixedMenu();
 window.addEventListener('scroll', function() {
