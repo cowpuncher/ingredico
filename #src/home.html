@@ -1,0 +1,179 @@
+@@include('templates/head.html',{
+    "title":"Главная"
+    })
+<body class="bg-main">
+    <!-- ANCHOR Header -->
+    @@include('templates/header.html')
+    <!-- ANCHOR Header -->
+
+
+    <!-- ANCHOR Main -->
+    <main class="page main-page">
+        <section class="fixed__menu_box">
+            <div class="container">
+                <div class="wrapper">
+                    <!-- ANCHOR Sidebar -->
+                    @@include('templates/sidebar.html')
+                    <!-- ANCHOR Sidebar -->
+                    <!-- ANCHOR Banner -->
+                    @@include('templates/slider.html')
+                    <!-- ANCHOR Banner -->
+                </div>
+                <!-- ANCHOR Privelege -->
+                @@include('templates/privelege.html')
+                <!-- ANCHOR Privelege -->
+            </div>
+        </section>
+        <section class="popular-section product-bg bg-white section">
+            <div class="container">
+                @@include('templates/elements/section-title.html', {
+                    name: 'Популярные товары'
+                })
+                @@include('templates/popular.html')
+            </div>
+        </section>
+        <section class="category-section section">
+            <div class="container">
+                @@include('templates/elements/section-title.html', {
+                    name: 'Области применения'
+                })
+                @@include('templates/category.html', {
+                    images1: 'img/1.svg',
+                    images2: 'img/2.svg',
+                    images3: 'img/3.svg',
+                    images4: 'img/4.svg',
+                    images5: 'img/5.svg',
+                    images6: 'img/6.svg',
+                    images7: 'img/7.svg',
+                    images8: 'img/8.svg',
+                    images9: 'img/9.svg',
+                    images10: 'img/10.svg',
+                    images11: 'img/11.svg',
+                    images12: 'img/12.svg',
+                    })
+            </div>
+        </section>
+        <section class="banner-section">
+            <div class="container">
+                <div class="banner">
+                    <div class="banner__total">
+                        <img class="banner__total_img" src="./img/muffin-sales.png" alt="maffin">
+                        <img class="banner__total_img" src="./img/donut.png" alt="donut">
+                    </div>
+                    <div class="banner__content">
+                        <h3 class="banner__content-title">
+                            Скидка на <br> eXact®TvorogPlus 1&2
+                        </h3>
+                        <p class="banner__content-text">
+                            Что это за инструмент и как с его помощью интерпретировать информацию и находить слабые места в отчётах. Рассказывает Антон Рыбин.
+                        </p>
+                        @@include('templates/elements/button.html', {
+                            name: 'Подробнее'
+                        })
+                    </div>
+                    <img class="banner__img" src="./img/candy.png" alt="candy">
+                </div>
+            </div>
+        </section>
+        <section class="news-section section">
+            <div class="container">
+                <div class="news">
+                    <h2 class="section_title">
+                        Новости и акции
+                    </h2>
+                    <div class="news__tabs">
+                        <span class="news__tabs-item active" data-preview="all">
+                            Все
+                        </span>
+                        <span class="news__tabs-item" data-preview="news">
+                            Новости
+                        </span>
+                        <span class="news__tabs-item" data-preview="shares">
+                            Акции
+                        </span>
+                    </div>
+                    <div class="news__slider news__preview">
+                        @@include('templates/news/news-preview.html', {
+                            data: 'news',
+                            flag: 'Новости',
+                            image: './img/news-1.jpg',
+                            title: 'Разрешите нам создать лучший сайт в вашей нише',
+                            date: '18 окт 2019',
+                            text: 'Что это за инструмент и как с его помощью интерпретировать информацию и находить слабые места в отчётах. Рассказывает Антон Рыбин.'
+                        })
+                        @@include('templates/news/news-preview.html', {
+                            data: 'news',
+                            flag: 'Новости',
+                            image: './img/news-2.jpg',
+                            title: 'Разрешите нам создать лучший сайт в вашей нише',
+                            date: '18 окт 2019',
+                            text: 'Что это за инструмент и как с его помощью интерпретировать информацию и находить слабые места в отчётах. Рассказывает Антон Рыбин.'
+                        })
+                        @@include('templates/news/news-preview.html', {
+                            data: 'shares',
+                            flag: 'Акции',
+                            image: './img/news-3.jpg',
+                            title: 'Акция на MilkSafeТМ 4BTSC для оптовых покупателей',
+                            date: '18 окт 2019',
+                            text: 'Что это за инструмент и как с его помощью интерпретировать информацию и находить слабые места в отчётах. Рассказывает Антон Рыбин.'
+                        })
+                        @@include('templates/news/news-preview.html', {
+                            data: 'news',
+                            flag: 'Новости',
+                            image: './img/news-2.jpg',
+                            title: 'Разрешите нам создать лучший сайт в вашей нише',
+                            date: '18 окт 2019',
+                            text: 'Что это за инструмент и как с его помощью интерпретировать информацию и находить слабые места в отчётах. Рассказывает Антон Рыбин.'
+                        })
+                        
+                        @@include('templates/news/news-preview.html', {
+                            data: 'news',
+                            flag: 'Новости',
+                            image: './img/news-2.jpg',
+                            title: 'Разрешите нам создать лучший сайт в вашей нише',
+                            date: '18 окт 2019',
+                            text: 'Что это за инструмент и как с его помощью интерпретировать информацию и находить слабые места в отчётах. Рассказывает Антон Рыбин.'
+                        })
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section class="subscribe-section">
+            <div class="container">
+                <div class="subscribe">
+                    <h3 class="subscribe__title">
+                        Будьте в курсе наших новостей!
+                    </h3>
+                    <p class="subscribe__text">
+                        Подпишитесь на нашу рассылку и экономьте - узнавайте первым информацию о скидках и акциях!
+                    </p>
+                    <form action="/" class="subscribe__form">
+                        <div class="subscribe__form_block">
+                            <label for="input" class="subscribe__form_label">
+                                <img src="./img/mail-grey.svg" alt="">
+                                <input type="email" class="subscribe__form_input" placeholder="Адрес электонной почты">
+                            </label>
+                            <button class="subscribe__form_btn btn">Подписаться</button>
+                        </div>
+                        <div class="subscribe__form_desc">
+                            <div for="checkbox" class="subscribe__form-checkbox">
+                                <input type="checkbox" name="checkbox" id="checkbox">
+                                <label for="checkbox"></label>
+                            </div>
+                            <p>
+                                Нажимая подписаться, вы даете согласие на обработку персональных данных и соглашаетесь с условиями подписки
+                            </p>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </section>
+    </main>
+    <!-- ANCHOR Main -->
+
+    <!-- ANCHOR Footer -->
+    @@include('templates/footer.html')
+    <!-- ANCHOR Footer -->
+    @@include('./templates/scripts.html')
+</body>
+</html>

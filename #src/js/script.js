@@ -57,64 +57,67 @@ activeSlider(popularProduct, '.popular__slider');
 //--------------------------------------------------------------------------
 // --------- Смена цвета картинки свг в меню Области применения
 // Ищем элемент меню
-menu.forEach( link => {
-    // Событие наведения на конкретный элемент 
-    link.addEventListener('mouseenter', function(e) {
-        e.preventDefault();
-        // Инициализируем SVG внутри нашего Object
-        let obj = e.currentTarget.children[0].children[0].contentDocument;
-        // Инициализиурем Path внутри SVG
-        let rect = obj.querySelectorAll('path');
-        // Пробегаемся по всем Path внутри выбранного пункта меню
-        rect.forEach( item => {
-            // Инициализируем fill внутри svg
-            let color = item.getAttribute('fill');
-            // Изменяем fill на белый
-            item.setAttribute('fill', '#ffffff');
-            // Изменяем фон пункта меню на изначальный цвет svg
-            e.currentTarget.style.backgroundColor = color;
-            e.currentTarget.style.color = '#ffffff';
-            // Событие убранной с элемента мыши
-            link.addEventListener('mouseleave', function(e) {
-                // Возвращаем изначальный цвет SVG
-                item.setAttribute('fill', color);
-                // Фон делаем прозрачным 
-                e.currentTarget.style.backgroundColor = 'transparent';
-                e.currentTarget.style.color = 'var(--color-1)';
+window.onload = () => {
+    menu.forEach( link => {
+        // Событие наведения на конкретный элемент 
+        link.addEventListener('mouseenter', function(e) {
+            e.preventDefault();
+            // Инициализируем SVG внутри нашего Object
+            let obj = e.currentTarget.children[0].children[0].contentDocument;
+            // Инициализиурем Path внутри SVG
+            console.log(e.currentTarget.children[0].children[0]);
+            let rect = obj.querySelectorAll('path');
+            // Пробегаемся по всем Path внутри выбранного пункта меню
+            rect.forEach( item => {
+                // Инициализируем fill внутри svg
+                let color = item.getAttribute('fill');
+                // Изменяем fill на белый
+                item.setAttribute('fill', '#ffffff');
+                // Изменяем фон пункта меню на изначальный цвет svg
+                e.currentTarget.style.backgroundColor = color;
+                e.currentTarget.style.color = '#ffffff';
+                // Событие убранной с элемента мыши
+                link.addEventListener('mouseleave', function(e) {
+                    // Возвращаем изначальный цвет SVG
+                    item.setAttribute('fill', color);
+                    // Фон делаем прозрачным 
+                    e.currentTarget.style.backgroundColor = 'transparent';
+                    e.currentTarget.style.color = 'var(--color-1)';
+                });
             });
         });
     });
-});
-// Смена цвета картинки свг в меню Каталога
-greyMenu.forEach( item => {
-    const promiseMenuEl = new Promise( (resolve, reject) => {
-        setTimeout( () => {
-            const image = item.querySelector('.menu__category_img').children[0].contentDocument.querySelectorAll('path');
-            image.forEach( fill => {
-                const color = fill.getAttribute('fill');
-                fill.setAttribute('fill', '#D2D2D2');
-                resolve(color)
-            })
-        }, 1000)
-    });
-    promiseMenuEl.then( dataColor => {
-        item.addEventListener ( 'mouseenter', function(e) {
-            currentEl = e.currentTarget;
-            let rect = currentEl.children[0].children[0].contentDocument.querySelectorAll('path');
-            rect.forEach( fill => {
-                fill.setAttribute('fill', dataColor);
-                currentEl.style.backgroundColor = ('transparent');
-                currentEl.style.color = dataColor;
-                item.addEventListener('mouseleave', function(e) {
+    // Смена цвета картинки свг в меню Каталога
+    greyMenu.forEach( item => {
+        const promiseMenuEl = new Promise( (resolve, reject) => {
+            setTimeout( () => {
+                const image = item.querySelector('.menu__category_img').children[0].contentDocument.querySelectorAll('path');
+                image.forEach( fill => {
+                    const color = fill.getAttribute('fill');
                     fill.setAttribute('fill', '#D2D2D2');
-                    currentEl.style.color = '#000';
-                });
-            })
+                    resolve(color)
+                })
+            }, 5000)
         });
-    }).catch( err => {
-        console.log('Image not loading ... ');
-    } )
-});
+        promiseMenuEl.then( dataColor => {
+            item.addEventListener ( 'mouseenter', function(e) {
+                currentEl = e.currentTarget;
+                let rect = currentEl.children[0].children[0].contentDocument.querySelectorAll('path');
+                rect.forEach( fill => {
+                    fill.setAttribute('fill', dataColor);
+                    currentEl.style.backgroundColor = ('transparent');
+                    currentEl.style.color = dataColor;
+                    item.addEventListener('mouseleave', function(e) {
+                        fill.setAttribute('fill', '#D2D2D2');
+                        currentEl.style.color = '#000';
+                    });
+                })
+            });
+        }).catch( err => {
+            console.log('Image not loading ... ');
+        } )
+    });
+}
 //--------------------------------------------------------------------------
 // --------- Кастомовые селекты на странице
 /* Look for any elements with the class "custom-select": */
@@ -199,7 +202,7 @@ const customSelect = (select, count) => {
 }
 customSelect("select-sort", 0);
 customSelect("quantity-to-cart", 1);
-// ---------- Количество в карточки товара
+// ---------- Количество добавленное в корзину в карточке товара
 var selItems = document.querySelectorAll('.catalog-cards  .select-items');
 for(let item of selItems) {
     item.onclick = function(e) {
@@ -225,9 +228,11 @@ menuButton.addEventListener('click', function() {
 });
 //--------------------------------------------------------------------------
 // --------- Табы в превью новостей
-if(window.location.pathname == '/') {
+if(tabs !== null) {
     tabs.addEventListener('click' , e => {
+        $(newsSlider)[0].slick.refresh()
         let currentData = e.target.dataset.preview;
+        console.log(currentData);
         for(let i = 0; i < tabs.children.length; i++) {
             tabs.children[i].classList.remove('active');
             e.target.classList.add('active');
@@ -248,15 +253,17 @@ textSlice(previewText, 130);
 //--------------------------------------------------------------------------
 // --------- Фиксированная шапка   
 const fixedMenu = () => {
-    if(pageYOffset + 100 > fixedBlock.offsetHeight ) {
-        topPanel.classList.add('active');
-        topPanel.setAttribute('style', 'transform: translate(0px, 0px);' );
-    } else if(pageYOffset < 200) {
-        topPanel.removeAttribute('style', 'transform: translate(0px, 0px);' );
-    } else if(pageYOffset + 100 < fixedBlock.offsetHeight) {
-        topPanel.classList.remove('active');
-        topPanel.setAttribute('style', 'transform: translate(0px, -200px);' );
-    }
+   if(fixedBlock !== null) {
+        if(pageYOffset + 100 > fixedBlock.offsetHeight ) {
+            topPanel.classList.add('active');
+            topPanel.setAttribute('style', 'transform: translate(0px, 0px);' );
+        } else if(pageYOffset < 200) {
+            topPanel.removeAttribute('style', 'transform: translate(0px, 0px);' );
+        } else if(pageYOffset + 100 < fixedBlock.offsetHeight) {
+            topPanel.classList.remove('active');
+            topPanel.setAttribute('style', 'transform: translate(0px, -200px);' );
+        }
+   }
 }
 fixedMenu();
 window.addEventListener('scroll', function() {
@@ -271,13 +278,13 @@ filterDropdown.forEach( item => {
 })
 //--------------------------------------------------------------------------
 // --------- Range для цены на сайте
-if(window.location.pathname == '/catalog.html') {
-    // Иничиализация трэка и бегунков
+if(document.querySelector('.price__slider') !== null) {
+    // Инициализация трэка и бегунков
     var rangeRail = document.querySelector('.price__range_rail'),
     rangeTrack = document.querySelector('.price__range_track'),
     rangeHandleLeft = document.querySelector('.price__range_handle-1'),
     rangeHandleRight = document.querySelector('.price__range_handle-2');
-    // Иничиализация инпутов
+    // Инициализация инпутов
     var inputMin = document.querySelector('.price__input_min'),
     inputMax = document.querySelector('.price__input_max'),
     valueMax = inputMax.getAttribute('aria-valuemax');
@@ -315,13 +322,13 @@ if(window.location.pathname == '/catalog.html') {
             let value = handle.getAttribute("aria-valuenow");
             // Запись значения в input
             input.setAttribute ('value', Math.floor(( inputMax.getAttribute("aria-valuemax") / 100) * value ));
+           
             if(secondInput == inputMax) {
                 if(value > (secondInput.value / valueMax * 100) - 8) {  
                     button.style.left = ((secondInput.value / valueMax * 100) - 8) + '%';
                     input.setAttribute('value', secondInput.value);
                 } 
             } else if(secondInput == inputMin) {
-                console.log('1');
                 if(value < (secondInput.value / valueMax * 100) + 8) {
                     button.style.left = ((secondInput.value / valueMax * 100) + 8) + '%';
                     input.setAttribute('value', secondInput.value);
@@ -338,7 +345,6 @@ if(window.location.pathname == '/catalog.html') {
 activeButton(rangeHandleLeft, rangeHandleLeft, inputMin, inputMax);
 activeButton(rangeHandleRight, rangeHandleRight, inputMax, inputMin);
 }
-
 //--------------------------------------------------------------------------
 
 // Колонки сайдбара

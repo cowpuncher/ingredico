@@ -76,6 +76,14 @@ body {
     position: relative;
 }
 
+a, abbr, acronym, address, applet, big, blockquote, body, caption, cite, code, dd, del, dfn, div, dl, dt, em, fieldset, form, h1, h2, h3, h4, h5, h6, html, iframe, img, ins, kbd, label, legend, li, object, ol, p, pre, q, s, samp, small, span, strike, strong, sub, sup, table, tbody, td, tfoot, th, thead, tr, tt, ul, var {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    outline: 0;
+    font-size: 100%;
+}
+
 select,
 input,
 button {
@@ -177,7 +185,6 @@ h3 {
 }
 .flag,
 .btn {
-    background: var(--color-22);
     font-weight: var(--font-weight-bold);
     color: var(--color-7);
     text-transform: uppercase;
@@ -197,7 +204,18 @@ h3 {
         -ms-flex-pack: center;
             justify-content: center;
 }
-
+.btn {
+    background: var(--color-22);
+}
+.flag[data-color='orange'] {
+    background: var(--color-22);
+}
+.flag[data-color='blue'] {
+    background: var(--color-4);
+}
+.flag[data-color='green'] {
+    background: var(--color-2);
+}
 .no-foto {
     background: url('../img/no-foto.png') no-repeat 50% 50%;  
     -webkit-background-size: contain;  
@@ -226,7 +244,6 @@ select {
     display: -moz-box;
     display: -ms-flexbox;
     display: flex;
-    margin: 28px 0 85px;
     
     &__item {
 
@@ -240,6 +257,9 @@ select {
                 top: -2px;
                 right: -12px;
             }
+        }
+        &:last-child a {
+            pointer-events: none;
         }
         & a {
             font-size: var(--font-size-14);
@@ -311,7 +331,7 @@ select {
 /* Menu category end */
 /*ANCHOR Filters start */
 .filters {
-    width: 22%;
+    width: 23%;
     display: -webkit-box;
     display: -webkit-flex;
     display: -moz-box;
@@ -373,7 +393,7 @@ select {
             &:after {
                 content: url(../img/arrow-dropdown.svg);
                 position: absolute;
-                right: -20px;
+                right: 0;
                 top: 10px;
                 line-height: 0em;
                 -webkit-transform: rotate(180deg);
@@ -429,16 +449,16 @@ select {
                         display: -moz-box;
                         display: -ms-flexbox;
                         display: flex;
-    -webkit-box-align: center;
-    -webkit-align-items: center;
-       -moz-box-align: center;
-        -ms-flex-align: center;
-            align-items: center;
-    -webkit-box-pack: center;
-    -webkit-justify-content: center;
-       -moz-box-pack: center;
-        -ms-flex-pack: center;
-            justify-content: center;
+                        -webkit-box-align: center;
+                        -webkit-align-items: center;
+                        -moz-box-align: center;
+                            -ms-flex-align: center;
+                                align-items: center;
+                        -webkit-box-pack: center;
+                        -webkit-justify-content: center;
+                        -moz-box-pack: center;
+                            -ms-flex-pack: center;
+                                justify-content: center;
                     }
                 }
             }
@@ -464,10 +484,32 @@ select {
     .price {
         &__slider {
             width: 100%;
-            margin-bottom: 50px;
+            margin-bottom: 40px;
         }
         &__inputs {
-            margin-bottom: 20px; 
+            margin-bottom: 30px; 
+            display: -webkit-box; 
+            display: -webkit-flex; 
+            display: -moz-box; 
+            display: -ms-flexbox; 
+            display: flex;
+            -webkit-box-align: center;
+            -webkit-align-items: center;
+               -moz-box-align: center;
+                -ms-flex-align: center;
+                    align-items: center;
+            -webkit-box-pack: justify;
+            -webkit-justify-content: space-between;
+               -moz-box-pack: justify;
+                -ms-flex-pack: justify;
+                    justify-content: space-between;
+
+            & .line {
+                display: block;
+                background: #bdbdbd;
+                height: 1px;
+                width: 15px;
+            }
 
             & input {
                 width: 162px;
@@ -476,6 +518,11 @@ select {
                    -moz-border-radius: var(--border-radius-3);
                         border-radius: var(--border-radius-3);
                 border: 1px solid #bdbdbd;
+                padding-left: 20px;
+                &::-webkit-outer-spin-button,
+                &::-webkit-inner-spin-button {
+                    -webkit-appearance: none;
+                }
             }
         }
         &__range {
@@ -696,6 +743,14 @@ select {
                    -moz-box-pack: center;
                     -ms-flex-pack: center;
                         justify-content: center;
+
+                &:hover {
+                    background: var(--color-22);
+                    & picture {
+                            -webkit-filter: invert(13%) sepia(53%) saturate(1287%) hue-rotate(570deg) brightness(436%) contrast(113%);
+                                    filter: invert(13%) sepia(53%) saturate(1287%) hue-rotate(570deg) brightness(436%) contrast(113%);
+                    }
+                }
             }
             & .btn {
                 width: 180px;
@@ -751,16 +806,17 @@ select {
         margin-bottom: 70px;
     }
 }
-.fixed__menu_box {
+main {
     padding-top: 143px;
 }
 .popular-section {
-    background: #ffffff url('../img/bg-product.png') no-repeat 0 100%;
-    padding-bottom: 0;
-
+   padding-bottom: 0;
     .slick-prev, .slick-next {
         top: -100px;
     }
+}
+.product-bg {
+    background: #ffffff url('../img/bg-product.png') no-repeat 0 100%;
 }
 .category-section {
     padding: 143px 0 60px;
@@ -787,18 +843,31 @@ select {
     padding: 42px;
 }
 .catalog {
-    padding: 47px 0;
+    padding: 47px 0 70px;
 }
+.product-section {
+    padding: 17px 0;
+}
+
+/* -------------------- Карточка товара общие стили ----------- */
+
 .card {
     font-size: var(--font-size-14);
     position: relative;
-    -webkit-box-shadow: 27px 33px 60px rgba(0,0,0,0.04);
-       -moz-box-shadow: 27px 33px 60px rgba(0,0,0,0.04);
-            box-shadow: 27px 33px 60px rgba(0,0,0,0.04);
+    background: var(--color-7);
+    -webkit-box-shadow: 33px 27px 60px rgba(0,0,0,0.04);
+       -moz-box-shadow: 33px 27px 60px rgba(0,0,0,0.04);
+            box-shadow: 33px 27px 60px rgba(0,0,0,0.04);
     
-            &:not(:last-child) {
-                margin-bottom: 15px;
-            }
+    & h3 {
+        font-size: var(--font-size-20);
+        font-weight: var(--font-weight-bold);
+        text-transform: none;
+        letter-spacing: 0em;
+    }
+    &:not(:last-child) {
+        margin-bottom: 20px;
+    }
     & .btn {
         width: 100%;
         height: 50px;
@@ -806,6 +875,7 @@ select {
         font-size: var(--font-size-16);
         font-weight: var(--font-weight-bold);
         letter-spacing: 0.1em;
+        color: #ffffff;
 
         &-to-cart {
             border: 1px solid var(--color-22);
@@ -900,7 +970,7 @@ select {
         display: -moz-box;
         display: -ms-flexbox;
         display: flex;
-        padding: 35px 40px 35px 85px;
+        padding: 35px 40px 30px 85px;
 
         & .card__img {
             width: 200px;
@@ -926,12 +996,6 @@ select {
                     -ms-flex-pack: justify;
                         justify-content: space-between;
 
-                & h3 {
-                    font-size: var(--font-size-20);
-                    font-weight: var(--font-weight-bold);
-                    text-transform: none;
-                    letter-spacing: 0em;
-                }
             }
             &__text {
                 line-height: 1.3em;
@@ -998,7 +1062,7 @@ select {
     &-right {
         width: 30%;
         background: #FDF3ED;
-        padding: 40px;
+        padding: 40px 40px 35px 40px;
 
         & .card-specification {
             
@@ -1026,8 +1090,64 @@ select {
             }
         }
     }
-}
 
+
+    &-catalog {
+        .card-about__text {
+            font-size: var(--font-size-16);
+            margin-bottom: 70px;
+        }
+
+        .flag {
+            top: 25px;
+            left: 35px;
+            width: 73px;
+            height: 35px;
+        }
+        .card-left {
+            padding: 35px 40px 30px 70px;
+
+            .card-about {
+                margin-left: 65px;
+            }
+            .card-specification_row-name {
+                margin-bottom: 10px;
+            }
+            .card-specification_row-value {
+                padding-left: 35px;
+                width: 200px;
+            }
+        }
+        .card-right {
+            padding-top: 35px;
+            display: -webkit-box;
+            display: -webkit-flex;
+            display: -moz-box;
+            display: -ms-flexbox;
+            display: flex;
+            -webkit-box-orient: vertical;
+            -webkit-box-direction: normal;
+            -webkit-flex-direction: column;
+               -moz-box-orient: vertical;
+               -moz-box-direction: normal;
+                -ms-flex-direction: column;
+                    flex-direction: column;
+
+            .card-more {
+                font-size: var(--font-size-16);
+                margin: 15px 0 auto; 
+            }
+            .btn {
+                height: 60px;
+
+                &.popup-2 {
+                    margin-bottom: 13px;
+                }
+            }
+        }
+    }
+}
+/* --------------------------------------------------- */
 /* -------------------- Главная страница ----------- */
 
 /* Header start */
@@ -1072,16 +1192,39 @@ select {
             .menu__dropdown, 
             .search, 
             .auth__reg, 
-            .work__time {
+            .work__time,
+            .city {
                 display: none;
             }
 
+            & a {
+                font-size: var(--font-size-23);
+            }
+
+            .phone {
+                margin:  0 35px 0 25px;
+                & a {
+                    font-size: 28px;
+                }
+            }
+
             & .cart {
+                width: 170px;
+                height: 65px;
+                margin-left: 43px;
+                background: var(--color-22);
+                color: var(--color-7);
+                text-transform: none;
+                font-size: var(--font-size-20);
                 -webkit-box-ordinal-group: 1;
                 -webkit-order: 1;
                    -moz-box-ordinal-group: 1;
                     -ms-flex-order: 1;
                         order: 1;
+
+                & svg path {
+                    fill: var(--color-7);
+                }
             }
 
             & .auth {
@@ -1094,11 +1237,18 @@ select {
 
             & .logo {
                 width: 272px;
+                margin-right: 13px;
 
                 & img {
                     width: 100%;
                     height: auto;
                 }
+            }
+            & .navigation {
+                margin-left: auto;
+            } 
+            & .menu li {
+                padding: 0 10px;
             }
         }
 }
@@ -1110,6 +1260,9 @@ select {
     display: -moz-box;
     display: -ms-flexbox;
     display: flex;
+    -webkit-justify-content: space-around;
+        -ms-flex-pack: distribute;
+            justify-content: space-around;
     -webkit-box-align: center;
     -webkit-align-items: center;
        -moz-box-align: center;
@@ -1138,7 +1291,6 @@ select {
         }
         & a {
             color: var(--color-black);
-            font-weight: var(--font-weight-semibold);
         }
     }
 }
@@ -1688,25 +1840,25 @@ select {
         -webkit-border-radius: 115px 19px 0 0;
            -moz-border-radius: 115px 19px 0 0;
                 border-radius: 115px 19px 0 0;
-        left: -24px;
+        left: -22px;
         top: 0; 
-        -webkit-transform: rotate(163deg);
-           -moz-transform: rotate(163deg);
-            -ms-transform: rotate(163deg);
-             -o-transform: rotate(163deg);
-                transform: rotate(163deg);
+        -webkit-transform: rotate(161deg);
+           -moz-transform: rotate(161deg);
+            -ms-transform: rotate(161deg);
+             -o-transform: rotate(161deg);
+                transform: rotate(161deg);
     }
     &::after {
         -webkit-border-radius: 19px 115px 0 0;
            -moz-border-radius: 19px 115px 0 0;
                 border-radius: 19px 115px 0 0;
-        right: -21px;
+        right: -22px;
         top: 0;
-        -webkit-transform: rotate(201deg);
-           -moz-transform: rotate(201deg);
-            -ms-transform: rotate(201deg);
-             -o-transform: rotate(201deg);
-                transform: rotate(201deg);
+        -webkit-transform: rotate(204deg);
+           -moz-transform: rotate(204deg);
+            -ms-transform: rotate(204deg);
+             -o-transform: rotate(204deg);
+                transform: rotate(204deg);
 
     }
 
@@ -2440,7 +2592,7 @@ select {
 /* -------------------- Cтраница каталога ----------- */
 .catalog-banner {
     background: url(../img/catalog.jpg) no-repeat 50% 100%;
-    padding-bottom: 145px;
+    padding: 28px 0 145px;
 
     & .section_title {
         margin-bottom: 20px;
@@ -2451,10 +2603,20 @@ select {
         letter-spacing: 0em;
         font-size: var(--font-size-18);
     }
+
+    & .breadcrumbs {
+        margin: 0 0 85px;
+    }
 }
 
 .catalog {
 
+    & h3 {
+        font-size: var(--font-size-20);
+        font-weight: var(--font-weight-bold);
+        text-transform: none;
+        letter-spacing: 0em;
+    }
     &-body {
         width: 74.5%;
 
@@ -2510,5 +2672,32 @@ select {
             }
         }
     }
-}
+    &-bottom {
+        margin-top: 50px;
 
+        .wrapper {
+            -webkit-box-pack: justify;
+            -webkit-justify-content: space-between;
+               -moz-box-pack: justify;
+                -ms-flex-pack: justify;
+                    justify-content: space-between;
+            
+            & div {
+                width: 47%;
+            }
+        }
+        & h3 {
+            margin-bottom: 25px;
+        }
+        & p {
+            line-height: 1.8em;
+        }
+    }
+}
+/* -------------------------------------------------------------- */
+/* -------------------- Cтраница продукта в магазине ----------- */
+.product-section {
+    .breadcrumbs {
+        margin-bottom: 35px;
+    }
+}

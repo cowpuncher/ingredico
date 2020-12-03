@@ -1,82 +1,126 @@
-<!DOCTYPE html>
-<html lang="ru">
     @@include('templates/head.html',{
-        "title":"Главная"
+        "title":"Каталог"
         })
-    <body class="bg-white">
+    <body>
         <!-- ANCHOR Header -->
         @@include('templates/header.html')
-        <section class="fixed__menu_box catalog-banner">
-            <div class="container">
-                @@include('./templates/elements/breadcrumbs.html')
-                @@include('./templates/elements/section-title.html', {
-                    name: 'Камеди'
-                })
-                <p class="catalog-banner__text">
-                    Что это за инструмент и как с его помощью интерпретировать <br> информацию и находить слабые места в отчётах.
-                </p>
-            </div>
-        </section>
         <!-- ANCHOR Header -->
-        <section class="catalog">
-            <div class="container">
-                <div class="wrapper">
-                    @@include('./templates/filters.html')
-                    <div class="catalog-body">
-                        <div class="catalog-body__menu">
-                            @@include('./templates/category.html', {
-                                images1: '../img/1-grey.svg',
-                                images2: '../img/2-grey.svg',
-                                images3: '../img/3-grey.svg',
-                                images4: '../img/4-grey.svg',
-                                images5: '../img/5-grey.svg',
-                                images6: '../img/6-grey.svg',
-                                images7: '../img/7-grey.svg',
-                                images8: '../img/8-grey.svg',
-                                images9: '../img/9-grey.svg',
-                                images10: '../img/10-grey.svg',
-                                images11: '../img/11-grey.svg',
-                                images12: '../img/12-grey.svg',
-                                })
 
-                            
-                            <div class="catalog-sort">
-                                <div class="custom-select select-sort">
-                                    <select>
-                                        <option value="1">По популярности (возрастание)</option>
-                                        <option value="2">По популярности (уменьшение)</option>
-                                        <option value="3">По цене (возрастание)</option>
-                                        <option value="4">По цене (уменьшению)</option>
-                                      </select>
+        <!-- ANCHOR Main -->
+        <main class="page">
+            <section class="fixed__menu_box catalog-banner">
+                <div class="container">
+                    @@include('./templates/elements/breadcrumbs.html')
+                    @@include('./templates/elements/section-title.html', {
+                        name: 'Камеди'
+                    })
+                    <p class="catalog-banner__text">
+                        Что это за инструмент и как с его помощью интерпретировать <br> информацию и находить слабые места в отчётах.
+                    </p>
+                </div>
+            </section>
+            <section class="catalog product-bg">
+                <div class="container">
+                    <div class="wrapper">
+                        @@include('./templates/filters.html')
+                        <div class="catalog-body">
+                            <div class="catalog-body__menu">
+                                @@include('./templates/category.html', {
+                                    images1: 'img/1-grey.svg',
+                                    images2: 'img/2-grey.svg',
+                                    images3: 'img/3-grey.svg',
+                                    images4: 'img/4-grey.svg',
+                                    images5: 'img/5-grey.svg',
+                                    images6: 'img/6-grey.svg',
+                                    images7: 'img/7-grey.svg',
+                                    images8: 'img/8-grey.svg',
+                                    images9: 'img/9-grey.svg',
+                                    images10: 'img/10-grey.svg',
+                                    images11: 'img/11-grey.svg',
+                                    images12: 'img/12-grey.svg',
+                                    })
+
+                                
+                                <div class="catalog-sort">
+                                    <div class="custom-select select-sort">
+                                        <select>
+                                            <option value="1">По популярности (возрастание)</option>
+                                            <option value="2">По популярности (уменьшение)</option>
+                                            <option value="3">По цене (возрастание)</option>
+                                            <option value="4">По цене (уменьшению)</option>
+                                        </select>
+                                    </div>
+                                    <div class="custom-select select-sort">
+                                        <select>
+                                            <option value="1">Фасовка(кг)</option>
+                                            <option value="2">Фасовка(шт)</option>
+                                        </select>
+                                    </div>
                                 </div>
-                                <div class="custom-select select-sort">
-                                    <select>
-                                        <option value="1">Фасовка(кг)</option>
-                                        <option value="2">Фасовка(шт)</option>
-                                      </select>
+                            </div>
+                            <p class="catalog-body__text">
+                                Доставка в другие регионы России (или любой другой текст) <br> осуществляется посредством наших фирм-партнёров. Ориентировочную стоимость доставки Вы можете рассчитать на сайте или задать вопрос нашему технологу.
+                            </p>
+                            <div class="catalog-cards">
+                                @@include('./templates/products/card-shop.html', {
+                                    image_src: 'img/product.png',
+                                    title: 'Ксантановая камедь ZIBOXAN F',
+                                    color: 'orange'
+                                })
+                                @@include('./templates/products/card-shop.html', {
+                                    image_src: 'img/product.png',
+                                    title: 'Ксантановая камедь ZIBOXAN F',
+                                    color: 'orange'
+                                })
+                                @@include('./templates/products/card-shop.html', {
+                                    image_src: 'img/product.png',
+                                    title: 'Ксантановая камедь ZIBOXAN F',
+                                    color: 'blue'
+                                })
+                                @@include('./templates/products/card-shop.html', {
+                                    image_src: 'img/product.png',
+                                    title: 'Ксантановая камедь ZIBOXAN F',
+                                    color: 'green'
+                                })
+                                @@include('./templates/products/card-catalog.html', {
+                                    image_src: 'img/product.png',
+                                    title: 'Конжаковая камедь 36 000 WCC контроль веса',
+                                    color: 'orange'
+                                })
+                                @@include('./templates/products/card-catalog.html', {
+                                    image_src: 'img/product.png',
+                                    title: 'Гуаровая камедь 60',
+                                    color: 'orange'
+                                })
+                            </div>
+                            <div class="catalog-bottom">
+                                <div class="wrapper">
+                                    <div class="">
+                                        <h3>
+                                            Рекомендации на основе ваших просмотров
+                                        </h3>
+                                        <p>
+                                            Товарищи! новая модель организационной деятельности позволяет выполнять важные задания по разработке систем массового участия. Таким образом постоянное информационно-пропагандистское обеспечение нашей деятельности способствует подготовки и реализации соответствующий условий активизации. Разнообразный и богатый опыт реализация намеченных плановых заданий позволяет оценить значение форм развития. 
+                                            <br>
+                                            Разнообразный и богатый опыт постоянное информационно-пропагандистское обеспечение нашей деятельности представляет собой интересный эксперимент проверки систем массового участия. С другой стороны реализация намеченных плановых заданий влечет за собой процесс внедрения и модернизации систем массового участия.
+                                        </p>
+                                    </div>
+                                    <div class="">
+                                        <h3>
+                                            Рекомендации на основе ваших просмотров
+                                        </h3>
+                                        <p>
+                                            Товарищи! новая модель организационной деятельности позволяет выполнять важные задания по разработке систем массового участия. Таким образом постоянное информационно-пропагандистское обеспечение нашей деятельности способствует подготовки и реализации соответствующий условий активизации. Разнообразный и богатый опыт реализация намеченных плановых заданий позволяет оценить значение форм развития. 
+                                            <br>
+                                            Разнообразный и богатый опыт постоянное информационно-пропагандистское обеспечение нашей деятельности представляет собой интересный эксперимент проверки систем массового участия. С другой стороны реализация намеченных плановых заданий влечет за собой процесс внедрения и модернизации систем массового участия.
+                                        </p>
+                                    </div>
                                 </div>
                             </div>
                         </div>
-                        <p class="catalog-body__text">
-                            Доставка в другие регионы России (или любой другой текст) <br> осуществляется посредством наших фирм-партнёров. Ориентировочную стоимость доставки Вы можете рассчитать на сайте или задать вопрос нашему технологу.
-                        </p>
-                        <div class="catalog-cards">
-                            @@include('./templates/elements/card-shop.html', {
-                                image_src: '../img/product.png',
-                                title: 'Ксантановая камедь ZIBOXAN F'
-                            })
-                            @@include('./templates/elements/card-shop.html', {
-                                image_src: '../img/product.png',
-                                title: 'Ксантановая камедь ZIBOXAN F'
-                            })
-                        </div>
                     </div>
                 </div>
-            </div>
-        </section>
-
-        <!-- ANCHOR Main -->
-        <main class="page main-page">
+            </section>
             <section class="subscribe-section">
                 <div class="container">
                     <div class="subscribe">
