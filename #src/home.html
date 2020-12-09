@@ -1,9 +1,9 @@
-@@include('templates/head.html',{
+@@include('./templates/blocks/head.html',{
     "title":"Главная"
     })
 <body class="bg-main">
     <!-- ANCHOR Header -->
-    @@include('templates/header.html')
+    @@include('./templates/blocks/header.html')
     <!-- ANCHOR Header -->
 
 
@@ -13,31 +13,31 @@
             <div class="container">
                 <div class="wrapper">
                     <!-- ANCHOR Sidebar -->
-                    @@include('templates/sidebar.html')
+                    @@include('./templates/blocks/sidebar.html')
                     <!-- ANCHOR Sidebar -->
                     <!-- ANCHOR Banner -->
-                    @@include('templates/slider.html')
+                    @@include('./templates/blocks/slider.html')
                     <!-- ANCHOR Banner -->
                 </div>
                 <!-- ANCHOR Privelege -->
-                @@include('templates/privelege.html')
+                @@include('./templates/blocks/privelege.html')
                 <!-- ANCHOR Privelege -->
             </div>
         </section>
         <section class="popular-section product-bg bg-white section">
             <div class="container">
-                @@include('templates/elements/section-title.html', {
+                @@include('./templates/elements/section-title.html', {
                     name: 'Популярные товары'
                 })
-                @@include('templates/popular.html')
+                @@include('./templates/blocks/popular.html')
             </div>
         </section>
         <section class="category-section section">
             <div class="container">
-                @@include('templates/elements/section-title.html', {
+                @@include('./templates/elements/section-title.html', {
                     name: 'Области применения'
                 })
-                @@include('templates/category.html', {
+                @@include('./templates/blocks/category.html', {
                     images1: 'img/1.svg',
                     images2: 'img/2.svg',
                     images3: 'img/3.svg',
@@ -93,7 +93,7 @@
                         </span>
                     </div>
                     <div class="news__slider news__preview">
-                        @@include('templates/news/news-preview.html', {
+                        @@include('./templates/news/news-preview.html', {
                             data: 'news',
                             flag: 'Новости',
                             image: './img/news-1.jpg',
@@ -101,7 +101,7 @@
                             date: '18 окт 2019',
                             text: 'Что это за инструмент и как с его помощью интерпретировать информацию и находить слабые места в отчётах. Рассказывает Антон Рыбин.'
                         })
-                        @@include('templates/news/news-preview.html', {
+                        @@include('./templates/news/news-preview.html', {
                             data: 'news',
                             flag: 'Новости',
                             image: './img/news-2.jpg',
@@ -109,7 +109,7 @@
                             date: '18 окт 2019',
                             text: 'Что это за инструмент и как с его помощью интерпретировать информацию и находить слабые места в отчётах. Рассказывает Антон Рыбин.'
                         })
-                        @@include('templates/news/news-preview.html', {
+                        @@include('./templates/news/news-preview.html', {
                             data: 'shares',
                             flag: 'Акции',
                             image: './img/news-3.jpg',
@@ -117,7 +117,7 @@
                             date: '18 окт 2019',
                             text: 'Что это за инструмент и как с его помощью интерпретировать информацию и находить слабые места в отчётах. Рассказывает Антон Рыбин.'
                         })
-                        @@include('templates/news/news-preview.html', {
+                        @@include('./templates/news/news-preview.html', {
                             data: 'news',
                             flag: 'Новости',
                             image: './img/news-2.jpg',
@@ -126,7 +126,7 @@
                             text: 'Что это за инструмент и как с его помощью интерпретировать информацию и находить слабые места в отчётах. Рассказывает Антон Рыбин.'
                         })
                         
-                        @@include('templates/news/news-preview.html', {
+                        @@include('./templates/news/news-preview.html', {
                             data: 'news',
                             flag: 'Новости',
                             image: './img/news-2.jpg',
@@ -138,42 +138,13 @@
                 </div>
             </div>
         </section>
-        <section class="subscribe-section">
-            <div class="container">
-                <div class="subscribe">
-                    <h3 class="subscribe__title">
-                        Будьте в курсе наших новостей!
-                    </h3>
-                    <p class="subscribe__text">
-                        Подпишитесь на нашу рассылку и экономьте - узнавайте первым информацию о скидках и акциях!
-                    </p>
-                    <form action="/" class="subscribe__form">
-                        <div class="subscribe__form_block">
-                            <label for="input" class="subscribe__form_label">
-                                <img src="./img/mail-grey.svg" alt="">
-                                <input type="email" class="subscribe__form_input" placeholder="Адрес электонной почты">
-                            </label>
-                            <button class="subscribe__form_btn btn">Подписаться</button>
-                        </div>
-                        <div class="subscribe__form_desc">
-                            <div for="checkbox" class="subscribe__form-checkbox">
-                                <input type="checkbox" name="checkbox" id="checkbox">
-                                <label for="checkbox"></label>
-                            </div>
-                            <p>
-                                Нажимая подписаться, вы даете согласие на обработку персональных данных и соглашаетесь с условиями подписки
-                            </p>
-                        </div>
-                    </form>
-                </div>
-            </div>
-        </section>
+        @@include('./templates/blocks/section-subscribe.html')
     </main>
     <!-- ANCHOR Main -->
 
     <!-- ANCHOR Footer -->
-    @@include('templates/footer.html')
+    @@include('./templates/blocks/footer.html')
     <!-- ANCHOR Footer -->
-    @@include('./templates/scripts.html')
+    @@include('./templates/blocks/scripts.html')
 </body>
 </html>

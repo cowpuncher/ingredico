@@ -3,9 +3,9 @@
     <div class="top-panel">
         <div class="container">
             <div class="top-panel__flex">
-                @@include('./elements/logo.html')
+                @@include('../elements/logo.html')
                 <nav class="navigation">
-                    @@include('./elements/city.html')
+                    @@include('../elements/city.html')
                     <ul class="menu">
                         <li class="menu__item">
                             <a href="#" class="menu__item-link">
@@ -73,7 +73,7 @@
                                 </svg>
                             </span>
                         </div>
-                        @@include('../templates/category.html', {
+                        @@include('./category.html', {
                         images1: 'img/1-drop.svg',
                         images2: 'img/2-drop.svg',
                         images3: 'img/3-drop.svg',
@@ -98,7 +98,7 @@
                         </button>
                         <input type="text" placeholder="Поиск" name="search" class="search__input">
                     </form>
-                    @@include('elements/phone.html')
+                    @@include('../elements/phone.html')
                     <a href="#" class="cart">
                         <div class="cart__icon">
                             <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">

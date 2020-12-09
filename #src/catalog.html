@@ -1,9 +1,9 @@
-    @@include('templates/head.html',{
+    @@include('./templates/blocks/head.html',{
         "title":"Каталог"
         })
     <body>
         <!-- ANCHOR Header -->
-        @@include('templates/header.html')
+        @@include('./templates/blocks/header.html')
         <!-- ANCHOR Header -->
 
         <!-- ANCHOR Main -->
@@ -22,10 +22,10 @@
             <section class="catalog product-bg">
                 <div class="container">
                     <div class="wrapper">
-                        @@include('./templates/filters.html')
+                        @@include('./templates/blocks/filters.html')
                         <div class="catalog-body">
                             <div class="catalog-body__menu">
-                                @@include('./templates/category.html', {
+                                @@include('./templates/blocks/category.html', {
                                     images1: 'img/1-grey.svg',
                                     images2: 'img/2-grey.svg',
                                     images3: 'img/3-grey.svg',
@@ -155,8 +155,8 @@
         <!-- ANCHOR Main -->
 
         <!-- ANCHOR Footer -->
-        @@include('templates/footer.html')
+        @@include('./templates/blocks/footer.html')
         <!-- ANCHOR Footer -->
-        @@include('./templates/scripts.html')
+        @@include('./templates/blocks/scripts.html')
     </body>
 </html>

@@ -41,7 +41,6 @@ for(let item of city) {
     });
 }
 //--------------------------------------------------------------------------
-//------------ Функции конец  ----------------------------
 // --------- Подключение слайдеров
 const activeSlider = (items, slider) => {
     if(items.length > 4) {
@@ -55,6 +54,7 @@ const activeSlider = (items, slider) => {
 activeSlider(news, newsSlider);
 activeSlider(popularProduct, '.popular__slider');
 //--------------------------------------------------------------------------
+//------------ Функции конец  ----------------------------
 // --------- Смена цвета картинки свг в меню Области применения
 // Ищем элемент меню
 window.onload = () => {
@@ -203,9 +203,10 @@ const customSelect = (select, count) => {
 customSelect("select-sort", 0);
 customSelect("quantity-to-cart", 1);
 // ---------- Количество добавленное в корзину в карточке товара
-var selItems = document.querySelectorAll('.catalog-cards  .select-items');
+var selItems = document.querySelectorAll('.card .select-items');
 for(let item of selItems) {
     item.onclick = function(e) {
+        
         let quantity = e.target.parentNode.parentNode;
         let div = quantity.previousElementSibling.children;
         let myEl = e.target.innerHTML;
@@ -343,6 +344,25 @@ activeButton(rangeHandleLeft, rangeHandleLeft, inputMin, inputMax);
 activeButton(rangeHandleRight, rangeHandleRight, inputMax, inputMin);
 }
 //--------------------------------------------------------------------------
+const productContent = document.querySelector('.product-descrition');
+
+productContent.children[0].onclick = e => {
+    const current = e.target; 
+    const arrayTabs = productContent.children[0].children;
+    const arrayContent = productContent.children[1].children;
+    for( var i = 0; i < arrayTabs.length; i++ ) {
+        arrayTabs[i].classList.remove('active');
+        arrayTabs[i].setAttribute('data-tabs', [i])
+        arrayContent[i].classList.remove('active');
+    }
+    const n = current.dataset.tabs;
+    arrayContent[n].classList.add('active')
+    current.classList.add('active');
+}
+
+
+
+
 
 // Колонки сайдбара
 // var sidebar = document.querySelectorAll('.sidebar__submenu');
