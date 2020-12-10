@@ -1,15 +1,15 @@
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@500&display=swap');
 @import "./fonts.scss";
 
-@mixin font($font_name, $file_name, $weight, $style) {
-	@font-face {
-		font-family: $font_name;
-		font-display: swap;
-		src: url("../fonts/#{$file_name}.woff") format("woff"), url("../fonts/#{$file_name}.woff2") format("woff2");
-		font-weight: #{$weight};
-		font-style: #{$style};
-	}
-}
+// @mixin font($font_name, $file_name, $weight, $style) {
+// 	@font-face {
+// 		font-family: $font_name;
+// 		font-display: swap;
+// 		src: url("../fonts/#{$file_name}.woff") format("woff"), url("../fonts/#{$file_name}.woff2") format("woff2");
+// 		font-weight: #{$weight};
+// 		font-style: #{$style};
+// 	}
+// }
 
 /* ----------------------------------- Спецификация ---------------------------------- */
 * {
@@ -79,7 +79,7 @@ body {
     color: var(--color-1);
 }
 
-a, abbr, acronym, address, applet, big, blockquote, body, caption, cite, code, dd, del, dfn, div, dl, dt, em, fieldset, form, h1, h2, h3, h4, h5, h6, html, iframe, img, ins, kbd, label, legend, li, object, ol, p, pre, q, s, samp, small, span, strike, strong, sub, sup, table, tbody, td, tfoot, th, thead, tr, tt, ul, var {
+a, abbr, acronym, address, applet, big, blockquote, body, caption, cite, code, dd, del, dfn, div, dl, dt, em, fieldset, form, h1, h2, h3, h4, h5, h6, html, iframe, img, ins, kbd, label, legend, li, object, p, pre, q, s, samp, small, span, strike, strong, sub, sup, table, tbody, td, tfoot, th, thead, tr, tt, ul, var {
     margin: 0;
     padding: 0;
     border: 0;
@@ -100,9 +100,12 @@ button {
     margin: 0 auto;
 }
 
-ul, ol {
+ul {
     list-style: none;
 } 
+ol {
+    padding-left: 14px;
+}
 
 a {
     text-decoration: none;
@@ -818,9 +821,14 @@ select {
     }
 }
 .popular-section {
-   padding-bottom: 0;
+    padding-bottom: 80px;
     .slick-prev, .slick-next {
         top: -100px;
+    }
+}
+.bg-main  {
+    .popular-section {
+        padding-bottom: 0;
     }
 }
 .product-bg {
@@ -854,7 +862,7 @@ select {
     padding: 47px 0 70px;
 }
 .product-section {
-    padding: 17px 0;
+    padding: 17px 0 8px;
 }
 
 /* -------------------- ANCHOR Карточка товара общие стили ----------- */
@@ -907,7 +915,16 @@ select {
         margin-bottom: 6px;
     }
     & .link-download {
-        display: block;
+        display: -webkit-box;
+        display: -webkit-flex;
+        display: -moz-box;
+        display: -ms-flexbox;
+        display: flex;
+        -webkit-box-pack: center;
+        -webkit-justify-content: center;
+           -moz-box-pack: center;
+            -ms-flex-pack: center;
+                justify-content: center;
         text-align: center;
         margin-top: 15px;
         font-size: var(--font-size-16);
@@ -1768,7 +1785,8 @@ select {
 /* Sidebar end */
 /*ANCHOR Main slider start */
 .slider {
-    position: relative;
+    // position: relative;
+    min-width: 0;
 
     &__mount {
         position: absolute;
@@ -1778,8 +1796,6 @@ select {
     }
 }
 .main__slider {
-    
-  
     
     &_content {
         // background: rgba(0, 0, 0, 0);
@@ -2764,8 +2780,10 @@ select {
             margin-top: 0;
             border: 1px solid #EDEDED;
             width: 510px;
+            max-height: 565px;
             padding: 30px;
             height: 100%;
+            overflow: hidden;
             
             & img,
             & picture {
@@ -2802,6 +2820,13 @@ select {
             }
             &__title {
                 margin-bottom: 22px;
+            }
+            & .wrapper {
+                margin-top: 50px;
+
+                .btn:not(:last-child) {
+                    margin-right: 15px;
+                }
             }
         }
         &-specification {
@@ -2918,10 +2943,35 @@ select {
         }
         & .content {
             display: none;
+            padding: 27px 0 0  60px;
 
+            h1,h2,h3,h4,h5,h6 {
+                margin-bottom: 20px; 
+            }
+            ol {
+                margin-bottom: 14px;
+            }
+            & li:not(:last-child) {
+                margin-bottom: 17px;
+            }
+            & p {
+                line-height: 1.6em;
+                margin-bottom: 15px;
+            }
+            & table {
+                width: 100%;
+
+                & td {
+                    width: 35%;
+                    vertical-align: top;
+                }
+            }
             &.active {
                 display: block;
             }
         }
     }
 }
+
+
+@import "./media.scss";

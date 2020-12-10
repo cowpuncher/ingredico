@@ -1,5 +1,5 @@
 @@include('./templates/blocks/head.html',{
-    "title":"Продукт магазин"
+    "title":"Продукт магазинный"
     })
 <body>
     @@include('./templates/blocks/header.html')
@@ -7,13 +7,23 @@
         <section class="product-section">
             <div class="container">
                 @@include('./templates/elements/breadcrumbs.html')
-                @@include('./templates/products/product-card-shop.html', {
+                @@include('./templates/products/product-card-catalog.html', {
                     image_src: 'img/product.png',
-                    title: 'Ксантановая камедь ZIBOXAN F',
+                    title: 'Каррагинан Марин 71/ Carrageenan Marine 71',
                     color: 'orange'
                 })
+                @@include('./templates/products/tabs-product.html')
             </div>
         </section>
+        <section class="popular-section product-bg bg-white">
+            <div class="container">
+                @@include('./templates/elements/section-title.html', {
+                    name: 'Популярные товары'
+                })
+                @@include('./templates/blocks/popular.html')
+            </div>
+        </section>
+        @@include('./templates/blocks/section-subscribe.html')
     </main>
 
     <!-- ANCHOR Footer -->

@@ -175,7 +175,6 @@ label,
 legend,
 li,
 object,
-ol,
 p,
 pre,
 q,
@@ -217,9 +216,12 @@ button {
   margin: 0 auto;
 }
 
-ul,
-ol {
+ul {
   list-style: none;
+}
+
+ol {
+  padding-left: 14px;
 }
 
 a {
@@ -885,12 +887,16 @@ select {
 }
 
 .popular-section {
-  padding-bottom: 0;
+  padding-bottom: 80px;
 }
 
 .popular-section .slick-prev,
 .popular-section .slick-next {
   top: -100px;
+}
+
+.bg-main .popular-section {
+  padding-bottom: 0;
 }
 
 .product-bg {
@@ -931,7 +937,7 @@ select {
 }
 
 .product-section {
-  padding: 17px 0;
+  padding: 17px 0 8px;
 }
 
 /* -------------------- ANCHOR Карточка товара общие стили ----------- */
@@ -984,7 +990,12 @@ select {
 }
 
 .card .link-download {
-  display: block;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  justify-content: center;
   text-align: center;
   margin-top: 15px;
   font-size: var(--font-size-16);
@@ -1772,7 +1783,7 @@ select {
 /*ANCHOR Main slider start */
 
 .slider {
-  position: relative;
+  min-width: 0;
 }
 
 .slider__mount {
@@ -2672,8 +2683,10 @@ select {
   margin-top: 0;
   border: 1px solid #EDEDED;
   width: 510px;
+  max-height: 565px;
   padding: 30px;
   height: 100%;
+  overflow: hidden;
 }
 
 .product-section .card__img img,
@@ -2716,6 +2729,14 @@ select {
 
 .product-section .card-about__title {
   margin-bottom: 22px;
+}
+
+.product-section .card-about .wrapper {
+  margin-top: 50px;
+}
+
+.product-section .card-about .wrapper .btn:not(:last-child) {
+  margin-right: 15px;
 }
 
 .product-section .card-specification {
@@ -2828,6 +2849,38 @@ select {
 
 .product-section .product-descrition .content {
   display: none;
+  padding: 27px 0 0  60px;
+}
+
+.product-section .product-descrition .content h1,
+.product-section .product-descrition .content h2,
+.product-section .product-descrition .content h3,
+.product-section .product-descrition .content h4,
+.product-section .product-descrition .content h5,
+.product-section .product-descrition .content h6 {
+  margin-bottom: 20px;
+}
+
+.product-section .product-descrition .content ol {
+  margin-bottom: 14px;
+}
+
+.product-section .product-descrition .content li:not(:last-child) {
+  margin-bottom: 17px;
+}
+
+.product-section .product-descrition .content p {
+  line-height: 1.6em;
+  margin-bottom: 15px;
+}
+
+.product-section .product-descrition .content table {
+  width: 100%;
+}
+
+.product-section .product-descrition .content table td {
+  width: 35%;
+  vertical-align: top;
 }
 
 .product-section .product-descrition .content.active {

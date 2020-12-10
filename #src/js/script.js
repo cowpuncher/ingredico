@@ -14,10 +14,11 @@ var tabs = document.querySelector('.news__tabs'),
     news = document.querySelectorAll('.news__preview_item'),
     newsSlider = document.querySelector('.news__slider'),
     filterDropdown = document.querySelectorAll('.dropdown .small-title'),
-    previewText = document.querySelectorAll('.news__preview_text');
+    previewText = document.querySelectorAll('.news__preview_text'),
+    productContent = document.querySelector('.product-descrition');
 
 //--------------------------------------------------------------------------
-//--------------------- Функции начало  ----------------------------
+//--------------------- ФУНКЦИИ НАЧАЛО  ----------------------------
 // --------- Обрезать текст 
 const textSlice = (node, number) => {
     node.forEach(text => {
@@ -25,7 +26,8 @@ const textSlice = (node, number) => {
             text.innerHTML = text.innerHTML.substr(0, number - 1) + ' ...'
         } 
     })
-}
+}// --------- Обрезать строку в превью если больше 140 символов
+textSlice(previewText, 130);
 //--------------------------------------------------------------------------
 // --------- Toggle для класса active
 const classToggle = (element) => {
@@ -53,8 +55,29 @@ const activeSlider = (items, slider) => {
 }
 activeSlider(news, newsSlider);
 activeSlider(popularProduct, '.popular__slider');
+
+
+new Swiper('.main-slider', {
+    navigation: {
+      nextEl: '.swiper-button-next',
+      prevEl: '.swiper-button-prev',
+    },
+
+    pagination: {
+        el: '.swiper-pagination',
+        clickable: true,
+        dynamicBullets: true, 
+        type: 'progressbar'
+    },
+
+    scrollbar: {
+        el: '.swiper-scrollbar',
+        draggable: true
+    }
+});
+
 //--------------------------------------------------------------------------
-//------------ Функции конец  ----------------------------
+//------------ ФУНКЦИИ КОНЕЦ  ----------------------------
 // --------- Смена цвета картинки свг в меню Области применения
 // Ищем элемент меню
 window.onload = () => {
@@ -128,17 +151,17 @@ const customSelect = (select, count) => {
     selElmnt = x[i].getElementsByTagName("select")[0];
     ll = selElmnt.length;
     /* For each element, create a new DIV that will act as the selected item: */
-    a = document.createElement("DIV");
+    a = document.createElement("div");
     a.setAttribute("class", "select-selected");
     a.innerHTML = selElmnt.options[selElmnt.selectedIndex].innerHTML;
     x[i].appendChild(a);
     /* For each element, create a new DIV that will contain the option list: */
-    b = document.createElement("DIV");
+    b = document.createElement("div");
     b.setAttribute("class", "select-items select-hide");
     for (j = count; j < ll; j++) {
         /* For each option in the original select element,
         create a new DIV that will act as an option item: */
-        c = document.createElement("DIV");
+        c = document.createElement("div");
         c.innerHTML = selElmnt.options[j].innerHTML;
         c.addEventListener("click", function(e) {
             /* When an item is clicked, update the original select box,
@@ -249,8 +272,23 @@ if(tabs !== null) {
     })
 }
 //--------------------------------------------------------------------------
-// --------- Обрезать строку в превью если больше 140 символов
-textSlice(previewText, 130);
+// --------- Табы в спецификации продуктов
+if(productContent !== null) {
+    productContent.children[0].onclick = e => {
+        const current = e.target; 
+        const arrayTabs = productContent.children[0].children;
+        const arrayContent = productContent.children[1].children;
+        for( var i = 0; i < arrayTabs.length; i++ ) {
+            arrayTabs[i].classList.remove('active');
+            arrayTabs[i].setAttribute('data-tabs', [i])
+            arrayContent[i].classList.remove('active');
+        }
+        const n = current.dataset.tabs;
+        arrayContent[n].classList.add('active')
+        current.classList.add('active');
+    }
+}
+
 //--------------------------------------------------------------------------
 // --------- Фиксированная шапка   
 const fixedMenu = () => {
@@ -294,71 +332,101 @@ if(document.querySelector('.price__slider') !== null) {
     rangeHandleRight.setAttribute('aria-valuenow', inputMax.value );
     // Функция активации бегунков
     const activeButton = (el, handle, input, secondInput ) => { 
-    // Прослушка нажатия на бегунок
-    el.onmousedown = function (el) { 
-        // Переменная в которой лежит нажатая кнопка
-        let button = el.currentTarget;
-        // Переменная в которой лежит длинна всего пути трека
-        let rail = Math.floor(rangeRail.getBoundingClientRect().width);
-        // Прослушка движения мыши по экрану
-        document.onmousemove = function (e) {
-            // Распололжение клика
-            e = (e.pageX - Math.floor(rangeRail.getBoundingClientRect().x)) ;
-            // Движение бегунка в %
-            button.style.left = e / (rail / 100) + '%';
-            // Запись значения в value
-            Math.floor(button.setAttribute("aria-valuenow", e / (rail / 100)));
-            // Проверка, чтобы бегунок не убегал за пределы трека
-            if(e > rail) {
-                button.style.left = '100%';
-                Math.floor(button.setAttribute("aria-valuenow", 100));
-            } else if(e <= 0) {
-                button.style.left = '0%';
-                Math.floor(button.setAttribute("aria-valuenow", 0));
-            }
-            // Проверка значения бегунка после движения
-            let value = handle.getAttribute("aria-valuenow");
-            // Запись значения в input
-            input.setAttribute ('value', Math.floor(( inputMax.getAttribute("aria-valuemax") / 100) * value ));
-           
-            if(secondInput == inputMax) {
-                if(value > (secondInput.value / valueMax * 100) - 8) {  
-                    button.style.left = ((secondInput.value / valueMax * 100) - 8) + '%';
-                    input.setAttribute('value', secondInput.value);
-                } 
-            } else if(secondInput == inputMin) {
-                if(value < (secondInput.value / valueMax * 100) + 8) {
-                    button.style.left = ((secondInput.value / valueMax * 100) + 8) + '%';
-                    input.setAttribute('value', secondInput.value);
+        // Прослушка нажатия на бегунок
+        el.onmousedown = function (el) { 
+            // Переменная в которой лежит нажатая кнопка
+            let button = el.currentTarget;
+            // Переменная в которой лежит длинна всего пути трека
+            let rail = Math.floor(rangeRail.getBoundingClientRect().width);
+            // Прослушка движения мыши по экрану
+            document.onmousemove = function (e) {
+                // Распололжение клика
+                e = (e.pageX - Math.floor(rangeRail.getBoundingClientRect().x)) ;
+                // Движение бегунка в %
+                button.style.left = e / (rail / 100) + '%';
+                // Запись значения в value
+                Math.floor(button.setAttribute("aria-valuenow", e / (rail / 100)));
+                // Проверка, чтобы бегунок не убегал за пределы трека
+                if(e > rail) {
+                    button.style.left = '100%';
+                    Math.floor(button.setAttribute("aria-valuenow", 100));
+                } else if(e <= 0) {
+                    button.style.left = '0%';
+                    Math.floor(button.setAttribute("aria-valuenow", 0));
+                }
+                // Проверка значения бегунка после движения
+                let value = handle.getAttribute("aria-valuenow");
+                // Запись значения в input
+                input.setAttribute ('value', Math.floor(( inputMax.getAttribute("aria-valuemax") / 100) * value ));
+            
+                if(secondInput == inputMax) {
+                    if(value > (secondInput.value / valueMax * 100) - 8) {  
+                        button.style.left = ((secondInput.value / valueMax * 100) - 8) + '%';
+                        input.setAttribute('value', secondInput.value);
+                    } 
+                } else if(secondInput == inputMin) {
+                    if(value < (secondInput.value / valueMax * 100) + 8) {
+                        button.style.left = ((secondInput.value / valueMax * 100) + 8) + '%';
+                        input.setAttribute('value', secondInput.value);
+                    }
                 }
             }
+            // Отключения прослушки движения мыши, после завершения нажатия
+            document.onmouseup = function() {
+                document.onmousemove = null;
+            }
         }
-        // Отключения прослушки движения мыши, после завершения нажатия
-        document.onmouseup = function() {
-            document.onmousemove = null;
-        }
+
+        el.addEventListener('touchstart', function (el) {   
+            // Переменная в которой лежит нажатая кнопка
+            let button = el.currentTarget;
+            // Переменная в которой лежит длинна всего пути трека
+            let rail = Math.floor(rangeRail.getBoundingClientRect().width);
+
+            function motionRange(e) { 
+                // Распололжение клика
+                e = (e.changedTouches[0].clientX - rangeRail.getBoundingClientRect().x);
+                // Движение бегунка в %
+                button.style.left = e / (rail / 100) + '%';
+                // Запись значения в value
+                Math.floor(button.setAttribute("aria-valuenow", e / (rail / 100)));
+                // Проверка, чтобы бегунок не убегал за пределы трека
+                if(e > rail) {
+                    button.style.left = '100%';
+                    Math.floor(button.setAttribute("aria-valuenow", 100));
+                } else if(e <= 0) {
+                    button.style.left = '0%';
+                    Math.floor(button.setAttribute("aria-valuenow", 0));
+                }
+                // Проверка значения бегунка после движения
+                let value = handle.getAttribute("aria-valuenow");
+                // Запись значения в input
+                input.setAttribute ('value', Math.floor(( inputMax.getAttribute("aria-valuemax") / 100) * value ));
+                if(secondInput == inputMax) {
+                    if(value > (secondInput.value / valueMax * 100) - 8) {  
+                        button.style.left = ((secondInput.value / valueMax * 100) - 8) + '%';
+                        input.setAttribute('value', secondInput.value);
+                    } 
+                } else if(secondInput == inputMin) {
+                    if(value < (secondInput.value / valueMax * 100) + 8) {
+                        button.style.left = ((secondInput.value / valueMax * 100) + 8) + '%';
+                        input.setAttribute('value', secondInput.value);
+                    }
+                }
+            }
+            // Отключения прослушки движения мыши, после завершения нажатия
+            document.addEventListener('touchmove', motionRange)
+            document.addEventListener('touchend', () => {
+                document.removeEventListener('touchmove', motionRange, false);
+            })
+        })
     }
-}
-// Инициализация функций нажатия бегунков
-activeButton(rangeHandleLeft, rangeHandleLeft, inputMin, inputMax);
-activeButton(rangeHandleRight, rangeHandleRight, inputMax, inputMin);
+    // Инициализация функций нажатия бегунков
+    activeButton(rangeHandleLeft, rangeHandleLeft, inputMin, inputMax);
+    activeButton(rangeHandleRight, rangeHandleRight, inputMax, inputMin);
 }
 //--------------------------------------------------------------------------
-const productContent = document.querySelector('.product-descrition');
 
-productContent.children[0].onclick = e => {
-    const current = e.target; 
-    const arrayTabs = productContent.children[0].children;
-    const arrayContent = productContent.children[1].children;
-    for( var i = 0; i < arrayTabs.length; i++ ) {
-        arrayTabs[i].classList.remove('active');
-        arrayTabs[i].setAttribute('data-tabs', [i])
-        arrayContent[i].classList.remove('active');
-    }
-    const n = current.dataset.tabs;
-    arrayContent[n].classList.add('active')
-    current.classList.add('active');
-}
 
 
 

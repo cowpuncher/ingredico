@@ -1,4 +1,4 @@
-<div class="card card-catalog">
+<div class="card">
     @@include('../elements/flag.html', {
         name: 'New',
         color: '@@color'
@@ -11,43 +11,48 @@
                 </div>
             </div>
             <div class="card-about">
-                <div class="card-about__text">
-                    Ксантановая камедь является микробиологическим полимером. Применяется в качестве вещества, контролирующего вязкость раствора и реологию. Псевдопластичность камеди ксантана почти не зависит от концентрации и градиента сдвига. Вязкость 1200 - 1600 cps
+                <div class="card-about__title">
+                    <h3>
+                        @@title
+                    </h3>
                 </div>
-                <div class="card-about__specification">
-                    <div class="card-specification_column">
+                <div class="card-about__text">
+                    <b>Описание:</b>  Полурафинированный каппа каррагинан,  Е407а               
+                </div>
+                <div class="card-about__text">
+                    <b>Группа:</b>  Моноингредиенты – загустители, гелеобразователи
+                </div>
+                <p class="">
+                    <b>Naturen® Extra 220</b> — жидкий стандартизированный молокосвертывающий сычужный фермент животного происхождения. Состоит из 5 % говяжьего пепсина и 95 % химозина. <b>Активность 220 UMCU/мл.</b> Фермент получен путем экстракции из четвертого отдела желудочка телят и/или взрослых коров. Общая протеолитическая активность оказывает также значительное влияние на образование аромата и текстуры в сыре.
+                </p>
+                <div class="card-specification">
+                    <div class="card-specification_row">
                         <div class="card-specification_row-name">
-                            <img src="img/spec-dosage.svg" alt="icon">
-                            <span>Рекомендуемые дозировки:</span>
+                            <img src="img/product-spec-dosage.svg" alt="icon">
+                            <span>Рекомендуемые <br> дозировки:</span>
                         </div>
                         <div class="card-specification_row-value">
-                            0,15 - 0,5 %, в зависимости от желаемой структуры продукта
+                            Для творога 0,7 - 1,0 мл,  <br>
+                            для сыров  7 - 10 мл.  <br>
+                            или 1500 - 3000 UMCU на 100 л молока
                         </div>
                     </div>
                 </div>
+                <div class="wrapper">
+                    @@include('../elements/btn-popup.html', {
+                        name: 'Оформить заявку',
+                        class: '2'
+                    })
+                    @@include('../elements/btn-popup.html', {
+                        name: ' Задать вопрос технологу',
+                        class: '1'
+                    })
+                </div>
             </div>
         </div>
-        <div class="card-right">
-            <h3>
-                @@title
-            </h3>
-            <a href="#" class="card-more">Подробнее 
-                <svg width="4" height="7" viewBox="0 0 4 7" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <path d="M1.06897 1L3 3.45614L1 6" stroke="#FFA11B"/>
-                </svg>
-            </a>
-            @@include('../elements/btn-popup.html', {
-                name: 'Оформить заявку',
-                class: '2'
-            })
-            @@include('../elements/btn-popup.html', {
-                name: ' Задать вопрос технологу',
-                class: '1'
-            })
-            <a href="#" class="link-download">
-                <img src="img/download.svg" alt="icon">
-                Скачать спецификацию
-            </a>
-        </div>
+        <a href="#" class="link-download">
+            <img src="img/download.svg" alt="icon">
+            Скачать спецификацию
+        </a>
     </div>
 </div>
