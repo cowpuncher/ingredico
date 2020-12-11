@@ -1,24 +1,58 @@
 <div class="slider">
      <!-- Swiper -->
-    <div class="swiper-container main-slider">
+    <div class="swiper-container main__slider">
         <div class="swiper-wrapper">
-            <div class="swiper-slide">Slide 1</div>
-            <div class="swiper-slide">Slide 2</div>
-            <div class="swiper-slide">Slide 3</div>
-            <div class="swiper-slide">Slide 4</div>
-            <div class="swiper-slide">Slide 5</div>
-            <div class="swiper-slide">Slide 6</div>
-            <div class="swiper-slide">Slide 7</div>
-            <div class="swiper-slide">Slide 8</div>
-            <div class="swiper-slide">Slide 9</div>
-            <div class="swiper-slide">Slide 10</div>
+            <div class="swiper-slide blur">
+                <img src="img/banner.jpg" alt="">
+                <div class="main__slider_content">
+                    <div>
+                        <h1 class="main__slider_content-title">
+                            Сентябрьские <br> скидки
+                        </h1>
+                        <p class="main__slider_content-desc">
+                            Только до 31 сентября на <br> тесты Beta Star
+                        </p>
+                        <a href="#" class="main__slider_content-link">
+                            Подробнее
+                            <object
+                                type="image/svg+xml"
+                                data="img/arrow.svg">
+                                <img src="img/arrow.svg">
+                            </object>
+                        </a>
+                    </div>
+                    <span class="main__slider_sale">20<span>%</span></span>
+                </div> 
+            </div>
+            <div class="swiper-slide">
+                <img src="img/banner.jpg" alt="">
+            </div>
+            <div class="swiper-slide">
+                <img src="img/banner.jpg" alt="">
+            </div>
+            <div class="swiper-slide">
+                <img src="img/banner.jpg" alt="">
+            </div>
         </div>
-        <!-- Add Arrows -->
-        <div class="swiper-button-next"></div>
-        <div class="swiper-button-prev"></div>
-        <!-- Add Dots -->
-        <div class="swiper-pagination"></div>
-        <!-- Add Scrollbar -->
-        <div class="swiper-scrollbar"></div>
+    </div>
+
+
+    <div class="swiper-container slider__mount">
+        <div class="swiper-wrapper">
+            <div class="swiper-slide">
+                <img src="img/autumn.png" alt="">
+            </div>
+            <div class="swiper-slide">
+                <img src="img/autumn.png" alt="">
+            </div>
+            <div class="swiper-slide">
+                <img src="img/autumn.png" alt="">
+            </div>
+            <div class="swiper-slide">
+                <img src="img/autumn.png" alt="">
+            </div>
+        </div>
+
+        <div class="swiper-pagination slider__dots"></div>
     </div>
 </div>

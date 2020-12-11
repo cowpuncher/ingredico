@@ -12,6 +12,7 @@ var tabs = document.querySelector('.news__tabs'),
     menuDropdown = document.querySelector('.menu__category'),
     popularProduct = document.querySelectorAll('.popular__item'),
     news = document.querySelectorAll('.news__preview_item'),
+    mainSlider = document.querySelector('.main__slider'),
     newsSlider = document.querySelector('.news__slider'),
     filterDropdown = document.querySelectorAll('.dropdown .small-title'),
     previewText = document.querySelectorAll('.news__preview_text'),
@@ -56,39 +57,49 @@ const activeSlider = (items, slider) => {
 activeSlider(news, newsSlider);
 activeSlider(popularProduct, '.popular__slider');
 
+if(mainSlider !== null) {
+    var mainSlider = new Swiper('.main__slider', {
+        // Смена вида крусора при наведении
+        grabCursor: true,
+        // Количество слайдов для показа 
+        slidesPerView: 1,
+        // Отключение слайдера если слайдов меньше чем в PreView
+        watchOverflow: true,
+        // Скорость прокрутки
+        speed: 800,
+    });
+    
+    var mainSliderMount = new Swiper('.slider__mount', {
+        pagination: {
+            el: '.swiper-pagination',
+            clickable: true
+        },
+    
+        effect: 'fade'
+    });
+    
+    mainSlider.controller.control = mainSliderMount;
+    mainSliderMount.controller.control = mainSlider;
+}
 
-new Swiper('.main-slider', {
-    navigation: {
-      nextEl: '.swiper-button-next',
-      prevEl: '.swiper-button-prev',
-    },
+// new Swiper('.news__preview', {
 
-    pagination: {
-        el: '.swiper-pagination',
-        clickable: true,
-        dynamicBullets: true, 
-        type: 'progressbar'
-    },
-
-    scrollbar: {
-        el: '.swiper-scrollbar',
-        draggable: true
-    }
-});
-
+// })
 //--------------------------------------------------------------------------
 //------------ ФУНКЦИИ КОНЕЦ  ----------------------------
 // --------- Смена цвета картинки свг в меню Области применения
 // Ищем элемент меню
 window.onload = () => {
     menu.forEach( link => {
+
+        let test = link.children[0].children[0].contentDocument.querySelectorAll('svg')[0]
+        console.log(test);
         // Событие наведения на конкретный элемент 
         link.addEventListener('mouseenter', function(e) {
             e.preventDefault();
             // Инициализируем SVG внутри нашего Object
             let obj = e.currentTarget.children[0].children[0].contentDocument;
             // Инициализиурем Path внутри SVG
-            console.log(e.currentTarget.children[0].children[0]);
             let rect = obj.querySelectorAll('path');
             // Пробегаемся по всем Path внутри выбранного пункта меню
             rect.forEach( item => {
@@ -120,7 +131,7 @@ window.onload = () => {
                     fill.setAttribute('fill', '#D2D2D2');
                     resolve(color)
                 })
-            }, 5000)
+            }, 1000)
         });
         promiseMenuEl.then( dataColor => {
             item.addEventListener ( 'mouseenter', function(e) {
@@ -254,7 +265,6 @@ menuButton.addEventListener('click', function() {
 // --------- Табы в превью новостей
 if(tabs !== null) {
     tabs.addEventListener('click' , e => {
-        $(newsSlider)[0].slick.refresh()
         let currentData = e.target.dataset.preview;
         console.log(currentData);
         for(let i = 0; i < tabs.children.length; i++) {
