@@ -250,8 +250,6 @@ h3 {
   text-transform: uppercase;
 }
 
-/* Стили повторяющегося контента */
-
 /* ANCHOR Стили повторяющегося контента */
 
 .bg-main {
@@ -411,6 +409,10 @@ select {
   display: flex;
   -ms-flex-wrap: wrap;
   flex-wrap: wrap;
+}
+
+.menu__category object {
+  width: 80%;
 }
 
 .menu__category_img {
@@ -730,6 +732,42 @@ select {
 
 /*Button add to card end */
 
+/*ANCHOR City change start */
+
+.city {
+  font-size: var(--font-size-18);
+  color: var(--color-1);
+  font-weight: var(--font-weight-semibold);
+}
+
+.city.custom-select {
+  width: 135px;
+}
+
+.city .select-selected {
+  color: var(--color-3);
+  border: 1px solid transparent;
+  padding: 8px 10px;
+}
+
+.city .select-selected:after {
+  right: 5px;
+}
+
+.city .select-items div {
+  padding: 8px 10px;
+}
+
+.city .select-arrow-active {
+  border: 1px solid;
+}
+
+.city .select-arrow-active ~ .select-selected {
+  border: 1px solid;
+}
+
+/* City change end */
+
 /*ANCHOR Contacts city start */
 
 .contacts__top {
@@ -756,12 +794,6 @@ select {
 
 .contacts__top_marker picture {
   margin-right: 5px;
-}
-
-.contacts__top .city {
-  font-size: var(--font-size-14);
-  color: var(--color-1);
-  font-weight: var(--font-weight-semibold);
 }
 
 .contacts__bottom {
@@ -1549,14 +1581,17 @@ select {
   transition: all 1s ease;
   position: absolute;
   left: 0;
-  top: 80px;
+  top: 75px;
   z-index: -1;
   width: 1200px;
-  background: #ffffff;
 }
 
 .menu__dropdown .menu__category_img {
   width: 100px;
+}
+
+.menu__dropdown .menu__category li {
+  background: #ffffff;
 }
 
 .menu__dropdown .menu__category li a {
@@ -1722,6 +1757,7 @@ select {
   width: 1px;
   background: #B2B2B2;
   position: absolute;
+  opacity: .3;
   left: 25px;
   top: 40px;
 }
@@ -2878,6 +2914,10 @@ select {
     margin: 0px 15px 0 15px;
   }
 
+  .top-panel.active .cart {
+    margin-left: 0;
+  }
+
   .top-panel__flex {
     -webkit-box-align: center;
     -ms-flex-align: center;
@@ -2923,6 +2963,38 @@ select {
   .footer .logo picture,
   .footer .logo img {
     width: 100%;
+  }
+}
+
+@media (max-width: 1585px) {
+  .top-panel.active a {
+    font-size: var(--font-size-20);
+  }
+
+  .top-panel.active .phone {
+    margin: 0;
+  }
+
+  .top-panel.active .cart {
+    width: 140px;
+    height: 50px;
+  }
+
+  .menu li {
+    padding: 0 5px;
+  }
+
+  .search input {
+    width: 450px;
+  }
+
+  .menu__dropdown .menu__category {
+    width: 1070px;
+  }
+
+  .menu__dropdown .menu__category li a {
+    width: 265px;
+    padding-left: 20px;
   }
 }
 

@@ -12,6 +12,9 @@
             & .phone {
                 margin: 0px 15px 0 15px;
             }
+            .cart {
+                margin-left: 0;
+            }
         }
         &__flex {
             -webkit-box-align: center;
@@ -62,4 +65,37 @@
         }
     }
 }
+@media (max-width: 1585px) {
+    .top-panel {
+        &.active {
 
+            & a {
+                font-size: var(--font-size-20);
+            }
+            & .phone {
+                margin: 0;
+            }
+            & .cart {
+                width: 140px;
+                height: 50px;            
+            }
+        }
+    }
+    .menu li {
+        padding: 0 5px;
+    }
+    .search input {
+        width: 450px;
+    }
+    .menu__dropdown {
+
+        & .menu__category {
+            width: 1070px;
+
+            & li a {
+                width: 265px;
+                padding-left: 20px;
+            }
+        }
+    }
+}

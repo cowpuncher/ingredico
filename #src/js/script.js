@@ -35,15 +35,6 @@ const classToggle = (element) => {
     element.classList.toggle('active');
 }
 //--------------------------------------------------------------------------
-// --------- Выбор телефона по городу
-for(let item of city) {
-    item.addEventListener('change', () => {
-        for(let number of phone) {
-            number.innerHTML = item.value;
-        }
-    });
-}
-//--------------------------------------------------------------------------
 // --------- Подключение слайдеров
 const activeSlider = (items, slider) => {
     if(items.length > 4) {
@@ -58,6 +49,7 @@ activeSlider(news, newsSlider);
 activeSlider(popularProduct, '.popular__slider');
 
 if(mainSlider !== null) {
+    // Активация главного слайдера 
     var mainSlider = new Swiper('.main__slider', {
         // Смена вида крусора при наведении
         grabCursor: true,
@@ -68,32 +60,24 @@ if(mainSlider !== null) {
         // Скорость прокрутки
         speed: 800,
     });
-    
+    // Слайдер подложки под главнм слайдером
     var mainSliderMount = new Swiper('.slider__mount', {
         pagination: {
             el: '.swiper-pagination',
             clickable: true
         },
-    
         effect: 'fade'
     });
-    
+    // Подключение двух слайдеров друг к другу 
     mainSlider.controller.control = mainSliderMount;
     mainSliderMount.controller.control = mainSlider;
 }
-
-// new Swiper('.news__preview', {
-
-// })
 //--------------------------------------------------------------------------
-//------------ ФУНКЦИИ КОНЕЦ  ----------------------------
+//------------ ФУНКЦИИ КОНЕЦ  ----------------------------------------------
 // --------- Смена цвета картинки свг в меню Области применения
 // Ищем элемент меню
 window.onload = () => {
     menu.forEach( link => {
-
-        let test = link.children[0].children[0].contentDocument.querySelectorAll('svg')[0]
-        console.log(test);
         // Событие наведения на конкретный элемент 
         link.addEventListener('mouseenter', function(e) {
             e.preventDefault();
@@ -159,76 +143,77 @@ const customSelect = (select, count) => {
     x = document.getElementsByClassName(select);
     l = x.length;
     for (i = 0; i < l; i++) {
-    selElmnt = x[i].getElementsByTagName("select")[0];
-    ll = selElmnt.length;
-    /* For each element, create a new DIV that will act as the selected item: */
-    a = document.createElement("div");
-    a.setAttribute("class", "select-selected");
-    a.innerHTML = selElmnt.options[selElmnt.selectedIndex].innerHTML;
-    x[i].appendChild(a);
-    /* For each element, create a new DIV that will contain the option list: */
-    b = document.createElement("div");
-    b.setAttribute("class", "select-items select-hide");
-    for (j = count; j < ll; j++) {
-        /* For each option in the original select element,
-        create a new DIV that will act as an option item: */
-        c = document.createElement("div");
-        c.innerHTML = selElmnt.options[j].innerHTML;
-        c.addEventListener("click", function(e) {
-            /* When an item is clicked, update the original select box,
-            and the selected item: */
-            var y, i, k, s, h, sl, yl;
-            s = this.parentNode.parentNode.getElementsByTagName("select")[0];
-            sl = s.length;
-            h = this.parentNode.previousSibling;
-            for (i = 0; i < sl; i++) {
-            if (s.options[i].innerHTML == this.innerHTML) {
-                s.selectedIndex = i;
-                h.innerHTML = this.innerHTML;
-                y = this.parentNode.getElementsByClassName("same-as-selected");
-                yl = y.length;
-                for (k = 0; k < yl; k++) {
-                y[k].removeAttribute("class");
+        selElmnt = x[i].getElementsByTagName("select")[0];
+        ll = selElmnt.length;
+        /* For each element, create a new DIV that will act as the selected item: */
+        a = document.createElement("div");
+        a.setAttribute("class", "select-selected");
+        a.innerHTML = selElmnt.options[selElmnt.selectedIndex].innerHTML;
+        a.setAttribute("value", selElmnt.options[selElmnt.selectedIndex].value);
+        x[i].appendChild(a);
+        /* For each element, create a new DIV that will contain the option list: */
+        b = document.createElement("div");
+        b.setAttribute("class", "select-items select-hide");
+        for (j = count; j < ll; j++) {
+            /* For each option in the original select element,
+            create a new DIV that will act as an option item: */
+            c = document.createElement("div");
+            c.innerHTML = selElmnt.options[j].innerHTML;
+            c.addEventListener("click", function(e) {
+                /* When an item is clicked, update the original select box,
+                and the selected item: */
+                var y, i, k, s, h, sl, yl;
+                s = this.parentNode.parentNode.getElementsByTagName("select")[0];
+                sl = s.length;
+                h = this.parentNode.previousSibling;
+                for (i = 0; i < sl; i++) {
+                if (s.options[i].innerHTML == this.innerHTML) {
+                    s.selectedIndex = i;
+                    h.innerHTML = this.innerHTML;
+                    y = this.parentNode.getElementsByClassName("same-as-selected");
+                    yl = y.length;
+                    for (k = 0; k < yl; k++) {
+                    y[k].removeAttribute("class");
+                    }
+                    this.setAttribute("class", "same-as-selected");
+                    break;
                 }
-                this.setAttribute("class", "same-as-selected");
-                break;
-            }
-            }
-            h.click();
+                }
+                h.click();
+            });
+            b.appendChild(c);
+        }
+        x[i].appendChild(b);
+        a.addEventListener("click", function(e) {
+            /* When the select box is clicked, close any other select boxes,
+            and open/close the current select box: */
+            e.stopPropagation();
+            closeAllSelect(this);
+            this.nextSibling.classList.toggle("select-hide");
+            this.classList.toggle("select-arrow-active");
         });
-        b.appendChild(c);
-    }
-    x[i].appendChild(b);
-    a.addEventListener("click", function(e) {
-        /* When the select box is clicked, close any other select boxes,
-        and open/close the current select box: */
-        e.stopPropagation();
-        closeAllSelect(this);
-        this.nextSibling.classList.toggle("select-hide");
-        this.classList.toggle("select-arrow-active");
-    });
     }
 
     function closeAllSelect(elmnt) {
-    /* A function that will close all select boxes in the document,
-    except the current select box: */
-    var x, y, i, xl, yl, arrNo = [];
-    x = document.getElementsByClassName("select-items");
-    y = document.getElementsByClassName("select-selected");
-    xl = x.length;
-    yl = y.length;
-    for (i = 0; i < yl; i++) {
-        if (elmnt == y[i]) {
-        arrNo.push(i)
-        } else {
-        y[i].classList.remove("select-arrow-active");
+        /* A function that will close all select boxes in the document,
+        except the current select box: */
+        var x, y, i, xl, yl, arrNo = [];
+        x = document.getElementsByClassName("select-items");
+        y = document.getElementsByClassName("select-selected");
+        xl = x.length;
+        yl = y.length;
+        for (i = 0; i < yl; i++) {
+            if (elmnt == y[i]) {
+            arrNo.push(i)
+            } else {
+            y[i].classList.remove("select-arrow-active");
+            }
         }
-    }
-    for (i = 0; i < xl; i++) {
-        if (arrNo.indexOf(i)) {
-        x[i].classList.add("select-hide");
+        for (i = 0; i < xl; i++) {
+            if (arrNo.indexOf(i)) {
+            x[i].classList.add("select-hide");
+            }
         }
-    }
     }
     /* If the user clicks anywhere outside the select box,
     then close all select boxes: */
@@ -236,6 +221,7 @@ const customSelect = (select, count) => {
 }
 customSelect("select-sort", 0);
 customSelect("quantity-to-cart", 1);
+customSelect("city", 0);
 // ---------- Количество добавленное в корзину в карточке товара
 var selItems = document.querySelectorAll('.card .select-items');
 for(let item of selItems) {
@@ -436,11 +422,22 @@ if(document.querySelector('.price__slider') !== null) {
     activeButton(rangeHandleRight, rangeHandleRight, inputMax, inputMin);
 }
 //--------------------------------------------------------------------------
+// --------- Выбор телефона по городу
+for(let item of city) {
+    for(var i = 0; i < item.children[0].children.length; i++) {
+        const value = item.children[0].children[i].value;
+        item.children[2].children[i].setAttribute('value', value);
+    }
+    item.addEventListener('click', (e) => {
+        console.log(e.target.getAttribute('value'));
+        for(var number of phone) {
+            number.innerHTML = e.target.getAttribute('value');
+        }
+    })
+}
 
 
-
-
-
+//--------------------------------------------------------------------------
 
 // Колонки сайдбара
 // var sidebar = document.querySelectorAll('.sidebar__submenu');

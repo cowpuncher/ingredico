@@ -43,10 +43,12 @@ let { src, dest } = require('gulp'),
 	webp = require('gulp-webp'),
 	webphtml = require('gulp-webp-html'),
 	webpcss = require("gulp-webpcss"),
-	// svgSprite = require('gulp-svg-sprite'),
+	svgSprite = require('gulp-svg-sprite'),
 	ttf2woff = require('gulp-ttf2woff'),
 	ttf2woff2 = require('gulp-ttf2woff2'),
-	fonter = require('gulp-fonter');
+	fonter = require('gulp-fonter'),
+	replace = require('gulp-replace');
+
 
 function browserSync(params) {
 	browsersync.init({
@@ -160,6 +162,20 @@ gulp.task('otf2ttf', function () {
 // 		))
 // 		.pipe(dest(path.build.img))
 // })
+
+gulp.task('svgSprite', function () {
+	return gulp.src([source_folder + '/iconsprite/*.svg'])
+		// build svg sprite
+		.pipe(svgSprite({
+			mode: {
+				symbol: {
+					sprite: "../icons/sprite.svg"
+				}
+			}
+		}))
+		.pipe(dest(path.build.img))
+})
+
 
 function fontsStyle(params) {
 	let file_content = fs.readFileSync(source_folder + '/scss/fonts.scss');

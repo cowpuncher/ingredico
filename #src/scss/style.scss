@@ -131,7 +131,7 @@ h3 {
     letter-spacing: var(--ls-02);
     text-transform: uppercase;
 }
-/* Стили повторяющегося контента */
+
 /* ANCHOR Стили повторяющегося контента */
 .bg-main {
     background: var(--color-bg);
@@ -297,6 +297,10 @@ select {
         -ms-flex-wrap: wrap;
             flex-wrap: wrap;
 
+
+    & object {
+        width: 80%;
+    }
     &_img {
         width: 130px;
         margin-right: 15px;
@@ -318,6 +322,7 @@ select {
 
                 & object {
                     pointer-events: none;
+                
                 }
     }
 
@@ -656,6 +661,37 @@ select {
 
 }
 /*Button add to card end */
+/*ANCHOR City change start */
+.city {
+    font-size: var(--font-size-18);
+    color: var(--color-1);
+    font-weight: var(--font-weight-semibold);
+
+    &.custom-select {
+        width: 135px;
+    }
+    & .select-selected {
+        color: var(--color-3);
+        border: 1px solid transparent;
+        padding: 8px 10px;
+
+        &:after {
+            right: 5px;
+        }
+    }
+    & .select-items div {
+        padding: 8px 10px;
+    }
+
+    & .select-arrow-active {
+        border: 1px solid ;
+        & ~ .select-selected {
+            border: 1px solid ;
+        }
+    }
+}
+/* City change end */
+
 /*ANCHOR Contacts city start */
 .contacts {
 
@@ -690,11 +726,6 @@ select {
             & picture {
                 margin-right: 5px;
             }
-        }
-        & .city {
-            font-size: var(--font-size-14);
-            color: var(--color-1);
-            font-weight: var(--font-weight-semibold);
         }
     }
     &__bottom {
@@ -1523,20 +1554,22 @@ select {
                 transition: all 1s ease;
         position: absolute;
         left: 0;
-        top: 80px;
+        top: 75px;
         z-index: -1;
         width: 1200px;
-        background: #ffffff;
 
         &_img {
             width: 100px;
         }
 
-        & li a {
-            width: 300px;
-            height: 147px;
-            border: 0;
-            font-size: var(--font-size-20);
+        & li {
+            background: #ffffff;
+            a {
+                width: 300px;
+                height: 147px;
+                border: 0;
+                font-size: var(--font-size-20);
+            }
         }
     }
 
@@ -1724,6 +1757,7 @@ select {
                     width: 1px;
                     background: #B2B2B2;
                     position: absolute;
+                    opacity: .3;
                     left: 25px;
                     top: 40px;
                 }
