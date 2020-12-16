@@ -435,14 +435,18 @@ for(let item of city) {
         }
     })
 }
-
-
 //--------------------------------------------------------------------------
-
-// Колонки сайдбара
-// var sidebar = document.querySelectorAll('.sidebar__submenu');
-
-// for(let item of sidebar) {
-//     let counter = Math.ceil(item.children.length / 7);
-//     item.setAttribute('style', 'columns: ' + counter);
-// }
+// --------- Toggle drop phone 
+var btnPhone = document.querySelector('.phone-btn');
+btnPhone.addEventListener('click', (e) => {
+    classToggle(document.querySelector('.phones-mobile'))
+    classToggle(e.currentTarget)
+})
+//--------------------------------------------------------------------------
+// --------- Toggle drop mobile menu 
+var btnMobileMenu = document.querySelector('.phone-btn');
+btnPhone.addEventListener('click', (e) => {
+    classToggle(document.querySelector('.phones-mobile'))
+    classToggle(e.currentTarget)
+})
+//--------------------------------------------------------------------------

@@ -33,6 +33,9 @@
         }
 
     }
+    .city.custom-select {
+       margin-top: -10px;
+    }
     .menu__category li a {
         width: 380px;
     }
@@ -65,7 +68,7 @@
         }
     }
 }
-@media (max-width: 1585px) {
+@media (max-width: 1595px) {
     .top-panel {
         &.active {
 
@@ -98,4 +101,308 @@
             }
         }
     }
+}
+@media (max-width: 1440px) {
+    .top-panel {
+        .navigation {
+            -webkit-box-align: center;
+            -webkit-align-items: center;
+               -moz-box-align: center;
+                -ms-flex-align: center;
+                    align-items: center;
+        }
+        .logo {
+            width: 27%;
+            margin-right: 15px;
+        }
+        .menu__dropdown-btn {
+            width: 200px;
+            font-size: var(--font-size-14);
+            ;
+        }
+        .search {
+
+            &__input {
+                height: 100%;
+                width: 330px;
+            }
+        }
+        & a {
+            font-size: var(--font-size-16);
+        }
+        .menu__category {
+            width: 880px;
+
+            &_img {
+                width: 65px;
+            }
+            & li a  {
+                width: 220px;
+                height: 135px;
+                font-size: var(--font-size-18);
+                padding-left: 10px;
+
+            }
+            &.active {
+                top: 63px;
+            }
+        }
+        .auth {
+
+            &__enter {
+                padding-right: 5px;
+            }
+            &__reg {
+                padding-left: 5px;
+                padding-right: 0;
+            }
+            .user-img {
+                margin-right: 3px;
+            }
+        }
+        .cart,  .menu__dropdown-btn, .search {
+            height: 45px;
+        }
+        .city.custom-select {
+            width: 125px;
+            font-size: var(--font-size-16);
+            margin-top: -15px;
+        }
+        .btn__modal {
+            padding: 0 5px;
+        }
+
+        &.active {
+
+            .logo {
+                width: 240px;
+            }
+            .menu li {
+                padding: 0 5px;
+            }
+            .phone a {
+                font-size: 22px;
+                display: -webkit-box;
+                display: -webkit-flex;
+                display: -moz-box;
+                display: -ms-flexbox;
+                display: flex;
+                -webkit-box-align: center;
+                -webkit-align-items: center;
+                   -moz-box-align: center;
+                    -ms-flex-align: center;
+                        align-items: center;
+            }
+            & a {
+                font-size: var(--font-size-16);
+            }
+        }
+    }
+}
+// Большие девайсы (большие десктопы, < 1200px)
+@media (max-width: 1199.98px) {
+    .container {
+        padding: 0 15px;
+    }
+    .top-panel {
+        .menu__category {
+            width: 780px;
+
+            & li a  {
+                width: 195px;
+                height: 120px;
+                font-size: var(--font-size-14);
+            }
+        }
+        .logo {
+            width: 21%;
+        }
+        a {
+            font-size: var(--font-size-14);
+        }
+        .city.custom-select {
+            width: 110px;
+            font-size: var(--font-size-14);
+        }
+        & .search {
+
+            &__input {
+                width: 245px;
+            }
+        }
+        &.active {
+            .phone a {
+                font-size: 18px;
+            }
+            a {
+                font-size: var(--font-size-14);
+            }
+            .cart {
+                font-size: var(--font-size-18);
+                width: 125px;
+                height: 45px;
+                &__icon {
+                    margin-left: 0;
+                }
+            }
+            .logo {
+                width: 200px;
+            }
+        }
+    }
+}
+// Средние девайсы («таблетки», < 992px) 
+@media (max-width: 991.98px) {
+    .top-panel {
+        .menu__dropdown,
+        .search,
+        .custom-select.city,
+        .btn__modal,
+        .auth,
+        .cart__name {
+            display: none;
+        }
+        .logo {
+            width: 29%;
+        }
+        .menu {
+            margin-bottom: 0;
+        }
+        .phone {
+            display: none;
+
+            &-drop {
+                display: block;
+                position: relative;
+            }
+            &-btn {
+                outline: 0;
+                border: 0;
+                width: 35px;
+                height: 35px;
+                display: -webkit-box;
+                display: -webkit-flex;
+                display: -moz-box;
+                display: -ms-flexbox;
+                display: flex;
+                -webkit-box-align: center;
+                -webkit-align-items: center;
+                   -moz-box-align: center;
+                    -ms-flex-align: center;
+                        align-items: center;
+                -webkit-box-pack: center;
+                -webkit-justify-content: center;
+                   -moz-box-pack: center;
+                    -ms-flex-pack: center;
+                        justify-content: center;
+                background: var(--color-2);
+                -webkit-border-radius: 50%;
+                   -moz-border-radius: 50%;
+                        border-radius: 50%;
+                        svg {
+                            fill: #ffffff;
+                            width: 15px;
+                            height: 15px;
+                        }
+                .phone__svg-close {
+                    display: none;
+                }
+                &.active {
+                    .phone__svg-open {
+                        display: none;
+                    }
+                    .phone__svg-close {
+                        display: block;
+                    }
+                }
+            }
+        }
+        .phones-mobile {
+            display: none;
+            -webkit-box-orient: vertical;
+            -webkit-box-direction: normal;
+            -webkit-flex-direction: column;
+               -moz-box-orient: vertical;
+               -moz-box-direction: normal;
+                -ms-flex-direction: column;
+                    flex-direction: column;
+            -webkit-box-align: center;
+            -webkit-align-items: center;
+               -moz-box-align: center;
+                -ms-flex-align: center;
+                    align-items: center;
+            position: absolute;
+            right: 0;
+            background: #ffffff;
+            width: 300px;
+            top: 100%;
+            padding: 50px 0;
+            &.active {
+                display: -webkit-box;
+                display: -webkit-flex;
+                display: -moz-box;
+                display: -ms-flexbox;
+                display: flex;
+            }
+            .phone {
+                display: -webkit-box;
+                display: -webkit-flex;
+                display: -moz-box;
+                display: -ms-flexbox;
+                display: flex;
+                -webkit-box-align: center;
+                -webkit-align-items: center;
+                   -moz-box-align: center;
+                    -ms-flex-align: center;
+                        align-items: center;
+                .work__time {
+                    font-size: var(--font-size-14);
+                }
+                a {
+                    font-size: var(--font-size-35);
+                }
+                &:not(:last-child) {
+                    margin-bottom: 20px;
+                }
+            }
+        }
+        .cart {
+            border: 0;
+            width: auto;
+            height: auto;
+            margin-left: auto;
+            margin-right: 15px;
+            &:hover {
+                background: transparent;
+            }
+        }
+    }
+}
+// Малые девайсы («ландшафтные», < 768px)
+@media (max-width: 767.98px) {
+    .top-panel {
+        .menu {
+            position: relative; 
+            margin-left: auto;
+
+            &:before {
+                content: url(../img/menu.svg);
+                display: block;
+                position: absolute;
+                top: -10px;
+                right: 10px;
+            }
+
+            &__item {
+                display: none;
+            }
+        }
+        .cart {
+            margin-left: unset;
+        }
+    }
+}
+// Экстрамалые девайсы («телефоны», < 576px)
+@media (max-width: 575.98px) {
+    
 }

@@ -286,6 +286,9 @@ select {
 .tac {
     text-align: center;
 }
+.phone-drop {
+    display: none;
+}
 /*ANCHOR Menu category start */
 .menu__category {
     display: -webkit-box;
@@ -669,6 +672,7 @@ select {
 
     &.custom-select {
         width: 135px;
+        margin-top: -15px;
     }
     & .select-selected {
         color: var(--color-3);
@@ -1318,7 +1322,7 @@ select {
             & .cart {
                 width: 170px;
                 height: 65px;
-                margin-left: 43px;
+                margin-left: 35px;
                 background: var(--color-22);
                 color: var(--color-7);
                 text-transform: none;
@@ -1334,7 +1338,12 @@ select {
                 }
             }
 
+            & .menu {
+                margin-bottom: 0;
+            }
+
             & .auth {
+                margin-bottom: 0;
                 -webkit-box-ordinal-group: 2;
                 -webkit-order: 1;
                    -moz-box-ordinal-group: 2;
@@ -1388,46 +1397,81 @@ select {
     display: -moz-box;
     display: -ms-flexbox;
     display: flex;
+    margin-bottom: 20px;
 
     & li {
         padding: 0 17px;
         font-weight: var(--font-weight-semibold);
-
-        &:last-child a {
-            color: var(--color-22);
-            font-weight: var(--font-weight-bold);
-        }
         & a {
             color: var(--color-black);
         }
     }
 }
+a.com-prop {
+    color: var(--color-22)!important;
+    font-weight: var(--font-weight-bold);
+}
 /* Navigation end */
 /*ANCHOR Modal btn start */
 .btn__modal {
     padding: 0 47px;
+    margin-bottom: 20px;
 
     & span {
         margin-left: 7px;
+    }
+    & .mail-img {
+        margin-left: 0;
     }
 }
 /* Modal btn end */
 /*ANCHOR Authentification start */
 .auth {
-    & a {
-        font-weight: var(--font-weight-bold);
-        padding: 5px 5px 5px 0;
+    line-height: 1em;
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -moz-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+    -webkit-align-items: center;
+        -moz-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+            margin-bottom: 20px;
 
-        &:last-child {
-            padding-left: 8px;
-        }
+    & .user-img {
+        margin-right: 10px;
+        height: 18px;
+    }
+    &__enter {
+        padding-right: 10px;
+    }
+    & a {
+        display: -webkit-box;
+        display: -webkit-flex;
+        display: -moz-box;
+        display: -ms-flexbox;
+        display: flex;
+        font-weight: var(--font-weight-bold);
 
         & object {
             margin-right: 7px;
         }
     }
     &__reg {
-        border-left: 1px solid rgba(0, 0, 0, .1);
+        padding:  0 10px;
+        position: relative;
+        &:before {
+            content: '';
+            display: block;
+            height: 29px;
+            width: 1px;
+            background: rgba(0, 0, 0, .1); 
+            position: absolute;
+            left: 0;
+            top:  -4px;
+        }
     }
 }
 /* Authentification end */
