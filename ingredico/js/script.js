@@ -437,16 +437,44 @@ for(let item of city) {
 }
 //--------------------------------------------------------------------------
 // --------- Toggle drop phone 
-var btnPhone = document.querySelector('.phone-btn');
+var btnPhone = document.querySelector('.phone-btn'),
+    btnPhoneMobile = document.querySelector('.phones-mobile');
 btnPhone.addEventListener('click', (e) => {
-    classToggle(document.querySelector('.phones-mobile'))
+    console.log(e.currentTarget);
+    classToggle(btnPhoneMobile);
     classToggle(e.currentTarget)
 })
 //--------------------------------------------------------------------------
 // --------- Toggle drop mobile menu 
-var btnMobileMenu = document.querySelector('.phone-btn');
-btnPhone.addEventListener('click', (e) => {
-    classToggle(document.querySelector('.phones-mobile'))
-    classToggle(e.currentTarget)
+var btnMobileMenu = document.querySelector('.menu__burger'),
+    mobileMenu = document.querySelector('.menu');
+btnMobileMenu.addEventListener('click', (e) => {
+    classToggle(mobileMenu)
 })
+
+// document.addEventListener('click', e => {
+//     const target = e.target;
+//     const its_phone = target == mobileMenu || mobileMenu.contains(target);
+//     const phone_is_active = mobileMenu.classList.contains('active');
+//     console.log(phone_is_active);
+//     if (!phone_is_active) {
+//         mobileMenu.classList.remove('active')
+//     }
+// })
+//--------------------------------------------------------------------------
+//----------Clone com prop button 
+const comProp = document.querySelector('.com-prop');
+const btnModalTop = document.querySelector('.btn__modal');
+const auth = document.querySelector('.auth');
+
+const cloneElement = (divGet, divInsert) => {
+    const newDiv = divGet.cloneNode( true );
+    divInsert.children[divInsert.children.length - 1].appendChild( newDiv );
+    divGet.remove()
+}
+if(document.body.clientWidth < 768) {
+    cloneElement(comProp, btnPhoneMobile);
+    cloneElement(btnModalTop, mobileMenu);
+    cloneElement(auth, mobileMenu);
+}
 //--------------------------------------------------------------------------

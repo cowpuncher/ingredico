@@ -267,6 +267,15 @@
         }
         .menu {
             margin-bottom: 0;
+
+            .btn__modal,
+            .auth {
+                display: -webkit-box;
+                display: -webkit-flex;
+                display: -moz-box;
+                display: -ms-flexbox;
+                display: flex;
+            }
         }
         .phone {
             display: none;
@@ -318,6 +327,8 @@
             }
         }
         .phones-mobile {
+            
+            width: 100%;
             display: none;
             -webkit-box-orient: vertical;
             -webkit-box-direction: normal;
@@ -336,7 +347,7 @@
             background: #ffffff;
             width: 300px;
             top: 100%;
-            padding: 50px 0;
+            padding: 50px 20px;
             &.active {
                 display: -webkit-box;
                 display: -webkit-flex;
@@ -345,6 +356,7 @@
                 display: flex;
             }
             .phone {
+                width: 100%;  
                 display: -webkit-box;
                 display: -webkit-flex;
                 display: -moz-box;
@@ -357,6 +369,7 @@
                         align-items: center;
                 .work__time {
                     font-size: var(--font-size-14);
+                    display: block;
                 }
                 a {
                     font-size: var(--font-size-35);
@@ -376,33 +389,136 @@
                 background: transparent;
             }
         }
+        &.active {
+            .navigation {
+                -webkit-box-pack: justify;
+                -webkit-justify-content: space-between;
+                   -moz-box-pack: justify;
+                    -ms-flex-pack: justify;
+                        justify-content: space-between;
+            }
+            .phone-drop {
+                -webkit-box-ordinal-group: 2;
+                -webkit-order: 1;
+                   -moz-box-ordinal-group: 2;
+                    -ms-flex-order: 1;
+                        order: 1;
+            }
+            .cart {
+                background: transparent;
+                width: auto;
+                height: auto;
+                margin-left: auto;
+                svg path {
+                    fill: var(--color-2);
+                }
+            }
+        }
     }
 }
 // Малые девайсы («ландшафтные», < 768px)
 @media (max-width: 767.98px) {
     .top-panel {
+        .logo {
+            width: 100%;
+        }
         .menu {
-            position: relative; 
+            width: 300px;
+            position: absolute; 
             margin-left: auto;
+            visibility: hidden;
+            display: -webkit-box;
+            display: -webkit-flex;
+            display: -moz-box;
+            display: -ms-flexbox;
+            display: flex;
+            -webkit-box-orient: vertical;
+            -webkit-box-direction: normal;
+            -webkit-flex-direction: column;
+               -moz-box-orient: vertical;
+               -moz-box-direction: normal;
+                -ms-flex-direction: column;
+                    flex-direction: column;
+            top: 100%;
+            right: 0%;
+            background: #ffff;
+            padding: 30px 50px 20px;
+            -webkit-transition: all .3s ease;
+            -o-transition: all .3s ease;
+            -moz-transition: all .3s ease;
+            transition: all .3s ease;
+            -webkit-transform: translate(0,-100%);
+               -moz-transform: translate(0,-100%);
+                -ms-transform: translate(0,-100%);
+                 -o-transform: translate(0,-100%);
+                    transform: translate(0,-100%);
+            z-index: -1;
 
-            &:before {
-                content: url(../img/menu.svg);
-                display: block;
-                position: absolute;
-                top: -10px;
-                right: 10px;
+            & li {
+                margin-bottom: 20px;
             }
-
-            &__item {
-                display: none;
+            &.active {
+                visibility: visible;
+                -webkit-transition: all .3s ease;
+                -o-transition: all .3s ease;
+                -moz-transition: all .3s ease;
+                transition: all .3s ease;
+                -webkit-transform: translate(0, 0);
+                   -moz-transform: translate(0, 0);
+                    -ms-transform: translate(0, 0);
+                     -o-transform: translate(0, 0);
+                        transform: translate(0, 0);
             }
         }
+        .com-prop {
+            margin-top: 25px;
+            background: var(--color-22);
+            width: 100%;
+            height: 50px;
+            color: #ffffff!important;
+            display: -webkit-box;
+            display: -webkit-flex;
+            display: -moz-box;
+            display: -ms-flexbox;
+            display: flex;
+            -webkit-box-align: center;
+            -webkit-align-items: center;
+               -moz-box-align: center;
+                -ms-flex-align: center;
+                    align-items: center;
+            -webkit-box-pack: center;
+            -webkit-justify-content: center;
+               -moz-box-pack: center;
+                -ms-flex-pack: center;
+                    justify-content: center;
+            text-transform: uppercase;
+        }
+        .menu__burger {
+            display: block;
+            background: transparent;
+            border: 0;
+            outline: none;
+            margin-left: auto;
+            margin-right: 10px;
+        }
         .cart {
+            margin-right: 10px;
             margin-left: unset;
+        }
+        &.active {
+
+            .cart {
+                margin-left: 10px;
+            }
         }
     }
 }
 // Экстрамалые девайсы («телефоны», < 576px)
 @media (max-width: 575.98px) {
-    
+    .top-panel {
+        .cart,
+        .menu__burger {
+            margin-right: 5px;
+        }
+    }
 }
