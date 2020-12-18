@@ -1,4 +1,4 @@
-// --------------------- Переменные
+// --------------------- VARIABLES
 var tabs = document.querySelector('.news__tabs'),
     topPanel = document.querySelector('.top-panel'),
     р = document.querySelector('.fixed__menu_box'),
@@ -7,7 +7,7 @@ var tabs = document.querySelector('.news__tabs'),
     phone = document.querySelectorAll('.phone__number span'),  
     menu = document.querySelectorAll('.menu__category li a'),
     greyMenu = document.querySelectorAll('.catalog-body__menu .menu__category li a'),
-    menuButton = document.querySelector('.menu__dropdown'),
+    menuButton = document.querySelector('.menu__dropdown-btn'),
     overlayMenu = document.querySelector('.overlay__menu'),
     menuDropdown = document.querySelector('.menu__category'),
     popularProduct = document.querySelectorAll('.popular__item'),
@@ -19,23 +19,40 @@ var tabs = document.querySelector('.news__tabs'),
     productContent = document.querySelector('.product-descrition');
 
 //--------------------------------------------------------------------------
-//--------------------- ФУНКЦИИ НАЧАЛО  ----------------------------
-// --------- Обрезать текст 
+//--------------------- FUNCTION START ----------------------------
+// --------- Slice text
 const textSlice = (node, number) => {
     node.forEach(text => {
         if(text.innerHTML.length > number) {
             text.innerHTML = text.innerHTML.substr(0, number - 1) + ' ...'
         } 
     })
-}// --------- Обрезать строку в превью если больше 140 символов
+}// --------- Slice text in preview news 140 words
 textSlice(previewText, 130);
 //--------------------------------------------------------------------------
-// --------- Toggle для класса active
+// --------- Toggle class active
 const classToggle = (element) => {
     element.classList.toggle('active');
 }
 //--------------------------------------------------------------------------
-// --------- Подключение слайдеров
+// --------- Close open block
+const closeOpenBlock = (button, block, overlay) => {
+    document.addEventListener('click', e => {
+        const target = e.target;
+        const its_block = target == block || block.contains(target);
+        const its_button = target.closest('button') == button;
+        const block_is_active = block.classList.contains('active');
+        if (!its_block && !its_button && block_is_active) {
+            classToggle(block);
+            classToggle(button);
+            if(overlay !== undefined) {
+                classToggle(overlay);
+            }
+        }
+    })
+} 
+//--------------------------------------------------------------------------
+// --------- Add sliders
 const activeSlider = (items, slider) => {
     if(items.length > 4) {
         $(slider).slick({
@@ -49,7 +66,7 @@ activeSlider(news, newsSlider);
 activeSlider(popularProduct, '.popular__slider');
 
 if(mainSlider !== null) {
-    // Активация главного слайдера 
+    // Active main slider
     var mainSlider = new Swiper('.main__slider', {
         // Смена вида крусора при наведении
         grabCursor: true,
@@ -60,7 +77,7 @@ if(mainSlider !== null) {
         // Скорость прокрутки
         speed: 800,
     });
-    // Слайдер подложки под главнм слайдером
+    // Add slider in main slider
     var mainSliderMount = new Swiper('.slider__mount', {
         pagination: {
             el: '.swiper-pagination',
@@ -68,12 +85,12 @@ if(mainSlider !== null) {
         },
         effect: 'fade'
     });
-    // Подключение двух слайдеров друг к другу 
+    // Slider to slider
     mainSlider.controller.control = mainSliderMount;
     mainSliderMount.controller.control = mainSlider;
 }
 //--------------------------------------------------------------------------
-//------------ ФУНКЦИИ КОНЕЦ  ----------------------------------------------
+//------------ FUNCTION END ----------------------------------------------
 // --------- Смена цвета картинки свг в меню Области применения
 // Ищем элемент меню
 window.onload = () => {
@@ -226,7 +243,6 @@ customSelect("city", 0);
 var selItems = document.querySelectorAll('.card .select-items');
 for(let item of selItems) {
     item.onclick = function(e) {
-        
         let quantity = e.target.parentNode.parentNode;
         let div = quantity.previousElementSibling.children;
         let myEl = e.target.innerHTML;
@@ -235,7 +251,6 @@ for(let item of selItems) {
             div[i].innerHTML = arrI[i];
         }
         quantity.nextElementSibling.value = arrI[0];
-        
         quantity.setAttribute('style', 'display: none;');
         quantity.nextElementSibling.classList.add('active');
     }
@@ -247,8 +262,9 @@ menuButton.addEventListener('click', function() {
     classToggle(overlayMenu);
     classToggle(menuDropdown);
 });
+closeOpenBlock(menuButton, menuDropdown, overlayMenu)
 //--------------------------------------------------------------------------
-// --------- Табы в превью новостей
+// --------- Tabs in preview news
 if(tabs !== null) {
     tabs.addEventListener('click' , e => {
         let currentData = e.target.dataset.preview;
@@ -268,7 +284,7 @@ if(tabs !== null) {
     })
 }
 //--------------------------------------------------------------------------
-// --------- Табы в спецификации продуктов
+// --------- Tabs on page product
 if(productContent !== null) {
     productContent.children[0].onclick = e => {
         const current = e.target; 
@@ -284,14 +300,17 @@ if(productContent !== null) {
         current.classList.add('active');
     }
 }
-
 //--------------------------------------------------------------------------
-// --------- Фиксированная шапка   
+// --------- Fixed top menu 
 const fixedMenu = () => {
         let header = document.querySelector('header'); 
         if(pageYOffset > header.offsetHeight) {
             topPanel.classList.add('active');
-            topPanel.setAttribute('style', 'transform: translate(0px, 0px);' );           
+            topPanel.setAttribute('style', 'transform: translate(0px, 0px);' );  
+            // Remove active drop menu category
+            overlayMenu.classList.remove('active');
+            menuDropdown.classList.remove('active');
+            menuButton.classList.remove('active'); 
         } else if(pageYOffset < header.offsetHeight) {
             topPanel.classList.remove('active');
             topPanel.removeAttribute('style', 'transform: translate(0px, 0px);' );
@@ -438,12 +457,12 @@ for(let item of city) {
 //--------------------------------------------------------------------------
 // --------- Toggle drop phone 
 var btnPhone = document.querySelector('.phone-btn'),
-    btnPhoneMobile = document.querySelector('.phones-mobile');
+    phoneMobile = document.querySelector('.phones-mobile');
 btnPhone.addEventListener('click', (e) => {
-    console.log(e.currentTarget);
-    classToggle(btnPhoneMobile);
-    classToggle(e.currentTarget)
+    classToggle(phoneMobile);
+    classToggle(btnPhone);
 })
+closeOpenBlock(btnPhone, phoneMobile);
 //--------------------------------------------------------------------------
 // --------- Toggle drop mobile menu 
 var btnMobileMenu = document.querySelector('.menu__burger'),
@@ -451,18 +470,9 @@ var btnMobileMenu = document.querySelector('.menu__burger'),
 btnMobileMenu.addEventListener('click', (e) => {
     classToggle(mobileMenu)
 })
-
-// document.addEventListener('click', e => {
-//     const target = e.target;
-//     const its_phone = target == mobileMenu || mobileMenu.contains(target);
-//     const phone_is_active = mobileMenu.classList.contains('active');
-//     console.log(phone_is_active);
-//     if (!phone_is_active) {
-//         mobileMenu.classList.remove('active')
-//     }
-// })
+closeOpenBlock(btnMobileMenu, mobileMenu);
 //--------------------------------------------------------------------------
-//----------Clone com prop button 
+//----------Clones Elements 
 const comProp = document.querySelector('.com-prop');
 const btnModalTop = document.querySelector('.btn__modal');
 const auth = document.querySelector('.auth');
@@ -470,10 +480,10 @@ const auth = document.querySelector('.auth');
 const cloneElement = (divGet, divInsert) => {
     const newDiv = divGet.cloneNode( true );
     divInsert.children[divInsert.children.length - 1].appendChild( newDiv );
-    divGet.remove()
+    divGet.remove();
 }
 if(document.body.clientWidth < 768) {
-    cloneElement(comProp, btnPhoneMobile);
+    cloneElement(comProp, phoneMobile);
     cloneElement(btnModalTop, mobileMenu);
     cloneElement(auth, mobileMenu);
 }

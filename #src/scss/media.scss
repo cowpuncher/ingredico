@@ -31,10 +31,10 @@
         .menu__dropdown .menu__category {
             top: 65px;
         }
+        .city.custom-select {
+            margin-top: -10px;
+        }
 
-    }
-    .city.custom-select {
-       margin-top: -10px;
     }
     .menu__category li a {
         width: 380px;
@@ -101,6 +101,15 @@
             }
         }
     }
+    .footer {
+
+        &__menu {
+
+            .menu li {
+                padding: 0 30px;
+            }
+        }
+    }
 }
 @media (max-width: 1440px) {
     .top-panel {
@@ -112,7 +121,7 @@
                     align-items: center;
         }
         .logo {
-            width: 27%;
+            width: 29%;
             margin-right: 15px;
         }
         .menu__dropdown-btn {
@@ -198,6 +207,14 @@
             }
         }
     }
+    .footer {
+        &__menu {
+
+            .menu li {
+                padding: 0 10px;
+            }
+        }
+    }
 }
 // Большие девайсы (большие десктопы, < 1200px)
 @media (max-width: 1199.98px) {
@@ -247,6 +264,34 @@
             }
             .logo {
                 width: 200px;
+            }
+        }
+    }
+    
+    .footer {
+        & .logo {
+            width: 20%;
+        }
+        &__menu {
+
+            .menu li {
+                
+                
+                a {
+                    font-size: var(--font-size-14);
+                }
+            }
+            .menu:last-child {
+                display: none;
+            }
+        }
+        .social {
+            
+            padding-top: 3px;
+
+            &__link {
+                width: 40px;
+                height: 40px;
             }
         }
     }
@@ -416,6 +461,11 @@
             }
         }
     }
+    .footer {
+        & .logo {
+            width: 27%;
+        }
+    }
 }
 // Малые девайсы («ландшафтные», < 768px)
 @media (max-width: 767.98px) {
@@ -510,6 +560,46 @@
 
             .cart {
                 margin-left: 10px;
+            }
+        }
+    }
+    .footer {
+        &__top,
+        &__bottom {
+            -webkit-box-orient: vertical;
+            -webkit-box-direction: normal;
+            -webkit-flex-direction: column;
+               -moz-box-orient: vertical;
+               -moz-box-direction: normal;
+                -ms-flex-direction: column;
+                    flex-direction: column;
+            -webkit-box-align: center;
+            -webkit-align-items: center;
+               -moz-box-align: center;
+                -ms-flex-align: center;
+                    align-items: center;
+        }
+        &__menu {
+            -webkit-box-ordinal-group: 0;
+            -webkit-order: -1;
+               -moz-box-ordinal-group: 0;
+                -ms-flex-order: -1;
+                    order: -1;
+        }
+        .logo {
+            -webkit-box-ordinal-group: 2;
+            -webkit-order: 1;
+               -moz-box-ordinal-group: 2;
+                -ms-flex-order: 1;
+                    order: 1;
+        }
+        .contacts {
+            width: 53%;
+            margin-bottom: 15px;
+
+            &__top {
+                border: 0;
+                padding-bottom: 10px;
             }
         }
     }

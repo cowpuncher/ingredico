@@ -158,10 +158,6 @@ h3 {
     opacity: 0;
     width: 100%;
     height: 100%;
-    -webkit-transition: opacity .3s linear;
-    -o-transition: opacity .3s linear;
-    -moz-transition: opacity .3s linear;
-    transition: opacity .3s linear;
 
     &.active {
         z-index: 100;
@@ -895,7 +891,7 @@ select {
     padding: 50px 0 37px;
 }
 .footer-section {
-    padding: 42px;
+    padding: 42px 0;
 }
 .catalog {
     padding: 47px 0 70px;
@@ -905,7 +901,6 @@ select {
 }
 
 /* -------------------- ANCHOR Карточка товара общие стили ----------- */
-
 .card {
     font-size: var(--font-size-14);
     position: relative;
@@ -1556,6 +1551,9 @@ a.com-prop {
     position: relative;
 
     &-btn {
+        cursor: pointer;
+        border: 0;
+        outline: none;
         font-size: var(--font-size-16);
         font-weight: var(--font-weight-bold);
         color: var(--color-7);
@@ -1585,6 +1583,20 @@ a.com-prop {
                 & span {
                     margin: 0 5px;
                 }
+        &.active {
+            & .menu__dropdown-arrow {
+                -webkit-transition: all .5s ease;
+                -o-transition: all .5s ease;
+                -moz-transition: all .5s ease;
+                -webkit-transition: all .5s ease;
+                transition: all .5s ease;
+                -webkit-transform: rotate(180deg);
+                    -moz-transform: rotate(180deg);
+                    -ms-transform: rotate(180deg);
+                        -o-transform: rotate(180deg);
+                        transform: rotate(180deg);
+            }
+        }
     }
     .menu__category {
         visibility: hidden;
@@ -1616,6 +1628,19 @@ a.com-prop {
                 font-size: var(--font-size-20);
             }
         }
+
+        &.active {
+            visibility: initial;
+            -webkit-transform: translate(0, 0);
+                -moz-transform: translate(0, 0);
+                -ms-transform: translate(0, 0);
+                    -o-transform: translate(0, 0);
+                    transform: translate(0, 0);
+            -webkit-transition: all 1s ease;
+            -o-transition: all 1s ease;
+            -moz-transition: all 1s ease;
+            transition: all 1s ease;
+        }
     }
 
     &-arrow {
@@ -1624,34 +1649,6 @@ a.com-prop {
         -moz-transition: all .5s ease;
         -webkit-transition: all .5s ease;
         transition: all .5s ease;
-    }
-
-    &.active {
-        & .menu__category {
-            visibility: initial;
-            -webkit-transform: translate(0, 0);
-               -moz-transform: translate(0, 0);
-                -ms-transform: translate(0, 0);
-                 -o-transform: translate(0, 0);
-                    transform: translate(0, 0);
-            -webkit-transition: all 1s ease;
-            -o-transition: all 1s ease;
-            -moz-transition: all 1s ease;
-            transition: all 1s ease;
-        }
-
-        & .menu__dropdown-arrow {
-            -webkit-transition: all .5s ease;
-            -o-transition: all .5s ease;
-            -moz-transition: all .5s ease;
-            -webkit-transition: all .5s ease;
-            transition: all .5s ease;
-            -webkit-transform: rotate(180deg);
-               -moz-transform: rotate(180deg);
-                -ms-transform: rotate(180deg);
-                 -o-transform: rotate(180deg);
-                    transform: rotate(180deg);
-        }
     }
 }
 /* Menu dropdown end */
@@ -2589,6 +2586,40 @@ a.com-prop {
 /*ANCHOR Footer start */
 .footer {
     
+    .city {
+        display: -webkit-box;
+        display: -webkit-flex;
+        display: -moz-box;
+        display: -ms-flexbox;
+        display: flex;
+        -webkit-box-align: end;
+        -webkit-align-items: flex-end;
+           -moz-box-align: end;
+            -ms-flex-align: end;
+                align-items: flex-end;
+        -webkit-box-pack: end;
+        -webkit-justify-content: flex-end;
+           -moz-box-pack: end;
+            -ms-flex-pack: end;
+                justify-content: flex-end;
+        .select-selected {
+            color: inherit;
+            background: transparent;
+            padding: 0;
+            border: transparent;
+            text-align: end;
+            padding-right: 20px;
+            font-size: var(--font-size-14);
+
+            &:after {
+                top: 20px;
+                right: 0;
+            }
+        }
+        .select-items {
+            margin-top: 10px;
+        }
+    }
     &__top {
         padding-bottom: 11px;
         border-bottom: 1px solid rgba(0,0,0,.1);
