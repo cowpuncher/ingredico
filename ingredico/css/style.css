@@ -419,20 +419,28 @@ select {
   box-shadow: 28px 38px 61px rgba(0, 0, 0, 0.04);
 }
 
+.grid-card__wrapper {
+  padding: 35px 40px;
+}
+
 .grid-card__wrapper span {
   color: #cacaca;
   font-size: var(--font-size-14);
   font-weight: 500;
+  margin-bottom: 17px;
+  display: block;
 }
 
 .grid-card__wrapper h4 {
   text-transform: uppercase;
   font-size: var(--font-size-23);
   font-weight: 700;
+  margin-bottom: 15px;
 }
 
 .grid-card__wrapper p {
   font-weight: 500;
+  line-height: 1.8em;
 }
 
 .grid-card__wrapper a {
@@ -1019,6 +1027,18 @@ select {
 
 .bg-main .category-section {
   padding: 143px 0 60px;
+}
+
+.info-page {
+  padding-top: 12px;
+}
+
+.info-page .breadcrumbs {
+  margin-bottom: 35px;
+}
+
+.info-page .section_title {
+  margin-bottom: 35px;
 }
 
 /* -------------------- ANCHOR Карточка товара общие стили ----------- */
