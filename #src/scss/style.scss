@@ -286,6 +286,37 @@ select {
 .menu__burger {
     display: none;
 }
+
+/*ANCHOR Grids */
+.grid-card {
+    width: 24%;
+    background: #ffffff;
+    -webkit-box-shadow: 28px 38px 61px rgba(0, 0, 0, 0.04);
+       -moz-box-shadow: 28px 38px 61px rgba(0, 0, 0, 0.04);
+            box-shadow: 28px 38px 61px rgba(0, 0, 0, 0.04);
+
+    &__wrapper {
+        & span {
+            color: #cacaca;
+            font-size: var(--font-size-14);
+            font-weight: 500;
+        }
+        & h4 {
+            text-transform: uppercase;
+            font-size: var(--font-size-23);
+            font-weight: 700;
+        }
+        & p {
+            font-weight: 500;
+        }
+        & a {
+            color: var(--color-3);
+            font-style: 18px;
+            font-weight: 600;
+            border-bottom: 1px solid #d5d5d5;
+        }
+    }
+}
 /*ANCHOR Menu category start */
 .menu__category {
     display: -webkit-box;
@@ -861,16 +892,12 @@ select {
         top: -100px;
     }
 }
-.bg-main  {
-    .popular-section {
-        padding-bottom: 0;
-    }
-}
+
 .product-bg {
     background: #ffffff url('../img/bg-product.png') no-repeat 0 100%;
 }
 .category-section {
-    padding: 143px 0 60px;
+    padding: 35px 0 20px;
     background: #FDF3ED;
 }
 .banner-section {
@@ -899,7 +926,14 @@ select {
 .product-section {
     padding: 17px 0 8px;
 }
-
+.bg-main  {
+    .popular-section {
+        padding-bottom: 0;
+    }
+    .category-section {
+        padding: 143px 0 60px;
+    }
+}
 /* -------------------- ANCHOR Карточка товара общие стили ----------- */
 .card {
     font-size: var(--font-size-14);
@@ -3041,6 +3075,59 @@ a.com-prop {
             }
         }
     }
+}
+/* -------------------- Cтраница 404 ----------- */
+.error__page {
+    text-align: center;
+    padding-bottom: 60px;
+
+    & h1 {
+        font-size: 227px;
+        font-family: 'FuturaPT', sans-serif;
+        font-weight: 800;
+        line-height: 1em;
+        letter-spacing: 0.08em;
+        color: var(--color-7);
+        text-shadow: 1px 0 1px rgba(0, 0, 0, .05), 
+        1px 0 1px rgba(0, 0, 0, .05), 
+        3px 0 3px rgba(0, 0, 0, .05), 
+        5px 0 5px rgba(0, 0, 0, .05), 
+        10px 0 10px rgba(0, 0, 0, .05), 
+        20px 0 20px rgba(0, 0, 0, .05);
+        margin-bottom: 30px;
+    }
+    & p {
+        text-transform: uppercase;
+        font-size: 21px;
+        letter-spacing: 0.265em;
+        color: #808080;
+        line-height: 1.6em;
+    }
+}
+/* -------------------- Cтраница Новости ----------- */
+.news-grid {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -moz-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: justify;
+    -webkit-justify-content: space-between;
+       -moz-box-pack: justify;
+        -ms-flex-pack: justify;
+            justify-content: space-between;
+    -webkit-box-align: start;
+    -webkit-align-items: flex-start;
+       -moz-box-align: start;
+        -ms-flex-align: start;
+            align-items: flex-start;
+    -webkit-flex-wrap: wrap;
+        -ms-flex-wrap: wrap;
+            flex-wrap: wrap;
+
+        & .grid-card {
+
+        }
 }
 
 

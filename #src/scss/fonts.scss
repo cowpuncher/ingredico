@@ -97,3 +97,13 @@
     font-weight: 800;
     font-style: normal;
   }
+@font-face {
+    font-family: 'FuturaPT';
+    src:    local('Futura PT Extra Bold'), 
+            local('Futura PT-Extra-Bold'),
+            url('../fonts/FuturaPT-ExtraBold.woff2') format('woff2'),
+            url('../fonts/FuturaPT-ExtraBold.woff') format('woff'),
+            url('../fonts/FuturaPT-ExtraBold.ttf') format('truetype');
+    font-weight: 800;
+    font-style: normal;
+}
