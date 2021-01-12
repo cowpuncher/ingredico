@@ -1,0 +1,55 @@
+@@include('./templates/blocks/head.html',{
+    "title":"Медиа видео"
+    })
+<body>
+    <!-- ANCHOR Header -->
+    @@include('./templates/blocks/header.html')
+    <!-- ANCHOR Header -->
+    <main class="bg-main">
+        <section class="product-bg info-page">
+            <div class="container">
+                @@include('./templates/elements/breadcrumbs.html')
+                <div class="wrapper info-title">
+                    @@include('./templates/elements/section-title.html', {
+                        name: 'Медиа'
+                    })
+                    <div class="info-buttons">
+                        <a href="#">Галерея</a>
+                        <a href="#">Видео</a>
+                    </div>
+                </div>
+                <div class="grid-container">
+                    <div class="grid-card grid-card__lg">1</div>
+                    <div class="grid-card__wrap">
+                        <div class="grid-card grid-card__md">2</div>
+                        <div class="grid-card__wrap-small">
+                            <div class="grid-card grid-card__sm">3</div>
+                            <div class="grid-card grid-card__sm">4</div>
+                        </div>
+                    </div>
+                    <div class="grid-card__wrap">
+                        <div class="grid-card grid-card__md">5</div>
+                        <div class="grid-card__wrap-small">
+                            <div class="grid-card grid-card__sm">6</div>
+                            <div class="grid-card grid-card__sm">7</div>
+                        </div>
+                    </div>
+                    <div class="grid-card grid-card__lg">8</div>
+                </div>
+                @@include('./templates/elements/more-btn.html', {
+                    "name": "новостей"
+                })
+                @@include('./templates/elements/pagi.html')
+            </div>
+        </section>
+        @@include('./templates/blocks/section-subscribe.html')
+    </main>
+
+
+    
+    <!-- ANCHOR Footer -->
+    @@include('./templates/blocks/footer.html')
+    <!-- ANCHOR Footer -->
+    @@include('./templates/blocks/scripts.html')
+</body>
+</html>

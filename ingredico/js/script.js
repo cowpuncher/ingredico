@@ -16,6 +16,7 @@ var tabs = document.querySelector('.news__tabs'),
     newsSlider = document.querySelector('.news__slider'),
     filterDropdown = document.querySelectorAll('.dropdown .small-title'),
     previewText = document.querySelectorAll('.news__preview_text'),
+    previewNews = document.querySelectorAll('.grid-card p'),
     productContent = document.querySelector('.product-descrition');
 
 //--------------------------------------------------------------------------
@@ -29,6 +30,7 @@ const textSlice = (node, number) => {
     })
 }// --------- Slice text in preview news 140 words
 textSlice(previewText, 130);
+textSlice(previewNews, 245);
 //--------------------------------------------------------------------------
 // --------- Toggle class active
 const classToggle = (element) => {
