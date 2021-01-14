@@ -16,7 +16,10 @@ var tabs = document.querySelector('.news__tabs'),
     newsSlider = document.querySelector('.news__slider'),
     filterDropdown = document.querySelectorAll('.dropdown .small-title'),
     previewText = document.querySelectorAll('.news__preview_text'),
-    previewNews = document.querySelectorAll('.grid-card p'),
+    previewNews = document.querySelectorAll('.flex-card p'),
+    previewVideoSm = document.querySelectorAll('.video-block.grid-card__sm  .grid-card__desc p'),
+    previewVideoMd = document.querySelectorAll('.video-block.grid-card__md  .grid-card__desc p'),
+    previewVideoLg = document.querySelectorAll('.video-block.grid-card__lg  .grid-card__desc p'),
     productContent = document.querySelector('.product-descrition');
 
 //--------------------------------------------------------------------------
@@ -28,9 +31,14 @@ const textSlice = (node, number) => {
             text.innerHTML = text.innerHTML.substr(0, number - 1) + ' ...'
         } 
     })
-}// --------- Slice text in preview news 140 words
+}
+// --------- Slice text in preview news on main page 140 words
 textSlice(previewText, 130);
+// --------- Slice text in preview news on news page 245 words
 textSlice(previewNews, 245);
+textSlice(previewVideoSm, 115);
+textSlice(previewVideoMd, 175);
+textSlice(previewVideoLg, 225);
 //--------------------------------------------------------------------------
 // --------- Toggle class active
 const classToggle = (element) => {
@@ -474,7 +482,7 @@ btnMobileMenu.addEventListener('click', (e) => {
 })
 closeOpenBlock(btnMobileMenu, mobileMenu);
 //--------------------------------------------------------------------------
-//----------Clones Elements 
+//---------- Clones Elements 
 const comProp = document.querySelector('.com-prop');
 const btnModalTop = document.querySelector('.btn__modal');
 const auth = document.querySelector('.auth');
@@ -490,3 +498,56 @@ if(document.body.clientWidth < 768) {
     cloneElement(auth, mobileMenu);
 }
 //--------------------------------------------------------------------------
+//---------- Grids 
+var grid = new Isotope( '.grid-container', {
+    /// options
+    itemSelector: '.grid-card',
+    masonry: {
+        columnWidth: 1,
+        gutter: 26
+      }
+  });
+
+  var grid = new Isotope( '#video-gallery', {
+    /// options
+    itemSelector: 'a',
+    masonry: {
+        columnWidth: 1,
+        gutter: 26
+      }
+  });
+//--------------------------------------------------------------------------
+//---------- Popups 
+var modal = document.querySelector('.popup'),
+    overlay = document.getElementById('overlay'),
+    btnClose = document.getElementById('popup-close'),
+    bodyPopup = document.querySelector('.popup-body'),
+    btnPopupOpen = document.querySelectorAll('.grid-card.video-block');
+
+    
+function openPopup(btn) {
+    for(btnOpen of btn) {
+        btnOpen.addEventListener('click', function() {
+            modal.classList.add('active');
+            window.document.body.setAttribute('style', 'overflow: hidden');
+            addBody = bodyPopup;
+            modal.append(addBody);
+        });
+    }
+}
+function closeModal() {
+    modal.classList.remove('active');
+    removeBody = bodyPopup;
+    removeBody.parentNode.removeChild(removeBody);
+    window.document.body.removeAttribute ('style');
+}
+overlay.addEventListener('click', closeModal);
+btnClose.addEventListener('click', closeModal);
+
+
+openPopup(btnPopupOpen);
+//--------------------------------------------------------------------------
+
+
+lightGallery(document.getElementById('video-gallery'));
+
