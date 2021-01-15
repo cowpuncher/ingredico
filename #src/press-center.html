@@ -1,27 +1,36 @@
 @@include('./templates/blocks/head.html',{
-    "title":"Медиа видео"
+    "title":"Пресс-центр"
     })
 <body>
     <!-- ANCHOR Header -->
     @@include('./templates/blocks/header.html')
     <!-- ANCHOR Header -->
     <main class="bg-main">
-        <section class="product-bg info-page">
+        <section class="product-bg info-page press-centre">
             <div class="container">
                 @@include('./templates/elements/breadcrumbs.html')
                 <div class="wrapper info-title">
                     @@include('./templates/elements/section-title.html', {
-                        name: 'Медиа'
+                        name: 'Пресс-центр'
                     })
                     <div class="info-buttons">
-                        <a href="/media-gallery.html" class="">Галерея</a>
-                        <a href="/media-video.html" class="select">Видео</a>
+                        <a href="#" class="select">Все</a>
+                        <a href="#" class="">Акции</a>
+                        <a href="#" class="">Новости</a>
+                        <a href="#" class="">Блог</a>
                     </div>
                 </div>
                 <div class="grid-container">
                     <div class="grid-card video-block">
-                        <img class="grid-card__bg" src="img/video.jpg" alt="">
+                        @@include('./templates/elements/flag.html', {
+                            "name": "Видео",
+                            "color": "orange"
+                        })
+                        <img class="grid-card__bg" src="img/press1.jpg" alt="">
                         <div class="grid-card__desc">
+                            <span class="date">
+                                27 февраля 2020
+                            </span>
                             <h3>
                                 Агропродмаш 2016
                             </h3>
@@ -30,9 +39,12 @@
                             </p>
                         </div>
                     </div>
-                    <div class="grid-card video-block">
-                        <img class="grid-card__bg" src="img/video2.jpg" alt="">
+                    <div class="grid-card">
+                        <img class="grid-card__bg" src="img/sale.jpg" alt="">
                         <div class="grid-card__desc">
+                            <span class="date">
+                                Акция действует до 20 ноября
+                            </span>
                             <h3>
                                 Агропродмаш 2016
                             </h3>
@@ -41,9 +53,12 @@
                             </p>
                         </div>
                     </div>
-                    <div class="grid-card video-block">
-                        <img class="grid-card__bg" src="img/video3.jpg" alt="">
+                    <div class="grid-card">
+                        <img class="grid-card__bg" src="img/press2.jpg" alt="">
                         <div class="grid-card__desc">
+                            <span class="date">
+                                27 февраля 2020
+                            </span>
                             <h3>
                                 Агропродмаш 2016
                             </h3>
@@ -52,9 +67,12 @@
                             </p>
                         </div>
                     </div>
-                    <div class="grid-card video-block">
-                        <img class="grid-card__bg" src="img/video3.jpg" alt="">
+                    <div class="grid-card">
+                        <img class="grid-card__bg" src="img/press2.jpg" alt="">
                         <div class="grid-card__desc">
+                            <span class="date">
+                                27 февраля 2020
+                            </span>
                             <h3>
                                 Агропродмаш 2016
                             </h3>
@@ -63,9 +81,12 @@
                             </p>
                         </div>
                     </div>
-                    <div class="grid-card video-block">
-                        <img class="grid-card__bg" src="img/video2.jpg" alt="">
+                    <div class="grid-card text-black">
+                        <img class="grid-card__bg" src="img/sale2.jpg" alt="">
                         <div class="grid-card__desc">
+                            <span class="date">
+                                Акция действует до 20 ноября
+                            </span>
                             <h3>
                                 Агропродмаш 2016
                             </h3>
@@ -75,7 +96,7 @@
                         </div>
                     </div>
                     <div class="grid-card video-block">
-                        <img class="grid-card__bg" src="img/video.jpg" alt="">
+                        <img class="grid-card__bg" src="img/press1.jpg" alt="">
                         <div class="grid-card__desc">
                             <h3>
                                 Агропродмаш 2016
@@ -85,9 +106,12 @@
                             </p>
                         </div>
                     </div>
-                    <div class="grid-card video-block">
-                        <img class="grid-card__bg" src="img/video3.jpg" alt="">
+                    <div class="grid-card">
+                        <img class="grid-card__bg" src="img/press2.jpg" alt="">
                         <div class="grid-card__desc">
+                            <span class="date">
+                                27 февраля 2020
+                            </span>
                             <h3>
                                 Агропродмаш 2016
                             </h3>
@@ -96,9 +120,12 @@
                             </p>
                         </div>
                     </div>
-                    <div class="grid-card video-block">
-                        <img class="grid-card__bg" src="img/video3.jpg" alt="">
+                    <div class="grid-card">
+                        <img class="grid-card__bg" src="img/press2.jpg" alt="">
                         <div class="grid-card__desc">
+                            <span class="date">
+                                27 февраля 2020
+                            </span>
                             <h3>
                                 Агропродмаш 2016
                             </h3>

@@ -17,9 +17,6 @@ var tabs = document.querySelector('.news__tabs'),
     filterDropdown = document.querySelectorAll('.dropdown .small-title'),
     previewText = document.querySelectorAll('.news__preview_text'),
     previewNews = document.querySelectorAll('.flex-card p'),
-    previewVideoSm = document.querySelectorAll('.video-block.grid-card__sm  .grid-card__desc p'),
-    previewVideoMd = document.querySelectorAll('.video-block.grid-card__md  .grid-card__desc p'),
-    previewVideoLg = document.querySelectorAll('.video-block.grid-card__lg  .grid-card__desc p'),
     productContent = document.querySelector('.product-descrition');
 
 //--------------------------------------------------------------------------
@@ -36,9 +33,6 @@ const textSlice = (node, number) => {
 textSlice(previewText, 130);
 // --------- Slice text in preview news on news page 245 words
 textSlice(previewNews, 245);
-textSlice(previewVideoSm, 115);
-textSlice(previewVideoMd, 175);
-textSlice(previewVideoLg, 225);
 //--------------------------------------------------------------------------
 // --------- Toggle class active
 const classToggle = (element) => {
@@ -499,6 +493,7 @@ if(document.body.clientWidth < 768) {
 }
 //--------------------------------------------------------------------------
 //---------- Grids 
+/* Media video */
 var grid = new Isotope( '.grid-container', {
     /// options
     itemSelector: '.grid-card',
@@ -508,14 +503,6 @@ var grid = new Isotope( '.grid-container', {
       }
   });
 
-  var grid = new Isotope( '#video-gallery', {
-    /// options
-    itemSelector: 'a',
-    masonry: {
-        columnWidth: 1,
-        gutter: 26
-      }
-  });
 //--------------------------------------------------------------------------
 //---------- Popups 
 var modal = document.querySelector('.popup'),
@@ -547,7 +534,10 @@ btnClose.addEventListener('click', closeModal);
 
 openPopup(btnPopupOpen);
 //--------------------------------------------------------------------------
+/* Lightbox with slider */
+var mediaGallery = document.querySelectorAll('.media__gallery');
+for(item of mediaGallery) {
+    lightGallery(item);
+}
 
-
-lightGallery(document.getElementById('video-gallery'));
 
