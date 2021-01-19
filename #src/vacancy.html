@@ -1,0 +1,73 @@
+@@include('./templates/blocks/head.html',{
+    "title":"Вакансии"
+    })
+<body class="bg-main">
+    <!-- ANCHOR Header -->
+    @@include('./templates/blocks/header.html')
+    <!-- ANCHOR Header -->
+    
+    <!-- ANCHOR Main -->
+    <main class="page">
+        <section class="banner-md">
+            <img src="./img/vacancy.jpg" alt="banner" class="banner-md__img">
+            <div class="container">
+                @@include('./templates/elements/breadcrumbs.html')
+                @@include('./templates/elements/section-title.html', {
+                    name: 'Вакансии'
+                })
+            </div>
+        </section>
+        <section class="section__vacancy figure__bg">
+            <div class="container">
+                <div class="vacancy ">
+                    <div class="vacancy__item">
+                        <span class="date">20.01.2020</span>
+                        <span class="departament">Департамент Продаж</span>
+                        <a href="#" class="title">Менеджер по работе с ключевыми клиентами (г. Москва)</a>
+                        <p>Сайт рыбатекст поможет дизайнеру, верстальщику, вебмастеру сгенерировать несколько абзацев более менее осмысленного текста рыбы на русском языке, а начинающему оратору отточить навык публичных выступлений в домашних условиях. </p>
+                    </div>
+                    <div class="vacancy__item">
+                        <span class="date">20.01.2020</span>
+                        <span class="departament">Департамент маркетинга и <br> рекламы:</span>
+                        <a href="#" class="title">Бренд-менеджер</a>
+                        <p>Сайт рыбатекст поможет дизайнеру, верстальщику, вебмастеру сгенерировать несколько абзацев более менее осмысленного текста рыбы на русском языке, а начинающему оратору отточить навык публичных выступлений в домашних условиях. </p>
+                    </div>
+                    <div class="vacancy__item">
+                        <span class="date">20.01.2020</span>
+                        <span class="departament">Производство <br> г.Москва</span>
+                        <a href="#" class="title">Упаковщик</a>
+                        <p>Сайт рыбатекст поможет дизайнеру, верстальщику, вебмастеру сгенерировать несколько абзацев более менее осмысленного текста рыбы на русском языке, а начинающему оратору отточить навык публичных выступлений в домашних условиях. </p>
+                    </div>
+                    <div class="vacancy__item">
+                        <span class="date">20.01.2020</span>
+                        <span class="departament">Производство <br> г.Москва</span>
+                        <a href="#" class="title">Оператор производственной линии</a>
+                        <p>Сайт рыбатекст поможет дизайнеру, верстальщику, вебмастеру сгенерировать несколько абзацев более менее осмысленного текста рыбы на русском языке, а начинающему оратору отточить навык публичных выступлений в домашних условиях. </p>
+                    </div>
+                    <div class="vacancy__item">
+                        <p>Для отправки резюме Вы можете перейти на вакансию или отправить на электронный адрес Департамента персонала</p>
+                        <a href="#" class="mail">vacancies@ingredico.ru</a>
+                    </div>
+                    <div class="vacancy__item vacancy__item_big">
+                        <div class="vacancy__item_big-wrap">
+                            <h6>Старт программы стажировки в Департамент маркетинга в Компании «Ingredico»!</h6>
+                            <p>Компания «Ingredico» объявляет о начале ежегодной программы стажировки в Департаменте маркетинга и рекламы для студентов последних курсов университетов, основная цель которой это привлечение амбициозных и талантливых кандидатов в команду с последующим развитием внутри Компании. За время стажировки студенты получают возможность погрузиться в работу создания продукта, тесного общения с производством, разработку спецификаций и анализу рынка конкурентов.</p>
+                        </div>
+                        <div class="vacancy__item_big-wrap">
+                            <p>Если ты уверен в себе и готов развиваться в сфере Маркетинга, то отправляй резюме на адрес электронной почты </p>
+                            <a href="#" class="mail">vacancies@ingredico.ru</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        @@include('./templates/blocks/section-subscribe.html')
+    </main>
+    <!-- ANCHOR Main -->
+
+    <!-- ANCHOR Footer -->
+    @@include('./templates/blocks/footer.html')
+    <!-- ANCHOR Footer -->
+    @@include('./templates/blocks/scripts.html')
+</body>
+</html>

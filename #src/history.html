@@ -1,0 +1,94 @@
+@@include('./templates/blocks/head.html',{
+    "title": "История"
+    })
+<body class="bg-main">
+    <!-- ANCHOR Header -->
+    @@include('./templates/blocks/header.html')
+    <!-- ANCHOR Header -->
+    
+    <!-- ANCHOR Main -->
+    <main class="page">
+        <section class="history bg-white">
+            <div class="container">
+                @@include('./templates/elements/breadcrumbs.html')
+                <div class="wrapper history__title">
+                    @@include('./templates/elements/section-title.html', {
+                        name: 'История'
+                    })
+                    <p class="history__title_desc">
+                        <span>ИНГРЕДИКО</span> — бизнес с более чем <br> двадцатилетней историей!
+                    </p>
+                </div>
+                <div class="history__slider_images swiper-container">
+                    <div class="history__slider_wrap swiper-wrapper">
+                        <div class="image swiper-slide"><img src="./img/doc.jpg" alt="history_images"></div>
+                        <div class="image swiper-slide"><img src="./img/doc.jpg" alt="history_images"></div>
+                        <div class="image swiper-slide"><img src="./img/doc.jpg" alt="history_images"></div>
+                        <div class="image swiper-slide"><img src="./img/doc.jpg" alt="history_images"></div>
+                        <div class="image swiper-slide"><img src="./img/doc.jpg" alt="history_images"></div>
+                        <div class="image swiper-slide"><img src="./img/doc.jpg" alt="history_images"></div>
+                        <div class="image swiper-slide"><img src="./img/doc.jpg" alt="history_images"></div>
+                        <div class="image swiper-slide"><img src="./img/doc.jpg" alt="history_images"></div>
+                    </div>
+                </div>
+                <div class="history__slider_dates swiper-container">
+                    <div class="history__slider_wrap swiper-wrapper">
+                        <div class="swiper-slide">1996</div>
+                        <div class="swiper-slide">1997</div>
+                        <div class="swiper-slide">1998</div>
+                        <div class="swiper-slide">1999</div>
+                        <div class="swiper-slide">2000</div>
+                        <div class="swiper-slide">2001</div>
+                        <div class="swiper-slide">2002</div>
+                        <div class="swiper-slide">2003</div>
+                    </div>
+                </div>
+                <div class="history__slider_content swiper-container">
+                    <div class="history__slider_wrap swiper-wrapper">
+                        <div class="history__content swiper-slide">
+                            <h6>Год основания компании Ingredico</h6>
+                            <p>text</p>
+                        </div>
+                        <div class="history__content swiper-slide">
+                            <h6>Год основания компании Ingredico</h6>
+                            <p>text</p>
+                        </div>
+                        <div class="history__content swiper-slide">
+                            <h6>Год основания компании Ingredico</h6>
+                            <p>text</p>
+                        </div>
+                        <div class="history__content swiper-slide">
+                            <h6>Год основания компании Ingredico</h6>
+                            <p>text</p>
+                        </div>
+                        <div class="history__content swiper-slide">
+                            <h6>Год основания компании Ingredico</h6>
+                            <p>text</p>
+                        </div>
+                        <div class="history__content swiper-slide">
+                            <h6>Год основания компании Ingredico</h6>
+                            <p>text</p>
+                        </div>
+                        <div class="history__content swiper-slide">
+                            <h6>Год основания компании Ingredico</h6>
+                            <p>text</p>
+                        </div>
+                        <div class="history__content swiper-slide">
+                            <h6>Год основания компании Ingredico</h6>
+                            <p>text</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        @@include('./templates/blocks/section-subscribe.html')
+    </main>
+    <!-- ANCHOR Main -->
+
+    <!-- ANCHOR Footer -->
+    @@include('./templates/blocks/footer.html')
+    <!-- ANCHOR Footer -->
+    @@include('./templates/blocks/scripts.html')
+</body>
+</html>

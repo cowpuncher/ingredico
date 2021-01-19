@@ -16,8 +16,9 @@ var tabs = document.querySelector('.news__tabs'),
     newsSlider = document.querySelector('.news__slider'),
     filterDropdown = document.querySelectorAll('.dropdown .small-title'),
     previewText = document.querySelectorAll('.news__preview_text'),
-    previewNews = document.querySelectorAll('.flex-card p'),
-    productContent = document.querySelector('.product-descrition');
+    previewNews = document.querySelectorAll('.info-page .flex-card p'),
+    accordeon = document.querySelectorAll('.accordeon__item'),
+    tabsContent = document.querySelector('.tabs-descrition');
 
 //--------------------------------------------------------------------------
 //--------------------- FUNCTION START ----------------------------
@@ -93,6 +94,42 @@ if(mainSlider !== null) {
     mainSlider.controller.control = mainSliderMount;
     mainSliderMount.controller.control = mainSlider;
 }
+
+var historySlider = new Swiper('.history__slider_images', {
+    // Смена вида крусора при наведении
+    grabCursor: true,
+    // Количество слайдов для показа 
+    slidesPerView: 1,
+    // Скорость прокрутки
+    speed: 800,
+});
+var historySliderContent = new Swiper('.history__slider_content', {
+    // Смена вида крусора при наведении
+    grabCursor: true,
+    // Количество слайдов для показа 
+    slidesPerView: 1,
+    // Скорость прокрутки
+    speed: 800,
+    controller: {
+        control: historySlider
+    },
+});
+new Swiper('.history__slider_dates', {
+    mousewheel: {
+        sensitivity: 1,
+        eventsTarget: ".history__slider_dates"
+    },
+    // Смена вида крусора при наведении
+    grabCursor: true,
+    // Количество слайдов для показа 
+    slidesPerView: 3,
+    // Скорость прокрутки
+    speed: 800,
+    // Передача управления
+    controller: {
+        control: historySliderContent
+    },
+});
 //--------------------------------------------------------------------------
 //------------ FUNCTION END ----------------------------------------------
 // --------- Смена цвета картинки свг в меню Области применения
@@ -288,12 +325,24 @@ if(tabs !== null) {
     })
 }
 //--------------------------------------------------------------------------
+// --------- Accordeon
+if(accordeon !== null) {
+    for(item of accordeon) {
+        item.addEventListener('click', e => {
+            for(var  i = 0; i < accordeon.length; i++) {
+                accordeon[i].classList.remove('active');
+            }
+            e.currentTarget.classList.add('active');
+        })
+    }
+}
+//--------------------------------------------------------------------------
 // --------- Tabs on page product
-if(productContent !== null) {
-    productContent.children[0].onclick = e => {
+if(tabsContent !== null) {
+    tabsContent.children[0].onclick = e => {
         const current = e.target; 
-        const arrayTabs = productContent.children[0].children;
-        const arrayContent = productContent.children[1].children;
+        const arrayTabs = tabsContent.children[0].children;
+        const arrayContent = tabsContent.children[1].children;
         for( var i = 0; i < arrayTabs.length; i++ ) {
             arrayTabs[i].classList.remove('active');
             arrayTabs[i].setAttribute('data-tabs', [i])
@@ -539,5 +588,8 @@ var mediaGallery = document.querySelectorAll('.media__gallery');
 for(item of mediaGallery) {
     lightGallery(item);
 }
+
+
+
 
 

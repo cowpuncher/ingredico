@@ -1,0 +1,64 @@
+@@include('./templates/blocks/head.html',{
+    "title":"Отзывы"
+    })
+<body>
+    <!-- ANCHOR Header -->
+    @@include('./templates/blocks/header.html')
+    <!-- ANCHOR Header -->
+
+    <main class="reviews-page">
+        <section class="bg-main reviews-section">
+            <div class="container">
+                @@include('./templates/elements/breadcrumbs.html')
+                @@include('./templates/elements/section-title.html', {
+                    name: 'Отзывы'
+                })
+                <div class="reviews-grid">
+                    <div class="flex-card">
+                        <div class="flex-card__wrapper">
+                            <div class="flex-card__img">
+                                <img src="./img/rev-det.jpg" alt="detail">
+                            </div>
+                            <span class="flex-card__wrapper_name">
+                                Константин Константинопольский
+                            </span>
+                            <span class="flex-card__wrapper_desc">
+                                МК «Любинский», Генеральный директор, к.т.н., Омск
+                            </span>
+                        </div>
+                        <div class="flex-card__wrapper">
+                            <span class="date">20.05.2020</span>
+                            <h4>
+                                НАДЕЖНЫЙ ПОСТАВЩИК <br> КАЧЕСТВЕННЫХ ИНГРЕДИЕНТОВ
+                            </h4>
+                                <p>Сайт рыбатекст поможет дизайнеру, верстальщику, вебмастеру сгенерировать несколько абзацев более менее осмысленного текста рыбы на русском языке, а начинающему оратору отточить навык публичных выступлений в домашних условиях.</p> 
+                                <p> При создании генератора мы использовали небезизвестный универсальный код речей. Текст генерируется абзацами случайным образом от двух до десяти предложений в абзаце, что позволяет сделать текст более привлекательным и живым для визуально-слухового восприятия.</p>
+                                <p> По своей сути рыбатекст является альтернативой традиционному lorem ipsum, который вызывает у некторых людей недоумение при попытках прочитать рыбу текст</p>
+                                <p>В отличии от lorem ipsum, текст рыба на русском языке наполнит любой макет непонятным смыслом и придаст неповторимый колорит советских времен.</p>
+                                                      
+                        </div>
+                    </div>
+                    <div class="reviews-doc">
+                        <img src="./img/doc.jpg" alt="document">
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section class="popular-section figure__bg">
+            <div class="container">
+                @@include('./templates/elements/section-title.html', {
+                    name: 'Рекомендуемые товары'
+                })
+                @@include('./templates/blocks/popular.html')
+            </div>
+        </section>
+        @@include('./templates/blocks/section-subscribe.html')
+    </main>
+
+
+    <!-- ANCHOR Footer -->
+    @@include('./templates/blocks/footer.html')
+    <!-- ANCHOR Footer -->
+    @@include('./templates/blocks/scripts.html')
+</body>
+</html>
