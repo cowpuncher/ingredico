@@ -4118,6 +4118,49 @@ a.com-prop {
   color: var(--color-3);
 }
 
+.history__slider {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  height: 550px;
+}
+
+.history__slider_images,
+.history__slider_content {
+  margin: 0;
+}
+
+.history__slider_images {
+  overflow: hidden;
+}
+
+.history__slider_images .image img {
+  width: 100%;
+  height: 100%;
+  -o-object-fit: cover;
+  object-fit: cover;
+}
+
+.history__slider_pagi.swiper-pagination {
+  width: 250px !important;
+  top: 10% !important;
+  right: -50% !important;
+}
+
+.history__slider_pagi.swiper-pagination span {
+  font-size: 100px;
+}
+
+.history__slider_pagi.swiper-pagination span.swiper-pagination-bullet {
+  width: 150px;
+  height: 150px;
+  background: transparent;
+}
+
+.history__slider_dates {
+  display: none;
+}
+
 @media (max-width: 1675px) {
   .top-panel.active .navigation {
     -webkit-box-align: center;

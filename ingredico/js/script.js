@@ -69,7 +69,7 @@ const activeSlider = (items, slider) => {
 }
 activeSlider(news, newsSlider);
 activeSlider(popularProduct, '.popular__slider');
-
+//slider on main page
 if(mainSlider !== null) {
     // Active main slider
     var mainSlider = new Swiper('.main__slider', {
@@ -94,42 +94,40 @@ if(mainSlider !== null) {
     mainSlider.controller.control = mainSliderMount;
     mainSliderMount.controller.control = mainSlider;
 }
-
+//slider on history page
 var historySlider = new Swiper('.history__slider_images', {
     // Смена вида крусора при наведении
     grabCursor: true,
-    // Количество слайдов для показа 
     slidesPerView: 1,
-    // Скорость прокрутки
+    direction: 'vertical',
     speed: 800,
 });
 var historySliderContent = new Swiper('.history__slider_content', {
     // Смена вида крусора при наведении
     grabCursor: true,
-    // Количество слайдов для показа 
     slidesPerView: 1,
-    // Скорость прокрутки
     speed: 800,
-    controller: {
-        control: historySlider
-    },
-});
-new Swiper('.history__slider_dates', {
+    direction: 'vertical',
     mousewheel: {
-        sensitivity: 1,
-        eventsTarget: ".history__slider_dates"
+        sensitivity: 11,
+        eventsTarget: ".swiper-pagination"
     },
-    // Смена вида крусора при наведении
-    grabCursor: true,
-    // Количество слайдов для показа 
-    slidesPerView: 3,
-    // Скорость прокрутки
-    speed: 800,
-    // Передача управления
-    controller: {
-        control: historySliderContent
+    keyboard: {
+        enabled: true,
+        onlyInViewport: true
+    },
+    pagination: {
+        el: ".swiper-pagination",
+        clickable: true,
+        renderBullet: function(index, className) {
+            var bullet = document.querySelectorAll('.history__slider_dates .history__slider_date')[index].innerHTML;
+            return '<span class="' + className + '">' + bullet + '</span>';
+        },
+        dynamicBullets: true,
     },
 });
+historySlider.controller.control = historySliderContent;
+historySliderContent.controller.control = historySlider;
 //--------------------------------------------------------------------------
 //------------ FUNCTION END ----------------------------------------------
 // --------- Смена цвета картинки свг в меню Области применения
