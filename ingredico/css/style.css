@@ -4471,6 +4471,30 @@ a.com-prop {
   margin-bottom: 30px;
 }
 
+/* -------------------- Cтраница О компании ----------- */
+
+.about-section {
+  padding: 100px 0;
+}
+
+.about-direction {
+  background: #ffffff url(../img/direction-bg.png) no-repeat 50% 50%;
+  padding-top: 105px;
+  width: 545px;
+  height: 545px;
+  position: relative;
+  border-radius: 50%;
+}
+
+.about-direction img {
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  -webkit-transform: translate(-50%, 0);
+  -ms-transform: translate(-50%, 0);
+  transform: translate(-50%, 0);
+}
+
 @media (max-width: 1675px) {
   .top-panel.active .navigation {
     -webkit-box-align: center;
@@ -5049,3 +5073,5 @@ a.com-prop {
 .webp .reviews-page .popular-section.figure__bg{ background: url(../img/bg-product.webp) no-repeat 0 100%; }
 
 .webp .partner__spice-bg{ background: #ffffff url(../img/partner_img.webp) no-repeat 100% 100%; }
+
+.webp .about-direction{ background: #ffffff url(../img/direction-bg.webp) no-repeat 50% 50%; }

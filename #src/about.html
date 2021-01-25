@@ -1,0 +1,51 @@
+@@include('./templates/blocks/head.html',{
+    "title":"Вакансии"
+    })
+<body class="bg-main">
+    <!-- ANCHOR Header -->
+    @@include('./templates/blocks/header.html')
+    <!-- ANCHOR Header -->
+    
+    <!-- ANCHOR Main -->
+    <main class="page">
+        <section class="banner-md">
+            <img src="./img/about.jpg" alt="banner" class="banner-md__img">
+            <div class="container">
+                @@include('./templates/elements/breadcrumbs.html')
+                @@include('./templates/elements/section-title.html', {
+                    name: 'О компании'
+                })
+            </div>
+        </section>
+        <section class="about-section">
+            <div class="container">
+                <div class="wrapper">
+                    <div class="about__card about__block">
+                        <h3>
+                            <span>«ИНГРЕДИКО»</span> — компания, которая внесла реальный вклад в развитие российского пищевого рынка
+                        </h3>
+                        <p>
+                            На протяжении всей нашей истории мы проводим семинары для специалистов пищевой промышленности, транслируя опыт и знания, накопленные нашими технологами. 
+                        </p>
+                        <p>
+                            Все ведущие специалисты «ИНГРЕДИКО» — кандидаты технических наук по профилю, соответствующему отрасли отдела.
+                        </p>
+                    </div>
+                    <div class="about__block">
+                        <div class="about-direction">
+                            <img src="./img/direction.png" alt="direction">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        @@include('./templates/blocks/section-subscribe.html')
+    </main>
+    <!-- ANCHOR Main -->
+
+    <!-- ANCHOR Footer -->
+    @@include('./templates/blocks/footer.html')
+    <!-- ANCHOR Footer -->
+    @@include('./templates/blocks/scripts.html')
+</body>
+</html>

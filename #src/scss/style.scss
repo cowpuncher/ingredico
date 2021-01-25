@@ -4460,6 +4460,31 @@ a.com-prop {
         }
     }
 }
-
+/* -------------------- Cтраница О компании ----------- */
+.about {
+    &-section {
+        padding: 100px 0;
+    }
+    &-direction {
+        background: #ffffff url(../img/direction-bg.png) no-repeat 50% 50%;
+        padding-top:  105px;
+        width: 545px;
+        height: 545px;
+        position: relative;
+        -webkit-border-radius: 50%;
+           -moz-border-radius: 50%;
+                border-radius: 50%;
+        img {
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            -webkit-transform: translate(-50%, 0);
+               -moz-transform: translate(-50%, 0);
+                -ms-transform: translate(-50%, 0);
+                 -o-transform: translate(-50%, 0);
+                    transform: translate(-50%, 0);
+        }
+    }
+}
 
 @import "./media.scss";
