@@ -1,0 +1,122 @@
+@@include('./templates/blocks/head.html',{
+    "title": "История"
+    })
+<body class="bg-main">
+    <!-- ANCHOR Header -->
+    @@include('./templates/blocks/header.html')
+    <!-- ANCHOR Header -->
+    
+    <!-- ANCHOR Main -->
+    <main class="page partner-page">
+        <section >
+            <div class="container">
+                @@include('./templates/elements/breadcrumbs.html')
+                @@include('./templates/elements/section-title.html', {
+                    name: 'Партнерам'
+                })
+                <div class="wrapper">
+                    <div class="partner__item">
+                        <div class="partner__item_img">
+                            <img src="./img/partner1.svg" alt="">
+                        </div>
+                        <h4>Большой штат <br> технологов-разработчиков</h4>
+                    </div>
+                    <div class="partner__item">
+                        <div class="partner__item_img">
+                            <img src="./img/partner2.svg" alt="">
+                        </div>
+                        <h4>Снижение себестоимости готовой <br> продукции за счет оптимизации <br> рецептур Клиента</h4>
+                    </div>
+                    <div class="partner__item">
+                        <div class="partner__item_img">
+                            <img src="./img/partner3.svg" alt="">
+                        </div>
+                        <h4>прямой импорт <br> моноингредиентов</h4>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section class="bg-white">
+            <div class="container">
+                <div class="wrapper">
+                    <div class="partner__content partner-bg">
+                        <p class="text">
+                            Высокотехнологичный продукт, разработанный специально под нужды клиента
+                        </p>
+                        <p class="text--orange">
+                            «Через синтез природы, науки и технологий к эстетике пищевых продуктов»
+                        </p>
+                    </div>
+                    <div class="partner__img">
+                        <img src="./img/partner-items.png" alt="" >
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section class="partner-section">
+            <div class="container">
+                <div class="wrapper">
+                    <div class="partner__item">
+                        <img src="./img/partner4.svg" alt="">
+                        <h4>Готовые рецептурные <br> решения для новых <br> продуктов</h4>
+                    </div>
+                    <div class="partner__item">
+                        <img src="./img/partner5.svg" alt="">
+                        <h4>Технологическая поддержка <br> и обучение нашими <br> специалистами</h4>
+                    </div>
+                    <div class="partner__item">
+                        <img src="./img/partner6.svg" alt="">
+                        <h4>Возможность проведения <br> контрольных выработок <br> нашими технологами</h4>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section class="partner__spice-bg">
+            <div class="container">
+                <div class="wrapper">
+                    <div class="partner__img-bag">
+                        <img src="./img/partner_img1.png" alt="">
+                    </div>
+                    <div class="partner__content">
+                        <h3>
+                            Замена большого количества <br> различных ингредиентов на <br> комплексную <br> функциональную смесь
+                        </h3>
+                        <p class="text">
+                            (снижение вероятности ошибки <br> внесения персоналом)
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section class="partner-section figure__bg">
+            <div class="container">
+                <div class="wrapper">
+                    <h3>
+                        Технологическая <br> поддержка научными <br> сотрудниками
+                    </h3>
+                    <div class="partner__item partner__item--small">
+                        <img src="./img/partner7.svg" alt="">
+                        <h4>Начальники <br> технологических отделов</h4>
+                    </div>
+                    <div class="partner__item partner__item--small">
+                        <img src="./img/partner8.svg" alt="">
+                        <h4>Кандидаты технических <br> наук, директор</h4>
+                    </div>
+                    <div class="partner__item partner__item--small">
+                        <img src="./img/partner9.svg" alt="">
+                        <h4>Доктор <br> технических наук</h4>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        @@include('./templates/blocks/section-subscribe.html')
+    </main>
+    <!-- ANCHOR Main -->
+
+    <!-- ANCHOR Footer -->
+    @@include('./templates/blocks/footer.html')
+    <!-- ANCHOR Footer -->
+    @@include('./templates/blocks/scripts.html')
+</body>
+</html>

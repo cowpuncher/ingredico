@@ -14,6 +14,7 @@ var tabs = document.querySelector('.news__tabs'),
     news = document.querySelectorAll('.news__preview_item'),
     mainSlider = document.querySelector('.main__slider'),
     newsSlider = document.querySelector('.news__slider'),
+    historySlider = document.querySelector('.history__slider'),
     filterDropdown = document.querySelectorAll('.dropdown .small-title'),
     previewText = document.querySelectorAll('.news__preview_text'),
     previewNews = document.querySelectorAll('.info-page .flex-card p'),
@@ -95,39 +96,46 @@ if(mainSlider !== null) {
     mainSliderMount.controller.control = mainSlider;
 }
 //slider on history page
-var historySlider = new Swiper('.history__slider_images', {
-    // Смена вида крусора при наведении
-    grabCursor: true,
-    slidesPerView: 1,
-    direction: 'vertical',
-    speed: 800,
-});
-var historySliderContent = new Swiper('.history__slider_content', {
-    // Смена вида крусора при наведении
-    grabCursor: true,
-    slidesPerView: 1,
-    speed: 800,
-    direction: 'vertical',
-    mousewheel: {
-        sensitivity: 11,
-        eventsTarget: ".swiper-pagination"
-    },
-    keyboard: {
-        enabled: true,
-        onlyInViewport: true
-    },
-    pagination: {
-        el: ".swiper-pagination",
-        clickable: true,
-        renderBullet: function(index, className) {
-            var bullet = document.querySelectorAll('.history__slider_dates .history__slider_date')[index].innerHTML;
-            return '<span class="' + className + '">' + bullet + '</span>';
+if(historySlider !== null) {
+    var historySlider = new Swiper('.history__slider_images', {
+        // Смена вида крусора при наведении
+        grabCursor: true,
+        slidesPerView: 1,
+        direction: 'vertical',
+        speed: 800,
+    });
+    var historySliderContent = new Swiper('.history__slider_content', {
+        // Смена вида крусора при наведении
+        grabCursor: true,
+        slidesPerView: 1,
+        speed: 800,
+        direction: 'vertical',
+        mousewheel: {
+            sensitivity: 11,
+            eventsTarget: ".swiper-pagination"
         },
-        dynamicBullets: true,
-    },
-});
-historySlider.controller.control = historySliderContent;
-historySliderContent.controller.control = historySlider;
+        keyboard: {
+            enabled: true,
+            onlyInViewport: true
+        },
+        navigation: {
+            nextEl: '.swiper-button-next',
+            prevEl: '.swiper-button-prev',
+        },
+        pagination: {
+            el: ".swiper-pagination",
+            clickable: true,
+            renderBullet: function(index, className) {
+                var bullet = document.querySelectorAll('.history__slider_dates .history__slider_date')[index].innerHTML;
+                return '<span class="' + className + '">' + bullet + '</span>';
+            },
+            dynamicBullets: true,
+        },
+    });
+    historySlider.controller.control = historySliderContent;
+    historySliderContent.controller.control = historySlider;
+}
+
 //--------------------------------------------------------------------------
 //------------ FUNCTION END ----------------------------------------------
 // --------- Смена цвета картинки свг в меню Области применения
@@ -541,14 +549,17 @@ if(document.body.clientWidth < 768) {
 //--------------------------------------------------------------------------
 //---------- Grids 
 /* Media video */
-var grid = new Isotope( '.grid-container', {
-    /// options
-    itemSelector: '.grid-card',
-    masonry: {
-        columnWidth: 1,
-        gutter: 26
-      }
-  });
+if(document.querySelector('.grid-container') !== null) {
+    var grid = new Isotope( '.grid-container', {
+        /// options
+        itemSelector: '.grid-card',
+        masonry: {
+            columnWidth: 1,
+            gutter: 26
+        }
+    });
+}
+
 
 //--------------------------------------------------------------------------
 //---------- Popups 
@@ -586,8 +597,3 @@ var mediaGallery = document.querySelectorAll('.media__gallery');
 for(item of mediaGallery) {
     lightGallery(item);
 }
-
-
-
-
-
