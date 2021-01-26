@@ -4686,7 +4686,9 @@ a.com-prop {
 /* -------------------- Cтраница Контакты ----------- */
 .contacts-page {
     padding-top: 13px;
-
+    .figure__bg-white {
+        padding-bottom: 65px;
+    }
     .tabs-descrition {
         margin-top: 45px;
             
@@ -4835,6 +4837,31 @@ a.com-prop {
                     border-bottom: 1px solid;
                     font-size: var(--font-size-18);
                     margin: 0 0 5px 15px;
+                }
+            }
+        }
+        &__anotherCity {
+            padding: 50px 0 0;
+            h4 {
+                margin-bottom: 40px;
+            }
+            &_card {
+                background: var(--color-7);
+                width: 32%;
+                padding: 35px 40px 22px;
+                -webkit-box-shadow: 28px 33px 61px rgba(0, 0, 0, .04);
+                   -moz-box-shadow: 28px 33px 61px rgba(0, 0, 0, .04);
+                        box-shadow: 28px 33px 61px rgba(0, 0, 0, .04);
+
+                    
+                h1,h2,h3,h4,h5,h6 {
+                    font-size: var(--font-size-25);
+                    font-weight: var(--font-weight-bold);
+                    text-transform: none;
+                    margin-bottom: 27px;
+                }
+                p {
+                    font-size: var(--font-size-20);
                 }
             }
         }
