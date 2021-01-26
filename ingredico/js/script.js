@@ -135,7 +135,16 @@ if(historySlider !== null) {
     historySlider.controller.control = historySliderContent;
     historySliderContent.controller.control = historySlider;
 }
-
+var contactSlider = new Swiper('.contacts__get_slider', {
+    // Смена вида крусора при наведении
+    grabCursor: true,
+    slidesPerView: 1,
+    navigation: {
+        nextEl: '.swiper-button-next',
+        prevEl: '.swiper-button-prev',
+    },
+    speed: 800,
+});
 //--------------------------------------------------------------------------
 //------------ FUNCTION END ----------------------------------------------
 // --------- Смена цвета картинки свг в меню Области применения
