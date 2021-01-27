@@ -4905,6 +4905,11 @@ a.com-prop {
   margin-bottom: 40px;
 }
 
+.contacts-page .contacts__anotherCity .contacts__item--icon {
+  margin-right: 10px;
+  padding-top: 8px;
+}
+
 .contacts-page .contacts__anotherCity_card {
   background: var(--color-7);
   width: 32%;
@@ -4922,12 +4927,233 @@ a.com-prop {
   font-size: var(--font-size-25);
   font-weight: var(--font-weight-bold);
   text-transform: none;
-  margin-bottom: 27px;
+  margin-bottom: 25px;
 }
 
 .contacts-page .contacts__anotherCity_card p {
   font-size: var(--font-size-20);
 }
+
+/* -------------------- Cтраница Корзина ----------- */
+
+.basket-page {
+  padding: 13px 0 120px;
+}
+
+.basket-page h2 {
+  margin: 34px 0 40px;
+}
+
+.basket-footer {
+  width: 385px;
+  margin-left: auto;
+  font-size: var(--font-size-20);
+  font-weight: var(--font-weight-bold);
+  color: #333;
+  padding-top: 33px;
+}
+
+.basket-footer .quantity {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+  -ms-flex-pack: justify;
+  justify-content: space-between;
+}
+
+.basket-footer .quantity span:first-child {
+  font-weight: var(--font-weight-regular);
+}
+
+.basket-footer .total {
+  outline: none;
+  margin: 20px 0 30px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+  -ms-flex-pack: justify;
+  justify-content: space-between;
+}
+
+.basket-footer .btn {
+  border: 0;
+  letter-spacing: 0.1em;
+  width: 100%;
+  height: 60px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  text-transform: uppercase;
+  font-size: var(--font-size-18);
+}
+
+.table {
+  display: table;
+  width: 100%;
+}
+
+.table__img {
+  width: 83px;
+  height: 101px;
+  border: 1px solid #ededed;
+  padding: 5px;
+  margin-right: 27px;
+}
+
+.table__img img {
+  width: 100%;
+  height: 100%;
+  -o-object-fit: contain;
+  object-fit: contain;
+}
+
+.table h4 {
+  text-transform: uppercase;
+  font-weight: var(--font-weight-semibold);
+}
+
+.table-select.custom-select {
+  width: 100%;
+  font-size: var(--font-size-20);
+}
+
+.table-counter {
+  border: 1px solid #eeeeee;
+  width: 150px;
+  height: 50px;
+  padding: 0 10px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+}
+
+.table-counter--prev,
+.table-counter--next {
+  font-size: 35px;
+  padding-bottom: 7px;
+  cursor: pointer;
+}
+
+.table-counter--prev.disable,
+.table-counter--next.disable {
+  opacity: .3;
+  pointer-events: none;
+}
+
+.table-counter--next {
+  color: var(--color-3);
+}
+
+.table-counter input {
+  border: 0;
+  outline: none;
+  text-align: center;
+  width: 56px;
+  font-size: var(--font-size-20);
+}
+
+.table-counter input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+}
+
+.table-delete {
+  background: #ededed;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  cursor: pointer;
+}
+
+.tableRow {
+  display: table-row;
+}
+
+.tableCell {
+  display: table-cell;
+  padding: 11px 0;
+  border-bottom: 1px solid #E9E9E9;
+  vertical-align: middle;
+  font-size: var(--font-size-20);
+}
+
+.tableCell:first-child {
+  width: 520px;
+  padding-right: 67px;
+  font-weight: var(--font-weight-semibold);
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+}
+
+.tableCell:nth-child(2) {
+  width: 175px;
+}
+
+.tableCell:nth-child(3) {
+  padding-right: 55px;
+  width: 215px;
+}
+
+.tableCell:nth-child(4) {
+  width: 235px;
+}
+
+.tableCell:nth-child(5) {
+  width: 195px;
+}
+
+.tableCell:nth-child(6) {
+  width: 155px;
+}
+
+.tableCell:nth-child(7) {
+  width: 105px;
+}
+
+.tableHead {
+  background: #EFEFEF;
+  height: 72px;
+  color: #333333;
+}
+
+.tableHead .tableCell {
+  border-bottom: none;
+  font-size: var(--font-size-23);
+}
+
+/* -------------------- Cтраница Персональные данные  ----------- */
+
+.personal {
+  background: #f8f8f8;
+}
+
+/* -------------------- Cтраница Заказа  ----------- */
 
 @media (max-width: 1675px) {
   .top-panel.active .navigation {

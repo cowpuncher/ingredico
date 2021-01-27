@@ -1,0 +1,203 @@
+@@include('./templates/blocks/head.html',{
+    "title": "История"
+    })
+<body class="bg-main">
+    <!-- ANCHOR Header -->
+    @@include('./templates/blocks/header.html')
+    <!-- ANCHOR Header -->
+    
+    <!-- ANCHOR Main -->
+    <main class="page basket-page bg-white">
+        <section>
+            <div class="container">
+                @@include('./templates/elements/breadcrumbs.html')
+                <div class="wrapper">
+                    @@include('./templates/elements/section-title.html', {
+                        name: 'Корзина'
+                    })
+                </div>
+                <div class="table">
+                    <div class="tableBody">
+                        <div class="tableRow tableHead">
+                            <div class="tableCell"></div>
+                            <div class="tableCell">Цена</div>
+                            <div class="tableCell">Упаковка</div>
+                            <div class="tableCell">Количество</div>
+                            <div class="tableCell">Наличие <br> на складе</div>
+                            <div class="tableCell">Сумма</div>
+                            <div class="tableCell">Удалить</div>
+                        </div>
+                        <div class="tableRow">
+                            <div class="tableCell">
+                                <div class="table__img"><img src="./img/basket-img.png" alt="basket-image"></div>
+                                <h4>Каррагинан Марин 62/ Carrageenan Marine 62</h4>
+                            </div>
+                            <div class="tableCell">163 руб.</div>
+                            <div class="tableCell">
+                                <div class="custom-select table-select">
+                                    <select name="table">
+                                        <option value="">Мешок 50 кг</option>
+                                        <option value="">Мешок 100 кг</option>
+                                        <option value="">Мешок 250 кг</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="tableCell">
+                                <div class="table-counter">
+                                    <span  class="table-counter--prev">-</span>
+                                    <input type="number" value="3">
+                                    <span  class="table-counter--next">+</span>
+                                </div>
+                            </div>
+                            <div class="tableCell">255</div>
+                            <div class="tableCell">123 руб.</div>
+                            <div class="tableCell">
+                                <div class="table-delete">
+                                    <img src="./img/close.svg" alt="delete">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="tableRow">
+                            <div class="tableCell">
+                                <div class="table__img"><img src="./img/basket-img.png" alt="basket-image"></div>
+                                <h4>Каррагинан Марин 62/ Carrageenan Marine 62</h4>
+                            </div>
+                            <div class="tableCell">163 руб.</div>
+                            <div class="tableCell">
+                                <div class="custom-select table-select">
+                                    <select name="table">
+                                        <option value="">Мешок 50 кг</option>
+                                        <option value="">Мешок 100 кг</option>
+                                        <option value="">Мешок 250 кг</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="tableCell">
+                                <div class="table-counter">
+                                    <span  class="table-counter--prev disable">-</span>
+                                    <input type="number" value="1">
+                                    <span  class="table-counter--next">+</span>
+                                </div>
+                            </div>
+                            <div class="tableCell">255</div>
+                            <div class="tableCell">123 руб.</div>
+                            <div class="tableCell">
+                                <div class="table-delete">
+                                    <img src="./img/close.svg" alt="delete">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="tableRow">
+                            <div class="tableCell">
+                                <div class="table__img"><img src="./img/basket-img.png" alt="basket-image"></div>
+                                <h4>Каррагинан Марин 62/ Carrageenan Marine 62</h4>
+                            </div>
+                            <div class="tableCell">163 руб.</div>
+                            <div class="tableCell">
+                                <div class="custom-select table-select">
+                                    <select name="table">
+                                        <option value="">Мешок 50 кг</option>
+                                        <option value="">Мешок 100 кг</option>
+                                        <option value="">Мешок 250 кг</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="tableCell">
+                                <div class="table-counter">
+                                    <span  class="table-counter--prev disable">-</span>
+                                    <input type="number" value="1">
+                                    <span  class="table-counter--next">+</span>
+                                </div>
+                            </div>
+                            <div class="tableCell">255</div>
+                            <div class="tableCell">123 руб.</div>
+                            <div class="tableCell">
+                                <div class="table-delete">
+                                    <img src="./img/close.svg" alt="delete">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="tableRow">
+                            <div class="tableCell">
+                                <div class="table__img"><img src="./img/basket-img.png" alt="basket-image"></div>
+                                <h4>Каррагинан Марин 62/ Carrageenan Marine 62</h4>
+                            </div>
+                            <div class="tableCell">163 руб.</div>
+                            <div class="tableCell">
+                                <div class="custom-select table-select">
+                                    <select name="table">
+                                        <option value="">Мешок 50 кг</option>
+                                        <option value="">Мешок 100 кг</option>
+                                        <option value="">Мешок 250 кг</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="tableCell">
+                                <div class="table-counter">
+                                    <span  class="table-counter--prev">-</span>
+                                    <input type="number" value="11">
+                                    <span  class="table-counter--next">+</span>
+                                </div>
+                            </div>
+                            <div class="tableCell">255</div>
+                            <div class="tableCell">123 руб.</div>
+                            <div class="tableCell">
+                                <div class="table-delete">
+                                    <img src="./img/close.svg" alt="delete">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="tableRow">
+                            <div class="tableCell">
+                                <div class="table__img"><img src="./img/basket-img.png" alt="basket-image"></div>
+                                <h4>Каррагинан Марин 62/ Carrageenan Marine 62</h4>
+                            </div>
+                            <div class="tableCell">163 руб.</div>
+                            <div class="tableCell">
+                                <div class="custom-select table-select">
+                                    <select name="table">
+                                        <option value="">Мешок 50 кг</option>
+                                        <option value="">Мешок 100 кг</option>
+                                        <option value="">Мешок 250 кг</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="tableCell">
+                                <div class="table-counter">
+                                    <span class="table-counter--prev">-</span>
+                                    <input type="number" value="11">
+                                    <span class="table-counter--next">+</span>
+                                </div>
+                            </div>
+                            <div class="tableCell">255</div>
+                            <div class="tableCell">123 руб.</div>
+                            <div class="tableCell">
+                                <div class="table-delete">
+                                    <img src="./img/close.svg" alt="delete">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="basket-footer">
+                    <div class="quantity">
+                        <span>Количество товаров</span>
+                        <span>24</span>
+                    </div>
+                    <div class="total">
+                        <span>Общая сумма</span>
+                        <span>20 456 руб.</span>
+                    </div>
+                    <button class="btn">Оформить заказ</button>
+                </div>
+            </div>
+        </section>
+    </main>
+    <!-- ANCHOR Main -->
+
+    <!-- ANCHOR Footer -->
+    @@include('./templates/blocks/footer.html')
+    <!-- ANCHOR Footer -->
+    @@include('./templates/blocks/scripts.html')
+</body>
+</html>

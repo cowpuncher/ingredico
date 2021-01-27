@@ -295,6 +295,8 @@ const customSelect = (select, count) => {
 customSelect("select-sort", 0);
 customSelect("quantity-to-cart", 1);
 customSelect("city", 0);
+customSelect("table-select", 0);
+
 // ---------- Количество добавленное в корзину в карточке товара
 var selItems = document.querySelectorAll('.card .select-items');
 for(let item of selItems) {
@@ -569,7 +571,6 @@ if(document.querySelector('.grid-container') !== null) {
     });
 }
 
-
 //--------------------------------------------------------------------------
 //---------- Popups 
 var modal = document.querySelector('.popup'),
@@ -605,4 +606,27 @@ openPopup(btnPopupOpen);
 var mediaGallery = document.querySelectorAll('.media__gallery');
 for(item of mediaGallery) {
     lightGallery(item);
+}
+
+//--------------------------------------------------------------------------
+// Table counter
+var tableCounter = document.querySelectorAll(".table-counter");
+for(var item of tableCounter) {
+    item.children[0].addEventListener("click", (e) => {
+        var numb = Number(e.target.parentNode.children[1].value);
+        if(numb <= 2) {
+            e.target.parentNode.children[1].value = numb - 1;
+            e.target.classList.add('disable');
+        } else {
+            e.target.parentNode.children[1].value = numb - 1;
+        }
+    });
+    item.children[2].addEventListener("click", (e) => {
+        var numb = Number(e.target.parentNode.children[1].value);
+        if(numb >= 1) {
+            e.target.parentNode.children[1].value = numb + 1;
+            e.target.parentNode.children[0].classList.remove('disable');
+        }
+        e.target.parentNode.children[1].value = numb + 1;
+    });
 }

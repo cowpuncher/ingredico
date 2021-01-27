@@ -4845,6 +4845,10 @@ a.com-prop {
             h4 {
                 margin-bottom: 40px;
             }
+            .contacts__item--icon {
+                margin-right: 10px;
+                padding-top: 8px;
+            }
             &_card {
                 background: var(--color-7);
                 width: 32%;
@@ -4858,7 +4862,7 @@ a.com-prop {
                     font-size: var(--font-size-25);
                     font-weight: var(--font-weight-bold);
                     text-transform: none;
-                    margin-bottom: 27px;
+                    margin-bottom: 25px;
                 }
                 p {
                     font-size: var(--font-size-20);
@@ -4867,4 +4871,231 @@ a.com-prop {
         }
     }
 }
+/* -------------------- Cтраница Корзина ----------- */
+.basket {
+    &-page {
+        padding: 13px 0 120px;
+
+        h2 {
+            margin: 34px 0 40px;
+        }
+    }
+    &-footer {
+        width: 385px;
+        margin-left: auto;
+        font-size: var(--font-size-20);
+        font-weight: var(--font-weight-bold);
+        color: #333;
+        padding-top: 33px;
+        .quantity {
+            display: -webkit-box;
+            display: -webkit-flex;
+            display: -moz-box;
+            display: -ms-flexbox;
+            display: flex;
+            -webkit-box-pack: justify;
+            -webkit-justify-content: space-between;
+               -moz-box-pack: justify;
+                -ms-flex-pack: justify;
+                    justify-content: space-between;
+            span:first-child {
+                font-weight: var(--font-weight-regular);
+            }
+        }
+        .total {
+            outline: none;
+            margin: 20px 0 30px;
+            display: -webkit-box;
+            display: -webkit-flex;
+            display: -moz-box;
+            display: -ms-flexbox;
+            display: flex;
+            -webkit-box-pack: justify;
+            -webkit-justify-content: space-between;
+               -moz-box-pack: justify;
+                -ms-flex-pack: justify;
+                    justify-content: space-between;
+        }
+        .btn {
+            border: 0;
+            letter-spacing: 0.1em;
+            width: 100%;
+            height: 60px;
+            display: -webkit-box;
+            display: -webkit-flex;
+            display: -moz-box;
+            display: -ms-flexbox;
+            display: flex;
+            -webkit-box-align: center;
+            -webkit-align-items: center;
+               -moz-box-align: center;
+                -ms-flex-align: center;
+                    align-items: center;
+            -webkit-box-pack: center;
+            -webkit-justify-content: center;
+               -moz-box-pack: center;
+                -ms-flex-pack: center;
+                    justify-content: center;
+            text-transform: uppercase;
+            font-size: var(--font-size-18);
+        }
+    }
+}
+.table{
+	display: table;
+    width: 100%;
+    &__img {
+        width: 83px;
+        height: 101px;
+        border: 1px solid #ededed;
+        padding: 5px;
+        margin-right: 27px;
+        img {
+            width: 100%;
+            height: 100%;
+            -o-object-fit: contain;
+               object-fit: contain;
+        }
+    }
+    h4 {
+        text-transform: uppercase;
+        font-weight: var(--font-weight-semibold);
+    }
+    &-select {
+        &.custom-select {
+            width: 100%;
+            font-size: var(--font-size-20);
+        }
+    }
+    &-counter {
+        border: 1px solid #eeeeee;
+        width: 150px;
+        height: 50px;
+        padding: 0 10px;
+        display: -webkit-box;
+        display: -webkit-flex;
+        display: -moz-box;
+        display: -ms-flexbox;
+        display: flex;
+        -webkit-box-align: center;
+        -webkit-align-items: center;
+           -moz-box-align: center;
+            -ms-flex-align: center;
+                align-items: center;
+        -webkit-box-pack: center;
+        -webkit-justify-content: center;
+           -moz-box-pack: center;
+            -ms-flex-pack: center;
+                justify-content: center;
+
+        &--prev,
+        &--next {
+            font-size: 35px;
+            padding-bottom: 7px;
+            cursor: pointer;
+            &.disable {
+                opacity: .3;
+                pointer-events: none;
+            }
+        }
+        &--next {
+            color: var(--color-3);
+        }
+        input {
+            border: 0;
+            outline: none;
+            text-align: center;
+            width: 56px;
+            font-size: var(--font-size-20);
+            &::-webkit-inner-spin-button  {
+                -webkit-appearance: none;
+            }
+        }
+    }
+    &-delete {
+        background: #ededed;
+        width: 30px;
+        height: 30px;
+        -webkit-border-radius: 50%;
+           -moz-border-radius: 50%;
+                border-radius: 50%;
+        display: -webkit-box;
+        display: -webkit-flex;
+        display: -moz-box;
+        display: -ms-flexbox;
+        display: flex;
+        -webkit-box-align: center;
+        -webkit-align-items: center;
+           -moz-box-align: center;
+            -ms-flex-align: center;
+                align-items: center;
+        -webkit-box-pack: center;
+        -webkit-justify-content: center;
+           -moz-box-pack: center;
+            -ms-flex-pack: center;
+                justify-content: center;
+        cursor: pointer;
+    }
+}
+.tableRow {
+	display: table-row;
+}
+.tableCell {
+	display: table-cell;
+    padding: 11px 0;
+    border-bottom: 1px solid #E9E9E9;
+    vertical-align: middle;
+    font-size: var(--font-size-20);
+
+    &:first-child {
+        width: 520px;
+        padding-right: 67px;    
+        font-weight: var(--font-weight-semibold);
+        display: -webkit-box;
+        display: -webkit-flex;
+        display: -moz-box;
+        display: -ms-flexbox;
+        display: flex;
+        -webkit-box-align: center;
+        -webkit-align-items: center;
+           -moz-box-align: center;
+            -ms-flex-align: center;
+                align-items: center;
+    }
+    &:nth-child(2) {
+        width: 175px;
+    }
+    &:nth-child(3) {
+        padding-right: 55px;
+        width: 215px;
+    }
+    &:nth-child(4) {
+        width: 235px;
+    }
+    &:nth-child(5) {
+        width: 195px;
+    }
+    &:nth-child(6) {
+        width: 155px;
+    }
+    &:nth-child(7) {
+        width: 105px;
+    }
+}
+.tableHead {
+    background: #EFEFEF;
+    height: 72px;
+    color: #333333;
+    .tableCell {
+        border-bottom: none;
+        font-size: var(--font-size-23);
+    }
+}
+
+/* -------------------- Cтраница Персональные данные  ----------- */
+.personal {
+    background: #f8f8f8;
+}
+/* -------------------- Cтраница Заказа  ----------- */
+
 @import "./media.scss";
