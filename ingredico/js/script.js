@@ -15,6 +15,7 @@ var tabs = document.querySelector('.news__tabs'),
     mainSlider = document.querySelector('.main__slider'),
     newsSlider = document.querySelector('.news__slider'),
     historySlider = document.querySelector('.history__slider'),
+    contactSlider = document.querySelector('.contacts__get_slider'),
     filterDropdown = document.querySelectorAll('.dropdown .small-title'),
     previewText = document.querySelectorAll('.news__preview_text'),
     previewNews = document.querySelectorAll('.info-page .flex-card p'),
@@ -135,16 +136,18 @@ if(historySlider !== null) {
     historySlider.controller.control = historySliderContent;
     historySliderContent.controller.control = historySlider;
 }
-var contactSlider = new Swiper('.contacts__get_slider', {
-    // Смена вида крусора при наведении
-    grabCursor: true,
-    slidesPerView: 1,
-    navigation: {
-        nextEl: '.swiper-button-next',
-        prevEl: '.swiper-button-prev',
-    },
-    speed: 800,
-});
+if(contactSlider !== null) {
+    var contactSlider = new Swiper('.contacts__get_slider', {
+        // Смена вида крусора при наведении
+        grabCursor: true,
+        slidesPerView: 1,
+        navigation: {
+            nextEl: '.swiper-button-next',
+            prevEl: '.swiper-button-prev',
+        },
+        speed: 800,
+    });
+}
 //--------------------------------------------------------------------------
 //------------ FUNCTION END ----------------------------------------------
 // --------- Смена цвета картинки свг в меню Области применения
@@ -629,4 +632,20 @@ for(var item of tableCounter) {
         }
         e.target.parentNode.children[1].value = numb + 1;
     });
+}
+
+//--------------------------------------------------------------------------
+// Personal date item
+var personalItem = document.querySelectorAll(".personal__item");
+for(var item of personalItem) {
+    item.addEventListener('click', (e) => {
+        if(e.currentTarget.classList.contains('active')) {
+            return false;
+        } else {
+            for(var i = 0; i < personalItem.length; i++) {
+                personalItem[i].classList.remove('active');
+            }
+            e.currentTarget.classList.add('active');
+        }
+    })
 }

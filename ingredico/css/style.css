@@ -5151,9 +5151,234 @@ a.com-prop {
 
 .personal {
   background: #f8f8f8;
+  font-size: var(--font-size-20);
+}
+
+.personal h3,
+.personal p,
+.personal span,
+.personal input {
+  font-size: var(--font-size-20);
+}
+
+.personal h3 {
+  font-weight: var(--font-weight-bold);
+  color: #171715;
+  text-transform: none;
+  margin-bottom: 35px;
+}
+
+.personal__item {
+  border: 1px solid transparent;
+  padding: 28px 29px 35px;
+  background: var(--color-7);
+  cursor: pointer;
+}
+
+.personal__item_form {
+  display: none;
+  padding: 20px 0 0 7px;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -ms-flex-direction: column;
+  flex-direction: column;
+}
+
+.personal__item_form--wrap {
+  width: 419px;
+}
+
+.personal__item_form h3 {
+  margin-bottom: 20px;
+}
+
+.personal__item_form .input {
+  font-size: var(--font-size-15);
+  padding: 19px 28px;
+  margin-bottom: 11px;
+}
+
+.personal__item .label,
+.personal__item .input {
+  width: 100%;
+  background: var(--color-7);
+  border-radius: var(--border-radius-3);
+  border: 1px solid transparent;
+}
+
+.personal__item button {
+  border: 0;
+  width: 100%;
+  height: 60px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  font-size: var(--font-size-18);
+  font-weight: var(--font-weight-bold);
+  margin: 13px 0 0;
+  letter-spacing: 0.09em;
+}
+
+.personal__item:not(:last-child) {
+  margin-bottom: 15px;
+}
+
+.personal__item .wrap {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+}
+
+.personal__item img {
+  margin-right: 20px;
+}
+
+.personal__item span {
+  color: var(--color-22);
+}
+
+.personal__item_label {
+  cursor: pointer;
+  background: var(--color-7);
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  position: relative;
+  padding: 13px 29px;
+}
+
+.personal__item_label:not(:last-child) {
+  margin-bottom: 8px;
+}
+
+.personal__item_label input[type="radio"] {
+  opacity: 0;
+}
+
+.personal__item_label input:checked ~ .checkmark {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  border-radius: var(--border-radius-3);
+  border: 1px solid var(--color-22);
+}
+
+.personal__item_label img {
+  margin-right: 25px;
+  width: 100px;
+}
+
+.personal__item_label .wrap {
+  -webkit-box-align: start;
+  -ms-flex-align: start;
+  align-items: start;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  line-height: 1em;
+}
+
+.personal__item_label .wrap span {
+  color: var(--color-1);
+  font-size: var(--font-size-16);
+}
+
+.personal__item_label .wrap span:first-child {
+  font-weight: var(--font-weight-bold);
+}
+
+.personal__item.active {
+  border: 1px solid var(--color-22);
+  background: #FDF3EE;
+}
+
+.personal__item.active .personal__item_form {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
 }
 
 /* -------------------- Cтраница Заказа  ----------- */
+
+.order {
+  width: 66%;
+}
+
+.order-page {
+  padding: 46px 0 73px;
+}
+
+.order-page .wrapper {
+  -webkit-box-align: start;
+  -ms-flex-align: start;
+  align-items: flex-start;
+}
+
+.order__state {
+  margin-bottom: 42px;
+  background: var(--color-7);
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  position: relative;
+}
+
+.order__state_item {
+  font-size: 30px;
+  padding: 25px 0 25px 100px;
+  text-transform: uppercase;
+  color: #818181;
+  font-weight: var(--font-weight-bold);
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+}
+
+.order__state_item svg {
+  margin-left: 90px;
+}
+
+.order__state_item:nth-child(3) {
+  padding-left: 70px;
+}
+
+.order__state_item.active {
+  color: var(--color-1);
+}
+
+.order__state_line {
+  height: 3px;
+  display: block;
+  background: #FFA11B;
+  width: 25%;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+}
+
+.confirm {
+  background: var(--color-7);
+  -webkit-box-shadow: 28px 33px 61px rgba(0, 0, 0, 0.04);
+  box-shadow: 28px 33px 61px rgba(0, 0, 0, 0.04);
+}
 
 @media (max-width: 1675px) {
   .top-panel.active .navigation {
