@@ -639,13 +639,34 @@ for(var item of tableCounter) {
 var personalItem = document.querySelectorAll(".personal__item");
 for(var item of personalItem) {
     item.addEventListener('click', (e) => {
+        var arrEl = e.currentTarget.parentElement.children;
         if(e.currentTarget.classList.contains('active')) {
             return false;
         } else {
-            for(var i = 0; i < personalItem.length; i++) {
-                personalItem[i].classList.remove('active');
+            for(var i = 0; i < arrEl.length; i++) {
+                arrEl[i].classList.remove('active');
             }
             e.currentTarget.classList.add('active');
         }
     })
+}
+//--------------------------------------------------------------------------
+// Order State Line
+var orderState = document.getElementById('order__state');
+var orderDelivery = document.querySelector('.order__delivery');
+var orderPay = document.querySelector('.order__pay');
+var orderConfirm = document.querySelector('.order__confirm');
+
+const addStyleLineState = (amount, block) => {
+    orderState.children[3].setAttribute('style', 'width: ' + amount + '%' );
+    block.setAttribute('style', 'display: block;');
+}
+if(orderState.children[0].classList.contains('active')) {
+    addStyleLineState(25, orderDelivery);
+} else if(orderState.children[1].classList.contains('active')) {
+    addStyleLineState(60, orderPay);
+
+} else if(orderState.children[2].classList.contains('active')) {
+    addStyleLineState(70, orderConfirm);
+    orderState.children[1].querySelector("svg").setAttribute("style", "fill: #FFA11B;");
 }

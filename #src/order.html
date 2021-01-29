@@ -11,131 +11,296 @@
        <div class="container">
            <div class="wrapper">
                <div class="order">
-                   <div class="order__state">
-                       <div class="order__state_item active">
+                   <div class="order__state" id="order__state">
+                       <div class="order__state_item ">
                             Доставка
                             <svg width="64" height="8" viewBox="0 0 64 8" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                <path d="M63.3536 4.35355C63.5488 4.15829 63.5488 3.84171 63.3536 3.64645L60.1716 0.464466C59.9763 0.269204 59.6597 0.269204 59.4645 0.464466C59.2692 0.659728 59.2692 0.976311 59.4645 1.17157L62.2929 4L59.4645 6.82843C59.2692 7.02369 59.2692 7.34027 59.4645 7.53553C59.6597 7.7308 59.9763 7.7308 60.1716 7.53553L63.3536 4.35355ZM0 4.5H63V3.5H0V4.5Z" fill="#FFA11B"/>
+                                <path d="M63.3536 4.35355C63.5488 4.15829 63.5488 3.84171 63.3536 3.64645L60.1716 0.464466C59.9763 0.269204 59.6597 0.269204 59.4645 0.464466C59.2692 0.659728 59.2692 0.976311 59.4645 1.17157L62.2929 4L59.4645 6.82843C59.2692 7.02369 59.2692 7.34027 59.4645 7.53553C59.6597 7.7308 59.9763 7.7308 60.1716 7.53553L63.3536 4.35355ZM0 4.5H63V3.5H0V4.5Z" fill=""/>
                             </svg>
                        </div>
-                       <div class="order__state_item">
+                       <div class="order__state_item ">
                             Оплата
                             <svg width="64" height="8" viewBox="0 0 64 8" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                <path d="M63.3536 4.35355C63.5488 4.15829 63.5488 3.84171 63.3536 3.64645L60.1716 0.464466C59.9763 0.269204 59.6597 0.269204 59.4645 0.464466C59.2692 0.659728 59.2692 0.976311 59.4645 1.17157L62.2929 4L59.4645 6.82843C59.2692 7.02369 59.2692 7.34027 59.4645 7.53553C59.6597 7.7308 59.9763 7.7308 60.1716 7.53553L63.3536 4.35355ZM0 4.5H63V3.5H0V4.5Z" fill="#D3D3D3"/>
+                                <path d="M63.3536 4.35355C63.5488 4.15829 63.5488 3.84171 63.3536 3.64645L60.1716 0.464466C59.9763 0.269204 59.6597 0.269204 59.4645 0.464466C59.2692 0.659728 59.2692 0.976311 59.4645 1.17157L62.2929 4L59.4645 6.82843C59.2692 7.02369 59.2692 7.34027 59.4645 7.53553C59.6597 7.7308 59.9763 7.7308 60.1716 7.53553L63.3536 4.35355ZM0 4.5H63V3.5H0V4.5Z" fill=""/>
                             </svg>
                        </div>
-                       <div class="order__state_item">
+                       <div class="order__state_item active">
                            Подтверждение
                        </div>
                        <span class="order__state_line"></span>
                    </div>
-                   <div class="order__delivery">
+                   <div class="order__delivery order__date">
                        <h3>Способ получения</h3>
-                       <div class="personal__item">
-                           <div class="wrap">
-                                <img src="./img/delivery-order.svg" alt="delivery-order">
-                                <p>Самовывоз из отделение Ingredico 1: г. Москва, Нижняя Красносельская, дом 35 с.9 -  
-                                <span>бесплатно</span></p>
-                           </div>
-                           
-                           <form class="personal__item_form">
-                            <div class="personal__item_form--wrap">
-                                <h3>Адрес склада</h3>
-                                <label class="personal__item_label">
-                                    <img src="./img/sklad.svg" alt="delivery">
-                                    <div class="wrap">
-                                        <span>Санкт-Петербург</span>
-                                        <span>Время работы склада с 9 до 21</span>
-                                    </div>
-                                    <input type="radio" checked="checked" name="radio">
-                                    <span class="checkmark"></span>
-                                </label>
-                                <label class="personal__item_label">
-                                    <img src="./img/sklad.svg" alt="delivery">
-                                    <div class="wrap">
-                                        <span>Санкт-Петербург</span>
-                                        <span>Время работы склада с 9 до 21</span>
-                                    </div>
-                                    <input type="radio" name="radio">
-                                    <span class="checkmark"></span>
-                                </label>
-                                <label class="personal__item_label">
-                                    <img src="./img/sklad.svg" alt="delivery">
-                                    <div class="wrap">
-                                        <span>Санкт-Петербург</span>
-                                        <span>Время работы склада с 9 до 21</span>
-                                    </div>
-                                    <input type="radio" name="radio">
-                                    <span class="checkmark"></span>
-                                </label>
-                                <label class="personal__item_label">
-                                    <img src="./img/sklad.svg" alt="delivery">
-                                    <div class="wrap">
-                                        <span>Санкт-Петербург.</span>
-                                        <span>Время работы склада с 9 до 21</span>
-                                    </div>
-                                    <input type="radio" name="radio">
-                                    <span class="checkmark"></span>
-                                </label>
-                                <button type="button" class="btn"> Сохранить и продолжить </button>
-                            </div>
-                        </form>
-                       </div>
-                       <div class="personal__item active">
-                            <div class="wrap">
-                                <img src="./img/delivery-order2.svg" alt="delivery-order">
-                                <p>Доставка</p>
-                            </div>
-                            <form class="personal__item_form">
+                       <div class="personal__items">
+                            <div class="personal__item">
+                                <div class="wrap">
+                                        <img src="./img/delivery-order.svg" alt="delivery-order">
+                                        <p>Самовывоз из отделение Ingredico 1: г. Москва, Нижняя Красносельская, дом 35 с.9 -  
+                                        <span>бесплатно</span></p>
+                                </div>
+                                <form class="personal__item_form">
                                 <div class="personal__item_form--wrap">
-                                    <h3>Адрес получателя</h3>
-                                    <input type="text" placeholder="Область" name="region" class="input">
-                                    <input type="text" placeholder="Город" name="city" class="input">
-                                    <input type="text" placeholder="Улица" name="street" class="input">
-                                    <input type="text" placeholder="Дом" name="house" class="input">
+                                    <h3>Адрес склада</h3>
                                     <label class="personal__item_label">
-                                        <img src="./img/pek.svg" alt="delivery">
+                                        <div class="personal__item_img">
+                                            <img src="./img/sklad.svg" alt="delivery">
+                                        </div>
                                         <div class="wrap">
-                                            <span>20 456 руб.</span>
-                                            <span>Дата доставки: 2 1 - 25.11.20</span>
+                                            <span>Санкт-Петербург</span>
+                                            <span>Время работы склада с 9 до 21</span>
                                         </div>
                                         <input type="radio" checked="checked" name="radio">
                                         <span class="checkmark"></span>
                                     </label>
                                     <label class="personal__item_label">
-                                        <img src="./img/del-line.svg" alt="delivery">
+                                        <div class="personal__item_img">
+                                            <img src="./img/sklad.svg" alt="delivery">
+                                        </div>
                                         <div class="wrap">
-                                            <span>20 456 руб.</span>
-                                            <span>Дата доставки: 2 1 - 25.11.20</span>
+                                            <span>Санкт-Петербург</span>
+                                            <span>Время работы склада с 9 до 21</span>
                                         </div>
                                         <input type="radio" name="radio">
                                         <span class="checkmark"></span>
                                     </label>
                                     <label class="personal__item_label">
-                                        <img src="./img/pek.svg" alt="delivery">
+                                        <div class="personal__item_img">
+                                            <img src="./img/sklad.svg" alt="delivery">
+                                        </div>
                                         <div class="wrap">
-                                            <span>20 456 руб.</span>
-                                            <span>Дата доставки: 2 1 - 25.11.20</span>
+                                            <span>Санкт-Петербург</span>
+                                            <span>Время работы склада с 9 до 21</span>
                                         </div>
                                         <input type="radio" name="radio">
                                         <span class="checkmark"></span>
                                     </label>
                                     <label class="personal__item_label">
-                                        <img src="./img/del-line.svg" alt="delivery">
+                                        <div class="personal__item_img">
+                                            <img src="./img/sklad.svg" alt="delivery">
+                                        </div>
                                         <div class="wrap">
-                                            <span>20 456 руб.</span>
-                                            <span>Дата доставки: 2 1 - 25.11.20</span>
+                                            <span>Санкт-Петербург.</span>
+                                            <span>Время работы склада с 9 до 21</span>
                                         </div>
                                         <input type="radio" name="radio">
                                         <span class="checkmark"></span>
                                     </label>
                                     <button type="button" class="btn"> Сохранить и продолжить </button>
                                 </div>
-                            </form>
+                                </form>
+                        </div>
+                        <div class="personal__item active">
+                                <div class="wrap">
+                                    <img src="./img/delivery-order2.svg" alt="delivery-order">
+                                    <p>Доставка</p>
+                                </div>
+                                <form class="personal__item_form">
+                                    <div class="personal__item_form--wrap">
+                                        <h3>Адрес получателя</h3>
+                                        <input type="text" placeholder="Область" name="region" class="input">
+                                        <input type="text" placeholder="Город" name="city" class="input">
+                                        <input type="text" placeholder="Улица" name="street" class="input">
+                                        <input type="text" placeholder="Дом" name="house" class="input">
+                                        <label class="personal__item_label">
+                                            <div class="personal__item_img">
+                                                <img src="./img/pek.svg" alt="delivery">
+                                            </div>
+                                            <div class="wrap">
+                                                <span>20 456 руб.</span>
+                                                <span>Дата доставки: 2 1 - 25.11.20</span>
+                                            </div>
+                                            <input type="radio" checked="checked" name="radio">
+                                            <span class="checkmark"></span>
+                                        </label>
+                                        <label class="personal__item_label">
+                                            <div class="personal__item_img">
+                                                <img src="./img/del-line.svg" alt="delivery">
+                                            </div>
+                                            <div class="wrap">
+                                                <span>20 456 руб.</span>
+                                                <span>Дата доставки: 2 1 - 25.11.20</span>
+                                            </div>
+                                            <input type="radio" name="radio">
+                                            <span class="checkmark"></span>
+                                        </label>
+                                        <label class="personal__item_label">
+                                            <div class="personal__item_img">
+                                                <img src="./img/pek.svg" alt="delivery">
+                                            </div>
+                                            <div class="wrap">
+                                                <span>20 456 руб.</span>
+                                                <span>Дата доставки: 2 1 - 25.11.20</span>
+                                            </div>
+                                            <input type="radio" name="radio">
+                                            <span class="checkmark"></span>
+                                        </label>
+                                        <label class="personal__item_label">
+                                            <div class="personal__item_img">
+                                                <img src="./img/del-line.svg" alt="delivery">
+                                            </div>
+                                            <div class="wrap">
+                                                <span>20 456 руб.</span>
+                                                <span>Дата доставки: 2 1 - 25.11.20</span>
+                                            </div>
+                                            <input type="radio" name="radio">
+                                            <span class="checkmark"></span>
+                                        </label>
+                                        <button type="button" class="btn"> Сохранить и продолжить </button>
+                                    </div>
+                                </form>
+                            </div>
+                       </div>
+                    </div>
+                    <div class="order__pay order__date">
+                        <h3>Выбирите тип платильщика</h3>
+                        <div class="personal__items">
+                            <div class="personal__item">
+                                <div class="wrap">
+                                    <img src="./img/order-user.svg" alt="order-user">
+                                    Физическое лицо
+                                </div>
+                                <form class="personal__item_form">
+                                    <div class="personal__item_form--wrap">
+                                        <h3>Ваши данные</h3>
+                                        <input type="text" placeholder="Фамилия" name="lastname" class="input">
+                                        <input type="text" placeholder="Имя" name="name" class="input">
+                                        <input type="tel" placeholder="Телефон" name="phone" class="input">
+                                        <input type="email" placeholder="Почтв" name="email" class="input">
+                                    </div>
+                                </form>
+                            </div>
+                            <div class="personal__item active">
+                                <div class="wrap">
+                                    <img src="./img/order-ul.svg" alt="delivery-order">
+                                    <p>Юридическое лицо</p>
+                                </div>
+                                <form class="personal__item_form wrapper">
+                                    <div class="personal__item_form--wrap">
+                                        <h3>Ваши реквизиты</h3>
+                                        <input type="text" placeholder="Фамилия" name="lastname" class="input">
+                                        <input type="text" placeholder="Имя" name="name" class="input">
+                                        <input type="text" placeholder="Отчество" name="name" class="input">
+                                        <input type="tel" placeholder="Телефон" name="phone" class="input">
+                                        <input type="email" placeholder="Email" name="email" class="input">
+                                        <input type="text" placeholder="Название юл. лица" name="name-organization" class="input">
+                                        <input type="text" placeholder="Юридический адрес" name="adress-organization" class="input">
+                                        <input type="text" placeholder="ИНН" name="inn" class="input">
+                                        <input type="text" placeholder="КПП" name="kpp" class="input">
+                                        <input type="text" placeholder="Почтовый адрес" name="adress" class="input">
+                                    </div>
+                                    <div class="personal__item_form--wrap">
+                                        <h3>Ранее созданные платильщики</h3>
+                                        <label class="personal__item_label">
+                                            <input type="radio" name="radio">
+                                            <div class="wrap">
+                                                <p><span class="personal__item_label--name">Петрова Ольга Николаевна</span>, +7 495 980-25-18 <span class="personal__item_label--place">МК"Любинский"</span></p>
+                                                <div class="wrapper">
+                                                    <span>ИНН 8548548544</span>
+                                                    <span>КПП 8548548544</span>
+                                                </div>
+                                            </div>
+                                            <span class="checkmark"></span>
+                                        </label>
+                                        <label class="personal__item_label">
+                                            <input type="radio" name="radio">
+                                            <div class="wrap">
+                                                <p><span class="personal__item_label--name">Петрова Ольга Николаевна</span>, +7 495 980-25-18 <span class="personal__item_label--place">МК"Любинский"</span></p>
+                                                <div class="wrapper">
+                                                    <span>ИНН 8548548544</span>
+                                                    <span>КПП 8548548544</span>
+                                                </div>
+                                            </div>
+                                            <span class="checkmark"></span>
+                                        </label>
+                                        <label class="personal__item_label">
+                                            <input type="radio" name="radio">
+                                            <div class="wrap">
+                                                <p><span class="personal__item_label--name">Петрова Ольга Николаевна</span>, +7 495 980-25-18 <span class="personal__item_label--place">МК"Любинский"</span></p>
+                                                <div class="wrapper">
+                                                    <span>ИНН 8548548544</span>
+                                                    <span>КПП 8548548544</span>
+                                                </div>
+                                            </div>
+                                            <span class="checkmark"></span>
+                                        </label>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                        <div class="order__pay_how">
+                            <h3>Выбирите способ оплаты</h3>
+                            <label class="personal__item_label">
+                                <div class="personal__item_img">
+                                    <img src="./img/order-pay1.svg" alt="order-pay1">
+                                </div>
+                                <div class="wrap">
+                                    Банковской картой на сайте
+                                </div>
+                                <input type="radio" name="radio">
+                                <span class="checkmark"></span>
+                            </label>
+                            <label class="personal__item_label">
+                                <div class="personal__item_img">
+                                    <img src="./img/order-pay2.svg" alt="order-pay1">
+                                </div>
+                                <div class="wrap">
+                                    Оплата на расчетный счет и предоплата
+                                </div>
+                                <input type="radio" name="radio">
+                                <span class="checkmark"></span>
+                            </label>
+                            <label class="personal__item_label">
+                                <div class="personal__item_img">
+                                    <img src="./img/order-pay3.svg" alt="order-pay1">
+                                </div>
+                                <div class="wrap">
+                                    Оплата с рассрочкой
+                                </div>
+                                <input type="radio" name="radio">
+                                <span class="checkmark"></span>
+                            </label>
+                            <div class="personal__item_form--wrap">
+                                <button type="button" class="btn"> Сохранить и продолжить </button>
+                            </div>
+                        </div>
+                   </div>
+                   <div class="order__confirm">
+                        <div class="order__confirm_change">
+                            <div class="wrapper">
+                                <h4>
+                                    Доставка
+                                </h4>
+                                <a href="#" class="order__confirm_change--link">
+                                    <img src="./img/pen.svg" alt="pen">
+                                    Изменить
+                                </a>
+                            </div>
+                            <div class="wrap">
+                                <img src="./img/delivery-order.svg" alt="order-user">
+                                <div>
+                                    <p>Самовывоз из отделение Ingredico 1: г. Москва, Нижняя Красносельская, дом 35 с.9 - бесплатно</p>
+                                    <p>Получатель: Иванова Юлия Александровна, +7 495 980-25-18</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="order__confirm_change">
+                            <div class="wrapper">
+                                <h4>
+                                   Оплата
+                                </h4>
+                                <a href="#" class="order__confirm_change--link">
+                                    <img src="./img/pen.svg" alt="pen">
+                                    Изменить
+                                </a>
+                            </div>
+                            <div class="wrap">
+                                <img src="./img/order-pay1.svg" alt="order-user">
+                                Банковской картой на сайте
+                            </div>
                         </div>
                    </div>
                </div>
-               <div class="confirm" id="order__confirm">
+               <div class="confirm-sidebar" id="confirm-sidebar">
                    <h3>Подтверждение</h3>
                    <div> 
                        <input type="text" placeholder="Введите промокод">

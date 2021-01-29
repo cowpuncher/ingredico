@@ -5161,6 +5161,25 @@ a.com-prop {
   font-size: var(--font-size-20);
 }
 
+.personal button {
+  border: 0;
+  width: 100%;
+  height: 60px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  font-size: var(--font-size-18);
+  font-weight: var(--font-weight-bold);
+  margin: 13px 0 0;
+  letter-spacing: 0.09em;
+}
+
 .personal h3 {
   font-weight: var(--font-weight-bold);
   color: #171715;
@@ -5188,6 +5207,13 @@ a.com-prop {
   width: 419px;
 }
 
+.personal__item_form.wrapper {
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+  -ms-flex-direction: row;
+  flex-direction: row;
+}
+
 .personal__item_form h3 {
   margin-bottom: 20px;
 }
@@ -5206,25 +5232,6 @@ a.com-prop {
   border: 1px solid transparent;
 }
 
-.personal__item button {
-  border: 0;
-  width: 100%;
-  height: 60px;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
-  align-items: center;
-  -webkit-box-pack: center;
-  -ms-flex-pack: center;
-  justify-content: center;
-  font-size: var(--font-size-18);
-  font-weight: var(--font-weight-bold);
-  margin: 13px 0 0;
-  letter-spacing: 0.09em;
-}
-
 .personal__item:not(:last-child) {
   margin-bottom: 15px;
 }
@@ -5238,12 +5245,24 @@ a.com-prop {
   align-items: center;
 }
 
+.personal__item span {
+  color: var(--color-22);
+}
+
 .personal__item img {
   margin-right: 20px;
 }
 
-.personal__item span {
-  color: var(--color-22);
+.personal__item_img {
+  margin-right: 25px;
+  width: 100px;
+  height: 32px;
+}
+
+.personal__item_img img {
+  width: 100%;
+  height: 100%;
+  margin: 0;
 }
 
 .personal__item_label {
@@ -5275,11 +5294,6 @@ a.com-prop {
   left: 0;
   border-radius: var(--border-radius-3);
   border: 1px solid var(--color-22);
-}
-
-.personal__item_label img {
-  margin-right: 25px;
-  width: 100px;
 }
 
 .personal__item_label .wrap {
@@ -5330,7 +5344,6 @@ a.com-prop {
 }
 
 .order__state {
-  margin-bottom: 42px;
   background: var(--color-7);
   display: -webkit-box;
   display: -ms-flexbox;
@@ -5354,6 +5367,7 @@ a.com-prop {
 
 .order__state_item svg {
   margin-left: 90px;
+  fill: #818181;
 }
 
 .order__state_item:nth-child(3) {
@@ -5362,6 +5376,10 @@ a.com-prop {
 
 .order__state_item.active {
   color: var(--color-1);
+}
+
+.order__state_item.active svg {
+  fill: #FFA11B;
 }
 
 .order__state_line {
@@ -5374,7 +5392,84 @@ a.com-prop {
   left: 0;
 }
 
-.confirm {
+.order__date {
+  padding-top: 42px;
+}
+
+.order__date .personal__item_form.wrapper .personal__item_label .personal__item_label--name {
+  font-weight: var(--font-weight-regular);
+  font-size: var(--font-size-20);
+}
+
+.order__date .personal__item_form.wrapper .personal__item_label .personal__item_label--place {
+  font-size: var(--font-size-16);
+  color: #686868;
+  margin: 5px 0 10px;
+  display: block;
+}
+
+.order__date .personal__item_form.wrapper .personal__item_label .wrapper {
+  font-size: var(--font-size-15);
+}
+
+.order__date .personal__item_form.wrapper .personal__item_label .wrapper span:first-child {
+  font-weight: var(--font-weight-regular);
+  margin-right: 20px;
+}
+
+.order__date .personal__item_form.wrapper .personal__item_label input:checked ~ .wrap .personal__item_label--name {
+  color: var(--color-22);
+}
+
+.order__delivery,
+.order__pay,
+.order__confirm {
+  display: none;
+}
+
+.order__pay_how {
+  padding-top: 30px;
+}
+
+.order__pay_how .personal__item_label {
+  padding: 25px 29px;
+}
+
+.order__pay_how .personal__item_img {
+  width: auto;
+  height: auto;
+}
+
+.order__confirm {
+  padding-top: 20px;
+}
+
+.order__confirm_change {
+  border: 1px solid var(--color-3);
+  background: #fdf3ee;
+  padding: 21px 42px 20px 28px;
+}
+
+.order__confirm_change--link {
+  font-size: var(--font-size-16);
+}
+
+.order__confirm_change h4 {
+  font-size: var(--font-size-20);
+  font-weight: var(--font-weight-bold);
+  text-transform: uppercase;
+}
+
+.order__confirm_change .wrap {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+}
+
+.confirm-sidebar {
   background: var(--color-7);
   -webkit-box-shadow: 28px 33px 61px rgba(0, 0, 0, 0.04);
   box-shadow: 28px 33px 61px rgba(0, 0, 0, 0.04);
