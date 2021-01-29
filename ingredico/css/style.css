@@ -5447,20 +5447,28 @@ a.com-prop {
 .order__confirm_change {
   border: 1px solid var(--color-3);
   background: #fdf3ee;
-  padding: 21px 42px 20px 28px;
+  padding: 21px 42px 28px 28px;
+  margin-bottom: 20px;
 }
 
 .order__confirm_change--link {
   font-size: var(--font-size-16);
+  margin-top: 8px;
+}
+
+.order__confirm_change--link img {
+  margin-right: 5px;
 }
 
 .order__confirm_change h4 {
   font-size: var(--font-size-20);
   font-weight: var(--font-weight-bold);
   text-transform: uppercase;
+  margin-bottom: 30px;
 }
 
 .order__confirm_change .wrap {
+  color: #141414;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -5469,10 +5477,108 @@ a.com-prop {
   align-items: center;
 }
 
+.order__confirm_change .wrap img {
+  margin-right: 20px;
+}
+
+.order__confirm_change .wrap span {
+  color: var(--color-22);
+}
+
+.order__confirm_change--delivery .wrap {
+  -webkit-box-align: start;
+  -ms-flex-align: start;
+  align-items: flex-start;
+}
+
+.order__confirm_change--delivery .wrap p:not(:last-child) {
+  margin-bottom: 13px;
+}
+
+.order__confirm_change--pay h4 {
+  margin-bottom: 25px;
+}
+
 .confirm-sidebar {
+  padding: 28px 53px 55px;
+  width: 520px;
   background: var(--color-7);
   -webkit-box-shadow: 28px 33px 61px rgba(0, 0, 0, 0.04);
   box-shadow: 28px 33px 61px rgba(0, 0, 0, 0.04);
+}
+
+.confirm-sidebar h3 {
+  text-transform: uppercase;
+  margin-bottom: 25px;
+}
+
+.confirm-sidebar--coupon {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  border-top: 1px solid #dddddd;
+  padding-top: 20px;
+  position: relative;
+  margin-bottom: 25px;
+}
+
+.confirm-sidebar--coupon input {
+  width: 100%;
+  height: 60px;
+  border: 1px solid #dddddd;
+  padding-left: 28px;
+  outline: none;
+}
+
+.confirm-sidebar--coupon button {
+  height: 60px;
+  width: 188px;
+  border: 1px solid var(--color-22);
+  background: var(--color-7);
+  margin: 0;
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  cursor: pointer;
+  outline: none;
+}
+
+.confirm-sidebar .wrapper {
+  margin-bottom: 16px;
+}
+
+.confirm-sidebar .wrapper.total {
+  font-weight: var(--font-weight-bold);
+  color: #333333;
+  border-top: 1px solid #dddddd;
+  margin-top: 90px;
+  padding-top: 25px;
+  margin-bottom: 5px;
+}
+
+.confirm-sidebar .wrapper.total span {
+  font-size: var(--font-size-25);
+}
+
+.confirm-sidebar .tax {
+  font-size: var(--font-size-16);
+  color: #939393;
+  margin-bottom: 23px;
+  display: block;
+}
+
+.confirm-sidebar p {
+  text-align: center;
+  font-size: var(--font-size-14);
+  width: 225px;
+  margin: 0 auto;
+  color: #787878;
+  margin-top: 20px;
+}
+
+.confirm-sidebar p a {
+  color: var(--color-1);
+  text-decoration: underline;
 }
 
 @media (max-width: 1675px) {
