@@ -1,0 +1,160 @@
+@@include('./templates/blocks/head.html',{
+    "title":"Личный кабинет"
+    })
+<body class="bg-main">
+    <!-- ANCHOR Header -->
+    @@include('./templates/blocks/header.html')
+    <!-- ANCHOR Header -->
+    
+    <!-- ANCHOR Main -->
+    <main class="page cabinet-page personal">
+        <section class="cabinet">
+            <div class="container">
+                @@include('./templates/elements/breadcrumbs.html')
+                @@include('./templates/elements/section-title.html', {
+                    name: 'Личный кабинет'
+                })
+            </div>
+        </section>
+        <section class="cabinet-section">
+            <div class="container">
+                <div class="tabs-descrition">
+                    <div class="tabs">
+                        <span class="tab active">Личные данные</span>
+                        <span class="tab">История заказов</span>
+                        <span class="tab">Платежные данные и договор</span>
+                        <span class="tab">Чат</span>
+                    </div>
+                    <div class="contents">
+                        <div class="content active">
+                            <form class="personalData">
+                                <h3>Личные данные</h3>
+                                <div class="wrap">
+                                    <label>
+                                        Имя
+                                        <input type="text" placeholder="Имя" required name="name">
+                                    </label>
+                                    <label>
+                                        Фамилия
+                                        <input type="text" placeholder="Фамилия" required name="lastname">
+                                    </label>
+                                    <label>
+                                        Отчество
+                                        <input type="text" placeholder="Отчество" required name="middlename">
+                                    </label>
+                                    <label>
+                                        Название компании
+                                        <input type="text" placeholder="Название компании" required name="company">
+                                    </label>
+                                    <label>
+                                        Телефон
+                                        <input type="tel" placeholder="Телефон" required name="phone">
+                                    </label>
+                                    <label>
+                                        E-mail
+                                        <input type="email" placeholder="E-mail" required name="email">
+                                    </label>
+                                    <label>
+                                        <input type="checkbox">
+                                        <p>Получать рассылку на почту</p>
+                                    </label>
+                                </div>
+                                <hr />
+                                <h3>Вы можете добавить нового пользователя</h3>
+                                <div class="wrap">
+                                    <div class="personal__item_newUser">
+                                        <div class="personal__item_img">
+                                            <img src="./img/user-lk.svg" alt="user-lk">
+                                        </div>
+                                        <div class="wrap">
+                                            <span>Петрова Ольга Николаевна</span>
+                                            <span>+7 495 980-25-18</span>
+                                        </div>
+                                        <a href="#">
+                                            <img src="./img/pen-lk.svg" alt="change-pen">
+                                        </a>
+                                    </div>
+                                    <div class="personal__item_newUser">
+                                        <div class="personal__item_img">
+                                            <img src="./img/user-lk.svg" alt="user-lk">
+                                        </div>
+                                        <div class="wrap">
+                                            <span>Петрова Ольга Николаевна</span>
+                                            <span>+7 495 980-25-18</span>
+                                        </div>
+                                        <a href="#">
+                                            <img src="./img/pen-lk.svg" alt="change-pen">
+                                        </a>
+                                    </div>
+                                </div>
+                                <button class="btn btnAddUser">
+                                    <img src="./img/user-lk.svg" alt="addUser">
+                                    Добавить пользователя
+                                </button>
+                                <hr />
+                                <h3>Выберите тип платильщика</h3>
+                                <div class="wrap aic">
+                                    <label class="personal__item_label">
+                                        <div class="personal__item_img">
+                                            <img src="./img/user-lk.svg" alt="user-lk">
+                                        </div>
+                                        <div class="wrap">
+                                            <span>Физическое лицо</span>
+                                        </div>
+                                        <input type="radio" name="radio">
+                                        <span class="checkmark"></span>
+                                    </label>
+                                    <label class="personal__item_label">
+                                        <div class="personal__item_img">
+                                            <img src="./img/user-bag-lk.svg" alt="user-lk">
+                                        </div>
+                                        <div class="wrap">
+                                            <span>Юридическое лицо</span>
+                                        </div>
+                                        <input type="radio" name="radio">
+                                        <span class="checkmark"></span>
+                                    </label>
+                                    <a href="#" class="addLink">Добавить реквизиты</a>
+                                </div>
+                                <button class="btn btnSave">Сохранить</button>
+                                <hr />
+                                <div class="wrap">
+                                    <h3>Пароль</h3>
+                                    <span class="passwordSuccess">Пароль успешно изменен</span>
+                                </div>
+                                <div class="wrap">
+                                    <label>
+                                        Текущий пароль
+                                        <input type="password" placeholder="********" required name="password">
+                                    </label>
+                                    <label>
+                                        Новый пароль
+                                        <input type="password" placeholder="********" required name="password">
+                                    </label>
+                                    <label>
+                                        Повторите пароль
+                                        <input type="password" placeholder="********" required name="password">
+                                    </label>
+                                </div>
+                                <button class="btn">Изменить пароль</button>
+                            </form>
+                        </div>
+                        <div class="content ">
+                        </div>
+                        <div class="content ">
+                        </div>
+                        <div class="content ">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+    <!-- ANCHOR Main -->
+
+    <!-- ANCHOR Footer -->
+    @@include('./templates/blocks/footer.html')
+    <!-- ANCHOR Footer -->
+    @@include('./templates/blocks/scripts.html')
+</body>
+</html>
