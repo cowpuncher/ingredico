@@ -20,13 +20,13 @@
             <div class="container">
                 <div class="tabs-descrition">
                     <div class="tabs">
-                        <span class="tab active">Личные данные</span>
-                        <span class="tab">История заказов</span>
-                        <span class="tab">Платежные данные и договор</span>
+                        <span class="tab ">Личные данные</span>
+                        <span class="tab active">История заказов</span>
+                        <span class="tab ">Платежные данные и договор</span>
                         <span class="tab">Чат</span>
                     </div>
                     <div class="contents">
-                        <div class="content active">
+                        <div class="content ">
                             <form class="personalData">
                                 <h3>Личные данные</h3>
                                 <div class="wrap">
@@ -54,9 +54,10 @@
                                         E-mail
                                         <input type="email" placeholder="E-mail" required name="email">
                                     </label>
-                                    <label>
-                                        <input type="checkbox">
-                                        <p>Получать рассылку на почту</p>
+                                    <label class="addMailing">
+                                        Получать рассылку на почту
+                                        <input type="checkbox" checked="checked">
+                                        <span class="checkmark"></span>
                                     </label>
                                 </div>
                                 <hr />
@@ -139,9 +140,70 @@
                                 <button class="btn">Изменить пароль</button>
                             </form>
                         </div>
-                        <div class="content ">
+                        <div class="content active">
+                            <div class="tableHistoryOrder">
+                                
+                            </div>
                         </div>
                         <div class="content ">
+                            <div class="personal__item payData active">
+                                <div class="wrap">
+                                    <img src="./img/order-ul.svg" alt="delivery-order">
+                                    <p>Юридическое лицо</p>
+                                </div>
+                                <form class="personal__item_form wrapper">
+                                    <div class="personal__item_form--wrap">
+                                        <h3>Ваши реквизиты</h3>
+                                        <input type="text" placeholder="Фамилия" name="lastname" class="input">
+                                        <input type="text" placeholder="Имя" name="name" class="input">
+                                        <input type="text" placeholder="Отчество" name="name" class="input">
+                                        <input type="tel" placeholder="Телефон" name="phone" class="input">
+                                        <input type="email" placeholder="Email" name="email" class="input">
+                                        <input type="text" placeholder="Название юл. лица" name="name-organization" class="input">
+                                        <input type="text" placeholder="Юридический адрес" name="adress-organization" class="input">
+                                        <input type="text" placeholder="ИНН" name="inn" class="input">
+                                        <input type="text" placeholder="КПП" name="kpp" class="input">
+                                        <input type="text" placeholder="Почтовый адрес" name="adress" class="input">
+                                         <button class="btn btnSave">Сохранить</button>
+                                    </div>
+                                    <div class="personal__item_form--wrap">
+                                        <h3>Ранее созданные платильщики</h3>
+                                        <label class="personal__item_label">
+                                            <input type="radio" name="radio">
+                                            <div class="wrap">
+                                                <p><span class="personal__item_label--name">Петрова Ольга Николаевна</span>, +7 495 980-25-18 <span class="personal__item_label--place">МК"Любинский"</span></p>
+                                                <div class="wrapper">
+                                                    <span>ИНН 8548548544</span>
+                                                    <span>КПП 8548548544</span>
+                                                </div>
+                                            </div>
+                                            <span class="checkmark"></span>
+                                        </label>
+                                        <label class="personal__item_label">
+                                            <input type="radio" name="radio">
+                                            <div class="wrap">
+                                                <p><span class="personal__item_label--name">Петрова Ольга Николаевна</span>, +7 495 980-25-18 <span class="personal__item_label--place">МК"Любинский"</span></p>
+                                                <div class="wrapper">
+                                                    <span>ИНН 8548548544</span>
+                                                    <span>КПП 8548548544</span>
+                                                </div>
+                                            </div>
+                                            <span class="checkmark"></span>
+                                        </label>
+                                        <label class="personal__item_label">
+                                            <input type="radio" name="radio">
+                                            <div class="wrap">
+                                                <p><span class="personal__item_label--name">Петрова Ольга Николаевна</span>, +7 495 980-25-18 <span class="personal__item_label--place">МК"Любинский"</span></p>
+                                                <div class="wrapper">
+                                                    <span>ИНН 8548548544</span>
+                                                    <span>КПП 8548548544</span>
+                                                </div>
+                                            </div>
+                                            <span class="checkmark"></span>
+                                        </label>
+                                    </div>
+                                </form>
+                            </div>
                         </div>
                         <div class="content ">
                         </div>

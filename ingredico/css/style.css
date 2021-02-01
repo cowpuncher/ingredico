@@ -5779,6 +5779,9 @@ a.com-prop {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
   -webkit-box-pack: start;
   -ms-flex-pack: start;
   justify-content: start;
@@ -5808,6 +5811,7 @@ a.com-prop {
 .cabinet-page.personal .personalData .wrap label input[type="tel"],
 .cabinet-page.personal .personalData .wrap label input[type="email"],
 .cabinet-page.personal .personalData .wrap label input[type="password"] {
+  color: #939393;
   border: 0;
   outline: none;
   background: var(--color-7);
@@ -5885,6 +5889,76 @@ a.com-prop {
   color: var(--color-2);
   font-size: var(--font-size-15);
   margin: 5px 0 0 28px;
+}
+
+.cabinet-page.personal .payData .wrapper {
+  -webkit-box-pack: start;
+  -ms-flex-pack: start;
+  justify-content: flex-start;
+}
+
+.cabinet-page.personal .payData .personal__item_form--wrap:not(:last-child) {
+  margin-right: 128px;
+}
+
+.cabinet-page .addMailing {
+  display: block;
+  position: relative;
+  padding-left: 35px;
+  margin-bottom: 12px;
+  cursor: pointer;
+  font-size: 22px;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  font-size: var(--font-size-15);
+  margin: 25px 0 0 35px;
+  color: #5B5B5B;
+}
+
+.cabinet-page .addMailing input {
+  position: absolute;
+  opacity: 0;
+  cursor: pointer;
+  height: 0;
+  width: 0;
+}
+
+.cabinet-page .addMailing .checkmark {
+  position: absolute;
+  top: -3px;
+  left: 0;
+  height: 25px;
+  width: 25px;
+  background-color: var(--color-7);
+}
+
+.cabinet-page .addMailing .checkmark:after {
+  content: "";
+  position: absolute;
+  display: none;
+}
+
+.cabinet-page .addMailing .checkmark:after {
+  left: 9px;
+  top: 5px;
+  width: 5px;
+  height: 10px;
+  border: solid var(--color-3);
+  border-width: 0 3px 3px 0;
+  -webkit-transform: rotate(45deg);
+  -ms-transform: rotate(45deg);
+  transform: rotate(45deg);
+}
+
+.cabinet-page .addMailing:hover input ~ .checkmark {
+  background-color: var(--color-7);
+}
+
+.cabinet-page .addMailing input:checked ~ .checkmark:after {
+  color: #000;
+  display: block;
 }
 
 @media (max-width: 1675px) {
