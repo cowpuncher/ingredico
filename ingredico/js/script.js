@@ -136,7 +136,7 @@ if(historySlider !== null) {
     historySlider.controller.control = historySliderContent;
     historySliderContent.controller.control = historySlider;
 }
-if(contactSlider !== null) {
+const startSliderContent = () => {
     var sliderSwiper = new Swiper ( ('.contacts__get_slider'), {
         // Смена вида крусора при наведении
         grabCursor: true,
@@ -148,6 +148,9 @@ if(contactSlider !== null) {
         },
         speed: 800,
     });
+}
+if(contactSlider !== null) {
+    startSliderContent();
 }
 //--------------------------------------------------------------------------
 //------------ FUNCTION END ----------------------------------------------
@@ -355,10 +358,8 @@ if(accordeon !== null) {
 // --------- Tabs on page product
 if(tabsContent !== null) {
     tabsContent.children[0].onclick = e => {
-        if(contactSlider != null) {
-            for(var item of sliderSwiper) {
-                item.update();
-            }
+        if(contactSlider !== null) {
+            startSliderContent();
         }
         const current = e.target; 
         const arrayTabs = tabsContent.children[0].children;
@@ -376,18 +377,18 @@ if(tabsContent !== null) {
 //--------------------------------------------------------------------------
 // --------- Fixed top menu 
 const fixedMenu = () => {
-        let header = document.querySelector('header'); 
-        if(pageYOffset > header.offsetHeight) {
-            topPanel.classList.add('active');
-            topPanel.setAttribute('style', 'transform: translate(0px, 0px);' );  
-            // Remove active drop menu category
-            overlayMenu.classList.remove('active');
-            menuDropdown.classList.remove('active');
-            menuButton.classList.remove('active'); 
-        } else if(pageYOffset < header.offsetHeight) {
-            topPanel.classList.remove('active');
-            topPanel.removeAttribute('style', 'transform: translate(0px, 0px);' );
-        }
+    let header = document.querySelector('header'); 
+    if(pageYOffset > header.offsetHeight) {
+        topPanel.classList.add('active');
+        topPanel.setAttribute('style', 'transform: translate(0px, 0px);' );  
+        // Remove active drop menu category
+        overlayMenu.classList.remove('active');
+        menuDropdown.classList.remove('active');
+        menuButton.classList.remove('active'); 
+    } else if(pageYOffset < header.offsetHeight) {
+        topPanel.classList.remove('active');
+        topPanel.removeAttribute('style', 'transform: translate(0px, 0px);' );
+    }
 }
 fixedMenu();
 window.addEventListener('scroll', function() {
