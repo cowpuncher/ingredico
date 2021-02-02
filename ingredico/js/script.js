@@ -15,7 +15,7 @@ var tabs = document.querySelector('.news__tabs'),
     mainSlider = document.querySelector('.main__slider'),
     newsSlider = document.querySelector('.news__slider'),
     historySlider = document.querySelector('.history__slider'),
-    contactSlider = document.querySelector('.contacts__get_slider'),
+    contactSlider = document.querySelectorAll('.contacts__get_slider'),
     filterDropdown = document.querySelectorAll('.dropdown .small-title'),
     previewText = document.querySelectorAll('.news__preview_text'),
     previewNews = document.querySelectorAll('.info-page .flex-card p'),
@@ -137,10 +137,11 @@ if(historySlider !== null) {
     historySliderContent.controller.control = historySlider;
 }
 if(contactSlider !== null) {
-    var contactSlider = new Swiper('.contacts__get_slider', {
+    var sliderSwiper = new Swiper ( ('.contacts__get_slider'), {
         // Смена вида крусора при наведении
         grabCursor: true,
         slidesPerView: 1,
+        observer: true,
         navigation: {
             nextEl: '.swiper-button-next',
             prevEl: '.swiper-button-prev',
@@ -158,26 +159,21 @@ window.onload = () => {
         link.addEventListener('mouseenter', function(e) {
             e.preventDefault();
             // Инициализируем SVG внутри нашего Object
-            let obj = e.currentTarget.children[0].children[0].contentDocument;
-            // Инициализиурем Path внутри SVG
-            let rect = obj.querySelectorAll('path');
-            // Пробегаемся по всем Path внутри выбранного пункта меню
-            rect.forEach( item => {
-                // Инициализируем fill внутри svg
-                let color = item.getAttribute('fill');
-                // Изменяем fill на белый
-                item.setAttribute('fill', '#ffffff');
-                // Изменяем фон пункта меню на изначальный цвет svg
-                e.currentTarget.style.backgroundColor = color;
-                e.currentTarget.style.color = '#ffffff';
-                // Событие убранной с элемента мыши
-                link.addEventListener('mouseleave', function(e) {
-                    // Возвращаем изначальный цвет SVG
-                    item.setAttribute('fill', color);
-                    // Фон делаем прозрачным 
-                    e.currentTarget.style.backgroundColor = 'transparent';
-                    e.currentTarget.style.color = 'var(--color-1)';
-                });
+            let obj = e.currentTarget.children[0].children[0].children[0];
+             // Инициализируем fill внутри svg
+            let color = obj.getAttribute('fill');
+            // Изменяем fill на белый
+            obj.setAttribute('fill', '#ffffff');
+            // Изменяем фон пункта меню на изначальный цвет svg
+            e.currentTarget.style.backgroundColor = color;
+            e.currentTarget.style.color = '#ffffff';
+            // Событие убранной с элемента мыши
+            link.addEventListener('mouseleave', function(e) {
+                // Возвращаем изначальный цвет SVG
+                obj.setAttribute('fill', color);
+                // Фон делаем прозрачным 
+                e.currentTarget.style.backgroundColor = 'transparent';
+                e.currentTarget.style.color = 'var(--color-1)';
             });
         });
     });
@@ -185,27 +181,26 @@ window.onload = () => {
     greyMenu.forEach( item => {
         const promiseMenuEl = new Promise( (resolve, reject) => {
             setTimeout( () => {
-                const image = item.querySelector('.menu__category_img').children[0].contentDocument.querySelectorAll('path');
-                image.forEach( fill => {
-                    const color = fill.getAttribute('fill');
-                    fill.setAttribute('fill', '#D2D2D2');
-                    resolve(color)
-                })
+                const image = item.querySelector('.menu__category_img').children[0].children[0];
+                console.log(image);
+                const color = image.getAttribute('fill');
+                image.setAttribute('fill', '#D2D2D2');
+                resolve(color);
             }, 1000)
         });
         promiseMenuEl.then( dataColor => {
             item.addEventListener ( 'mouseenter', function(e) {
                 currentEl = e.currentTarget;
-                let rect = currentEl.children[0].children[0].contentDocument.querySelectorAll('path');
-                rect.forEach( fill => {
-                    fill.setAttribute('fill', dataColor);
-                    currentEl.style.backgroundColor = ('transparent');
-                    currentEl.style.color = dataColor;
-                    item.addEventListener('mouseleave', function(e) {
-                        fill.setAttribute('fill', '#D2D2D2');
-                        currentEl.style.color = '#000';
-                    });
-                })
+                let rect = currentEl.children[0].children[0].children[0];
+                console.log(rect);
+
+                rect.setAttribute('fill', dataColor);
+                currentEl.style.backgroundColor = ('transparent');
+                currentEl.style.color = dataColor;
+                item.addEventListener('mouseleave', function(e) {
+                    rect.setAttribute('fill', '#D2D2D2');
+                    currentEl.style.color = '#000';
+                });
             });
         }).catch( err => {
             console.log('Image not loading ... ');
@@ -360,6 +355,11 @@ if(accordeon !== null) {
 // --------- Tabs on page product
 if(tabsContent !== null) {
     tabsContent.children[0].onclick = e => {
+        if(contactSlider != null) {
+            for(var item of sliderSwiper) {
+                item.update();
+            }
+        }
         const current = e.target; 
         const arrayTabs = tabsContent.children[0].children;
         const arrayContent = tabsContent.children[1].children;
@@ -657,16 +657,18 @@ var orderDelivery = document.querySelector('.order__delivery');
 var orderPay = document.querySelector('.order__pay');
 var orderConfirm = document.querySelector('.order__confirm');
 
-const addStyleLineState = (amount, block) => {
-    orderState.children[3].setAttribute('style', 'width: ' + amount + '%' );
-    block.setAttribute('style', 'display: block;');
-}
-if(orderState.children[0].classList.contains('active')) {
-    addStyleLineState(25, orderDelivery);
-} else if(orderState.children[1].classList.contains('active')) {
-    addStyleLineState(60, orderPay);
-
-} else if(orderState.children[2].classList.contains('active')) {
-    addStyleLineState(70, orderConfirm);
-    orderState.children[1].querySelector("svg").setAttribute("style", "fill: #FFA11B;");
+if(orderState !== null) {
+    const addStyleLineState = (amount, block) => {
+        orderState.children[3].setAttribute('style', 'width: ' + amount + '%' );
+        block.setAttribute('style', 'display: block;');
+    }
+    if(orderState.children[0].classList.contains('active')) {
+        addStyleLineState(25, orderDelivery);
+    } else if(orderState.children[1].classList.contains('active')) {
+        addStyleLineState(60, orderPay);
+    
+    } else if(orderState.children[2].classList.contains('active')) {
+        addStyleLineState(70, orderConfirm);
+        orderState.children[1].querySelector("svg").setAttribute("style", "fill: #FFA11B;");
+    }
 }
