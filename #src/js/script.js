@@ -59,13 +59,34 @@ const closeOpenBlock = (button, block, overlay) => {
     })
 } 
 //--------------------------------------------------------------------------
+
 // --------- Add sliders
 const activeSlider = (items, slider) => {
     if(items.length > 4) {
         $(slider).slick({
             infinite: false,
             slidesToShow: 4,
-            slidesToScroll: 1
+            slidesToScroll: 1,
+            responsive: [
+                {
+                  breakpoint: 1200,
+                  settings: {
+                    slidesToShow: 3
+                  }
+                },
+                {
+                  breakpoint: 767,
+                  settings: {
+                    slidesToShow: 2,
+                  }
+                },
+                {
+                  breakpoint: 650,
+                  settings: {
+                    slidesToShow: 1,
+                  }
+                }
+              ]
         })
     }
 }
@@ -151,6 +172,14 @@ const startSliderContent = () => {
 }
 if(contactSlider !== null) {
     startSliderContent();
+}
+if(document.body.clientWidth < 768) {
+    $('.info-page .reviews-grid').slick({
+        infinite: false,
+        slidesToShow: 1,
+        slidesToScroll: 1
+
+    })
 }
 //--------------------------------------------------------------------------
 //------------ FUNCTION END ----------------------------------------------
@@ -343,7 +372,7 @@ if(tabs !== null) {
     })
 }
 //--------------------------------------------------------------------------
-// --------- Accordeon
+// --------- Accordion
 if(accordeon !== null) {
     for(item of accordeon) {
         item.addEventListener('click', e => {
@@ -550,6 +579,8 @@ closeOpenBlock(btnMobileMenu, mobileMenu);
 const comProp = document.querySelector('.com-prop');
 const btnModalTop = document.querySelector('.btn__modal');
 const auth = document.querySelector('.auth');
+const socialLink = document.querySelector('.footer__top');
+const supportBtn = document.getElementById('support-btn');
 
 const cloneElement = (divGet, divInsert) => {
     const newDiv = divGet.cloneNode( true );
@@ -560,6 +591,7 @@ if(document.body.clientWidth < 768) {
     cloneElement(comProp, phoneMobile);
     cloneElement(btnModalTop, mobileMenu);
     cloneElement(auth, mobileMenu);
+    cloneElement(supportBtn, socialLink);
 }
 //--------------------------------------------------------------------------
 //---------- Grids 

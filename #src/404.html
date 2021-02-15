@@ -5,38 +5,39 @@
     <!-- ANCHOR Header -->
     @@include('./templates/blocks/header.html')
     <!-- ANCHOR Header -->
-    
-    <section class="figure__bg-white">
-        <div class="container">
-            <div class="error__page">
-                <h1>
-                    404
-                </h1>
-                <p>
-                    Возможно страница была перемещена или удалена. Попробуйте найти <br> интересующую вас информацию в каталоге или воспользуйтесь поиском по сайту
-                </p>
+    <main>
+        <section class="figure__bg-white">
+            <div class="container">
+                <div class="error__page">
+                    <h1>
+                        404
+                    </h1>
+                    <p>
+                        Возможно страница была перемещена или удалена. Попробуйте найти <br> интересующую вас информацию в каталоге или воспользуйтесь поиском по сайту
+                    </p>
+                </div>
             </div>
-        </div>
-    </section>
+        </section>
 
-    <section class="category-section section ">
-        <div class="container">
-            @@include('./templates/blocks/category.html', {
-                images1: '1',
-                images2: '2',
-                images3: '3',
-                images4: '4',
-                images5: '5',
-                images6: '6',
-                images7: '7',
-                images8: '8',
-                images9: '9',
-                images10: '10',
-                images11: '11',
-                images12: '12',
-                })
-        </div>
-    </section>
+        <section class="category-section section ">
+            <div class="container">
+                @@include('./templates/blocks/category.html', {
+                    images1: '1',
+                    images2: '2',
+                    images3: '3',
+                    images4: '4',
+                    images5: '5',
+                    images6: '6',
+                    images7: '7',
+                    images8: '8',
+                    images9: '9',
+                    images10: '10',
+                    images11: '11',
+                    images12: '12',
+                    })
+            </div>
+        </section>
+    </main>
 <!-- ANCHOR Footer -->
     @@include('./templates/blocks/footer.html')
     <!-- ANCHOR Footer -->
