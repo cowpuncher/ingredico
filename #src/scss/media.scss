@@ -67,6 +67,13 @@
     .catalog-body {
         width: 79%;
     }
+    .vacancy {
+        &__item {
+            &:not(:last-child) {
+                width: 18.8%;
+            }
+        }
+    } 
     .footer {
 
         .logo {
@@ -271,6 +278,13 @@
             height: auto;
         }
     }
+    .vacancy {
+        &__item {
+            &:not(:last-child) {
+                width: 23%;
+            }
+        }
+    } 
     .footer {
         &__menu {
 
@@ -340,6 +354,16 @@
             margin-right: 30px;
         }
     }
+    .reviews-page .flex-card {
+        width: 51%;
+    }
+    .vacancy {
+        &__item {
+            &:not(:last-child) {
+                width: 31%;
+            }
+        }
+    } 
     .footer {
         & .logo {
             width: 20%;
@@ -574,6 +598,29 @@
             left: 0;
         }
     }
+    .reviews-page {
+        .flex-card {
+            &:first-child {
+                margin-right: 0;
+                width: 100%;
+            }
+        }
+        .reviews-doc {
+            margin: 20px auto 0;
+        }
+    }
+    .vacancy {
+        &__item {
+            &:not(:last-child) {
+                width: 47%;
+            }
+            &_big-wrap {
+                &:last-child {
+                    padding-left: 30px;
+                }
+            }
+        }
+    } 
     .subscribe__form {
         width: 90%;
     }
@@ -718,6 +765,36 @@
             display: none;
         }
     }
+    .vacancy {
+        &__item {
+            &:not(:last-child) {
+                width: 100%;
+                margin-right: 0;
+                margin-bottom: 20px;
+            }
+            &_big {
+               -webkit-box-orient: vertical;
+               -webkit-box-direction: normal;
+               -webkit-flex-direction: column;
+                  -moz-box-orient: vertical;
+                  -moz-box-direction: normal;
+                   -ms-flex-direction: column;
+                       flex-direction: column;
+                       &-wrap {
+                           &:not(:last-child) {
+                                width: 100%;
+                                border: 0;
+                                border-bottom: 1px solid rgba(2,63,136,.2);
+                                padding: 0 0 20px 0;
+                           }
+                           &:last-child {
+                            width: 100%;
+                            padding: 10px 0 0 0;
+                        }
+                       }
+            }
+        }
+    } 
     .footer {
         &__top,
         &__bottom {
@@ -807,6 +884,10 @@
             margin-right: 5px;
         }
     }
+    .bg-main h2,
+    .section_title {
+        font-size: 28px;
+    }
     .flex-card {
         &__wrapper {
             padding: 35px 30px 20px;
@@ -835,6 +916,48 @@
             }
             a {
                 margin: 0 auto;
+            }
+        }
+    }
+    .reviews-page  {
+        .popular-section {
+            &.figure__bg .section_title {
+                margin-bottom: 30px;
+            }
+        }
+        .breadcrumbs {
+            margin-bottom: 15px;
+        }
+        .section_title {
+            font-size:  28px;
+            margin-bottom: 20px;
+        }
+        .flex-card  {
+            padding: 20px 0;
+            &__wrapper { 
+                h4::before {
+                    top: -10px;
+                    left: -15px;
+                }
+                &:nth-child(2) {
+                    padding: 25px 20px 0;
+                }
+                &_name {
+                    top: auto;
+                    bottom: 65px;
+                }
+                &_desc {
+                    top: auto;
+                    bottom: 25px;
+                }
+                &:first-child {
+                    width: 100%;
+                }
+            }
+            .flex-card__img {
+                width: 100%;
+                margin: 0;
+                max-width: 460px;
             }
         }
     }

@@ -3924,9 +3924,13 @@ a.com-prop {
             align-items: stretch;
 
     &__item {
-        width: 100%;
-        max-width: 303px;
-        min-width: 290px;
+        // width: 100%;
+        // max-width: 303px;
+        // min-width: 290px;
+        -webkit-box-shadow: 28px 33px 60px rgba(0, 0, 0, .04);
+           -moz-box-shadow: 28px 33px 60px rgba(0, 0, 0, .04);
+                box-shadow: 28px 33px 60px rgba(0, 0, 0, .04);
+        width: 19%;
         margin-bottom: 60px;
         background: #ffffff;
         padding: 37px 40px 37px 45px;
@@ -3976,7 +3980,7 @@ a.com-prop {
             padding: 30px;
             max-width: 100%;
             margin: 0!important;
-            background: #ffffff;
+            background: transparent;
             display: -webkit-box;
             display: -webkit-flex;
             display: -moz-box;
