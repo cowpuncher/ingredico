@@ -3834,11 +3834,11 @@ a.com-prop {
 }
 /* -------------------- Cтраница Медия галерея----------- */
 .media {
-
     &__gallery {
         display: grid;
         // grid-template-columns: repeat(5, 1fr);
-        grid-template-columns: 500px 350px 350px 350px;
+        // grid-template-columns: 500px 350px 350px 350px;
+        grid-template-columns: 31% 22% 22% 22%;
         grid-template-rows: repeat(2, 1fr);
         grid-column-gap: 17px;
         grid-row-gap: 17px;
@@ -3869,6 +3869,8 @@ a.com-prop {
             object {
                 width: 100%;
                 height: 100%;
+                -o-object-fit: cover;
+                   object-fit: cover;
             }
         }
     }
@@ -3880,7 +3882,9 @@ a.com-prop {
             width: 350px;
             position: absolute;
             top: 35px;
-            left: 555px;
+            // left: 520px;
+            left: 32%;
+            padding-left: 35px;
             
             & a:hover {
                 color: var(--color-3);
@@ -3902,6 +3906,9 @@ a.com-prop {
                 border-bottom: 1px solid #dddddd;
             }
         }
+    }
+    &-slider-thumbs  {
+        display: none;
     }
 }
 

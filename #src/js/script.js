@@ -20,6 +20,7 @@ var tabs = document.querySelector('.news__tabs'),
     previewText = document.querySelectorAll('.news__preview_text'),
     previewNews = document.querySelectorAll('.info-page .flex-card p'),
     accordeon = document.querySelectorAll('.accordeon__item'),
+    mediaPreview = document.querySelectorAll('.media__grid_content p'),
     tabsContent = document.querySelector('.tabs-descrition');
 
 //--------------------------------------------------------------------------
@@ -36,6 +37,8 @@ const textSlice = (node, number) => {
 textSlice(previewText, 130);
 // --------- Slice text in preview news on news page 245 words
 textSlice(previewNews, 245);
+// --------- Slice text in preview news on news page 245 words
+textSlice(mediaPreview, 115);
 //--------------------------------------------------------------------------
 // --------- Toggle class active
 const classToggle = (element) => {
@@ -180,6 +183,39 @@ if(document.body.clientWidth < 768) {
         slidesToScroll: 1
 
     })
+}
+if(document.body.clientWidth < 768) {
+    $('.media-slider').slick({
+        slidesToShow: 1,
+        slidesToScroll: 1,
+        arrows: true,
+        fade: true,
+        adaptiveHeight: true,
+        asNavFor: '.media-slider-thumbs'
+    });
+        $('.media-slider-thumbs').slick({
+        slidesToShow: 3,
+        slidesToScroll: 1,
+        asNavFor: '.media-slider',
+        centerMode: true,
+        arrows: false,
+        focusOnSelect: true,
+        responsive: [
+            {
+              breakpoint: 578,
+              settings: {
+                slidesToShow: 3
+              }
+            },
+            {
+                breakpoint: 450,
+                settings: {
+                  slidesToShow: 2
+                }
+              },
+        ]
+        
+    });
 }
 //--------------------------------------------------------------------------
 //------------ FUNCTION END ----------------------------------------------

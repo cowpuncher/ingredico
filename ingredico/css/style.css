@@ -4905,8 +4905,8 @@ a.com-prop {
 .media__gallery {
   display: -ms-grid;
   display: grid;
-  -ms-grid-columns: 500px 350px 350px 350px;
-  grid-template-columns: 500px 350px 350px 350px;
+  -ms-grid-columns: 31% 22% 22% 22%;
+  grid-template-columns: 31% 22% 22% 22%;
   -ms-grid-rows: (1fr)[2];
   grid-template-rows: repeat(2, 1fr);
   grid-column-gap: 17px;
@@ -4969,6 +4969,8 @@ a.com-prop {
 .media__gallery a object {
   width: 100%;
   height: 100%;
+  -o-object-fit: cover;
+  object-fit: cover;
 }
 
 .media__grid {
@@ -4980,7 +4982,8 @@ a.com-prop {
   width: 350px;
   position: absolute;
   top: 35px;
-  left: 555px;
+  left: 32%;
+  padding-left: 35px;
 }
 
 .media__grid_content a:hover {
@@ -5004,6 +5007,10 @@ a.com-prop {
   font-weight: 600;
   font-size: var(--font-size-18);
   border-bottom: 1px solid #dddddd;
+}
+
+.media-slider-thumbs {
+  display: none;
 }
 
 /* -------------------- Cтраница Вакансии ----------- */
@@ -7457,6 +7464,10 @@ a.com-prop {
     padding-left: 20px;
   }
 
+  .media__grid_content {
+    padding-left: 10px;
+  }
+
   .footer__menu .menu li {
     padding: 0 30px;
   }
@@ -7589,6 +7600,20 @@ a.com-prop {
     width: 23%;
   }
 
+  .media__gallery {
+    height: 500px;
+  }
+
+  .media__grid_content {
+    width: 22%;
+    top: 0;
+  }
+
+  .media__grid_content p {
+    line-height: 1.3em;
+    margin-bottom: 25px;
+  }
+
   .footer__menu .menu li {
     padding: 0 10px;
   }
@@ -7666,6 +7691,25 @@ a.com-prop {
 
   .vacancy__item:not(:last-child) {
     width: 31%;
+  }
+
+  .media__gallery {
+    height: 400px;
+    -ms-grid-columns: 29% 22% 22% 22%;
+    grid-template-columns: 29% 22% 22% 22%;
+  }
+
+  .media__grid_content {
+    width: 23%;
+    left: 30%;
+  }
+
+  .media__grid_content h5 {
+    font-size: 26px;
+  }
+
+  .media__grid_content p {
+    font-size: 16px;
   }
 
   .footer .logo {
@@ -7903,6 +7947,36 @@ a.com-prop {
     padding-left: 30px;
   }
 
+  .media__gallery {
+    height: 300px;
+    -ms-grid-columns: 33% 20% 20% 20%;
+    grid-template-columns: 33% 20% 20% 20%;
+  }
+
+  .media__gallery a:not(:first-child).video-block::after {
+    width: 50px;
+    height: 50px;
+    padding: 3px 0 0 5px;
+    border: 6px solid rgba(0, 0, 0, 0.1);
+  }
+
+  .media__grid_content {
+    left: 34%;
+  }
+
+  .media__grid_content h5 {
+    font-size: 18px;
+  }
+
+  .media__grid_content p {
+    font-size: 14px;
+    margin: 5px 0;
+  }
+
+  .media__grid_content-link {
+    font-size: 14px;
+  }
+
   .subscribe__form {
     width: 90%;
   }
@@ -7996,6 +8070,17 @@ a.com-prop {
     text-align: center;
   }
 
+  .info-title {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: column;
+    flex-direction: column;
+  }
+
+  .info-title h2.section_title {
+    margin-bottom: 30px;
+  }
+
   .flex-card:not(:nth-child(2n)) {
     margin-right: auto;
   }
@@ -8063,6 +8148,68 @@ a.com-prop {
   .vacancy__item_big-wrap:last-child {
     width: 100%;
     padding: 10px 0 0 0;
+  }
+
+  .media__grid_content {
+    position: unset;
+    width: 100%;
+    text-align: center;
+    padding-bottom: 30px;
+  }
+
+  .media__gallery {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    height: auto;
+  }
+
+  .media__gallery a {
+    grid-area: none !important;
+  }
+
+  .media__gallery .slick-next,
+  .media__gallery .slick-prev {
+    top: 50%;
+    background: transparent;
+    width: auto;
+    height: 0;
+    z-index: 99;
+  }
+
+  .media__gallery .slick-next::before,
+  .media__gallery .slick-prev::before {
+    color: #ff842a;
+  }
+
+  .media__gallery .slick-prev {
+    left: -10px;
+  }
+
+  .media__gallery .slick-next {
+    right: -10px;
+  }
+
+  .media-slider-thumbs {
+    display: block;
+  }
+
+  .media-slider-thumbs div {
+    height: 200px;
+    margin: 5px;
+  }
+
+  .media-slider-thumbs div img {
+    width: 100%;
+    height: 100%;
+    -o-object-fit: cover;
+    object-fit: cover;
+  }
+
+  .media-slider-thumbs .video-block::after {
+    content: url(../img/play-sm.svg);
+    width: 50px;
+    height: 50px;
   }
 
   .footer__top,
@@ -8232,6 +8379,10 @@ a.com-prop {
     width: 100%;
     margin: 0;
     max-width: 460px;
+  }
+
+  .media-slider-thumbs div {
+    height: 90px;
   }
 
   .subscribe__title {
