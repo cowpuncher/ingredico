@@ -633,14 +633,16 @@ if(document.body.clientWidth < 768) {
 //---------- Grids 
 /* Media video */
 if(document.querySelector('.grid-container') !== null) {
-    var grid = new Isotope( '.grid-container', {
-        /// options
-        itemSelector: '.grid-card',
-        masonry: {
-            columnWidth: 1,
-            gutter: 26
-        }
-    });
+    if(document.body.clientWidth > 768) {
+        var grid = new Isotope( '.grid-container', {
+            /// options
+            itemSelector: '.grid-card',
+            masonry: {
+                columnWidth: 1,
+                gutter: 26
+            }
+        });
+    }
 }
 
 //--------------------------------------------------------------------------
@@ -676,9 +678,19 @@ openPopup(btnPopupOpen);
 //--------------------------------------------------------------------------
 /* Lightbox with slider */
 var mediaGallery = document.querySelectorAll('.media__gallery');
-for(item of mediaGallery) {
-    lightGallery(item);
+var mediaGalleryMob = document.querySelectorAll('.media__gallery .slick-track .slick-slide');
+
+if(document.body.clientWidth > 768) {
+    for(item of mediaGallery) {
+        lightGallery(item);
+    }    
+} else {
+    for(item of mediaGalleryMob) {
+        item.classList.remove('video-block');
+        item.removeAttribute('href');
+    }  
 }
+
 
 //--------------------------------------------------------------------------
 // Table counter
