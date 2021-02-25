@@ -122,43 +122,51 @@ if(mainSlider !== null) {
 }
 //slider on history page
 if(historySlider !== null) {
-    var historySlider = new Swiper('.history__slider_images', {
-        // Смена вида крусора при наведении
-        grabCursor: true,
-        slidesPerView: 1,
-        direction: 'vertical',
-        speed: 800,
-    });
-    var historySliderContent = new Swiper('.history__slider_content', {
-        // Смена вида крусора при наведении
-        grabCursor: true,
-        slidesPerView: 1,
-        speed: 800,
-        direction: 'vertical',
-        mousewheel: {
-            sensitivity: 11,
-            eventsTarget: ".swiper-pagination"
-        },
-        keyboard: {
-            enabled: true,
-            onlyInViewport: true
-        },
-        navigation: {
-            nextEl: '.swiper-button-next',
-            prevEl: '.swiper-button-prev',
-        },
-        pagination: {
-            el: ".swiper-pagination",
-            clickable: true,
-            renderBullet: function(index, className) {
-                var bullet = document.querySelectorAll('.history__slider_dates .history__slider_date')[index].innerHTML;
-                return '<span class="' + className + '">' + bullet + '</span>';
+    const activeHistorySlider = (direction) => {
+        var historySlider = new Swiper('.history__slider_images', {
+            // Смена вида крусора при наведении
+            grabCursor: true,
+            slidesPerView: 1,
+            direction: direction,
+            speed: 800,
+        });
+        var historySliderContent = new Swiper('.history__slider_content', {
+            // Смена вида крусора при наведении
+            grabCursor: true,
+            slidesPerView: 1,
+            speed: 800,
+            direction: direction,
+            mousewheel: {
+                sensitivity: 11,
+                eventsTarget: ".swiper-pagination"
             },
-            dynamicBullets: true,
-        },
-    });
-    historySlider.controller.control = historySliderContent;
-    historySliderContent.controller.control = historySlider;
+            keyboard: {
+                enabled: true,
+                onlyInViewport: true
+            },
+            navigation: {
+                nextEl: '.swiper-button-next',
+                prevEl: '.swiper-button-prev',
+            },
+            pagination: {
+                el: ".swiper-pagination",
+                clickable: true,
+                renderBullet: function(index, className) {
+                    var bullet = document.querySelectorAll('.history__slider_dates .history__slider_date')[index].innerHTML;
+                    return '<span class="' + className + '">' + bullet + '</span>';
+                },
+                dynamicBullets: true,
+            },
+        });
+        historySlider.controller.control = historySliderContent;
+        historySliderContent.controller.control = historySlider;
+    }
+
+    if(document.body.clientWidth > 992) {
+        activeHistorySlider('vertical');
+    } else {
+        activeHistorySlider('horizontal');
+    }
 }
 const startSliderContent = () => {
     var sliderSwiper = new Swiper ( ('.contacts__get_slider'), {
@@ -182,9 +190,7 @@ if(document.body.clientWidth < 768) {
         slidesToShow: 1,
         slidesToScroll: 1
 
-    })
-}
-if(document.body.clientWidth < 768) {
+    });
     $('.media-slider').slick({
         slidesToShow: 1,
         slidesToScroll: 1,
@@ -193,7 +199,7 @@ if(document.body.clientWidth < 768) {
         adaptiveHeight: true,
         asNavFor: '.media-slider-thumbs'
     });
-        $('.media-slider-thumbs').slick({
+    $('.media-slider-thumbs').slick({
         slidesToShow: 3,
         slidesToScroll: 1,
         asNavFor: '.media-slider',
@@ -216,6 +222,32 @@ if(document.body.clientWidth < 768) {
         ]
         
     });
+}
+if(document.body.clientWidth < 993) {
+    const teamSlider = (slider) => {
+        $(slider).slick({
+            infinite: false,
+            slidesToShow: 3,
+            slidesToScroll: 1,
+            responsive: [
+                {
+                  breakpoint: 768,
+                  settings: {
+                    slidesToShow: 2
+                  }
+                },
+                {
+                    breakpoint: 568,
+                    settings: {
+                      slidesToShow: 1
+                    }
+                  },
+            ]
+    
+        });
+    }
+    teamSlider('.team__flex');
+    teamSlider('.team__grid');
 }
 //--------------------------------------------------------------------------
 //------------ FUNCTION END ----------------------------------------------
