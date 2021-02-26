@@ -22,6 +22,7 @@ var tabs = document.querySelector('.news__tabs'),
     accordeon = document.querySelectorAll('.accordeon__item'),
     mediaPreview = document.querySelectorAll('.media__grid_content p'),
     tabsContent = document.querySelector('.tabs-descrition');
+    faqTabs = document.querySelectorAll('.faq-tabs .tab');
 
 //--------------------------------------------------------------------------
 //--------------------- FUNCTION START ----------------------------
@@ -469,6 +470,22 @@ if(tabsContent !== null) {
         const n = current.dataset.tabs;
         arrayContent[n].classList.add('active')
         current.classList.add('active');
+    }
+}
+//--------------------------------------------------------------------------
+// --------- Tabs on page faq
+if(faqTabs !== null) {
+    for(let tab of faqTabs) {
+        tab.addEventListener('click', e => {
+            let current = e.currentTarget;
+            let faqContent = document.querySelectorAll('.faq-tabs .content');
+            for(let i = 0; i < faqTabs.length; i++) {
+                faqTabs[i].classList.remove('active');
+                faqContent[i].classList.remove('active');
+            }
+            current.classList.add('active');
+            current.nextElementSibling.classList.add('active');
+        })
     }
 }
 //--------------------------------------------------------------------------

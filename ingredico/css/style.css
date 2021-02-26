@@ -5368,6 +5368,55 @@ a.com-prop {
   font-size: var(--font-size-18);
 }
 
+.faq-tabs {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  position: relative;
+  padding-top: 135px;
+  margin-bottom: 50px;
+}
+
+.faq-tabs .tab {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 50%;
+  height: 80px;
+  font-size: 25px;
+  border-bottom: 2px solid var(--color-6);
+  text-transform: uppercase;
+  cursor: pointer;
+  font-weight: var(--font-weight-extrabold);
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+}
+
+.faq-tabs .tab:nth-child(3) {
+  left: auto;
+  right: 0;
+}
+
+.faq-tabs .tab.active {
+  background: #FDF3ED;
+  color: var(--color-22);
+}
+
+.faq-tabs .content {
+  display: none;
+}
+
+.faq-tabs .content.active {
+  display: block;
+}
+
 /* -------------------- Cтраница История ----------- */
 
 .history {
@@ -8379,7 +8428,7 @@ a.com-prop {
 
   .history__slider_images {
     width: 100%;
-    padding: 0 0 90px 0;
+    padding: 0 0 70px 0;
     height: 440px;
   }
 
@@ -8390,9 +8439,9 @@ a.com-prop {
   }
 
   .history__slider_pagi.swiper-pagination {
-    width: 100% !important;
+    width: 640px !important;
     height: auto !important;
-    top: 82% !important;
+    top: 87% !important;
     right: 0;
     left: 0 !important;
     margin: 0 auto;
@@ -8812,6 +8861,14 @@ a.com-prop {
     text-align: center;
   }
 
+  .history__slider_pagi.swiper-pagination {
+    left: -7% !important;
+  }
+
+  .faq-tabs .tab {
+    font-size: 18px;
+  }
+
   .footer__top,
   .footer__bottom {
     -webkit-box-orient: vertical;
@@ -9176,6 +9233,57 @@ a.com-prop {
   .history__title_desc::before {
     width: 36px;
     left: 0px;
+  }
+
+  .history__slider_pagi.swiper-pagination {
+    left: -37% !important;
+  }
+
+  .faq-section .btn {
+    width: 100%;
+    margin-top: 20px;
+  }
+
+  .faq-tabs {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    margin-bottom: 0px;
+    padding: 0;
+  }
+
+  .faq-tabs .tab {
+    font-size: 18px;
+    position: unset;
+    border-bottom: 0;
+    padding: 0 0 0 20px;
+    width: 100%;
+    margin: 20px 0 20px;
+    background: #ffffff;
+    border-top: 1px solid #F2F2F2;
+    border-bottom: 1px solid #F2F2F2;
+    -webkit-box-pack: start;
+    -ms-flex-pack: start;
+    justify-content: flex-start;
+  }
+
+  .faq-tabs .tab:after {
+    content: '\003E';
+    position: absolute;
+    right: 15px;
+  }
+
+  .faq-tabs .tab.active {
+    background: #ffffff;
+    border-top: 1px solid transparent;
+    border-bottom: 1px solid transparent;
+  }
+
+  .faq-tabs .tab.active:after {
+    -webkit-transform: rotate(90deg);
+    -ms-transform: rotate(90deg);
+    transform: rotate(90deg);
   }
 
   .footer .logo {

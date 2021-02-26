@@ -980,7 +980,7 @@
             }
             &_images {
                 width: 100%;
-                padding: 0 0 90px 0; 
+                padding: 0 0 70px 0; 
                 height: 440px;
             }
             &_content {
@@ -989,9 +989,9 @@
                 margin-bottom: 35px;
             }
             &_pagi.swiper-pagination {
-                width: 100%!important;
+                width: 640px!important;
                 height: auto!important;
-                top: 82%!important;
+                top: 87%!important;
                 right: 0;
                 left: 0!important;
                 margin: 0 auto;
@@ -1409,6 +1409,14 @@
         font-size: 170px;
         text-align: center;
     }
+    .history__slider_pagi.swiper-pagination {
+        left: -7%!important;
+    }
+    .faq-tabs { 
+        .tab {
+            font-size: 18px;
+        }
+    }
     .footer {
         &__top,
         &__bottom {
@@ -1754,6 +1762,61 @@
             &::before {
                 width: 36px;
                 left: 0px;
+            }
+        }
+        &__slider_pagi.swiper-pagination {
+            left: -37%!important;
+        }
+    }
+    .faq {
+        &-section {
+            .btn {
+                width: 100%;
+                margin-top: 20px;
+            }
+        }
+        &-tabs { 
+            -webkit-box-orient: vertical; 
+            -webkit-box-direction: normal; 
+            -webkit-flex-direction: column; 
+               -moz-box-orient: vertical; 
+               -moz-box-direction: normal; 
+                -ms-flex-direction: column; 
+                    flex-direction: column;
+                    margin-bottom: 0px;
+                    padding: 0;
+            .tab {
+                font-size: 18px;
+                position: unset;
+                border-bottom: 0;
+                padding: 0 0 0 20px;
+                width: 100%;
+                margin:  20px 0 20px;
+                background: #ffffff;
+                border-top: 1px solid #F2F2F2;
+                border-bottom: 1px solid #F2F2F2;
+                -webkit-box-pack: start;
+                -webkit-justify-content: flex-start;
+                   -moz-box-pack: start;
+                    -ms-flex-pack: start;
+                        justify-content: flex-start;
+                &:after {
+                    content: '\003E' ;
+                    position: absolute;
+                    right: 15px;
+                }
+                &.active {
+                    background: #ffffff;
+                    border-top: 1px solid transparent;
+                    border-bottom: 1px solid transparent;
+                    &:after {
+                        -webkit-transform: rotate(90deg);
+                           -moz-transform: rotate(90deg);
+                            -ms-transform: rotate(90deg);
+                             -o-transform: rotate(90deg);
+                                transform: rotate(90deg);
+                    }
+                }
             }
         }
     }
