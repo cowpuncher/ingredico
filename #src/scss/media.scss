@@ -66,7 +66,7 @@
         width: 21%;
     }
     .catalog-body {
-        width: 79%;
+        width: 78%;
     }
     .vacancy {
         &__item {
@@ -160,6 +160,15 @@
     }
     .team__flex .team__item {
         width: 18.5%;
+    }
+    .catalog-body {
+        &__menu .menu__category li {
+            width: 140px;
+
+            a {
+                font-size: 11px;
+            }
+        }
     }
     .footer {
 
@@ -366,6 +375,59 @@
     .history__slider_content p {
         font-size: 14px;
     }
+    .catalog-body {
+        width: 78%; 
+        &__menu .menu__category li {
+            width: 145px;
+        }
+        &__menu {
+            flex-direction: column;
+        }
+    }
+    .catalog-sort {
+        margin-top: 20px;
+        display: flex;
+        & .custom-select:first-child {
+            margin-right: 15px;
+            margin-bottom: 0;
+        }
+    }
+    .card-specification_row {
+        &:not(:last-child) {
+            margin-bottom: 10px;
+        }
+        &-name {
+            width: 150px;
+        }
+    }
+    .card-left {
+        padding: 30px; 
+        & .card__img {
+            width: 140px;
+        }
+        & .card-about__title {
+            margin-bottom: 5px;
+        }
+    }
+    .card .flag {
+        top: 30px;
+        left: 10px;
+    }
+    .card .quantity-to-cart .select-selected {
+        padding: 12px 10px;
+    }
+    .card-right {
+        padding: 20px;
+    }
+    .card .quantity-to-cart .select-selected:after {
+        right: 15px;
+    }
+    .filters {
+        width: 20%;
+    }
+    .menu__category {
+        justify-content: flex-start;
+    }
     .footer {
         &__menu {
 
@@ -435,6 +497,38 @@
         &:not(:nth-child(3n)) {
             margin-right: 30px;
         }
+    }
+    .catalog {
+        &-banner {
+            padding: 28px 0 35px;
+            .breadcrumbs {
+                margin-bottom: 25px;
+            }
+        }
+        .menu__category  {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            li {
+                display: none;
+                margin-bottom: 0!important;
+    
+                &.active {
+                    display: flex;
+                }
+            }
+            &.active {
+                li {
+                    display: block;
+                }
+            }
+        }
+    }
+    .filters {
+        width: 25%;
+    }
+    .catalog-body {
+        width: 73%;
     }
     .reviews-page .flex-card {
         width: 51%;
@@ -553,6 +647,20 @@
     }
     .history__title_desc {
         font-size: 30px;
+    }
+    .catalog-body__menu {
+        position: relative;
+        .menu__category {
+            position: absolute;
+            z-index: 999999;
+            top: 20px;
+            li {
+                &.active {
+                    position: absolute;
+                    top: -40px!important;
+                }
+            }
+        }
     }
     .footer {
         & .logo {

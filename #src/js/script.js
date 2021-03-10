@@ -279,34 +279,62 @@ window.onload = () => {
         });
     });
     // Смена цвета картинки свг в меню Каталога
-    greyMenu.forEach( item => {
-        const promiseMenuEl = new Promise( (resolve, reject) => {
-            setTimeout( () => {
-                const image = item.querySelector('.menu__category_img').children[0].children[0];
-                console.log(image);
-                const color = image.getAttribute('fill');
-                image.setAttribute('fill', '#D2D2D2');
-                resolve(color);
-            }, 1000)
-        });
-        promiseMenuEl.then( dataColor => {
-            item.addEventListener ( 'mouseenter', function(e) {
-                currentEl = e.currentTarget;
-                let rect = currentEl.children[0].children[0].children[0];
-                console.log(rect);
-
-                rect.setAttribute('fill', dataColor);
-                currentEl.style.backgroundColor = ('transparent');
-                currentEl.style.color = dataColor;
-                item.addEventListener('mouseleave', function(e) {
-                    rect.setAttribute('fill', '#D2D2D2');
-                    currentEl.style.color = '#000';
-                });
+    if(document.body.clientWidth > 1200) {
+        greyMenu.forEach( item => {
+            const promiseMenuEl = new Promise( (resolve, reject) => {
+                setTimeout( () => {
+                    const image = item.querySelector('.menu__category_img').children[0].children[0];
+                    console.log(image);
+                    const color = image.getAttribute('fill');
+                    image.setAttribute('fill', '#D2D2D2');
+                    resolve(color);
+                }, 1000)
             });
-        }).catch( err => {
-            console.log('Image not loading ... ');
-        } )
-    });
+            promiseMenuEl.then( dataColor => {
+                item.addEventListener ( 'mouseenter', function(e) {
+                    currentEl = e.currentTarget;
+                    let rect = currentEl.children[0].children[0].children[0];
+                    console.log(rect);
+
+                    rect.setAttribute('fill', dataColor);
+                    currentEl.style.backgroundColor = ('transparent');
+                    currentEl.style.color = dataColor;
+                    item.addEventListener('mouseleave', function(e) {
+                        rect.setAttribute('fill', '#D2D2D2');
+                        currentEl.style.color = '#000';
+                    });
+                });
+            }).catch( err => {
+                console.log('Image not loading ... ');
+            } )
+        });
+    } else {
+        let menuCatalog = document.querySelector('.catalog-body__menu .menu__category');
+        const arrItem = menuCatalog.children;
+        menuCatalog.addEventListener('click', e => {
+            const arrItem = e.currentTarget.children;
+            // let newArr = [...arrItem];
+            // for (var i = 0; i < arrItem.length; i++) {
+            //     if(newArr[i].classList.contains('active')) {
+            //         newArr.unshift(newArr[i])
+            //     }
+            // }
+            e.currentTarget.classList.toggle('active');
+            // for (var i = 0; i < arrItem.length; i++) {
+            //     if(!arrItem[i].classList.contains('active')) {
+            //         arrItem[i].setAttribute('style', 'top: '+ 60*(i+1)  + 'px;');
+            //     }
+            //     // if(arrItem[i].classList.contains('active')) {
+            //     //     arrItem[i].setAttribute('style', 'top: ' + ((60*(i+1)) - 60) + 'px;');
+            //     // } else if(!arrItem[i].classList.contains('active')) {
+            //     //     arrItem[i].setAttribute('style', 'top: '+ 60*(i+1)  + 'px;');
+            //     // }
+            // }
+            
+
+            
+        })
+    }
 }
 //--------------------------------------------------------------------------
 // --------- Кастомовые селекты на странице
