@@ -257,10 +257,12 @@ if(document.body.clientWidth < 993) {
 window.onload = () => {
     menu.forEach( link => {
         // Событие наведения на конкретный элемент 
+       
         link.addEventListener('mouseenter', function(e) {
             e.preventDefault();
             // Инициализируем SVG внутри нашего Object
             let obj = e.currentTarget.children[0].children[0].children[0];
+            console.log(obj);
              // Инициализируем fill внутри svg
             let color = obj.getAttribute('fill');
             // Изменяем fill на белый
@@ -279,34 +281,52 @@ window.onload = () => {
         });
     });
     // Смена цвета картинки свг в меню Каталога
-    greyMenu.forEach( item => {
-        const promiseMenuEl = new Promise( (resolve, reject) => {
-            setTimeout( () => {
-                const image = item.querySelector('.menu__category_img').children[0].children[0];
-                console.log(image);
-                const color = image.getAttribute('fill');
-                image.setAttribute('fill', '#D2D2D2');
-                resolve(color);
-            }, 1000)
-        });
-        promiseMenuEl.then( dataColor => {
-            item.addEventListener ( 'mouseenter', function(e) {
-                currentEl = e.currentTarget;
-                let rect = currentEl.children[0].children[0].children[0];
-                console.log(rect);
-
-                rect.setAttribute('fill', dataColor);
-                currentEl.style.backgroundColor = ('transparent');
-                currentEl.style.color = dataColor;
-                item.addEventListener('mouseleave', function(e) {
-                    rect.setAttribute('fill', '#D2D2D2');
-                    currentEl.style.color = '#000';
-                });
+    if(document.body.clientWidth > 1200) {
+        greyMenu.forEach( item => {
+            const promiseMenuEl = new Promise( (resolve, reject) => {
+                setTimeout( () => {
+                    const image = item.querySelector('.menu__category_img').children[0].children[0];
+                    console.log(image);
+                    const color = image.getAttribute('fill');
+                    image.setAttribute('fill', '#D2D2D2');
+                    resolve(color);
+                }, 1000)
             });
-        }).catch( err => {
-            console.log('Image not loading ... ');
-        } )
-    });
+            promiseMenuEl.then( dataColor => {
+                item.addEventListener ( 'mouseenter', function(e) {
+                    currentEl = e.currentTarget;
+                    let rect = currentEl.children[0].children[0].children[0];
+                    console.log(rect);
+
+                    rect.setAttribute('fill', dataColor);
+                    currentEl.style.backgroundColor = ('transparent');
+                    currentEl.style.color = dataColor;
+                    item.addEventListener('mouseleave', function(e) {
+                        rect.setAttribute('fill', '#D2D2D2');
+                        currentEl.style.color = '#000';
+                    });
+                });
+            }).catch( err => {
+                console.log('Image not loading ... ');
+            } )
+        });
+    } else {
+        let menuCatalog = document.querySelector('.catalog-body__menu .menu__category');
+        if(menuCatalog !== null) {
+            menuCatalog.addEventListener('click', e => {
+                e.currentTarget.classList.toggle('active');
+            })
+
+            for(item of menuCatalog.children) {
+                item.addEventListener('click', e => {
+                    for (let i = 0; i < menuCatalog.children.length; i++) {
+                        menuCatalog.children[i].classList.remove('active');
+                    }
+                    e.currentTarget.classList.add('active');
+                })
+            }
+        }
+    }
 }
 //--------------------------------------------------------------------------
 // --------- Кастомовые селекты на странице
@@ -803,14 +823,12 @@ if(orderState !== null) {
     }
 }
 
-
-let contactTabs = document.querySelector('.tabs');
-
-contactTabs.addEventListener('click', e => {
-    console.log(e.currentTarget.children);
-    let arr = e.currentTarget.children;
-    for(let i = 0; i < arr.length; i++) {
-        // arr[i].classList.remove('active')
+if(document.body.clientWidth < 576) {
+    let contactTabs = document.querySelector('.contacts-page .tabs');
+    if(contactTabs !== null) {
+        contactTabs.addEventListener('click', e => {
+            e.currentTarget.classList.toggle('active')
+        })
     }
-    console.log(arr);
-})
+}
+

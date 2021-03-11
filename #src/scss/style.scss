@@ -804,7 +804,9 @@ select {
        -moz-box-align: start;
         -ms-flex-align: start;
             align-items: flex-start;
-
+    &__modalBtn {
+        display: none;
+    }
     &__title {
         font-size: var(--font-size-40);
         text-transform: uppercase;
@@ -967,7 +969,7 @@ select {
             }
 
             & input {
-                width: 162px;
+                width: 45%;
                 height: 38px;
                 -webkit-border-radius: var(--border-radius-3);
                    -moz-border-radius: var(--border-radius-3);
