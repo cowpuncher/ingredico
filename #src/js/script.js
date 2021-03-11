@@ -802,3 +802,15 @@ if(orderState !== null) {
         orderState.children[1].querySelector("svg").setAttribute("style", "fill: #FFA11B;");
     }
 }
+
+
+let contactTabs = document.querySelector('.tabs');
+
+contactTabs.addEventListener('click', e => {
+    console.log(e.currentTarget.children);
+    let arr = e.currentTarget.children;
+    for(let i = 0; i < arr.length; i++) {
+        // arr[i].classList.remove('active')
+    }
+    console.log(arr);
+})
