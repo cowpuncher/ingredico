@@ -804,7 +804,9 @@ select {
        -moz-box-align: start;
         -ms-flex-align: start;
             align-items: flex-start;
-    &__modalBtn {
+    &__modalBtn,
+    &__close,
+    &__btn {
         display: none;
     }
     &__title {

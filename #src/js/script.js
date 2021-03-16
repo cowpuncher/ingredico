@@ -21,7 +21,8 @@ var tabs = document.querySelector('.news__tabs'),
     previewNews = document.querySelectorAll('.info-page .flex-card p'),
     accordeon = document.querySelectorAll('.accordeon__item'),
     mediaPreview = document.querySelectorAll('.media__grid_content p'),
-    tabsContent = document.querySelector('.tabs-descrition');
+    tabsContent = document.querySelector('.tabs-descrition'),
+    filterBtn = document.querySelector('.filters__modalBtn'),
     faqTabs = document.querySelectorAll('.faq-tabs .tab');
 
 //--------------------------------------------------------------------------
@@ -832,3 +833,13 @@ if(document.body.clientWidth < 576) {
     }
 }
 
+//--------------------------------------------------------------------------
+// Filter btn
+
+filterBtn.addEventListener('click', e => {
+    classToggle(document.querySelector('.filters'));
+});
+
+document.querySelector('.filters__close').addEventListener('click', e => {
+    classToggle(document.querySelector('.filters'));
+})
