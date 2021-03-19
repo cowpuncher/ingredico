@@ -21,7 +21,7 @@ var tabs = document.querySelector('.news__tabs'),
     previewNews = document.querySelectorAll('.info-page .flex-card p'),
     accordeon = document.querySelectorAll('.accordeon__item'),
     mediaPreview = document.querySelectorAll('.media__grid_content p'),
-    tabsContent = document.querySelector('.tabs-descrition'),
+    tabsContent = document.querySelectorAll('.tabs-descrition .tab'),
     filterBtn = document.querySelector('.filters__modalBtn'),
     faqTabs = document.querySelectorAll('.faq-tabs .tab');
 
@@ -475,24 +475,24 @@ if(accordeon !== null) {
 }
 //--------------------------------------------------------------------------
 // --------- Tabs on page product
-if(tabsContent !== null) {
-    tabsContent.children[0].onclick = e => {
-        if(contactSlider !== null) {
-            startSliderContent();
-        }
-        const current = e.target; 
-        const arrayTabs = tabsContent.children[0].children;
-        const arrayContent = tabsContent.children[1].children;
-        for( var i = 0; i < arrayTabs.length; i++ ) {
-            arrayTabs[i].classList.remove('active');
-            arrayTabs[i].setAttribute('data-tabs', [i])
-            arrayContent[i].classList.remove('active');
-        }
-        const n = current.dataset.tabs;
-        arrayContent[n].classList.add('active')
-        current.classList.add('active');
-    }
-}
+// if(tabsContent !== null) {
+//     tabsContent.children[0].onclick = e => {
+//         if(contactSlider !== null) {
+//             startSliderContent();
+//         }
+//         const current = e.target; 
+//         const arrayTabs = tabsContent.children[0].children;
+//         const arrayContent = tabsContent.children[1].children;
+//         for( var i = 0; i < arrayTabs.length; i++ ) {
+//             arrayTabs[i].classList.remove('active');
+//             arrayTabs[i].setAttribute('data-tabs', [i])
+//             arrayContent[i].classList.remove('active');
+//         }
+//         const n = current.dataset.tabs;
+//         arrayContent[n].classList.add('active')
+//         current.classList.add('active');
+//     }
+// }
 //--------------------------------------------------------------------------
 // --------- Tabs on page faq
 if(faqTabs !== null) {
@@ -502,6 +502,20 @@ if(faqTabs !== null) {
             let faqContent = document.querySelectorAll('.faq-tabs .content');
             for(let i = 0; i < faqTabs.length; i++) {
                 faqTabs[i].classList.remove('active');
+                faqContent[i].classList.remove('active');
+            }
+            current.classList.add('active');
+            current.nextElementSibling.classList.add('active');
+        })
+    }
+}
+if(tabsContent !== null) {
+    for(let tab of tabsContent) {
+        tab.addEventListener('click', e => {
+            let current = e.currentTarget;
+            let faqContent = document.querySelectorAll('.tabs-descrition .content');
+            for(let i = 0; i < tabsContent.length; i++) {
+                tabsContent[i].classList.remove('active');
                 faqContent[i].classList.remove('active');
             }
             current.classList.add('active');
@@ -835,11 +849,13 @@ if(document.body.clientWidth < 576) {
 
 //--------------------------------------------------------------------------
 // Filter btn
+if(filterBtn != null) {
+    filterBtn.addEventListener('click', e => {
+        classToggle(document.querySelector('.filters'));
+    });
+    
+    document.querySelector('.filters__close').addEventListener('click', e => {
+        classToggle(document.querySelector('.filters'));
+    })
+}
 
-filterBtn.addEventListener('click', e => {
-    classToggle(document.querySelector('.filters'));
-});
-
-document.querySelector('.filters__close').addEventListener('click', e => {
-    classToggle(document.querySelector('.filters'));
-})

@@ -1791,16 +1791,10 @@ select {
 
 /*ANCHOR Accordeon and Tabs start */
 
-.tabs-descrition .tabs {
-  border-bottom: 2px solid var(--color-6);
-  font-size: var(--font-size-23);
-  font-weight: var(--font-weight-extrabold);
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-pack: justify;
-  -ms-flex-pack: justify;
-  justify-content: space-between;
+.tabs-descrition {
+  position: relative;
+  padding-top: 97px;
+  margin: 70px 0 145px;
 }
 
 .tabs-descrition .tabs .tab {
@@ -1816,11 +1810,37 @@ select {
   -webkit-box-pack: center;
   -ms-flex-pack: center;
   justify-content: center;
+  border-bottom: 2px solid var(--color-6);
+  font-size: var(--font-size-23);
+  font-weight: var(--font-weight-extrabold);
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: auto;
+  bottom: auto;
+  width: 20%;
+  height: 97px;
 }
 
 .tabs-descrition .tabs .tab:nth-child(3) {
-  width: 490px;
-  padding: 21px 40px;
+  left: 20%;
+  width: 17%;
+}
+
+.tabs-descrition .tabs .tab:nth-child(5) {
+  left: 37%;
+  width: 33%;
+  padding: 0 20px 0 40px;
+}
+
+.tabs-descrition .tabs .tab:nth-child(7) {
+  left: 70%;
+  width: 16%;
+}
+
+.tabs-descrition .tabs .tab:nth-child(9) {
+  left: 86%;
+  width: 14%;
 }
 
 .tabs-descrition .tabs .tab.active {
@@ -7889,6 +7909,7 @@ a.com-prop {
 
   .product-section .card__img {
     width: 250px;
+    height: auto;
   }
 
   .product-section .card-left {
@@ -8057,7 +8078,17 @@ a.com-prop {
     font-size: 18px;
   }
 
+  .product-section .card .flag {
+    width: 47px;
+    height: 22px;
+    font-size: 10px;
+    top: 0;
+    left: auto;
+    right: 0;
+  }
+
   .product-section .card__img {
+    position: relative;
     width: 170px;
     height: auto;
   }
@@ -9023,8 +9054,14 @@ a.com-prop {
     font-size: 12px;
   }
 
+  .product-section .tabs-descrition {
+    margin: 35px 0 40px;
+    padding-top: 60px;
+  }
+
   .product-section .tabs-descrition .tabs .tab {
     font-size: 10px;
+    height: 60px;
   }
 
   .footer .logo {
@@ -9471,6 +9508,22 @@ a.com-prop {
     height: 34px;
   }
 
+  .product-section .wrapper {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: column;
+    flex-direction: column;
+  }
+
+  .product-section .card-left,
+  .product-section .card-right {
+    width: 100%;
+  }
+
+  .product-section .city .select-selected {
+    border: 1px solid var(--color-3);
+  }
+
   .footer__top,
   .footer__bottom {
     -webkit-box-orient: vertical;
@@ -9547,6 +9600,10 @@ a.com-prop {
 }
 
 @media (max-width: 575.98px) {
+  .header {
+    height: 73px;
+  }
+
   .top-panel .cart,
   .top-panel .menu__burger {
     margin-right: 5px;
@@ -10121,8 +10178,90 @@ a.com-prop {
     top: 25px;
   }
 
-  .header {
-    height: 73px;
+  .product-section .card-left {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: column;
+    flex-direction: column;
+  }
+
+  .product-section .card .city.custom-select {
+    margin-top: 0;
+    width: 85%;
+  }
+
+  .product-section .card__img {
+    width: 100%;
+  }
+
+  .product-section .card-about {
+    margin-left: 0;
+  }
+
+  .product-section .card-specification_row {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: column;
+    flex-direction: column;
+  }
+
+  .product-section .card-specification_row-name {
+    width: 100%;
+    margin-bottom: 10px;
+  }
+
+  .product-section .card-specification_row-name br {
+    display: none;
+  }
+
+  .product-section .card-specification_row-value {
+    width: 100%;
+    margin-left: 30px;
+  }
+
+  .product-section .card-right {
+    background: transparent;
+  }
+
+  .product-section .card-right .card-specification_row {
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: row;
+    flex-direction: row;
+  }
+
+  .product-section .tabs-descrition {
+    margin: 0 0 40px;
+    padding-top: 0;
+  }
+
+  .product-section .tabs-descrition .tabs .tab {
+    font-size: 10px;
+    height: 60px;
+    position: unset;
+    left: 0 !important;
+    border-bottom: 1px solid #F2F2F2;
+    width: 100%;
+    -webkit-box-pack: start;
+    -ms-flex-pack: start;
+    justify-content: flex-start;
+    padding-left: 0;
+    background: transparent;
+  }
+
+  .product-section .tabs-descrition .content {
+    padding: 10px 0 0 0;
+    font-size: 14px;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: column;
+    flex-direction: column;
+  }
+
+  .product-section .tabs-descrition .content.active {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
   }
 
   .footer .logo {

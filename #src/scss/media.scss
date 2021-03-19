@@ -438,6 +438,7 @@
         .card {
             &__img {
                 width: 250px;
+                height: auto;
             }
             &-left {
                 width: 69%;
@@ -601,11 +602,20 @@
     }
     .product-section  {
         .card {
-
             h3 {
                 font-size: 18px;
             }
+            .flag {
+                width: 47px;
+                height: 22px;
+                font-size: 10px;
+                top: 0;
+                left: auto;
+                right: 0;
+            }
             &__img {
+                
+                position: relative;
                 width: 170px;
                 height: auto;
 
@@ -1576,8 +1586,13 @@
                 }
             }
         }
-        .tabs-descrition .tabs .tab {
-            font-size: 10px;
+        .tabs-descrition {
+            margin: 35px 0 40px;
+            padding-top: 60px;
+            .tabs .tab {
+                font-size: 10px;
+                height: 60px;
+            }
         }
     }
     .footer {
@@ -2023,6 +2038,27 @@
             }
         }
     } 
+    .product-section  {
+
+        .wrapper {
+            -webkit-box-orient: vertical;
+            -webkit-box-direction: normal;
+            -webkit-flex-direction: column;
+               -moz-box-orient: vertical;
+               -moz-box-direction: normal;
+                -ms-flex-direction: column;
+                    flex-direction: column;
+        }
+        .card {
+            &-left,
+            &-right {
+                width: 100%;
+            }
+        }
+        .city .select-selected {
+            border: 1px solid var(--color-3);
+        }
+    }
     .footer {
         &__top,
         &__bottom {
@@ -2108,6 +2144,9 @@
 // ANCHOR 576
 // Экстрамалые девайсы («телефоны», < 576px)
 @media (max-width: 575.98px) {
+    .header {
+        height: 73px;
+    }
     .top-panel {
         .cart,
         .menu__burger {
@@ -2666,8 +2705,109 @@
             top: 25px;
         }
     }
-    .header {
-        height: 73px;
+    .product-section {
+        .card {
+            &-left {
+                -webkit-box-orient: vertical;
+                -webkit-box-direction: normal;
+                -webkit-flex-direction: column;
+                   -moz-box-orient: vertical;
+                   -moz-box-direction: normal;
+                    -ms-flex-direction: column;
+                        flex-direction: column;
+            }
+            .city.custom-select {
+                margin-top: 0;
+                width: 85%;
+            }
+            &__img {
+                width: 100%;
+            }
+            &-about {
+                margin-left: 0;
+            }
+            &-specification {
+
+                &_row {
+                    -webkit-box-orient: vertical;
+                    -webkit-box-direction: normal;
+                    -webkit-flex-direction: column;
+                       -moz-box-orient: vertical;
+                       -moz-box-direction: normal;
+                        -ms-flex-direction: column;
+                            flex-direction: column;
+
+                            &-name {
+                                width: 100%;
+                                margin-bottom: 10px;
+                                br {
+                                    display: none;
+                                }
+                            }
+
+                            &-value {
+                                width: 100%;
+                                margin-left: 30px;
+                            }
+                }
+            }
+            
+            &-right {
+                background: transparent;
+                .card-specification {
+
+                    &_row {
+                        -webkit-box-orient: horizontal;
+                        -webkit-box-direction: normal;
+                        -webkit-flex-direction: row;
+                           -moz-box-orient: horizontal;
+                           -moz-box-direction: normal;
+                            -ms-flex-direction: row;
+                                flex-direction: row;
+                    }
+                }
+            }
+        }
+        .tabs-descrition {
+            margin: 0 0 40px;
+            padding-top: 0;
+            .tabs {
+                .tab {
+                    font-size: 10px;
+                    height: 60px;
+                    position: unset;
+                    left: 0!important;
+                    border-bottom: 1px solid #F2F2F2;
+                    width: 100%;
+                    -webkit-box-pack: start;
+                    -webkit-justify-content: flex-start;
+                       -moz-box-pack: start;
+                        -ms-flex-pack: start;
+                            justify-content: flex-start;
+                    padding-left: 0;
+                    background: transparent;
+                }
+            }
+            .content {
+                padding: 10px 0 0 0;
+                font-size: 14px;
+                -webkit-box-orient: vertical;
+                -webkit-box-direction: normal;
+                -webkit-flex-direction: column;
+                   -moz-box-orient: vertical;
+                   -moz-box-direction: normal;
+                    -ms-flex-direction: column;
+                        flex-direction: column;
+                &.active {
+                    display: -webkit-box;
+                    display: -webkit-flex;
+                    display: -moz-box;
+                    display: -ms-flexbox;
+                    display: flex;
+                }
+            }
+        }
+
     }
     .footer {
         .logo {
