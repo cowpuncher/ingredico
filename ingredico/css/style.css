@@ -2964,6 +2964,8 @@ select {
   font-size: var(--font-size-16);
   font-weight: var(--font-weight-semibold);
   color: var(--color-3);
+  position: absolute;
+  right: 0;
 }
 
 .card .link-download picture {
@@ -6587,7 +6589,7 @@ a.com-prop {
 }
 
 .personal__item_form--wrap {
-  width: 419px;
+  width: 41%;
 }
 
 .personal__item_form.wrapper {
@@ -6978,7 +6980,7 @@ a.com-prop {
 
 .confirm-sidebar {
   padding: 28px 53px 55px;
-  width: 520px;
+  width: 33%;
   background: var(--color-7);
   -webkit-box-shadow: 28px 33px 61px rgba(0, 0, 0, 0.04);
   box-shadow: 28px 33px 61px rgba(0, 0, 0, 0.04);
@@ -6992,32 +6994,42 @@ a.com-prop {
 .confirm-sidebar--coupon {
   display: -webkit-box;
   display: -ms-flexbox;
-  display: flex;
-  border-top: 1px solid #dddddd;
-  padding-top: 20px;
-  position: relative;
-  margin-bottom: 25px;
+  display: flex !important;
+  border-top: 1px solid #dddddd !important;
+  padding-top: 20px !important;
+  position: relative !important;
+  margin-bottom: 25px !important;
 }
 
 .confirm-sidebar--coupon input {
-  width: 100%;
-  height: 60px;
-  border: 1px solid #dddddd;
-  padding-left: 28px;
-  outline: none;
+  width: 100% !important;
+  height: 60px !important;
+  border: 1px solid #dddddd !important;
+  padding-left: 28px !important;
+  outline: none !important;
+  color: #979797 !important;
+  font-size: var(--font-size-20) !important;
 }
 
 .confirm-sidebar--coupon button {
-  height: 60px;
-  width: 188px;
-  border: 1px solid var(--color-22);
-  background: var(--color-7);
-  margin: 0;
-  position: absolute;
-  bottom: 0;
-  right: 0;
-  cursor: pointer;
-  outline: none;
+  height: 60px !important;
+  width: 188px !important;
+  border: 1px solid var(--color-22) !important;
+  background: var(--color-7) !important;
+  margin: 0 !important;
+  position: absolute !important;
+  bottom: 0 !important;
+  right: 0 !important;
+  cursor: pointer !important;
+  outline: none !important;
+  color: var(--color-1) !important;
+  font-size: var(--font-size-18) !important;
+  font-weight: var(--font-weight-bold) !important;
+}
+
+.confirm-sidebar--coupon button:hover {
+  background: var(--color-22) !important;
+  color: #fff !important;
 }
 
 .confirm-sidebar .wrapper {
@@ -7056,6 +7068,14 @@ a.com-prop {
 .confirm-sidebar p a {
   color: var(--color-1);
   text-decoration: underline;
+}
+
+.confirm-block .btn {
+  height: 60px;
+  border: 0;
+  width: 100%;
+  font-size: var(--font-size-18);
+  font-weight: var(--font-weight-bold);
 }
 
 /* -------------------- Cтраница Личного кабинета  ----------- */
@@ -7657,6 +7677,18 @@ a.com-prop {
     font-size: 11px;
   }
 
+  .order__state_item {
+    padding: 27px 0 25px 5%;
+  }
+
+  .confirm-sidebar--coupon button {
+    width: 155px !important;
+  }
+
+  .personal__item_form--wrap {
+    width: 49%;
+  }
+
   .footer__menu .menu li {
     padding: 0 30px;
   }
@@ -7887,14 +7919,6 @@ a.com-prop {
     margin-bottom: 0;
   }
 
-  .card-specification_row:not(:last-child) {
-    margin-bottom: 10px;
-  }
-
-  .card-specification_row-name {
-    width: 150px;
-  }
-
   .catalog .card-left {
     padding: 30px;
   }
@@ -7941,12 +7965,20 @@ a.com-prop {
     padding: 12px 10px;
   }
 
+  .card .quantity-to-cart .select-selected:after {
+    right: 15px;
+  }
+
   .card-right {
     padding: 20px;
   }
 
-  .card .quantity-to-cart .select-selected:after {
-    right: 15px;
+  .card-specification_row:not(:last-child) {
+    margin-bottom: 10px;
+  }
+
+  .card-specification_row-name {
+    width: 150px;
   }
 
   .filters {
@@ -7957,6 +7989,22 @@ a.com-prop {
     -webkit-box-pack: start;
     -ms-flex-pack: start;
     justify-content: flex-start;
+  }
+
+  .order__state_item svg {
+    margin-left: 30px;
+  }
+
+  .order__state_item:nth-child(3) {
+    padding-left: 5%;
+  }
+
+  .confirm-sidebar {
+    padding: 27px 20px 55px;
+  }
+
+  .confirm-sidebar--coupon input {
+    padding-left: 15px !important;
   }
 
   .footer__menu .menu li {
@@ -8400,6 +8448,23 @@ a.com-prop {
     -webkit-box-align: center;
     -ms-flex-align: center;
     align-items: center;
+  }
+
+  .order__state_item {
+    font-size: 1.2em;
+  }
+
+  .confirm-sidebar--coupon {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: column;
+    flex-direction: column;
+  }
+
+  .confirm-sidebar--coupon button {
+    position: static !important;
+    width: 100% !important;
+    margin-top: 15px !important;
   }
 
   .footer .logo {
@@ -9064,6 +9129,26 @@ a.com-prop {
     height: 60px;
   }
 
+  .personal__item_form.wrapper {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: column;
+    flex-direction: column;
+  }
+
+  .personal__item_form--wrap {
+    width: 100%;
+  }
+
+  .order__state_item {
+    font-size: 1.1em;
+  }
+
+  .order__state_item svg {
+    margin-left: 15px;
+    width: 30px;
+  }
+
   .footer .logo {
     width: 27%;
   }
@@ -9520,8 +9605,53 @@ a.com-prop {
     width: 100%;
   }
 
+  .product-section .card-about .wrapper .btn {
+    margin: 0 !important;
+  }
+
+  .product-section .card-about .wrapper .btn:not(:last-child) {
+    margin-bottom: 15px !important;
+  }
+
+  .product-section .card .link-download {
+    right: auto;
+    top: 230px;
+  }
+
   .product-section .city .select-selected {
     border: 1px solid var(--color-3);
+  }
+
+  .order {
+    width: 100%;
+  }
+
+  .order-page .wrapper {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: column;
+    flex-direction: column;
+  }
+
+  .order__state_item {
+    width: 33%;
+  }
+
+  .order__state_item svg {
+    margin-left: 30px;
+    width: auto;
+  }
+
+  .confirm-sidebar {
+    width: 100%;
+    margin-top: 15px;
+  }
+
+  .confirm-sidebar .wrapper {
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: row;
+    flex-direction: row;
   }
 
   .footer__top,
@@ -10185,6 +10315,10 @@ a.com-prop {
     flex-direction: column;
   }
 
+  .product-section .card .link-download {
+    position: static;
+  }
+
   .product-section .card .city.custom-select {
     margin-top: 0;
     width: 85%;
@@ -10215,7 +10349,7 @@ a.com-prop {
   }
 
   .product-section .card-specification_row-value {
-    width: 100%;
+    width: auto;
     margin-left: 30px;
   }
 
@@ -10262,6 +10396,41 @@ a.com-prop {
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
+  }
+
+  .personal__item {
+    padding: 28px 10px 35px;
+  }
+
+  .personal__item_form--wrap {
+    width: 100%;
+  }
+
+  .personal__item img {
+    height: auto;
+  }
+
+  .order__state {
+    margin: 0 -15px;
+  }
+
+  .order__state_item {
+    width: 32%;
+    font-size: 16px;
+    padding-left: 3%;
+  }
+
+  .order__state_item svg {
+    margin-left: 15%;
+    width: 20px;
+  }
+
+  .order__state_item:nth-child(3) {
+    padding-left: 0;
+  }
+
+  .personal__item_label {
+    padding: 13px 15px;
   }
 
   .footer .logo {

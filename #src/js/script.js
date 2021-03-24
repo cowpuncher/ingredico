@@ -858,4 +858,3 @@ if(filterBtn != null) {
         classToggle(document.querySelector('.filters'));
     })
 }
-

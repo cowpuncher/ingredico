@@ -182,6 +182,15 @@
             }
         }
     }
+    .order__state_item {
+        padding: 27px 0 25px 5%;
+    }
+    .confirm-sidebar--coupon button {
+        width: 155px!important;
+    }
+    .personal__item_form--wrap {
+        width: 49%;
+    }
     .footer {
 
         &__menu {
@@ -387,42 +396,34 @@
     .history__slider_content p {
         font-size: 14px;
     }
-    .catalog-body {
-        width: 78%; 
-        &__menu .menu__category li {
-            width: 145px;
-        }
-        &__menu {
-            -webkit-box-orient: vertical;
-            -webkit-box-direction: normal;
-            -webkit-flex-direction: column;
-               -moz-box-orient: vertical;
-               -moz-box-direction: normal;
-                -ms-flex-direction: column;
-                    flex-direction: column;
-        }
-    }
-    .catalog-sort {
-        margin-top: 20px;
-        display: -webkit-box;
-        display: -webkit-flex;
-        display: -moz-box;
-        display: -ms-flexbox;
-        display: flex;
-        & .custom-select:first-child {
-            margin-right: 15px;
-            margin-bottom: 0;
-        }
-    }
-    .card-specification_row {
-        &:not(:last-child) {
-            margin-bottom: 10px;
-        }
-        &-name {
-            width: 150px;
-        }
-    }
     .catalog {
+        &-body {
+            width: 78%; 
+            &__menu .menu__category li {
+                width: 145px;
+            }
+            &__menu {
+                -webkit-box-orient: vertical;
+                -webkit-box-direction: normal;
+                -webkit-flex-direction: column;
+                   -moz-box-orient: vertical;
+                   -moz-box-direction: normal;
+                    -ms-flex-direction: column;
+                        flex-direction: column;
+            }
+        }
+        &-sort {
+            margin-top: 20px;
+            display: -webkit-box;
+            display: -webkit-flex;
+            display: -moz-box;
+            display: -ms-flexbox;
+            display: flex;
+            & .custom-select:first-child {
+                margin-right: 15px;
+                margin-bottom: 0;
+            }
+        }
         .card-left {
             padding: 30px; 
             & .card__img {
@@ -457,18 +458,30 @@
             font-size: 18px;
         }
     }
-    .card .flag {
-        top: 30px;
-        left: 10px;
-    }
-    .card .quantity-to-cart .select-selected {
-        padding: 12px 10px;
-    }
-    .card-right {
-        padding: 20px;
-    }
-    .card .quantity-to-cart .select-selected:after {
-        right: 15px;
+    .card {
+        .flag {
+            top: 30px;
+            left: 10px;
+        }
+        .quantity-to-cart {
+            .select-selected {
+                padding: 12px 10px;
+                &:after {
+                    right: 15px;
+                }
+            }
+        }
+        &-right {
+            padding: 20px;
+        }
+        &-specification_row {
+            &:not(:last-child) {
+                margin-bottom: 10px;
+            }
+            &-name {
+                width: 150px;
+            }
+        }
     }
     .filters {
         width: 20%;
@@ -479,6 +492,24 @@
            -moz-box-pack: start;
             -ms-flex-pack: start;
                 justify-content: flex-start;
+    }
+    .order__state_item {
+        svg {
+            margin-left: 30px;
+        }
+        &:nth-child(3) {
+            padding-left: 5%;
+        }
+    }
+    .confirm {
+        &-sidebar {
+            padding: 27px 20px 55px;
+            &--coupon {
+                input  {
+                    padding-left: 15px!important;
+                }
+            }
+        }
     }
     .footer {
         &__menu {
@@ -901,6 +932,25 @@
                -moz-box-align: center;
                 -ms-flex-align: center;
                     align-items: center;
+        }
+    }
+    .order__state_item {
+        font-size: 1.2em;
+    }
+    .confirm-sidebar {
+        &--coupon {
+            -webkit-box-orient: vertical;
+            -webkit-box-direction: normal;
+            -webkit-flex-direction: column;
+               -moz-box-orient: vertical;
+               -moz-box-direction: normal;
+                -ms-flex-direction: column;
+                    flex-direction: column;
+            button {
+                position: static!important;
+                width: 100%!important;
+                margin-top: 15px!important;
+            }
         }
     }
     .footer {
@@ -1595,6 +1645,27 @@
             }
         }
     }
+    .personal__item_form {
+        &.wrapper {
+            -webkit-box-orient: vertical;
+            -webkit-box-direction: normal;
+            -webkit-flex-direction: column;
+               -moz-box-orient: vertical;
+               -moz-box-direction: normal;
+                -ms-flex-direction: column;
+                    flex-direction: column;
+        }
+        &--wrap {
+            width: 100%;
+        }
+    }
+    .order__state_item {
+        font-size: 1.1em;
+        svg {
+            margin-left: 15px;
+            width: 30px;
+        }
+    }
     .footer {
         & .logo {
             width: 27%;
@@ -2054,9 +2125,58 @@
             &-right {
                 width: 100%;
             }
+            &-about .wrapper .btn {
+                margin: 0!important;
+                &:not(:last-child) {
+                    margin-bottom: 15px!important;
+                } 
+            }
+            .link-download {
+                right: auto;
+                top: 230px;
+            }
         }
         .city .select-selected {
             border: 1px solid var(--color-3);
+        }
+    }
+    .order {
+        width: 100%;
+        &-page {
+            .wrapper {
+                -webkit-box-orient: vertical;
+                -webkit-box-direction: normal;
+                -webkit-flex-direction: column;
+                   -moz-box-orient: vertical;
+                   -moz-box-direction: normal;
+                    -ms-flex-direction: column;
+                        flex-direction: column;
+            }
+        }
+        &__state_item {
+            width: 33%;
+
+            svg {
+                margin-left: 30px;
+                width: auto;
+            }
+        }
+    }
+    .confirm {
+
+        &-sidebar {
+            width: 100%;
+            margin-top: 15px;
+
+            .wrapper {
+                -webkit-box-orient: horizontal;
+                -webkit-box-direction: normal;
+                -webkit-flex-direction: row;
+                   -moz-box-orient: horizontal;
+                   -moz-box-direction: normal;
+                    -ms-flex-direction: row;
+                        flex-direction: row;
+            }
         }
     }
     .footer {
@@ -2716,6 +2836,9 @@
                     -ms-flex-direction: column;
                         flex-direction: column;
             }
+            .link-download {
+                position: static;
+            }
             .city.custom-select {
                 margin-top: 0;
                 width: 85%;
@@ -2746,7 +2869,7 @@
                             }
 
                             &-value {
-                                width: 100%;
+                                width: auto;
                                 margin-left: 30px;
                             }
                 }
@@ -2808,6 +2931,35 @@
             }
         }
 
+    }
+    .personal__item {
+        padding: 28px 10px 35px;
+        &_form--wrap {
+            width: 100%;
+        }
+        img {
+            height: auto;
+        }
+    }
+    .order {
+        &__state {
+            margin: 0 -15px;
+            &_item {
+                width: 32%;
+                font-size: 16px;
+                padding-left: 3%;
+                svg {
+                    margin-left: 15%;
+                    width: 20px;
+                }
+                &:nth-child(3) {
+                    padding-left: 0;
+                }
+            }
+        }
+    }
+    .personal__item_label {
+        padding: 13px 15px;
     }
     .footer {
         .logo {
