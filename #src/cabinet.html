@@ -20,13 +20,9 @@
             <div class="container">
                 <div class="tabs-descrition">
                     <div class="tabs">
-                        <span class="tab ">Личные данные</span>
-                        <span class="tab active">История заказов</span>
-                        <span class="tab ">Платежные данные и договор</span>
-                        <span class="tab">Чат</span>
-                    </div>
-                    <div class="contents">
-                        <div class="content ">
+                        <span class="tab active">Личные данные</span>
+                        
+                        <div class="content active">
                             <form class="personalData">
                                 <h3>Личные данные</h3>
                                 <div class="wrap">
@@ -140,7 +136,8 @@
                                 <button class="btn">Изменить пароль</button>
                             </form>
                         </div>
-                        <div class="content active">
+                        <span class="tab ">История заказов</span>
+                        <div class="content">
                             <div class="historyOrder">
                                 <div class="historyOrder__top">
                                     <h3 class="historyOrder__top_title">Мои заказы</h3>
@@ -318,6 +315,7 @@
                             })
                             @@include('./templates/elements/pagi.html')
                         </div>
+                        <span class="tab ">Платежные данные и договор</span>
                         <div class="content ">
                             <div class="personal__item payData active">
                                 <div class="wrap">
@@ -378,6 +376,7 @@
                                 </form>
                             </div>
                         </div>
+                        <span class="tab">Чат</span>
                         <div class="content ">
                             <div class="chat">
                                 Чат

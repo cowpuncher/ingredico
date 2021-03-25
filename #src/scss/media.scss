@@ -191,6 +191,24 @@
     .personal__item_form--wrap {
         width: 49%;
     }
+    .table {
+
+        &Cell {
+            &:first-child {
+                width: 460px;
+                padding-right: 30px;
+            }
+        }
+    }
+    .cabinet-page {
+        &.personal .personalData .wrap label {
+            input[type=text],
+            input[type=email],
+            input[type=tel] {
+                width: 345px;
+            }
+        }
+    }
     .footer {
 
         &__menu {
@@ -507,6 +525,48 @@
             &--coupon {
                 input  {
                     padding-left: 15px!important;
+                }
+            }
+        }
+    }
+    .table {
+
+        &Cell {
+            &:nth-child(3) {
+                padding-right: 15px;
+            }
+            &:first-child {
+                width: 340px;
+            }
+        }
+    }
+    
+    .cabinet-page {
+        &.personal .personalData .wrap label {
+            margin-left: 0;
+            input[type=password] {
+                width: 350px;
+            }
+        }
+        .tabs-descrition .tabs .tab {
+            font-size: 18px;
+        }
+    }
+    .history {
+        &Order__table {
+            &_head {
+                font-size: 14px;
+                span {
+                    font-size: 14px;
+                }
+            }
+            &_row .historyOrder__table_col {
+                &:nth-child(2) {
+                    width: 22rem;
+                }
+                &:nth-child(3),
+                &:nth-child(4) {
+                    margin-right: 70px;
                 }
             }
         }
@@ -934,8 +994,24 @@
                     align-items: center;
         }
     }
-    .order__state_item {
-        font-size: 1.2em;
+    .order {
+
+        &__state_item {
+            font-size: 1.2em;
+        }
+        &__confirm {
+            &_list {
+                width: 100%;
+                border: 0;
+            }
+            &_card {
+                padding: 15px;
+    
+                &--total {
+                    display: none;
+                }
+            }
+        }
     }
     .confirm-sidebar {
         &--coupon {
@@ -950,6 +1026,54 @@
                 position: static!important;
                 width: 100%!important;
                 margin-top: 15px!important;
+            }
+        }
+    }
+    .table {
+        &-counter {
+            width: 80px;
+
+            input {
+                width: 35px;
+            }
+        }
+        &Cell {
+            &:first-child {
+                width: 330px;
+                padding-right: 10px;
+            }
+            &:nth-child(2) {
+                width: 120px;
+            }
+            &:nth-child(4) {
+                width: auto;
+            }
+            &:nth-child(7) {
+                width: 86px;
+            }
+        }
+    }
+    
+    .cabinet-page {
+        &.personal .personalData .wrap label {
+            input[type=text],
+            input[type=email],
+            input[type=tel],
+            input[type=password] {
+                width: 430px;
+            } 
+        }
+        .tabs-descrition .tabs .tab {
+            font-size: 16px;
+        }
+    }
+    .history {
+        &Order__table {
+            &_row .historyOrder__table_col {
+                &:nth-child(3),
+                &:nth-child(4) {
+                    margin-right: 30px;
+                }
             }
         }
     }
@@ -1666,6 +1790,156 @@
             width: 30px;
         }
     }
+    .table {
+        &Body {
+            display: -webkit-box;
+            display: -webkit-flex;
+            display: -moz-box;
+            display: -ms-flexbox;
+            display: flex;
+            -webkit-box-pack: justify;
+            -webkit-justify-content: space-between;
+               -moz-box-pack: justify;
+                -ms-flex-pack: justify;
+                    justify-content: space-between;
+            -webkit-flex-wrap: wrap;
+                -ms-flex-wrap: wrap;
+                    flex-wrap: wrap;
+        }
+        &__img {
+            width: 210px;
+        }
+        &-select.custom-select {
+            width: 50%;
+        }
+        &Head.tableRow {
+            display: none;
+        }
+        &Row {
+            padding: 25px;
+            width: 48%;
+            -webkit-box-shadow: 27px 0 61px rgba(0, 0, 0,.04);
+               -moz-box-shadow: 27px 0 61px rgba(0, 0, 0,.04);
+                    box-shadow: 27px 0 61px rgba(0, 0, 0,.04);
+            margin-bottom: 15px;
+            display: -webkit-box;
+            display: -webkit-flex;
+            display: -moz-box;
+            display: -ms-flexbox;
+            display: flex;
+            -webkit-box-orient: vertical;
+            -webkit-box-direction: normal;
+            -webkit-flex-direction: column;
+               -moz-box-orient: vertical;
+               -moz-box-direction: normal;
+                -ms-flex-direction: column;
+                    flex-direction: column;
+        }
+        &Cell {
+            padding-left: 0!important;
+            padding-right: 0!important;
+            width: 100%!important;
+            border: 0;
+            display: -webkit-box;
+            display: -webkit-flex;
+            display: -moz-box;
+            display: -ms-flexbox;
+            display: flex;
+            -webkit-box-pack: justify;
+            -webkit-justify-content: space-between;
+               -moz-box-pack: justify;
+                -ms-flex-pack: justify;
+                    justify-content: space-between;
+
+            &:last-child {
+                a {
+                    margin: 0 auto;
+                    font-size: 14px;
+                    color: var(--color-3);
+                    font-weight: bold;
+                    border-bottom: 1px solid #d4d4d4;
+
+                }
+                .table-delete {
+                    display: none;
+                }
+            }
+            .mob-item {
+                display: block;
+                color: #939393;
+            }
+        }
+    }
+    .cabinet-page {
+        &.personal {
+            .personalData {
+                position: relative;
+                .addMailing {
+                    position: absolute;
+                    top: 15px;
+                    right: 20px;
+                }
+            }
+            .personal__item_newUser {
+                margin-bottom: 15px;
+            }
+        }
+        .tabs-descrition {
+            padding-top: 60px;
+            .tabs .tab {
+                font-size: 13px;
+                height: 60px;
+            }
+        }
+    }
+    .history {
+        &Order {
+            padding: 12px 10px 45px;
+            &__table {
+                &_row .historyOrder__table_col {
+                    font-size: 14px;
+                    span {
+                        font-size: 14px;
+                    }
+    
+                    &:nth-child(2) {
+                        width: 15rem;
+                    }
+                }
+                &_head {
+                    .historyOrder__table_col {
+                        font-size: 12px;
+                        display: -webkit-box;
+                        display: -webkit-flex;
+                        display: -moz-box;
+                        display: -ms-flexbox;
+                        display: flex;
+                        -webkit-box-align: center;
+                        -webkit-align-items: center;
+                           -moz-box-align: center;
+                            -ms-flex-align: center;
+                                align-items: center;
+                        -webkit-box-pack: center;
+                        -webkit-justify-content: center;
+                           -moz-box-pack: center;
+                            -ms-flex-pack: center;
+                                justify-content: center;
+                        -webkit-box-orient: vertical;
+                        -webkit-box-direction: normal;
+                        -webkit-flex-direction: column;
+                           -moz-box-orient: vertical;
+                           -moz-box-direction: normal;
+                            -ms-flex-direction: column;
+                                flex-direction: column;
+                                span {
+                                    font-size: 12px;
+                                    margin: 0;
+                                }
+                    }
+                }
+            }
+        }
+    }
     .footer {
         & .logo {
             width: 27%;
@@ -2176,6 +2450,86 @@
                    -moz-box-direction: normal;
                     -ms-flex-direction: row;
                         flex-direction: row;
+            }
+        }
+    }
+    .table {
+        &Cell {
+            font-size: 14px;
+        }
+        &-counter  {
+            height: 30px;
+            input {                   
+                font-size: 14px;
+            }
+        }
+        &-select {
+            &.custom-select {
+                font-size: 14px;
+            }
+        }
+    }
+    .cabinet-page { 
+        .tabs-descrition  {
+            margin: 0;
+            padding-top: 0;
+            .tabs {
+                -webkit-box-orient: vertical;
+                -webkit-box-direction: normal;
+                -webkit-flex-direction: column;
+                   -moz-box-orient: vertical;
+                   -moz-box-direction: normal;
+                    -ms-flex-direction: column;
+                        flex-direction: column;
+
+                .tab {
+                    position: unset;
+                    width: 100%!important;
+                    -webkit-box-pack: start;
+                    -webkit-justify-content: flex-start;
+                       -moz-box-pack: start;
+                        -ms-flex-pack: start;
+                            justify-content: flex-start;
+                    border-bottom: 1px solid #F2F2F2;
+                }
+            }
+        }
+        &.personal {
+            .personalData {
+                padding-left: 15px;
+            }
+        }
+    }
+    .historyOrder {
+        &__table {
+            &_head  {
+                -webkit-flex-wrap: wrap;
+                    -ms-flex-wrap: wrap;
+                        flex-wrap: wrap;
+                        -webkit-box-pack: center;
+                        -webkit-justify-content: center;
+                           -moz-box-pack: center;
+                            -ms-flex-pack: center;
+                                justify-content: center;
+                .historyOrder__table_col {
+                    padding: 8px 0;
+                
+                }
+            }
+            &_col {
+                width: 33%!important;
+                border: 0!important;
+            }
+            &_row {
+                .historyOrder__table_col {
+                    :nth-child(2) {
+                        margin-left: 0;
+                    }
+                    :nth-child(4),
+                    :nth-child(3) {
+                        margin-right: 10px;
+                    }
+                }
             }
         }
     }
@@ -2957,9 +3311,121 @@
                 }
             }
         }
+        &__confirm {
+            &_item {
+                &--img {
+                    margin-right: 10px;
+                }
+                .wrap {
+                    width: 100%;
+                }
+            }
+            &_change  {
+                .wrapper {
+                    -webkit-box-orient: horizontal;
+                    -webkit-box-direction: normal;
+                    -webkit-flex-direction: row;
+                       -moz-box-orient: horizontal;
+                       -moz-box-direction: normal;
+                        -ms-flex-direction: row;
+                            flex-direction: row;
+                }
+            }
+        }
     }
     .personal__item_label {
         padding: 13px 15px;
+    }
+    .table {
+        display: block;
+        &Body {
+            -webkit-box-orient: vertical;
+            -webkit-box-direction: normal;
+            -webkit-flex-direction: column;
+               -moz-box-orient: vertical;
+               -moz-box-direction: normal;
+                -ms-flex-direction: column;
+                    flex-direction: column;
+        }
+        &Row {
+            width: 100%;
+        }
+    }
+    .basket-footer {
+        width: 100%;
+    }
+    .cabinet-page {
+        &.personal .personalData  {
+            .addMailing {
+                position: relative;
+                margin-left: 20px!important;
+            }
+            .wrap label {
+                width: 100%;
+                input[type=text],
+                input[type=email],
+                input[type=tel],
+                input[type=password] {
+                    width: 100%;
+                } 
+            }
+        }
+        .more__btn {
+            width: 100%;
+            padding-left: 45px;
+            &:before {
+                left: 20px;
+                
+            }
+        }
+    }
+    .history {
+        &Order {
+            &__top {
+                h3,
+                input {
+                    font-size: 12px;
+                    padding-right: 0;
+                }
+            }
+            &__table {
+                &_top {
+                    span {
+                        font-size: 12px;
+                    }
+                }
+                &_row {
+                    -webkit-box-orient: vertical;
+                    -webkit-box-direction: normal;
+                    -webkit-flex-direction: column;
+                       -moz-box-orient: vertical;
+                       -moz-box-direction: normal;
+                        -ms-flex-direction: column;
+                            flex-direction: column;
+                    .historyOrder__table_col {
+                        width: 100%!important;
+                        &--img {
+                            margin: 0 auto;
+                        }
+                        .wrap {
+                            width: 100%;
+                            -webkit-box-pack: justify;
+                            -webkit-justify-content: space-between;
+                               -moz-box-pack: justify;
+                                -ms-flex-pack: justify;
+                                    justify-content: space-between;
+                            -webkit-box-orient: horizontal;
+                            -webkit-box-direction: normal;
+                            -webkit-flex-direction: row;
+                               -moz-box-orient: horizontal;
+                               -moz-box-direction: normal;
+                                -ms-flex-direction: row;
+                                    flex-direction: row;
+                        }
+                    }
+                }
+            }
+        }
     }
     .footer {
         .logo {

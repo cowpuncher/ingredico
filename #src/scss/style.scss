@@ -5273,7 +5273,9 @@ a.com-prop {
     border-bottom: 1px solid #E9E9E9;
     vertical-align: middle;
     font-size: var(--font-size-20);
-
+    .mob-item {
+        display: none;
+    }
     &:first-child {
         width: 520px;
         padding-right: 67px;    
@@ -5867,8 +5869,19 @@ a.com-prop {
         margin: 35px 0 37px;
     }
     .tabs-descrition .tabs .tab {
-        width: 25%;
+        width: 25%!important;
         font-size: var(--font-size-23);
+        padding: 0!important;
+        
+        &:nth-child(3) {
+            left: 25%;
+        }
+        &:nth-child(5) {
+            left: 50%;
+        }
+        &:nth-child(7) {
+            left: 75%;
+        }
     }
     &.personal {
         font-size: var(--font-size-15);
