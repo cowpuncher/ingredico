@@ -2667,6 +2667,13 @@ a.com-prop {
         left: -25px;
         // max-width: 1277px;
         max-width: 105.2%;
+
+        img {
+            width: 100%;
+        }
+    }
+    .swiper-wrapper {
+        width: 100%!important;
     }
 }
 .main__slider {

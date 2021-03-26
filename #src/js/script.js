@@ -251,6 +251,13 @@ if(document.body.clientWidth < 993) {
     teamSlider('.team__flex');
     teamSlider('.team__grid');
 }
+if(document.body.clientWidth < 1200) {
+    $('.privelege').slick({
+        slidesToShow: 3,
+        slidesToScroll: 1,
+        arrows: true,
+    });
+}
 //--------------------------------------------------------------------------
 //------------ FUNCTION END ----------------------------------------------
 // --------- Смена цвета картинки свг в меню Области применения
