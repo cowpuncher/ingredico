@@ -243,7 +243,7 @@ if(document.body.clientWidth < 993) {
                     settings: {
                       slidesToShow: 1
                     }
-                  },
+                },
             ]
     
         });
@@ -256,8 +256,23 @@ if(document.body.clientWidth < 1200) {
         slidesToShow: 3,
         slidesToScroll: 1,
         arrows: true,
+        responsive: [
+            {
+              breakpoint: 768,
+              settings: {
+                slidesToShow: 2
+              }
+            },
+            {
+                breakpoint: 568,
+                settings: {
+                  slidesToShow: 1
+                }
+            },
+        ]
     });
 }
+
 //--------------------------------------------------------------------------
 //------------ FUNCTION END ----------------------------------------------
 // --------- Смена цвета картинки свг в меню Области применения
@@ -865,3 +880,36 @@ if(filterBtn != null) {
         classToggle(document.querySelector('.filters'));
     })
 }
+
+$(function () {
+	$(window).scroll(function() {
+	    $('.time-one').each(function(){
+	        var imagePos = $(this).offset().top;
+
+	        var topOfWindow = $(window).scrollTop();
+	        if (imagePos < topOfWindow+650) {
+	            $(this).addClass("fadeInLeft");
+	        }
+	    });
+	});
+	$(window).scroll(function() {
+	    $('.time-free').each(function(){
+	        var imagePos = $(this).offset().top;
+
+	        var topOfWindow = $(window).scrollTop();
+	        if (imagePos < topOfWindow+650) {
+	            $(this).addClass("fadeInUp");
+	        }
+	    });
+	});
+	$(window).scroll(function() {
+	    $('.time-change').each(function(){
+	        var imagePos = $(this).offset().top;
+
+	        var topOfWindow = $(window).scrollTop();
+	        if (imagePos < topOfWindow+650) {
+	            $(this).addClass("fadeInRight");
+	        }
+	    });
+	});
+})

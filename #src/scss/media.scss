@@ -1385,6 +1385,51 @@
                     flex-direction: column-reverse;
         }
     }
+    .menu__category {
+        -webkit-box-pack: center;
+        -webkit-justify-content: center;
+           -moz-box-pack: center;
+            -ms-flex-pack: center;
+                justify-content: center;
+    }
+    .privelege {
+        .slick {
+            &-arrow {
+                background: transparent;
+                top: 100px;
+                border: 0;
+                z-index: 99;
+                width: auto;
+                height: auto;
+                &:before {
+                    color: #ffa11b;
+                }
+            }
+            &-prev {
+                right: auto;
+            }
+            &-next {
+
+            }
+        }
+    }
+    .banner {
+        -webkit-box-orient: vertical;
+        -webkit-box-direction: reverse;
+        -webkit-flex-direction: column-reverse;
+           -moz-box-orient: vertical;
+           -moz-box-direction: reverse;
+            -ms-flex-direction: column-reverse;
+                flex-direction: column-reverse;
+
+        &__img {
+            display: none;
+        }
+        &__total {
+            width: 60%;
+            margin: 0 auto;
+        }
+    }
     .slider,
     .sidebar {
         width: 100%;
@@ -1393,6 +1438,7 @@
         ul li {
             &:not(:last-child) a object {
                 height: 28px;
+                width: 32px;
             }
             ul {
                 position: unset;
@@ -2169,6 +2215,82 @@
     .section_title {
         text-align: center;
     }
+    
+    .main__slider_content {
+        -webkit-box-orient: vertical;
+        -webkit-box-direction: normal;
+        -webkit-flex-direction: column;
+           -moz-box-orient: vertical;
+           -moz-box-direction: normal;
+            -ms-flex-direction: column;
+                flex-direction: column;
+                br {
+                    display: none;
+                }
+                &-title,
+                &-desc {
+                    margin: 0 0 20px;
+                }
+    }
+    .main-page .category-section .menu__category {
+        -webkit-box-orient: vertical;
+        -webkit-box-direction: normal;
+        -webkit-flex-direction: column;
+           -moz-box-orient: vertical;
+           -moz-box-direction: normal;
+            -ms-flex-direction: column;
+                flex-direction: column;
+        li a {
+            width: 100%;
+            height: 55px;
+            font-size: 18px;
+            border: 0;
+            border-bottom: 1px solid #fff;
+            br {
+                display: none;
+            }
+        }
+        &_img svg {
+            height: 45px;
+        }
+    }
+    .main__slider_content {
+        padding-left: 20px;
+        padding-right: 20px;
+    }
+    .news__slider  {
+        .slick {
+            &-arrow  {
+                background: transparent;
+                border: 0;
+                top: 50%;
+                z-index: 999;
+                height: 0;
+                width: 0;
+                &:before {
+                    color: #ffa11b;
+                } 
+            }
+            &-prev {
+                right: auto;
+            }
+            &-next {
+                left: auto;
+                right: 30px;
+            }
+        }
+    }
+    .banner {
+        &__total {
+            width: 100%;
+            &_img {
+                width: 100%;
+            }
+        } 
+        picture:last-child {
+            display: none;
+        }
+    }
     .info-title {
         -webkit-box-orient: vertical;
         -webkit-box-direction: normal;
@@ -2756,6 +2878,21 @@
     .bg-main h2,
     .section_title {
         font-size: 28px;
+    }
+    .banner__content {
+        width: 100%;
+    }
+    .main__slider_content .main__slider_sale {
+        font-size: 137px;
+    }
+    .banner__content-title {
+        font-size: 32px;
+        br {
+            display: none;
+        }
+    }
+    .news__preview_item:not(:last-child) {
+        margin-right: 0;
     }
     .flex-card {
         &__wrapper {
